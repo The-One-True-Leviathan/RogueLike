@@ -1,0 +1,270 @@
+fileFormatVersion: 2
+guid: f4a34d645467fbd458b258e4258f8b6c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2665734523754971707
+    second: tile set test 1_0
+  - first:
+      213: -2046064157739827500
+    second: tile set test 1_1
+  - first:
+      213: 865933498490899942
+    second: tile set test 1_2
+  - first:
+      213: -4994573630198838358
+    second: tile set test 1_3
+  - first:
+      213: -6949186822947256401
+    second: tile set test 1_4
+  - first:
+      213: 6125797339233291945
+    second: tile set test 1_5
+  - first:
+      213: 2701163788503505217
+    second: tile set test 1_6
+  - first:
+      213: 5324532393655098026
+    second: tile set test 1_7
+  - first:
+      213: 8168342278989837643
+    second: tile set test 1_8
+  - first:
+      213: 1491578440622487428
+    second: tile set test 1_9
+  - first:
+      213: -4124921637163566396
+    second: tile set test 1_10
+  - first:
+      213: 7965196209974529360
+    second: tile set test 1_11
+  - first:
+      213: 3394250596207059558
+    second: tile set test 1_12
+  - first:
+      213: 4820261447871391060
+    second: tile set test 1_13
+  - first:
+      213: 7192006434294278262
+    second: tile set test 1_14
+  - first:
+      213: -6479531674948445335
+    second: tile set test 1_15
+  - first:
+      213: 5545925967858387589
+    second: tile set test 1_16
+  - first:
+      213: -707594693068118628
+    second: tile set test 1_17
+  - first:
+      213: 5385842852946447336
+    second: tile set test 1_18
+  - first:
+      213: 4630580942418410595
+    second: tile set test 1_19
+  - first:
+      213: 8584960258463947962
+    second: tile set test 1_20
+  - first:
+      213: -2471425785261735372
+    second: tile set test 1_21
+  - first:
+      213: -8006971464843275782
+    second: tile set test 1_22
+  - first:
+      213: -8258023027982680967
+    second: tile set test 1_23
+  - first:
+      213: -132098042615550035
+    second: tile set test 1_24
+  - first:
+      213: 5087626377416546053
+    second: tile set test 1_25
+  - first:
+      213: -6501523301423590235
+    second: tile set test 1_26
+  - first:
+      213: 2489019774903743376
+    second: tile set test 1_27
+  - first:
+      213: -7857613801628423326
+    second: tile set test 1_28
+  - first:
+      213: 8149982350446868324
+    second: tile set test 1_29
+  - first:
+      213: 5138796796451813436
+    second: tile set test 1_30
+  - first:
+      213: 9213628118179529887
+    second: tile set test 1_31
+  - first:
+      213: -6555790223794326309
+    second: tile set test 1_32
+  - first:
+      213: 8499704034549318634
+    second: tile set test 1_33
+  - first:
+      213: -3582056586048874302
+    second: tile set test 1_34
+  - first:
+      213: 4355347217169917235
+    second: tile set test 1_35
+  - first:
+      213: 4401038258235292636
+    second: tile set test 1_36
+  - first:
+      213: -5054120979497345495
+    second: tile set test 1_37
+  - first:
+      213: 7060670367327791555
+    second: tile set test 1_38
+  - first:
+      213: 8441085869931075735
+    second: tile set test 1_39
+  - first:
+      213: 5845159502563673561
+    second: tile set test 1_40
+  - first:
+      213: -618403290562557671
+    second: tile set test 1_41
+  - first:
+      213: -5432386854769808770
+    second: tile set test 1_42
+  - first:
+      213: 271995453726555204
+    second: tile set test 1_43
+  - first:
+      213: -5450076606316929793
+    second: tile set test 1_44
+  - first:
+      213: -7703526775413017437
+    second: tile set test 1_45
+  - first:
+      213: -151747800855694920
+    second: tile set test 1_46
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 17, y: 219, z: 418, w: 17}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tile set test 1_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 219
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3209e9fc679ef420800000000000000
+      internalID: 2665734523754971707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -221.5, y: 82}
+      - {x: -221.5, y: 120}
+      - {x: -179.5, y: 120}
+      - {x: -179.5, y: 82}
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
