@@ -25,6 +25,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Test"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d55a281-06f0-429d-a494-57be671345e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -137,6 +145,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8348947-9665-461f-b93b-9fa5b44d3010"",
+                    ""path"": ""<Keyboard>/#(M)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Test"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -152,6 +171,7 @@ public class @Controler : IInputActionCollection, IDisposable
         // Keyboard
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
         m_Keyboard_Movement = m_Keyboard.FindAction("Movement", throwIfNotFound: true);
+        m_Keyboard_Test = m_Keyboard.FindAction("Test", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -202,11 +222,13 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Keyboard;
     private IKeyboardActions m_KeyboardActionsCallbackInterface;
     private readonly InputAction m_Keyboard_Movement;
+    private readonly InputAction m_Keyboard_Test;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
         public KeyboardActions(@Controler wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Keyboard_Movement;
+        public InputAction @Test => m_Wrapper.m_Keyboard_Test;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -219,6 +241,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMovement;
+                @Test.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
+                @Test.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
+                @Test.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -226,6 +251,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Test.started += instance.OnTest;
+                @Test.performed += instance.OnTest;
+                @Test.canceled += instance.OnTest;
             }
         }
     }
@@ -242,5 +270,6 @@ public class @Controler : IInputActionCollection, IDisposable
     public interface IKeyboardActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnTest(InputAction.CallbackContext context);
     }
 }

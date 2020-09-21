@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class Boulon : MonoBehaviour
 {
     public int nbreBoulon;
+    public GameObject compteurBoulon;
     public UnityEngine.UI.Text displayBoulon;
 
     // Start is called before the first frame update
     void Start()
     {
         //mettre l'animation iddle
+        compteurBoulon = GameObject.FindGameObjectWithTag ("Compteur Boulon");
+        displayBoulon = compteurBoulon.GetComponent<Text>();
     }
 
     // Update is called once per frame

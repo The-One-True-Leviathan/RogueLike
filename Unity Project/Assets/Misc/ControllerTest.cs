@@ -25,6 +25,7 @@ public class ControllerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         xAxis = controller.Keyboard.Movement.ReadValue<Vector2>().x*maxSpeed;
         yAxis = controller.Keyboard.Movement.ReadValue<Vector2>().y * maxSpeed;
         print("xAxis = " + xAxis + " / yAxis = " + yAxis);

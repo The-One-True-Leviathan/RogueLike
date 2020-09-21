@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class Piecette : MonoBehaviour
 {
     public int nbrePiecettes;
+    public GameObject compteur;
     public UnityEngine.UI.Text displayPiecettes;
+
     // Start is called before the first frame update
     void Start()
-    { 
+    {
         //animation iddle
+        compteur = GameObject.FindGameObjectWithTag("Compteur Piece");
+        displayPiecettes = compteur.GetComponent<Text>();
     }
 
     // Update is called once per frame

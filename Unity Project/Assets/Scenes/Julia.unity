@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbreBoulon: 0
+  compteurBoulon: {fileID: 0}
   displayBoulon: {fileID: 750514769}
 --- !u!64 &545327127
 MeshCollider:
@@ -944,6 +945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbrePiecettes: 0
+  compteur: {fileID: 0}
   displayPiecettes: {fileID: 1729193389}
 --- !u!64 &2136725078
 MeshCollider:
