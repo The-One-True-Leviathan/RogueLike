@@ -96,7 +96,7 @@ public class GolemAI : MonoBehaviour
             playerInSight = false;
         }
 
-        Debug.DrawRay(rayCastOrigin.position, angleToPlayer * hitLength, Color.red);
+        //Debug.DrawRay(rayCastOrigin.position, angleToPlayer * hitLength, Color.red);
 
         //Detect if the player is in melee range
         if (hit.distance <= attackRange)
