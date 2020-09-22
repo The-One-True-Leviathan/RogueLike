@@ -10,11 +10,11 @@ public class Player : MonoBehaviour
 
 
     Controler controller;
+    bool A, B, Y, X;
+    public Vector3 rStick, lStick, lastDirection;
 
 
-
-
-
+    float currentSpeed, maxSpeed, accelerationTime;
 
 
 
@@ -32,12 +32,30 @@ public class Player : MonoBehaviour
     {
         controller = new Controler();
         controller.Enable();
+        lastDirection = Vector3.forward;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        X = controller.Keyboard.Attack1.triggered;
+        B = controller.Keyboard.Attack2.triggered;
+
+        rStick = new Vector3(controller.Keyboard.LookAround.ReadValue<Vector2>().x, 0, controller.Keyboard.LookAround.ReadValue<Vector2>().y);
+        lStick = new Vector3(controller.Keyboard.Movement.ReadValue<Vector2>().x, 0, controller.Keyboard.Movement.ReadValue<Vector2>().y);
+        rStick.Normalize();
+        lStick.Normalize();
+
+        if (!isInAttack && !isInCooldown)
+        {
+            if (X)
+            {
+                Attack(weapon1);
+            }
+        }
+
+        
         /*  if (!isInAttack && !isInCooldown) 
          *  {
          *      if(bouton attaquer 1)
@@ -63,9 +81,27 @@ public class Player : MonoBehaviour
          *      HitSpan(weaponInHitSpan);
          *  }
          */
-        attackDirection = new Vector3(controller.Keyboard.Movement.ReadValue<Vector2>().x, 0, controller.Keyboard.Movement.ReadValue<Vector2>().y);
+        if (!(rStick == Vector3.zero))
+        {
+            lastDirection = rStick;
+        }
+
+        if (!(lStick == Vector3.zero))
+        {
+            lastDirection = lStick;
+        }
+
+        attackDirection = lastDirection;
+        if (!(rStick == Vector3.zero))
+        {
+            attackDirection = rStick;
+        }
+        attackDirection.Normalize();
         Debug.DrawRay(transform.position, attackDirection, Color.red);
-        if (isInHitSpan)
+
+
+
+        if (X)
         {
             HitSpan(weaponInHitSpan);
         }

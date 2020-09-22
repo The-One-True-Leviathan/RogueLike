@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 0}
-  weaponName: 
+  weaponName: Sword
   weaponID: 0
   atk1Heavy: 0
   atk1Ranged: 0
   atk1Projectile: {fileID: 0}
-  atk1Reach: {x: 0, y: 0, z: 0}
+  atk1Reach: {x: 30, y: 0, z: 2}
   atk1Charge: 0
   atk1Charge0: 0
   atk1Charge1: 0
   atk1Charge2: 0
-  atk1Buildup: 0
-  atk1HitSpan: 0
-  atk1Recover: 0
-  atk1Cooldown: 0
-  atk1Damage: 0
-  atk1KnockBack: 0
+  atk1Buildup: 0.05
+  atk1HitSpan: 0.1
+  atk1Recover: 0.1
+  atk1Cooldown: 0.2
+  atk1Damage: 3
+  atk1KnockBack: 1.5

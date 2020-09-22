@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156790201}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.612, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 214985361}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 214985359}
   - component: {fileID: 214985363}
   - component: {fileID: 214985362}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: GolemAI Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1586,7 +1586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788706593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.08, y: 0.95, z: -5.31}
+  m_LocalPosition: {x: 7.08, y: 0.35, z: -4.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1603,6 +1603,7 @@ GameObject:
   - component: {fileID: 1011250147}
   - component: {fileID: 1011250146}
   - component: {fileID: 1011250148}
+  - component: {fileID: 1011250149}
   m_Layer: 11
   m_Name: GameObject
   m_TagString: Player
@@ -1623,7 +1624,7 @@ CapsuleCollider:
   m_Radius: 0.2
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.49, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1011250147
 Transform:
   m_ObjectHideFlags: 0
@@ -1632,7 +1633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011250145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.37, y: 0, z: -3.42}
+  m_LocalPosition: {x: 4.25, y: 0.505, z: -4.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1654,6 +1655,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &1011250149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011250145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc413b6cb2197bd4ba98c954f7d422b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerEnemies:
+    serializedVersion: 2
+    m_Bits: 256
+  dualWielding: 0
+  weapon1: {fileID: 0}
+  weapon2: {fileID: 0}
+  weaponInHitSpan: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
+  switchSpace: {fileID: 0}
+  isInBuildup: 0
+  isInCharge: 0
+  isInAttack: 0
+  isInRecover: 0
+  isInCooldown: 0
+  isInHitSpan: 1
+  attackDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1555903830
 GameObject:
   m_ObjectHideFlags: 0
