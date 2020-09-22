@@ -35,25 +35,49 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Test"",
-                    ""type"": ""Button"",
-                    ""id"": ""7d55a281-06f0-429d-a494-57be671345e1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Attack1"",
                     ""type"": ""Button"",
                     ""id"": ""f5616699-21f9-4b58-aa9d-8ac4e50fd841"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Attack2"",
                     ""type"": ""Button"",
                     ""id"": ""e60b9ef7-7e38-4e83-98d6-c26f7f15e9eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""2206c3df-2ff9-433e-bd69-c747bc287326"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Roll"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea48d916-390e-4412-ab63-e1323c916780"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""a2b1891d-3fad-47e7-a45b-549b1a410649"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Test"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d55a281-06f0-429d-a494-57be671345e1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -172,17 +196,6 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f8348947-9665-461f-b93b-9fa5b44d3010"",
-                    ""path"": ""<Keyboard>/#(M)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Test"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""d5d5297f-adf7-48aa-a7d3-c0c8ca737f13"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -257,6 +270,72 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""LookAround"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e73946c-1a02-4a2d-bb46-4ce53be47e10"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26edd114-204c-4ad9-913d-8804288bcb87"",
+                    ""path"": ""<XInputController>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9e9ea5e-7c5d-424a-9a94-a99a78d444d2"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d048f879-7ab5-481d-8dd3-d4a02467c788"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e374c73-3d33-467e-8a63-5f9f063abc5c"",
+                    ""path"": ""<Pointer>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8348947-9665-461f-b93b-9fa5b44d3010"",
+                    ""path"": ""<Keyboard>/#(M)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Test"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -273,9 +352,12 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
         m_Keyboard_Movement = m_Keyboard.FindAction("Movement", throwIfNotFound: true);
         m_Keyboard_LookAround = m_Keyboard.FindAction("LookAround", throwIfNotFound: true);
-        m_Keyboard_Test = m_Keyboard.FindAction("Test", throwIfNotFound: true);
         m_Keyboard_Attack1 = m_Keyboard.FindAction("Attack1", throwIfNotFound: true);
         m_Keyboard_Attack2 = m_Keyboard.FindAction("Attack2", throwIfNotFound: true);
+        m_Keyboard_Switch = m_Keyboard.FindAction("Switch", throwIfNotFound: true);
+        m_Keyboard_Roll = m_Keyboard.FindAction("Roll", throwIfNotFound: true);
+        m_Keyboard_MousePosition = m_Keyboard.FindAction("MousePosition", throwIfNotFound: true);
+        m_Keyboard_Test = m_Keyboard.FindAction("Test", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -327,18 +409,24 @@ public class @Controler : IInputActionCollection, IDisposable
     private IKeyboardActions m_KeyboardActionsCallbackInterface;
     private readonly InputAction m_Keyboard_Movement;
     private readonly InputAction m_Keyboard_LookAround;
-    private readonly InputAction m_Keyboard_Test;
     private readonly InputAction m_Keyboard_Attack1;
     private readonly InputAction m_Keyboard_Attack2;
+    private readonly InputAction m_Keyboard_Switch;
+    private readonly InputAction m_Keyboard_Roll;
+    private readonly InputAction m_Keyboard_MousePosition;
+    private readonly InputAction m_Keyboard_Test;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
         public KeyboardActions(@Controler wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Keyboard_Movement;
         public InputAction @LookAround => m_Wrapper.m_Keyboard_LookAround;
-        public InputAction @Test => m_Wrapper.m_Keyboard_Test;
         public InputAction @Attack1 => m_Wrapper.m_Keyboard_Attack1;
         public InputAction @Attack2 => m_Wrapper.m_Keyboard_Attack2;
+        public InputAction @Switch => m_Wrapper.m_Keyboard_Switch;
+        public InputAction @Roll => m_Wrapper.m_Keyboard_Roll;
+        public InputAction @MousePosition => m_Wrapper.m_Keyboard_MousePosition;
+        public InputAction @Test => m_Wrapper.m_Keyboard_Test;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -354,15 +442,24 @@ public class @Controler : IInputActionCollection, IDisposable
                 @LookAround.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLookAround;
                 @LookAround.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLookAround;
                 @LookAround.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLookAround;
-                @Test.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
-                @Test.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
-                @Test.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
                 @Attack1.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnAttack1;
                 @Attack1.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnAttack1;
                 @Attack1.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnAttack1;
                 @Attack2.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnAttack2;
                 @Attack2.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnAttack2;
                 @Attack2.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnAttack2;
+                @Switch.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSwitch;
+                @Switch.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSwitch;
+                @Switch.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSwitch;
+                @Roll.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRoll;
+                @Roll.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRoll;
+                @Roll.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRoll;
+                @MousePosition.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMousePosition;
+                @Test.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
+                @Test.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
+                @Test.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -373,15 +470,24 @@ public class @Controler : IInputActionCollection, IDisposable
                 @LookAround.started += instance.OnLookAround;
                 @LookAround.performed += instance.OnLookAround;
                 @LookAround.canceled += instance.OnLookAround;
-                @Test.started += instance.OnTest;
-                @Test.performed += instance.OnTest;
-                @Test.canceled += instance.OnTest;
                 @Attack1.started += instance.OnAttack1;
                 @Attack1.performed += instance.OnAttack1;
                 @Attack1.canceled += instance.OnAttack1;
                 @Attack2.started += instance.OnAttack2;
                 @Attack2.performed += instance.OnAttack2;
                 @Attack2.canceled += instance.OnAttack2;
+                @Switch.started += instance.OnSwitch;
+                @Switch.performed += instance.OnSwitch;
+                @Switch.canceled += instance.OnSwitch;
+                @Roll.started += instance.OnRoll;
+                @Roll.performed += instance.OnRoll;
+                @Roll.canceled += instance.OnRoll;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
+                @Test.started += instance.OnTest;
+                @Test.performed += instance.OnTest;
+                @Test.canceled += instance.OnTest;
             }
         }
     }
@@ -399,8 +505,11 @@ public class @Controler : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
-        void OnTest(InputAction.CallbackContext context);
         void OnAttack1(InputAction.CallbackContext context);
         void OnAttack2(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
+        void OnRoll(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
+        void OnTest(InputAction.CallbackContext context);
     }
 }

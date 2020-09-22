@@ -22,25 +22,49 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Test",
-                    "type": "Button",
-                    "id": "7d55a281-06f0-429d-a494-57be671345e1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Attack1",
                     "type": "Button",
                     "id": "f5616699-21f9-4b58-aa9d-8ac4e50fd841",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "Attack2",
                     "type": "Button",
                     "id": "e60b9ef7-7e38-4e83-98d6-c26f7f15e9eb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "2206c3df-2ff9-433e-bd69-c747bc287326",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Roll",
+                    "type": "Button",
+                    "id": "ea48d916-390e-4412-ab63-e1323c916780",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "a2b1891d-3fad-47e7-a45b-549b1a410649",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Test",
+                    "type": "Button",
+                    "id": "7d55a281-06f0-429d-a494-57be671345e1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -159,17 +183,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f8348947-9665-461f-b93b-9fa5b44d3010",
-                    "path": "<Keyboard>/#(M)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Test",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d5d5297f-adf7-48aa-a7d3-c0c8ca737f13",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -242,6 +255,72 @@
                     "processors": "StickDeadzone(min=0.5),NormalizeVector2",
                     "groups": "",
                     "action": "LookAround",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e73946c-1a02-4a2d-bb46-4ce53be47e10",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26edd114-204c-4ad9-913d-8804288bcb87",
+                    "path": "<XInputController>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9e9ea5e-7c5d-424a-9a94-a99a78d444d2",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d048f879-7ab5-481d-8dd3-d4a02467c788",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e374c73-3d33-467e-8a63-5f9f063abc5c",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8348947-9665-461f-b93b-9fa5b44d3010",
+                    "path": "<Keyboard>/#(M)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Test",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
