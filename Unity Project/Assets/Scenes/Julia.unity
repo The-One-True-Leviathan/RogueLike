@@ -419,6 +419,7 @@ MonoBehaviour:
   bar: {fileID: 587776307}
   fill: 0
   vieTemp: 0
+  vieMax: 20
   displayLife: {fileID: 1296057184}
 --- !u!114 &923754456
 MonoBehaviour:
