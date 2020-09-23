@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9479960e238713e4fa31fa6725a9cc5e, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
+  enchantments: []
   weaponSprite: {fileID: 0}
   weaponName: Sword
   weaponID: 0
@@ -19,13 +20,27 @@ MonoBehaviour:
   atk1Ranged: 0
   atk1Projectile: {fileID: 0}
   atk1Reach: {x: 30, y: 0, z: 2}
-  atk1Charge: 0
-  atk1Charge0: 0
-  atk1Charge1: 0
-  atk1Charge2: 0
   atk1Buildup: 0.05
-  atk1HitSpan: 0.1
-  atk1Recover: 0.1
-  atk1Cooldown: 0.2
-  atk1Damage: 3
-  atk1KnockBack: 1.5
+  atk1Charge: 0
+  atk1ChargeTime: []
+  atk1HitSpan:
+  - 0.1
+  atk1Recover:
+  - 0.1
+  atk1Cooldown:
+  - 0.1
+  atk1Damage: 03000000
+  atk1KnockBack:
+  - 1.1
+  atk2Heavy: 0
+  atk2Ranged: 0
+  atk2Projectile: {fileID: 0}
+  atk2Reach: {x: 0, y: 0, z: 0}
+  atk2Buildup: 0
+  atk2Charge: 0
+  atk2ChargeTime: []
+  atk2HitSpan: []
+  atk2Recover: []
+  atk2Cooldown: []
+  atk2Damage: 
+  atk2KnockBack: []

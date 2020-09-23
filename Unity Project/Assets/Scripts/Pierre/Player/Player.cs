@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     Rigidbody rigidbody;
 
 
+    public int absoluteMaxHealth;
+    public int maxHealth;
+    public int health;
+
     Controler controller;
     public bool A, B, Y, X;
     public Vector3 rStick, lStick, lastDirection;
@@ -29,7 +33,7 @@ public class Player : MonoBehaviour
     public float switchTime;
     public WeaponScriptableObject weapon1, weapon2, weaponInHitSpan, switchSpace; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
                                                                                   //when switching weapons in both hands
-    public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan;
+    public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity;
     public int hitSpanDamage;
     public Vector3 attackDirection;
     // Start is called before the first frame update
@@ -67,6 +71,7 @@ public class Player : MonoBehaviour
             if (X)
             {
                 Attack1(weapon1);
+                weapon1.AttackAction();
             }
 
             if (B)
@@ -111,9 +116,34 @@ public class Player : MonoBehaviour
         isInCooldown = false;
     }
 
-    void Xoff()
+    public void Heal(int amount)
     {
-        X = false;
+        health += amount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        if (maxHealth > absoluteMaxHealth)
+        {
+            maxHealth = absoluteMaxHealth;
+        }
+    }
+
+    public void Immunity(float duration)
+    {
+        StartCoroutine("ImmunityCoroutine", duration);
+    }
+
+    public IEnumerator ImmunityCoroutine(float duration)
+    {
+        isInImmunity = true;
+        yield return new WaitForSeconds(duration);
+        isInImmunity = false;
     }
 
     public void Inputs()
@@ -154,13 +184,12 @@ public class Player : MonoBehaviour
 
     public void Attack1(WeaponScriptableObject weapon)
     {
-        if (!weapon.atk1Charge)
-        {
+        // (!weapon.atk1Charge)
+        //{
             StartCoroutine("ResolveAttack1", weapon);
-        } else
-        {
-            StartCoroutine("ChargeAttack1", weapon);
-        }
+        //{
+            //StartCoroutine("ChargeAttack1", weapon);
+        //}
     }
 
     IEnumerator ResolveAttack1(WeaponScriptableObject weapon)
@@ -168,21 +197,49 @@ public class Player : MonoBehaviour
         print("start attack");
         isInAttack = true;
         isInBuildup = true;
-        yield return new WaitForSeconds(weapon.atk1Buildup);
+        int i = 0;
+        if (!weapon.atk1Charge)
+        {
+            yield return new WaitForSeconds(weapon.atk1Buildup);
+        } else
+        {
+            yield return new WaitForSeconds(weapon.atk1ChargeTime[0]);
+            print("attack charge 0");
+            if (!X)
+            {
+                i = 0;
+                yield return new WaitForSeconds(weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
+            }
+            else
+            {
+                yield return new WaitForSeconds(weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
+                print("attack charge 1");
+                if (!X)
+                {
+                    i = 1;
+                }
+                else
+                {
+                    yield return new WaitForSeconds(weapon.atk1ChargeTime[2] - weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
+                    i = 2;
+                    print("attack charge 2");
+                }
+            }
+        }
         print("attack");
         isInHitSpan = true;
         weaponInHitSpan = weapon;
-        hitSpanDamage = weapon.atk1Damage[0];
+        hitSpanDamage = weapon.atk1Damage[i];
         isInBuildup = false;
         isInRecover = true;
         isInCooldown = true;
-        yield return new WaitForSeconds(weapon.atk1HitSpan[0]);
+        yield return new WaitForSeconds(weapon.atk1HitSpan[i]);
         isInHitSpan = false;
-        yield return new WaitForSeconds(weapon.atk1Recover[0] - weapon.atk1HitSpan[0]);
+        yield return new WaitForSeconds(weapon.atk1Recover[i] - weapon.atk1HitSpan[i]);
         print("recover");
         isInRecover = false;
         isInAttack = false;
-        yield return new WaitForSeconds(weapon.atk1Cooldown[0] - weapon.atk1Recover[0]);
+        yield return new WaitForSeconds(weapon.atk1Cooldown[i] - weapon.atk1Recover[i]);
         print("cooldown");
         isInCooldown = false;
     }
@@ -191,7 +248,7 @@ public class Player : MonoBehaviour
         print("start attack");
         isInAttack = true;
         isInBuildup = true;
-        int i;
+        int i = 0;
         yield return new WaitForSeconds(weapon.atk1ChargeTime[0]);
         print("attack charge 0");
         if (!X)
@@ -337,6 +394,7 @@ public class Player : MonoBehaviour
                 }
 
             }
+
         }
     }
 }

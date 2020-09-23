@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using B83.Unity.Attributes;
+using UnityEditor;
+using System.Reflection;
 
 namespace Weapons
 {
@@ -8,6 +11,11 @@ namespace Weapons
     [CreateAssetMenu(fileName = "newWeapon", menuName = "Pierre/Weapon", order = 0)]
     public class WeaponScriptableObject : ScriptableObject
     {
+        /*[MonoScript]
+        public string[] typeName;*/
+        public EnchantmentsEffect[] enchantments;
+
+
         public Sprite weaponSprite;
         public string weaponName;
         public int weaponID;
@@ -52,6 +60,18 @@ namespace Weapons
                                                                //Cooldown is the time after the buildup during which the character cannot attack again
         public int[] atk2Damage; //The number of HP reduced from the enemy health
         public float[] atk2KnockBack; //How forcefully is the enemy thrown back
+
+        public void InitializeWeapon()
+        {
+            for(int i = 0; i >= enchantments.Length; i++)
+            {
+                enchantments[i].InitializeEnchantmentEffect();
+            }
+        }
+        public void AttackAction()
+        {
+           
+        }
 
     }
 

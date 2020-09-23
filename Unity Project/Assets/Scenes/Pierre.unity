@@ -1765,6 +1765,9 @@ MonoBehaviour:
   layerEnemies:
     serializedVersion: 2
     m_Bits: 256
+  absoluteMaxHealth: 0
+  maxHealth: 0
+  health: 0
   A: 0
   B: 0
   Y: 0
@@ -1778,8 +1781,8 @@ MonoBehaviour:
   dualWielding: 1
   switchTime: 0.2
   weapon1: {fileID: 11400000, guid: 35ed87909405f1f4681c5cec93b21439, type: 2}
-  weapon2: {fileID: 11400000, guid: 68723168663528e45b6e4374e40314eb, type: 2}
-  weaponInHitSpan: {fileID: 11400000, guid: 35ed87909405f1f4681c5cec93b21439, type: 2}
+  weapon2: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
+  weaponInHitSpan: {fileID: 0}
   switchSpace: {fileID: 0}
   isInBuildup: 0
   isInCharge: 0
@@ -1787,6 +1790,7 @@ MonoBehaviour:
   isInRecover: 0
   isInCooldown: 0
   isInHitSpan: 0
+  isInImmunity: 0
   hitSpanDamage: 0
   attackDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1555903830

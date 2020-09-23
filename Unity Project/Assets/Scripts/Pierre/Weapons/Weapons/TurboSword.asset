@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9479960e238713e4fa31fa6725a9cc5e, type: 3}
   m_Name: TurboSword
   m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 0}
   weaponSprite: {fileID: 0}
   weaponName: TurboSword
   weaponID: 1
