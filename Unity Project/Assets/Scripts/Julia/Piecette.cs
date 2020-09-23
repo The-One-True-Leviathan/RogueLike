@@ -5,28 +5,27 @@ using UnityEngine.UI;
 
 public class Piecette : MonoBehaviour
 {
-    public int nbrePiecettes;
-    public GameObject compteur;
-    public UnityEngine.UI.Text displayPiecettes;
+    GameObject compteurPieces;
+    Compteur Compteur;
+    bool pickUp;
 
     // Start is called before the first frame update
     void Start()
     {
         //animation iddle
-        compteur = GameObject.FindGameObjectWithTag("Compteur Piece");
-        displayPiecettes = compteur.GetComponent<Text>();
+        compteurPieces = GameObject.FindGameObjectWithTag("Compteur");
+        Compteur = compteurPieces.GetComponent<Compteur>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        displayPiecettes.text = "Piecettes:" + nbrePiecettes.ToString();
-    }
 
     private void OnCollisionEnter(Collision collisionPiecettes)
     {
-        //son récupération
-        nbrePiecettes ++;
-        Destroy(gameObject, 1);
+        if(!pickUp)
+        {
+            Compteur.GainPiecettes();
+            pickUp = true;
+            Destroy(gameObject, 1);
+        }
+        
     }
 }

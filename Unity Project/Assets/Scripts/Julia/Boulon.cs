@@ -5,29 +5,28 @@ using UnityEngine.UI;
 
 public class Boulon : MonoBehaviour
 {
-    public int nbreBoulon;
-    public GameObject compteurBoulon;
-    public UnityEngine.UI.Text displayBoulon;
+    GameObject compteurBoulon;
+    Compteur Compteur;
+    bool pickUp;
 
     // Start is called before the first frame update
     void Start()
     {
         //mettre l'animation iddle
-        compteurBoulon = GameObject.FindGameObjectWithTag ("Compteur Boulon");
-        displayBoulon = compteurBoulon.GetComponent<Text>();
+        compteurBoulon = GameObject.FindGameObjectWithTag ("Compteur");
+        Compteur = compteurBoulon.GetComponent<Compteur>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        displayBoulon.text = "Boulons:" + nbreBoulon.ToString();
-    }
 
     void OnCollisionEnter(Collision collisionBoulon) //il faut que l'un des colliders soit avec un non-kinematic rigidbody
     {
-        //son récupération
-        nbreBoulon++;
-        Destroy(gameObject, 1);
+        if(!pickUp)
+        {
+            Compteur.GainBoulon();
+            pickUp = true;
+            Destroy(gameObject, 1);
+        }
+       
     }
 
 }
