@@ -19,7 +19,7 @@ public class TestHealthBar : MonoBehaviour
         test = controller.Keyboard.Test.triggered;
         if (test)
         {
-            gameObject.SendMessage("ApplyDamage", 4f);
+            gameObject.SendMessage("ApplyDamage", -4f);
         }
     }
 }

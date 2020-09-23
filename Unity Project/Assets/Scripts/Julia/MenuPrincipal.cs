@@ -14,7 +14,7 @@ public class MenuPrincipal : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("HUD");
+        SceneManager.LoadScene("HUB");
     }
 
     public void QuitGame()
