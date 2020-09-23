@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "newAttackProfile", menuName = "Pierre/Weapon/Attack Profile", order = 0)]
-public class AttackProfileScriptableObject : MonoBehaviour
+public class AttackProfileScriptableObject : ScriptableObject
 {
     public bool isHeavy; //Is the attack heavy ? IE, can the player turn, roll or move during the buildup ?
 

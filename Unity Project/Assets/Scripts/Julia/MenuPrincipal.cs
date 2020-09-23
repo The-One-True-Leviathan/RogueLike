@@ -10,8 +10,9 @@ public class MenuPrincipal : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        
+        Debug.Log("niuh");
     }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("HUB");

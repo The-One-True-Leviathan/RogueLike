@@ -5,7 +5,9 @@ using UnityEngine;
 public class TestHealthBar : MonoBehaviour
 {
     Controler controller;
+    public HealthBar healthBar;
     bool test;
+    public float testDamage = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class TestHealthBar : MonoBehaviour
         test = controller.Keyboard.Test.triggered;
         if (test)
         {
-            gameObject.SendMessage("ApplyDamage", -4f);
+            healthBar.UpgradeLife(testDamage);
         }
     }
 }
