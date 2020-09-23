@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public int absoluteMaxHealth;
     public int maxHealth;
-    public int health;
+    public float health;
 
     Controler controller;
     public bool A, B, Y, X;
@@ -31,11 +31,16 @@ public class Player : MonoBehaviour
 
     public bool dualWielding; //Is the character wielding two different weapons ?
     public float switchTime;
-    public WeaponScriptableObject weapon1, weapon2, weaponInHitSpan, switchSpace; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
-                                                                                  //when switching weapons in both hands
+    public WeaponScriptableObject weapon1, weapon2, weaponInAtk, weaponInHitSpan, switchSpace; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
+                                                                                               //when switching weapons in both hands
+    public AttackProfileScriptableObject profileInUse;
     public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity;
-    public int hitSpanDamage;
+    public float hitSpanDamage;
+    public int hitSpanAtkNumber, chargeLevel;
     public Vector3 attackDirection;
+    public List<GameObject> enemiesHitLastAttack;
+    public GameObject closestEnemyHitLastAttack;
+    public float clostestEnemyDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +75,7 @@ public class Player : MonoBehaviour
         {
             if (X)
             {
-                Attack1(weapon1);
+                Attack(weapon1, 0);
                 weapon1.AttackAction();
             }
 
@@ -78,10 +83,10 @@ public class Player : MonoBehaviour
             {
                 if (dualWielding)
                 {
-                    Attack2(weapon2);
+                    Attack(weapon2, 1);
                 } else
                 {
-                    Attack2(weapon1);
+                    Attack(weapon1, 1);
                 }
             }
         }
@@ -97,7 +102,7 @@ public class Player : MonoBehaviour
 
         if (isInHitSpan)
         {
-            HitSpan1(weaponInHitSpan, hitSpanDamage);
+            HitSpan(weaponInHitSpan, hitSpanDamage, hitSpanAtkNumber);
         }
     }
 
@@ -116,7 +121,7 @@ public class Player : MonoBehaviour
         isInCooldown = false;
     }
 
-    public void Heal(int amount)
+    public void Heal(float amount)
     {
         health += amount;
         if (health > maxHealth)
@@ -182,46 +187,51 @@ public class Player : MonoBehaviour
         rigidbody.velocity = currentSpeed;
     }
 
-    public void Attack1(WeaponScriptableObject weapon)
+    public void Attack(WeaponScriptableObject weapon, int atkNumber)
     {
         // (!weapon.atk1Charge)
         //{
-            StartCoroutine("ResolveAttack1", weapon);
+        enemiesHitLastAttack.Clear();
+        clostestEnemyDistance = Mathf.Infinity;
+        weaponInAtk = weapon;
+        hitSpanAtkNumber = atkNumber;
+        StartCoroutine("ResolveAttack", atkNumber);
         //{
             //StartCoroutine("ChargeAttack1", weapon);
         //}
     }
 
-    IEnumerator ResolveAttack1(WeaponScriptableObject weapon)
+    IEnumerator ResolveAttack(int atkNumber)
     {
+        WeaponScriptableObject weapon = weaponInAtk;
         print("start attack");
         isInAttack = true;
         isInBuildup = true;
-        int i = 0;
-        if (!weapon.atk1Charge)
+        chargeLevel = 0;
+        if (!weapon.atk[atkNumber].isCharge)
         {
-            yield return new WaitForSeconds(weapon.atk1Buildup);
+            yield return new WaitForSeconds(weapon.atk[atkNumber].buildup);
         } else
         {
-            yield return new WaitForSeconds(weapon.atk1ChargeTime[0]);
+            yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0]);
             print("attack charge 0");
             if (!X)
             {
-                i = 0;
-                yield return new WaitForSeconds(weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
+                chargeLevel = 0;
+                yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]);
             }
             else
             {
-                yield return new WaitForSeconds(weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
+                yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]);
                 print("attack charge 1");
                 if (!X)
                 {
-                    i = 1;
+                    chargeLevel = 1;
                 }
                 else
                 {
-                    yield return new WaitForSeconds(weapon.atk1ChargeTime[2] - weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
-                    i = 2;
+                    yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[2] - weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]);
+                    chargeLevel = 2;
                     print("attack charge 2");
                 }
             }
@@ -229,172 +239,52 @@ public class Player : MonoBehaviour
         print("attack");
         isInHitSpan = true;
         weaponInHitSpan = weapon;
-        hitSpanDamage = weapon.atk1Damage[i];
+        hitSpanDamage = weapon.atk[atkNumber].damage[chargeLevel];
         isInBuildup = false;
         isInRecover = true;
         isInCooldown = true;
-        yield return new WaitForSeconds(weapon.atk1HitSpan[i]);
+        yield return new WaitForSeconds(weapon.atk[atkNumber].hitSpan[chargeLevel]);
         isInHitSpan = false;
-        yield return new WaitForSeconds(weapon.atk1Recover[i] - weapon.atk1HitSpan[i]);
+        yield return new WaitForSeconds(weapon.atk[atkNumber].recover[chargeLevel] - weapon.atk[atkNumber].hitSpan[chargeLevel]);
         print("recover");
         isInRecover = false;
         isInAttack = false;
-        yield return new WaitForSeconds(weapon.atk1Cooldown[i] - weapon.atk1Recover[i]);
+        yield return new WaitForSeconds(weapon.atk[atkNumber].cooldown[chargeLevel] - weapon.atk[atkNumber].recover[chargeLevel]);
         print("cooldown");
         isInCooldown = false;
     }
-    IEnumerator ChargeAttack1(WeaponScriptableObject weapon)
+
+    public void HitSpan(WeaponScriptableObject weapon, float damage, int atkNumber)
     {
-        print("start attack");
-        isInAttack = true;
-        isInBuildup = true;
-        int i = 0;
-        yield return new WaitForSeconds(weapon.atk1ChargeTime[0]);
-        print("attack charge 0");
-        if (!X)
+        if(weapon.atk[atkNumber].reach[chargeLevel] != Vector3.zero)
         {
-            i = 0;
-            yield return new WaitForSeconds(weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
-
-            
-        } 
-        else
-        {
-
-            yield return new WaitForSeconds(weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
-            print("attack charge 1");
-            if (!X)
-            {
-                i = 1;
-            } 
-            else
-            {
-                yield return new WaitForSeconds(weapon.atk1ChargeTime[2] - weapon.atk1ChargeTime[1] - weapon.atk1ChargeTime[0]);
-                i = 2;
-                print("attack charge 2");
-                
-            }
-        }
-        isInHitSpan = true;
-        weaponInHitSpan = weapon;
-        hitSpanDamage = weapon.atk1Damage[i];
-        isInBuildup = false;
-        isInRecover = true;
-        isInCooldown = true;
-        yield return new WaitForSeconds(weapon.atk1HitSpan[i]);
-        isInHitSpan = false;
-        yield return new WaitForSeconds(weapon.atk1Recover[i] - weapon.atk1HitSpan[i]);
-        print("recover");
-        isInRecover = false;
-        isInAttack = false;
-        yield return new WaitForSeconds(weapon.atk1Cooldown[i] - weapon.atk1Recover[i]);
-        print("cooldown");
-        isInCooldown = false;
-        yield break;
-    }
-    public void Attack2(WeaponScriptableObject weapon)
-    {
-        if (!weapon.atk2Charge)
-        {
-            StartCoroutine("ResolveAttack1", weapon);
-        }
-        else
-        {
-            StartCoroutine("ChargeAttack1", weapon);
-        }
-    }
-
-    IEnumerator ResolveAttack2(WeaponScriptableObject weapon)
-    {
-        print("start attack");
-        isInAttack = true;
-        isInBuildup = true;
-        yield return new WaitForSeconds(weapon.atk2Buildup);
-        print("attack");
-        isInHitSpan = true;
-        weaponInHitSpan = weapon;
-        hitSpanDamage = weapon.atk2Damage[0];
-        isInBuildup = false;
-        isInRecover = true;
-        isInCooldown = true;
-        yield return new WaitForSeconds(weapon.atk2HitSpan[0]);
-        isInHitSpan = false;
-        yield return new WaitForSeconds(weapon.atk2Recover[0] - weapon.atk2HitSpan[0]);
-        print("recover");
-        isInRecover = false;
-        isInAttack = false;
-        yield return new WaitForSeconds(weapon.atk2Cooldown[0] - weapon.atk2Recover[0]);
-        print("cooldown");
-        isInCooldown = false;
-    }
-    IEnumerator ChargeAttack2(WeaponScriptableObject weapon)
-    {
-        print("start attack");
-        isInAttack = true;
-        isInBuildup = true;
-        int i;
-        yield return new WaitForSeconds(weapon.atk2ChargeTime[0]);
-        print("attack charge 0");
-        if (!X)
-        {
-            i = 0;
-            yield return new WaitForSeconds(weapon.atk2ChargeTime[1] - weapon.atk2ChargeTime[0]);
-
-
-        }
-        else
-        {
-
-            yield return new WaitForSeconds(weapon.atk2ChargeTime[1] - weapon.atk2ChargeTime[0]);
-            print("attack charge 1");
-            if (!X)
-            {
-                i = 1;
-            }
-            else
-            {
-                yield return new WaitForSeconds(weapon.atk2ChargeTime[2] - weapon.atk2ChargeTime[1] - weapon.atk2ChargeTime[0]);
-                i = 2;
-                print("attack charge 2");
-
-            }
-        }
-        isInHitSpan = true;
-        weaponInHitSpan = weapon;
-        hitSpanDamage = weapon.atk2Damage[i];
-        isInBuildup = false;
-        isInRecover = true;
-        isInCooldown = true;
-        yield return new WaitForSeconds(weapon.atk2HitSpan[i]);
-        isInHitSpan = false;
-        yield return new WaitForSeconds(weapon.atk2Recover[i] - weapon.atk2HitSpan[i]);
-        print("recover");
-        isInRecover = false;
-        isInAttack = false;
-        yield return new WaitForSeconds(weapon.atk2Cooldown[i] - weapon.atk2Recover[i]);
-        print("cooldown");
-        isInCooldown = false;
-        yield break;
-    }
-
-    public void HitSpan1(WeaponScriptableObject weapon, int damage)
-    {
-        if(!weapon.atk1Ranged)
-        {
-            Collider[] hitEnemies = Physics.OverlapSphere(transform.position, weapon.atk1Reach.z, layerEnemies);
+            Collider[] hitEnemies = Physics.OverlapSphere(transform.position, weapon.atk[atkNumber].reach[chargeLevel].z, layerEnemies);
             foreach (Collider enemy in hitEnemies)
             {
-                Vector3 enemyDirection = enemy.transform.position - transform.position;
-                float enemyAngle = Vector3.Angle(attackDirection, enemyDirection);
-                print(enemyAngle);
-                if (enemyAngle <= weapon.atk1Reach.x)
+                enemiesHitLastAttack.Add(enemy.gameObject);
+                if (!enemiesHitLastAttack.Contains(enemy.gameObject))
                 {
-                    Debug.DrawRay(transform.position, enemyDirection, Color.red);
-                    print("Enemy hit ! Inflicted " + damage + " damage !");
+                    Vector3 enemyDirection = enemy.transform.position - transform.position;
+                    if (enemyDirection.magnitude < clostestEnemyDistance)
+                    {
+                        closestEnemyHitLastAttack = enemy.gameObject;
+                    }
+                    float enemyAngle = Vector3.Angle(attackDirection, enemyDirection);
+                    print(enemyAngle);
+                    if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x)
+                    {
+                        Debug.DrawRay(transform.position, enemyDirection, Color.red);
+                        print("Enemy hit ! Inflicted " + damage + " damage !");
+                    }
                 }
 
             }
 
+        }
+
+        if (weapon.atk[atkNumber].isRanged)
+        {
+            Instantiate(weapon.atk[atkNumber].projectile[chargeLevel]);
         }
     }
 }
