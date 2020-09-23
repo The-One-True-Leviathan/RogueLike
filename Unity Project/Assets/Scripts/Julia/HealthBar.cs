@@ -14,7 +14,7 @@ public class HealthBar : MonoBehaviour
 
     public Image bar3;
 
-    public int vieMax = 20;
+    public float vieMax = 20;
     public UnityEngine.UI.Text displayLife;
 
     // Start is called before the first frame update
@@ -29,13 +29,13 @@ public class HealthBar : MonoBehaviour
     public void Update()
     {
         displayLife.text = vieTemp.ToString() + "/" + vieMax.ToString();
-        if (vieTemp > 40 && vieTemp <= vieMax)
+        if (vieTemp > 40)
         {
             bar3.fillAmount = ((vieTemp - 40) / 20);
             bar2.fillAmount = 1f;
             bar.fillAmount = 1f;
         }
-        else if (vieTemp > 20 && vieTemp <= vieMax)
+        else if (vieTemp > 20)
         {
             bar3.fillAmount = 0f;
             bar2.fillAmount = ((vieTemp - 20) / 20);
@@ -55,9 +55,10 @@ public class HealthBar : MonoBehaviour
     }
     public void ApplyDamage(float damage)
     {
-        if ((vieTemp-damage) <= vieMax)
+        vieTemp -= damage;
+        if ((vieTemp-damage) >= vieMax)
         {
-            vieTemp -= damage;
+            vieTemp = vieMax;
         }
         
     }
@@ -69,7 +70,7 @@ public class HealthBar : MonoBehaviour
 
     }
 
-    public void UpgradeLife(int bonusHealth)
+    public void UpgradeLife(float bonusHealth)
     {
         vieMax += bonusHealth;
     }
