@@ -10,25 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9479960e238713e4fa31fa6725a9cc5e, type: 3}
-  m_Name: Sword
+  m_Name: GuardingSword
   m_EditorClassIdentifier: 
   atk:
-  - {fileID: 0}
-  - {fileID: 0}
-  enchantments: []
+  - {fileID: 11400000, guid: f026ff4d95dcd9e42a68a61453f0fd8b, type: 2}
+  - {fileID: 11400000, guid: 8c0f1ef02caabda47816b97baa173ef7, type: 2}
+  enchantments:
+  - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
   weaponSprite: {fileID: 0}
   weaponItemSprite: {fileID: 0}
   weaponIcon: {fileID: 0}
   weaponIconSecondary: {fileID: 0}
   weaponUnique: 0
-  weaponBaseName: Sword
+  weaponBaseName: 
   weaponRealName: 
-  weaponDescription: An ancient but elegant piece of refined steel.
+  weaponDescription: 
   weaponColor:
     serializedVersion: 2
     rgba: 0
   weaponID: 0
-  totalDamageMultiplier: 0
-  totalKnockbackMultiplier: 0
-  totalBuildupMultiplier: 0
-  totalReachMultiplier: {x: 0, y: 0, z: 0}
+  totalDamageMultiplier: 1
+  totalKnockbackMultiplier: 1
+  totalBuildupMultiplier: 1
+  totalReachMultiplier: {x: 1, y: 1, z: 1}

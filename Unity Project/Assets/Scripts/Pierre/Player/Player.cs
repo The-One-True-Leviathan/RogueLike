@@ -67,6 +67,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        weapon1.DoSpecial(0);
+        weapon2.DoSpecial(0);
         Inputs();
         
         
@@ -76,7 +78,6 @@ public class Player : MonoBehaviour
             if (X)
             {
                 Attack(weapon1, 0);
-                weapon1.AttackAction();
             }
 
             if (B)
@@ -141,7 +142,10 @@ public class Player : MonoBehaviour
 
     public void Immunity(float duration)
     {
-        StartCoroutine("ImmunityCoroutine", duration);
+        if (!isInImmunity)
+        {
+            StartCoroutine("ImmunityCoroutine", duration);
+        }
     }
 
     public IEnumerator ImmunityCoroutine(float duration)
@@ -210,19 +214,19 @@ public class Player : MonoBehaviour
         chargeLevel = 0;
         if (!weapon.atk[atkNumber].isCharge)
         {
-            yield return new WaitForSeconds(weapon.atk[atkNumber].buildup);
+            yield return new WaitForSeconds(weapon.atk[atkNumber].buildup*weapon.totalBuildupMultiplier);
         } else
         {
-            yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0]);
+            yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0]*weapon.totalBuildupMultiplier);
             print("attack charge 0");
             if (!X)
             {
                 chargeLevel = 0;
-                yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]);
+                yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
             }
             else
             {
-                yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]);
+                yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                 print("attack charge 1");
                 if (!X)
                 {
@@ -230,7 +234,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[2] - weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]);
+                    yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[2] - weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                     chargeLevel = 2;
                     print("attack charge 2");
                 }
@@ -239,17 +243,17 @@ public class Player : MonoBehaviour
         print("attack");
         isInHitSpan = true;
         weaponInHitSpan = weapon;
-        hitSpanDamage = weapon.atk[atkNumber].damage[chargeLevel];
+        hitSpanDamage = (weapon.atk[atkNumber].damage[chargeLevel]) * weapon.totalDamageMultiplier;
         isInBuildup = false;
         isInRecover = true;
         isInCooldown = true;
-        yield return new WaitForSeconds(weapon.atk[atkNumber].hitSpan[chargeLevel]);
+        yield return new WaitForSeconds((weapon.atk[atkNumber].hitSpan[chargeLevel])*weapon.totalBuildupMultiplier);
         isInHitSpan = false;
-        yield return new WaitForSeconds(weapon.atk[atkNumber].recover[chargeLevel] - weapon.atk[atkNumber].hitSpan[chargeLevel]);
+        yield return new WaitForSeconds((weapon.atk[atkNumber].recover[chargeLevel] - weapon.atk[atkNumber].hitSpan[chargeLevel])* weapon.totalBuildupMultiplier);
         print("recover");
         isInRecover = false;
         isInAttack = false;
-        yield return new WaitForSeconds(weapon.atk[atkNumber].cooldown[chargeLevel] - weapon.atk[atkNumber].recover[chargeLevel]);
+        yield return new WaitForSeconds((weapon.atk[atkNumber].cooldown[chargeLevel] - weapon.atk[atkNumber].recover[chargeLevel])*weapon.totalBuildupMultiplier);
         print("cooldown");
         isInCooldown = false;
     }
@@ -258,10 +262,10 @@ public class Player : MonoBehaviour
     {
         if(weapon.atk[atkNumber].reach[chargeLevel] != Vector3.zero)
         {
-            Collider[] hitEnemies = Physics.OverlapSphere(transform.position, weapon.atk[atkNumber].reach[chargeLevel].z, layerEnemies);
+            Collider[] hitEnemies = Physics.OverlapSphere(transform.position, weapon.atk[atkNumber].reach[chargeLevel].z * weapon.totalReachMultiplier.z, layerEnemies);
             foreach (Collider enemy in hitEnemies)
             {
-                enemiesHitLastAttack.Add(enemy.gameObject);
+                print("hitspan");
                 if (!enemiesHitLastAttack.Contains(enemy.gameObject))
                 {
                     Vector3 enemyDirection = enemy.transform.position - transform.position;
@@ -271,12 +275,14 @@ public class Player : MonoBehaviour
                     }
                     float enemyAngle = Vector3.Angle(attackDirection, enemyDirection);
                     print(enemyAngle);
-                    if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x)
+                    if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x*weapon.totalReachMultiplier.x)
                     {
+                        weapon.DoSpecial(1);
                         Debug.DrawRay(transform.position, enemyDirection, Color.red);
                         print("Enemy hit ! Inflicted " + damage + " damage !");
                     }
                 }
+                enemiesHitLastAttack.Add(enemy.gameObject);
 
             }
 

@@ -10,21 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: SelfDamage
+  m_Name: GuardingAttackEffect
   m_EditorClassIdentifier: Assembly-CSharp:Weapons:EnchantmentsEffect
-  effectType: 1
+  particles: {fileID: 6247067761935357862, guid: db6fafed6c1872543aba12a72f980c0a,
+    type: 3}
+  effectType: 3
   type: 1
-  useNativeRNG: 0
-  nativeRNG: 0
-  effectTicLength: 0.3
-  effectDuration: 0
+  useNativeRNG: 1
+  nativeRNG: 61
+  effectTicLength: 0.1
+  effectDuration: 0.2
   effectReach: {x: 0, y: 0, z: 0}
   useWeaponReach: 0
   centerEffectOnAllEnemies: 0
   centerEffectOnClosestEnemy: 0
   invertDirection: 0
-  effectStrength: -2
-  effectChance: 33
+  effectStrength: 0
+  effectChance: 100
   effectAffectedLayers:
     serializedVersion: 2
     m_Bits: 0

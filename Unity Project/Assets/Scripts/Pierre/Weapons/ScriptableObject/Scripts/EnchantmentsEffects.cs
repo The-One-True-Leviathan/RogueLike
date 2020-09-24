@@ -11,6 +11,8 @@ namespace Weapons
         GameObject player;
         Player playerScript;
 
+        public GameObject particles;
+
         public EffectEnchantmentType effectType;
         [Tooltip("Type : 0 = Idle, 1 = Attack, 2 = Kill, 3 = Damage")]
         public int type; //0 = Idle, 1 = Attack, 2 = Kill, 3 = Damage
@@ -52,6 +54,7 @@ namespace Weapons
 
         public IEnumerator EffectCoroutine()
         {
+            Debug.LogWarning("Spécial !");
             isInEffect = true;
             DoEffect();
             yield return new WaitForSeconds(effectTicLength);
@@ -60,12 +63,15 @@ namespace Weapons
 
         public void DoEffect()
         {
+            Debug.LogWarning("Spécial !");
             if (!useNativeRNG)
             {
+                Debug.LogWarning("Spécial 2");
                 nativeRNG = UnityEngine.Random.Range(1, 100);
             }
             if (nativeRNG <= effectChance)
             {
+                Debug.LogWarning("Spécial 3");
                 if (effectType == EffectEnchantmentType.Damage)
                 {
                     ResolveDamage();
@@ -74,16 +80,20 @@ namespace Weapons
                 if (effectType == EffectEnchantmentType.Heal)
                 {
                     playerScript.Heal(effectStrength);
+                    Instantiate(particles, player.transform.position, player.transform.rotation);
                 }
                 else
                 if (effectType == EffectEnchantmentType.ImmunityChance)
                 {
                     playerScript.Immunity(effectDuration);
+                    Debug.LogWarning("Immunity !");
+                    Instantiate(particles, player.transform.position, player.transform.rotation);
                 }
                 else
                 if (effectType == EffectEnchantmentType.Teleport)
                 {
                     ResolveTeleport();
+                    Instantiate(particles, player.transform.position, player.transform.rotation);
                 }
             }
         }
@@ -138,6 +148,7 @@ namespace Weapons
                         Debug.LogWarning("Enemy hit ! Inflicted " + effectStrength + " damage !");
                     }
                 }
+                Instantiate(particles, center.transform.position, Quaternion.LookRotation((center.transform.position - player.transform.position)*direction, Vector3.up));
             }
         }
 
