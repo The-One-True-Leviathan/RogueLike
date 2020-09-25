@@ -81,6 +81,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0644a3c-f63e-4669-9b08-b1ef284afaec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -336,6 +344,28 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Test"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2fc7260-972a-48e1-bbf5-974c3d3f4e7e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d12513b-43d6-4828-b2ec-05c6815aa680"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -358,6 +388,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_Roll = m_Keyboard.FindAction("Roll", throwIfNotFound: true);
         m_Keyboard_MousePosition = m_Keyboard.FindAction("MousePosition", throwIfNotFound: true);
         m_Keyboard_Test = m_Keyboard.FindAction("Test", throwIfNotFound: true);
+        m_Keyboard_Pause = m_Keyboard.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -415,6 +446,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_Roll;
     private readonly InputAction m_Keyboard_MousePosition;
     private readonly InputAction m_Keyboard_Test;
+    private readonly InputAction m_Keyboard_Pause;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -427,6 +459,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Roll => m_Wrapper.m_Keyboard_Roll;
         public InputAction @MousePosition => m_Wrapper.m_Keyboard_MousePosition;
         public InputAction @Test => m_Wrapper.m_Keyboard_Test;
+        public InputAction @Pause => m_Wrapper.m_Keyboard_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -460,6 +493,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Test.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
                 @Test.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
                 @Test.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
+                @Pause.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -488,6 +524,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Test.started += instance.OnTest;
                 @Test.performed += instance.OnTest;
                 @Test.canceled += instance.OnTest;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -511,5 +550,6 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnRoll(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnTest(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
