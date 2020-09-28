@@ -623,7 +623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469972703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.005}
+  m_LocalPosition: {x: 0.02, y: 0, z: -1.005}
   m_LocalScale: {x: 2.562613, y: 0.16093, z: 0.02}
   m_Children: []
   m_Father: {fileID: 1514083729}
@@ -1392,8 +1392,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1456941359}
-  - component: {fileID: 1456941358}
   - component: {fileID: 1456941357}
+  - component: {fileID: 1456941358}
   m_Layer: 11
   m_Name: Systems
   m_TagString: Player
@@ -1414,19 +1414,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHP: 20
---- !u!135 &1456941358
-SphereCollider:
+--- !u!65 &1456941358
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456941356}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.52427566
-  m_Center: {x: -0.01614821, y: 0.0066177845, z: 0.0018381476}
+  m_Size: {x: 1, y: 1, z: 0.12727833}
+  m_Center: {x: 0, y: 0, z: 0.030635357}
 --- !u!4 &1456941359
 Transform:
   m_ObjectHideFlags: 0
@@ -1450,6 +1450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514083729}
+  - component: {fileID: 1514083730}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -1465,7 +1466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514083728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.01, y: -2.62, z: 0.14}
+  m_LocalPosition: {x: 0.92, y: -2.62, z: 0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1049069824}
@@ -1480,6 +1481,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1514083730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514083728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68653bcaceff9164391a561fbea7cccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicatorObject:
+  - {fileID: 469972703}
+  - {fileID: 1873783705}
+  - {fileID: 1406454682}
+  - {fileID: 1528801103}
+  indicatorPosition:
+  - {fileID: 469972704}
+  - {fileID: 1873783706}
+  - {fileID: 1406454683}
+  - {fileID: 1528801104}
+  overlapSize:
+  - {x: 2.53, y: 0.1, z: 0.22}
+  - {x: 2.53, y: 0.1, z: 0.22}
+  - {x: 0.22, y: 0.1, z: 1.96}
+  - {x: 0.22, y: 0.1, z: 1.96}
+  currentLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &1528801103
 GameObject:
   m_ObjectHideFlags: 0
