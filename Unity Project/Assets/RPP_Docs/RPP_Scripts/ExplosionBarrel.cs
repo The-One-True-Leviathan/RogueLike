@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosionBarrel : MonoBehaviour
 {
     //Reference to the collider
-    public CapsuleCollider2D barrelCollider;
+    public CapsuleCollider barrelCollider;
     public Transform barrelPosition;
     public GameObject barrelObject;
     public float explosionRange;
@@ -20,10 +20,10 @@ public class ExplosionBarrel : MonoBehaviour
 
     void Update()
     {
-        OnTriggerEnter2D(barrelCollider);
+        OnTriggerEnter(barrelCollider);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -33,9 +33,9 @@ public class ExplosionBarrel : MonoBehaviour
 
     void Explosion()
     {
-        Collider2D[] objects = Physics2D.OverlapCircleAll(barrelPosition.position, explosionRange, currentLayer);
+        Collider[] objects = Physics.OverlapSphere(barrelPosition.position, explosionRange, currentLayer);
 
-        foreach(Collider2D obj in objects)
+        foreach(Collider obj in objects)
         {
             if (obj.CompareTag("Player"))
             {

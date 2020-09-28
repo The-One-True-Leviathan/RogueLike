@@ -6,7 +6,7 @@ public class ElectrifiedWater : MonoBehaviour
 {
     public Transform poolCenter;
     public Systems systems;
-    public Vector2 wetZone;
+    public Vector3 wetZone;
     public LayerMask currentLayer;
     public int electricDamage;
     bool canTakeDamage;
@@ -26,9 +26,9 @@ public class ElectrifiedWater : MonoBehaviour
 
     void ConstantDamage()
     {
-        Collider2D[] objects = Physics2D.OverlapBoxAll(poolCenter.position, wetZone, currentLayer);
+        Collider[] objects = Physics.OverlapBox(poolCenter.position, wetZone, Quaternion.identity, currentLayer);
 
-        foreach (Collider2D obj in objects)
+        foreach (Collider obj in objects)
         {
             if (obj.CompareTag("Player"))
             {

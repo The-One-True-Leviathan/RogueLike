@@ -5,8 +5,8 @@ using UnityEngine;
 public class PressureSpikeTraps : MonoBehaviour
 {
     public Systems systems;
-    public BoxCollider2D pressurePlate;
-    public BoxCollider2D spikes;
+    public BoxCollider pressurePlate;
+    public BoxCollider spikes;
     public Material material;
     public int spikesDamage;
 
@@ -17,10 +17,10 @@ public class PressureSpikeTraps : MonoBehaviour
 
     private void Update()
     {
-        OnTriggerEnter2D(pressurePlate);
+        OnTriggerEnter(pressurePlate);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -41,7 +41,7 @@ public class PressureSpikeTraps : MonoBehaviour
         material.color = Color.yellow;
         yield return new WaitForSeconds(1.5f);
         spikes.enabled = true;
-        OnTriggerEnter2D(spikes);
+        OnTriggerEnter(spikes);
         material.color = Color.red;
         yield return new WaitForSeconds(1f);
         pressurePlate.enabled = false;

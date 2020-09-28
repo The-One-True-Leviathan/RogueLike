@@ -5,7 +5,7 @@ using UnityEngine;
 public class LoopingSpikeTraps : MonoBehaviour
 {
     public Systems systems;
-    public BoxCollider2D spikes;
+    public BoxCollider spikes;
     public Material material;
     public int spikesDamage;
     bool canStartLoop;
@@ -30,15 +30,15 @@ public class LoopingSpikeTraps : MonoBehaviour
         canStartLoop = false;
         material.color = Color.red;
         spikes.enabled = true;
-        OnTriggerEnter2D(spikes);
-        yield return new WaitForSeconds(2f);
+        OnTriggerEnter(spikes);
+        yield return new WaitForSeconds(0.3f);
         spikes.enabled = false;
         material.color = Color.yellow;
         yield return new WaitForSeconds(2f);
         canStartLoop = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player"))
         {
