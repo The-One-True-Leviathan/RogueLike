@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEditor;
 using UnityEngine;
 using Weapons;
@@ -8,23 +9,30 @@ public class Player : MonoBehaviour
 {
     public LayerMask layerEnemies;
     Rigidbody rigidbody;
+    public EnchantmentManager enchant;
 
 
     public int absoluteMaxHealth;
     public int maxHealth;
     public float health;
+    public float damageImmunity;
 
     Controler controller;
     public bool A, B, Y, X;
-    public Vector3 rStick, lStick, lastDirection;
+    public Vector3 rStick, lStick, lastDirection, normalizedLStick;
 
 
-    public Vector3 currentSpeed;
+    public Vector3 currentSpeed, targetSpeed;
     float xVelocity, zVelocity;
     public float maxSpeed = 10f, accelerationTime = 0.3f;
 
 
 
+
+
+    public bool isInRoll;
+    public float rollLength, rollRecover, rollSpeed;
+    public Vector3 rollDirection;
 
 
 
@@ -44,6 +52,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        weapon1.InitializeWeapon();
+        if (weapon2 != null)
+        {
+            weapon2.InitializeWeapon();
+        }
+        enchant = GetComponent<EnchantmentManager>();
         rigidbody = GetComponent<Rigidbody>();
         controller = new Controler();
         controller.Enable();
@@ -67,10 +81,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        weapon1.DoSpecial(0);
-        weapon2.DoSpecial(0);
+        /*enchant.DoEnchants(weapon1, 0);
+        if (dualWielding)
+        {
+        enchant.DoEnchants(weapon2, 0);
+        }*/
+        //weapon1.DoSpecial(0);
+        //weapon2.DoSpecial(0);
         Inputs();
-        
+        if (A && !isInRoll && !isInRecover)
+        {
+            Roll();
+        }
         
 
         if (!isInAttack && !isInCooldown)
@@ -122,6 +144,23 @@ public class Player : MonoBehaviour
         isInCooldown = false;
     }
 
+    public void Roll()
+    {
+        isInRoll = true;
+        isInRecover = true;
+        StartCoroutine("RollCoroutine");
+
+    }
+
+    public IEnumerator RollCoroutine()
+    {
+        targetSpeed = rollDirection * rollSpeed;
+        yield return new WaitForSeconds(rollLength);
+        isInRoll = false;
+        yield return new WaitForSeconds(rollRecover);
+        isInRecover = false;
+    }
+
     public void Heal(float amount)
     {
         health += amount;
@@ -137,6 +176,17 @@ public class Player : MonoBehaviour
         if (maxHealth > absoluteMaxHealth)
         {
             maxHealth = absoluteMaxHealth;
+        }
+    }
+
+    public void PlayerDamage(int amount)
+    {
+        if (!isInImmunity && !isInRoll)
+        {
+            health -= amount;
+            enchant.DoEnchants(weapon1, 3);
+            if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
+            Immunity(damageImmunity);
         }
     }
 
@@ -161,17 +211,18 @@ public class Player : MonoBehaviour
         rStick = new Vector3(controller.Keyboard.LookAround.ReadValue<Vector2>().x, 0, controller.Keyboard.LookAround.ReadValue<Vector2>().y);
         lStick = new Vector3(controller.Keyboard.Movement.ReadValue<Vector2>().x, 0, controller.Keyboard.Movement.ReadValue<Vector2>().y);
         rStick.Normalize();
-        lStick.Normalize(); 
-        
+        normalizedLStick = lStick.normalized; 
+
         if (!(rStick == Vector3.zero))
         {
             lastDirection = rStick;
         }
 
-        if (!(lStick == Vector3.zero))
+        if (normalizedLStick != Vector3.zero)
         {
-            lastDirection = lStick;
+            lastDirection = normalizedLStick;
         }
+
 
         attackDirection = lastDirection;
         if (!(rStick == Vector3.zero))
@@ -179,11 +230,17 @@ public class Player : MonoBehaviour
             attackDirection = rStick;
         }
         Debug.DrawRay(transform.position, attackDirection, Color.red);
+
+        if (!isInRoll)
+        {
+            rollDirection = lastDirection;
+            targetSpeed = lStick * maxSpeed;
+        }
+        Debug.DrawRay(transform.position, targetSpeed, Color.blue);
     }
 
     public void Move()
     {
-        Vector3 targetSpeed = lStick * maxSpeed;
 
         currentSpeed.x = Mathf.SmoothDamp(currentSpeed.x, targetSpeed.x, ref xVelocity, accelerationTime);
         currentSpeed.z = Mathf.SmoothDamp(currentSpeed.z, targetSpeed.z, ref zVelocity, accelerationTime);
@@ -277,7 +334,7 @@ public class Player : MonoBehaviour
                     print(enemyAngle);
                     if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x*weapon.totalReachMultiplier.x)
                     {
-                        weapon.DoSpecial(1);
+                        enchant.DoEnchants(weapon, 1);
                         Debug.DrawRay(transform.position, enemyDirection, Color.red);
                         print("Enemy hit ! Inflicted " + damage + " damage !");
                     }

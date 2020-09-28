@@ -8,7 +8,7 @@ namespace Weapons
 
     public class Enchantment : ScriptableObject
     {
-        public EnchantmentsEffect[] effects = new EnchantmentsEffect[1];
+        public EnchantmentsEffect[] effects;
         public string enchantmentName, prefix, suffix, description;
         public Color color;
 
@@ -33,7 +33,7 @@ namespace Weapons
                 if(effects[i].type == specialType)
                 {
                     effects[i].nativeRNG = rng;
-                    effects[i].EffectAction();
+                    effects[i].DoEffect();
                 }
             }
         }

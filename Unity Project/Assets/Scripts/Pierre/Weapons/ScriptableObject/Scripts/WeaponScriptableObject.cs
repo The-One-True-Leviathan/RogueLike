@@ -30,7 +30,7 @@ namespace Weapons
 
         public void InitializeWeapon()
         {
-            totalBuildupMultiplier = totalDamageMultiplier = totalKnockbackMultiplier = 0f;
+            totalBuildupMultiplier = totalDamageMultiplier = totalKnockbackMultiplier = 1f;
             for(int i = 0; i < enchantments.Count; i++)
             {
                 enchantments[i].Initialize();

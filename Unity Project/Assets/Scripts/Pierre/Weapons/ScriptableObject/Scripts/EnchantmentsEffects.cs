@@ -20,7 +20,7 @@ namespace Weapons
         public bool useNativeRNG; //Should the effect use the rng given by the whole enchantment or roll his own ?
         public int nativeRNG; //Contains the rng given by the whole enchantment
 
-        bool isInEffect;
+        public bool isInEffect = false;
         [Tooltip("Minimum time between each activation of the effect")]
         public float effectTicLength;
         public float effectDuration;
@@ -31,8 +31,9 @@ namespace Weapons
         public bool invertDirection;
         public float effectStrength;
         [Tooltip("Int Number to inform the % of chance of the effect happening each time its activated")]
-        public int effectChance;
+        public int effectChanceLower, effectChanceUpper;
         public LayerMask effectAffectedLayers;
+        float direction;
         // Start is called before the first frame update
 
         public void InitializeEnchantmentEffect()
@@ -40,36 +41,23 @@ namespace Weapons
             player = GameObject.FindGameObjectWithTag("Player");
             playerScript = player.GetComponent<Player>();
         }
-
-        public void EffectAction()
-        {
-            if (effectType != EffectEnchantmentType.None)
-            {
-                if (!isInEffect)
-                {
-                    EffectCoroutine();
-                }
-            }
-        }
-
-        public IEnumerator EffectCoroutine()
-        {
-            Debug.LogWarning("Spécial !");
-            isInEffect = true;
-            DoEffect();
-            yield return new WaitForSeconds(effectTicLength);
-            isInEffect = false;
-        }
-
         public void DoEffect()
         {
-            Debug.LogWarning("Spécial !");
+            if (invertDirection)
+            {
+                direction = -1f;
+            }
+            else
+            {
+                direction = 1f;
+            }
+            Debug.LogWarning("Spécial 1");
             if (!useNativeRNG)
             {
                 Debug.LogWarning("Spécial 2");
                 nativeRNG = UnityEngine.Random.Range(1, 100);
             }
-            if (nativeRNG <= effectChance)
+            if (nativeRNG >= effectChanceLower && nativeRNG <= effectChanceUpper)
             {
                 Debug.LogWarning("Spécial 3");
                 if (effectType == EffectEnchantmentType.Damage)
@@ -80,20 +68,20 @@ namespace Weapons
                 if (effectType == EffectEnchantmentType.Heal)
                 {
                     playerScript.Heal(effectStrength);
-                    Instantiate(particles, player.transform.position, player.transform.rotation);
+                    Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up));
                 }
                 else
                 if (effectType == EffectEnchantmentType.ImmunityChance)
                 {
                     playerScript.Immunity(effectDuration);
                     Debug.LogWarning("Immunity !");
-                    Instantiate(particles, player.transform.position, player.transform.rotation);
+                    Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up), player.transform);
                 }
                 else
                 if (effectType == EffectEnchantmentType.Teleport)
                 {
                     ResolveTeleport();
-                    Instantiate(particles, player.transform.position, player.transform.rotation);
+                    Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up));
                 }
             }
         }
@@ -101,7 +89,6 @@ namespace Weapons
         public void ResolveDamage()
         {
             Vector3 reach;
-            float direction;
             if (useWeaponReach)
             {
                 reach = playerScript.profileInUse.reach[playerScript.chargeLevel];
@@ -125,14 +112,6 @@ namespace Weapons
             {
                 target.Clear();
                 target.Add(player);
-            }
-
-            if (invertDirection)
-            {
-                direction = -1f;
-            } else
-            {
-                direction = 1f;
             }
 
             foreach (GameObject center in target)

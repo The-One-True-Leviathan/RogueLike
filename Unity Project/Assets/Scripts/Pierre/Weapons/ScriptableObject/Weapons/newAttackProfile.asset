@@ -17,7 +17,7 @@ MonoBehaviour:
   projectile:
   - {fileID: 0}
   reach:
-  - {x: 30, y: 0, z: 1.5}
+  - {x: 360, y: 0, z: 50}
   buildup: 0.05
   isCharge: 0
   chargeTime:

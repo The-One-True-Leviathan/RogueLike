@@ -18,7 +18,7 @@ MonoBehaviour:
   prefix: Guarding
   suffix: Guarding
   description: For each enemy you hit, you have an individual 20% chance of gaining
-    immunity for 0.2 seconds.
+    immunity for 0.8 seconds.
   color: {r: 1, g: 1, b: 1, a: 0}
   rng: 0
   multiplierDamage: 1

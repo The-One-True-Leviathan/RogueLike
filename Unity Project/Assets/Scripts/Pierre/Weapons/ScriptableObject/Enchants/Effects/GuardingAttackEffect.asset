@@ -12,21 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: GuardingAttackEffect
   m_EditorClassIdentifier: Assembly-CSharp:Weapons:EnchantmentsEffect
-  particles: {fileID: 6247067761935357862, guid: db6fafed6c1872543aba12a72f980c0a,
+  particles: {fileID: 2753346943785932558, guid: 35fb1136eee47c34cb7db2cd9121db4c,
     type: 3}
   effectType: 3
   type: 1
   useNativeRNG: 1
-  nativeRNG: 61
-  effectTicLength: 0.1
-  effectDuration: 0.2
-  effectReach: {x: 0, y: 0, z: 0}
+  nativeRNG: 6
+  isInEffect: 0
+  effectTicLength: 1
+  effectDuration: 0.8
+  effectReach: {x: 360, y: 0, z: 10}
   useWeaponReach: 0
   centerEffectOnAllEnemies: 0
   centerEffectOnClosestEnemy: 0
   invertDirection: 0
-  effectStrength: 0
-  effectChance: 100
+  effectStrength: 5
+  effectChanceLower: 0
+  effectChanceUpper: 100
   effectAffectedLayers:
     serializedVersion: 2
     m_Bits: 0
