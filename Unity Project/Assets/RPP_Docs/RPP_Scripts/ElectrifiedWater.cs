@@ -26,7 +26,7 @@ public class ElectrifiedWater : MonoBehaviour
 
     void ConstantDamage()
     {
-        Collider[] objects = Physics.OverlapBox(poolCenter.position, wetZone, Quaternion.identity, currentLayer);
+        Collider[] objects = Physics.OverlapBox(poolCenter.position, wetZone/2, Quaternion.identity, currentLayer);
 
         foreach (Collider obj in objects)
         {
