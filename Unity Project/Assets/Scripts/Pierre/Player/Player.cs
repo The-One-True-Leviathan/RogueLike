@@ -254,7 +254,9 @@ public class Player : MonoBehaviour
         //{
         enemiesHitLastAttack.Clear();
         clostestEnemyDistance = Mathf.Infinity;
-        weaponInAtk = weapon;
+        weaponInAtk = weapon; 
+        isInAttack = true;
+
         hitSpanAtkNumber = atkNumber;
         StartCoroutine("ResolveAttack", atkNumber);
         //{
@@ -266,7 +268,6 @@ public class Player : MonoBehaviour
     {
         WeaponScriptableObject weapon = weaponInAtk;
         print("start attack");
-        isInAttack = true;
         isInBuildup = true;
         chargeLevel = 0;
         if (!weapon.atk[atkNumber].isCharge)
@@ -322,32 +323,43 @@ public class Player : MonoBehaviour
             Collider[] hitEnemies = Physics.OverlapSphere(transform.position, weapon.atk[atkNumber].reach[chargeLevel].z * weapon.totalReachMultiplier.z, layerEnemies);
             foreach (Collider enemy in hitEnemies)
             {
+
                 print("hitspan");
                 if (!enemiesHitLastAttack.Contains(enemy.gameObject))
                 {
                     Vector3 enemyDirection = enemy.transform.position - transform.position;
-                    if (enemyDirection.magnitude < clostestEnemyDistance)
-                    {
-                        closestEnemyHitLastAttack = enemy.gameObject;
-                    }
+                    
                     float enemyAngle = Vector3.Angle(attackDirection, enemyDirection);
                     print(enemyAngle);
                     if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x*weapon.totalReachMultiplier.x)
                     {
-                        enchant.DoEnchants(weapon, 1);
+                        if (enemyDirection.magnitude < clostestEnemyDistance)
+                        {
+                            closestEnemyHitLastAttack = enemy.gameObject;
+                        }
+                        enemiesHitLastAttack.Add(enemy.gameObject);
                         Debug.DrawRay(transform.position, enemyDirection, Color.red);
                         print("Enemy hit ! Inflicted " + damage + " damage !");
                     }
                 }
-                enemiesHitLastAttack.Add(enemy.gameObject);
+                
 
             }
-
+            AttackEnchant(weapon);
+            Debug.LogError("Number of Enemies hit : " + enemiesHitLastAttack.Count);
         }
 
         if (weapon.atk[atkNumber].isRanged)
         {
             Instantiate(weapon.atk[atkNumber].projectile[chargeLevel]);
+        }
+    }
+
+    public void AttackEnchant(WeaponScriptableObject weapon)
+    {
+        for (int i = 0; i < enemiesHitLastAttack.Count; i++) 
+        {
+            enchant.DoEnchants(weapon, 1);
         }
     }
 }

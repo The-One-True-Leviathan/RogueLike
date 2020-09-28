@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Weapons
 {
     public enum EffectEnchantmentType { None, Heal, Damage, ImmunityChance, Teleport }
+    public enum CenterOn { Player, ClosestEnemy, AllEnemies }
     [CreateAssetMenu(fileName = "newEffect", menuName = "Pierre/Enchantment/Effect", order = 0)]
     public class EnchantmentsEffect : ScriptableObject
     {
@@ -26,6 +27,7 @@ namespace Weapons
         public float effectDuration;
         public Vector3 effectReach;
         public bool useWeaponReach;
+        public CenterOn centerOn;
         public bool centerEffectOnAllEnemies, centerEffectOnClosestEnemy;
         List<GameObject> target;
         public bool invertDirection;
@@ -88,6 +90,8 @@ namespace Weapons
 
         public void ResolveDamage()
         {
+            target.Clear();
+            Debug.LogWarning("Attack 1");
             Vector3 reach;
             if (useWeaponReach)
             {
@@ -96,23 +100,24 @@ namespace Weapons
             {
                 reach = effectReach;
             }
+            Debug.LogWarning("Attack 2");
 
-            if (centerEffectOnAllEnemies)
+            if (centerOn == CenterOn.AllEnemies)
             {
-                foreach(GameObject enemy in playerScript.enemiesHitLastAttack)
+                Debug.LogWarning("Attack 3");
+                for (int i = 0; i < playerScript.enemiesHitLastAttack.Count; i++)
                 {
-                    target.Clear();
-                    target.Add(enemy);
+                    target.Add(playerScript.enemiesHitLastAttack[i]);
+                    Debug.LogWarning("Attack 4");
                 }
-            } else if (centerEffectOnClosestEnemy)
+            } else if (centerOn == CenterOn.ClosestEnemy)
             {
-                target.Clear();
                 target.Add(playerScript.closestEnemyHitLastAttack);
-            } else
+            } else if (centerOn == CenterOn.Player)
             {
-                target.Clear();
                 target.Add(player);
             }
+            Debug.LogWarning("Attack 5 " + target.Count);
 
             foreach (GameObject center in target)
             {
@@ -124,10 +129,10 @@ namespace Weapons
                     if (enemyAngle <= reach.x)
                     {
                         Debug.DrawRay(center.transform.position, enemyDirection, Color.red);
-                        Debug.LogWarning("Enemy hit ! Inflicted " + effectStrength + " damage !");
+                        Debug.LogError("Enemy hit ! Inflicted " + effectStrength + " damage !");
                     }
                 }
-                Instantiate(particles, center.transform.position, Quaternion.LookRotation((center.transform.position - player.transform.position)*direction, Vector3.up));
+                Instantiate(particles, center.transform.position, Quaternion.LookRotation((center.transform.position - player.transform.position) * direction, Vector3.up));
             }
         }
 
