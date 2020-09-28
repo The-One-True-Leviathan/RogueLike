@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atk:
   - {fileID: 11400000, guid: f026ff4d95dcd9e42a68a61453f0fd8b, type: 2}
-  - {fileID: 11400000, guid: 8c0f1ef02caabda47816b97baa173ef7, type: 2}
+  - {fileID: 11400000, guid: 0b30a7b3b829c6a46a0950ecdccaa457, type: 2}
   enchantments:
   - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
   weaponSprite: {fileID: 0}
@@ -22,12 +22,12 @@ MonoBehaviour:
   weaponIcon: {fileID: 0}
   weaponIconSecondary: {fileID: 0}
   weaponUnique: 0
-  weaponBaseName: 
-  weaponRealName: 
+  weaponBaseName: Sword
+  weaponRealName: Sword of Guarding Attack
   weaponDescription: 
   weaponColor:
     serializedVersion: 2
-    rgba: 0
+    rgba: 4278255360
   weaponID: 0
   totalDamageMultiplier: 1
   totalKnockbackMultiplier: 1

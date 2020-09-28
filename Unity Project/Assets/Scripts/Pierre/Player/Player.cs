@@ -42,12 +42,12 @@ public class Player : MonoBehaviour
     public WeaponScriptableObject weapon1, weapon2, weaponInAtk, weaponInHitSpan, switchSpace; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
                                                                                                //when switching weapons in both hands
     public AttackProfileScriptableObject profileInUse;
-    public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity;
+    public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity, hasShot;
     public float hitSpanDamage;
     public int hitSpanAtkNumber, chargeLevel;
     public Vector3 attackDirection;
-    public List<GameObject> enemiesHitLastAttack;
-    public GameObject closestEnemyHitLastAttack;
+    public List<GameObject> enemiesHitLastAttack, enemiesHitLastAttackRanged;
+    public GameObject closestEnemyHitLastAttack, latestEnemyKilled;
     public float clostestEnemyDistance;
     // Start is called before the first frame update
     void Start()
@@ -81,13 +81,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*enchant.DoEnchants(weapon1, 0);
+        enchant.DoEnchants(weapon1, 0);
         if (dualWielding)
         {
         enchant.DoEnchants(weapon2, 0);
-        }*/
-        //weapon1.DoSpecial(0);
-        //weapon2.DoSpecial(0);
+        }
         Inputs();
         if (A && !isInRoll && !isInRecover)
         {
@@ -253,10 +251,11 @@ public class Player : MonoBehaviour
         // (!weapon.atk1Charge)
         //{
         enemiesHitLastAttack.Clear();
+        enemiesHitLastAttackRanged.Clear();
         clostestEnemyDistance = Mathf.Infinity;
         weaponInAtk = weapon; 
         isInAttack = true;
-
+        hasShot = false;
         hitSpanAtkNumber = atkNumber;
         StartCoroutine("ResolveAttack", atkNumber);
         //{
@@ -335,11 +334,14 @@ public class Player : MonoBehaviour
                     {
                         if (enemyDirection.magnitude < clostestEnemyDistance)
                         {
+                            clostestEnemyDistance = enemyDirection.magnitude;
                             closestEnemyHitLastAttack = enemy.gameObject;
                         }
                         enemiesHitLastAttack.Add(enemy.gameObject);
                         Debug.DrawRay(transform.position, enemyDirection, Color.red);
                         print("Enemy hit ! Inflicted " + damage + " damage !");
+                        float finalKnockback = weapon.atk[atkNumber].knockBack[chargeLevel] * weapon.totalKnockbackMultiplier;
+                        DoAttack(damage, finalKnockback, enemy.gameObject);
                     }
                 }
                 
@@ -351,8 +353,27 @@ public class Player : MonoBehaviour
 
         if (weapon.atk[atkNumber].isRanged)
         {
-            Instantiate(weapon.atk[atkNumber].projectile[chargeLevel]);
+            if (!hasShot)
+            {
+                Instantiate(weapon.atk[atkNumber].projectile[chargeLevel], transform.position, Quaternion.LookRotation(attackDirection, Vector3.up));
+                hasShot = true;
+            }
         }
+    }
+
+    public void KillEnchant ()
+    {
+        enchant.DoEnchants(weapon1, 2);
+        if (dualWielding)
+        {
+            enchant.DoEnchants(weapon2, 2);
+        }
+    }
+
+    public void DoAttack(float damage, float knockback, GameObject enemy)
+    {
+        //EnemyDamage enemyDamage = enemy.GetComponent<EnemyDamage>();
+        //enemyDamage.Damage(damage, knockback);
     }
 
     public void AttackEnchant(WeaponScriptableObject weapon)

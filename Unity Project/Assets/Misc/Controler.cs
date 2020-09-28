@@ -89,6 +89,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""f91b6fd0-ae99-416a-8227-097db47ddb96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -206,17 +214,6 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""d5d5297f-adf7-48aa-a7d3-c0c8ca737f13"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b5f12486-d56b-44e5-a9ad-8444d7d29a3f"",
-                    ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -366,6 +363,28 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3caabc4-e0ee-4e17-9579-c8508ff1f365"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18a5b66e-4bc5-45df-9b4f-11b1fddba3a3"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -389,6 +408,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_MousePosition = m_Keyboard.FindAction("MousePosition", throwIfNotFound: true);
         m_Keyboard_Test = m_Keyboard.FindAction("Test", throwIfNotFound: true);
         m_Keyboard_Pause = m_Keyboard.FindAction("Pause", throwIfNotFound: true);
+        m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -447,6 +467,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_MousePosition;
     private readonly InputAction m_Keyboard_Test;
     private readonly InputAction m_Keyboard_Pause;
+    private readonly InputAction m_Keyboard_Interact;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -460,6 +481,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @MousePosition => m_Wrapper.m_Keyboard_MousePosition;
         public InputAction @Test => m_Wrapper.m_Keyboard_Test;
         public InputAction @Pause => m_Wrapper.m_Keyboard_Pause;
+        public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -496,6 +518,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
+                @Interact.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -527,6 +552,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -551,5 +579,6 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnMousePosition(InputAction.CallbackContext context);
         void OnTest(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

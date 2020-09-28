@@ -117,6 +117,11 @@ namespace Weapons
             {
                 target.Add(player);
             }
+            if (type == 2)
+            {
+                target.Clear();
+                target.Add(playerScript.latestEnemyKilled);
+            }
             Debug.LogWarning("Attack 5 " + target.Count);
 
             foreach (GameObject center in target)

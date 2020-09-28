@@ -11,6 +11,7 @@ public class GolemAI : MonoBehaviour
 
     GameObject player;
     Rigidbody rigidbody;
+    EnemyDamage damageManager;
     public Transform rayCastOrigin;
     
     //Line of Sight
@@ -131,7 +132,10 @@ public class GolemAI : MonoBehaviour
 
     void Move()
     {
+        if (!damageManager.isInKnockback)
+        {
         rigidbody.velocity = angleToPlayer * maxSpeed;
+        }
     }
 
     void Attack()

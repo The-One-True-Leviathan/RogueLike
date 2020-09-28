@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4376bf04a0087a84cbb16669ecae7aea, type: 2}
   enchantmentName: Guarding Attack
   prefix: Guarding
-  suffix: Guarding
+  suffix: Guarding Attack
   description: For each enemy you hit, you have an individual 20% chance of gaining
     immunity for 0.8 seconds.
   color: {r: 1, g: 1, b: 1, a: 0}

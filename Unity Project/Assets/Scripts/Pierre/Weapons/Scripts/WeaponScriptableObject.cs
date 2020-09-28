@@ -50,18 +50,18 @@ namespace Weapons
                     if (enchantments.Count == 1)
                     {
                         weaponColor = Color.green;
-                        int rng = Random.Range(0, 1);
-                        weaponRealName = rng == 0 ? (enchantments[0].prefix + weaponBaseName) : (weaponBaseName + " of " + enchantments[0].suffix);
+                        int rng = Random.Range(0, 2);
+                        weaponRealName = rng == 0 ? (enchantments[0].prefix + " " + weaponBaseName) : (weaponBaseName + " of " + enchantments[0].suffix);
                     }
                     else if (enchantments.Count < 4)
                     {
                         weaponColor = Color.blue;
-                        weaponRealName = enchantments.Count == 2 ? (enchantments[0].prefix + " " + weaponBaseName + "of" + enchantments[1].suffix) : (enchantments[0].prefix + " " + weaponBaseName + " of " + enchantments[1].suffix + " and " + enchantments[2].suffix);
+                        weaponRealName = enchantments.Count == 2 ? (enchantments[0].prefix + " " + weaponBaseName + " of " + enchantments[1].suffix) : (enchantments[0].prefix + " " + weaponBaseName + " of " + enchantments[1].suffix + " and " + enchantments[2].suffix);
                     }
                     else
                     {
                         weaponColor = Color.magenta;
-                        weaponRealName = enchantments[0].prefix + " and " + enchantments[1].prefix + weaponBaseName + " of " + enchantments[2].suffix + " and " + enchantments[3].suffix;
+                        weaponRealName = enchantments[0].prefix + " and " + enchantments[1].prefix + " " + weaponBaseName + " of " + enchantments[2].suffix + " and " + enchantments[3].suffix;
                     }
                 } else
                 {
