@@ -8,8 +8,9 @@ public class EnemyDamage : MonoBehaviour
     public Player player;
     public Rigidbody rigidbody;
     public bool isInKnockback;
-    public float knockbackSpeed, knockbackResistance;
-    public Vector3 knockbackDirection;
+    float refKnockbackx, refKnockbacky, refKnockbackz;
+    public float knockbackSpeed, knockbackResistance = 1;
+    public Vector3 knockbackDirection, currentVelocity, targetVelocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,18 +23,24 @@ public class EnemyDamage : MonoBehaviour
     {
         if (isInKnockback)
         {
-            rigidbody.velocity = knockbackDirection * knockbackSpeed / knockbackResistance;
+            currentVelocity.x = Mathf.SmoothDamp(currentVelocity.x, Vector3.zero.x, ref refKnockbackx, 0.2f);
+            currentVelocity.z = Mathf.SmoothDamp(currentVelocity.z, Vector3.zero.z, ref refKnockbackz, 0.2f);
+            rigidbody.velocity = currentVelocity;
         }
     }
 
     public IEnumerator Knockback()
     {
-        yield return new WaitForSeconds(0.2f);
+        currentVelocity = knockbackDirection * knockbackSpeed / knockbackResistance;
+        isInKnockback = true;
+        yield return new WaitForSeconds(0.3f);
         isInKnockback = false;
     }
 
     public void Damage(float damage, float knockback, Transform knockbackOrigin)
     {
+        knockbackDirection = transform.position - knockbackOrigin.position;
+        knockbackSpeed = knockback;
         currentHP -= damage;
         if (currentHP > maxHP)
         {
@@ -43,6 +50,9 @@ public class EnemyDamage : MonoBehaviour
         {
             player.latestEnemyKilled = this.gameObject;
             player.KillEnchant();
+            Object.Destroy(this.gameObject);
         }
+        StopAllCoroutines();
+        StartCoroutine("Knockback");
     }
 }

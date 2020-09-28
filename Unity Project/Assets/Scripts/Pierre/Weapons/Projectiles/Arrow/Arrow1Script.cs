@@ -40,6 +40,7 @@ public class Arrow1Script : MonoBehaviour
                 }
                 playerScript.enemiesHitLastAttackRanged.Add(enemy.gameObject);
                 pierce--;
+                enemy.GetComponent<EnemyDamage>().Damage(damage, knockback, transform);
             }
             playerScript.AttackEnchant(weaponParent);
         }

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects:
   - {fileID: 11400000, guid: 4376bf04a0087a84cbb16669ecae7aea, type: 2}
+  - {fileID: 11400000, guid: 377aa13b0416d874482cca65837ef052, type: 2}
   enchantmentName: Guarding Attack
   prefix: Guarding
   suffix: Guarding Attack

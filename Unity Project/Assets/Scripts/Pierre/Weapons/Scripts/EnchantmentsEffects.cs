@@ -42,6 +42,7 @@ namespace Weapons
         {
             player = GameObject.FindGameObjectWithTag("Player");
             playerScript = player.GetComponent<Player>();
+            isInEffect = false;
         }
         public void DoEffect()
         {

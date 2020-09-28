@@ -13,19 +13,21 @@ public class GolemAI : MonoBehaviour
     Rigidbody rigidbody;
     EnemyDamage damageManager;
     public Transform rayCastOrigin;
-    
+
     //Line of Sight
-    public float maxSight; //How far can the enemy see ?
+    public float maxSight, reactTime; //How far can the enemy see ? / How fast does he react to the player ?
     public float maxAwaken; //How far away should we start drawing raycasts to detect the player 
     public float maxSpeed;
 
     public LayerMask blockLOS;
     public LayerMask isPlayer;
 
-    Vector3 enemyToPlayer, angleToPlayer;
+    Vector3 enemyToPlayer, angleToPlayer, targetVelocity, currentVelocity;
+    float refVelocityx, refVelocityz;
+    public float accelerationTime;
     public float distanceToPlayer;
 
-    public bool playerInSight;
+    public bool playerInSight, playerInMind;
     public bool playerInRange;
 
     //Combat
@@ -40,6 +42,7 @@ public class GolemAI : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rigidbody = GetComponent<Rigidbody>();
+        damageManager = GetComponent<EnemyDamage>();
     }
 
     // Update is called once per frame
@@ -59,18 +62,36 @@ public class GolemAI : MonoBehaviour
     {
         enemyToPlayer = player.transform.position - rayCastOrigin.position;
         distanceToPlayer = enemyToPlayer.magnitude;
-        rigidbody.velocity = Vector3.zero;
+        if (!damageManager.isInKnockback)
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
         if (distanceToPlayer < maxAwaken)
         {
             angleToPlayer = enemyToPlayer;
             angleToPlayer.Normalize();
             Sightcast();
-            if (playerInSight)
+            if (playerInSight && !playerInMind)
+            {
+                StartCoroutine("ReactCoroutine");
+            }
+            if (!playerInSight)
+            {
+                StopCoroutine("ReactCoroutine");
+                playerInMind = false;
+            }
+            if (playerInMind)
             {
                 React();
             }
         }
         
+    }
+
+    public IEnumerator ReactCoroutine()
+    {
+        yield return new WaitForSeconds(reactTime);
+        playerInMind = true;
     }
 
     void Sightcast() 
@@ -120,13 +141,10 @@ public class GolemAI : MonoBehaviour
                 buildupTimeElapsed = attackTimeElapsed = recoveryTimeElapsed = 0;
             }
             isInAttack = true;
+            Attack();
         } else if (!isInAttack)
         {
             Move();
-        }
-        if (isInAttack)
-        {
-            Attack();
         }
     }
 
@@ -134,44 +152,45 @@ public class GolemAI : MonoBehaviour
     {
         if (!damageManager.isInKnockback)
         {
-        rigidbody.velocity = angleToPlayer * maxSpeed;
+            targetVelocity = angleToPlayer * maxSpeed;
+            currentVelocity.x = Mathf.SmoothDamp(currentVelocity.x, targetVelocity.x, ref refVelocityx, accelerationTime);
+            currentVelocity.z = Mathf.SmoothDamp(currentVelocity.z, targetVelocity.z, ref refVelocityz, accelerationTime);
+            rigidbody.velocity = currentVelocity;
+        } else
+        {
+            currentVelocity = Vector3.zero;
+            targetVelocity = Vector3.zero;
+            refVelocityx = 0;
+            refVelocityz = 0;
         }
     }
 
     void Attack()
     {
-        if (isInBuildup && !isAttacking && !isInRecover)
+        StartCoroutine("AttackCoroutine");
+    }
+    public IEnumerator AttackCoroutine()
+    {
+        Vector3 attackDimensions = new Vector3(attackDimensionsLength / 2, 1, attackDimensionsDepth / 2);
+        Vector3 attackDirection = player.transform.position - transform.position;
+        yield return new WaitForSeconds(buildupTime);
+        isInBuildup = false;
+        isAttacking = true;
+        Collider[] hitPlayer = Physics.OverlapSphere(transform.position, attackDimensions.z, isPlayer);
+        foreach (Collider player in hitPlayer)
         {
-            buildupTimeElapsed += Time.deltaTime;
-            if (buildupTimeElapsed >= buildupTime)
+            Vector3 playerDirection = player.transform.position - transform.position;
+
+            float playerAngle = Vector3.Angle(attackDirection, playerDirection);
+            print(playerAngle);
+            if (playerAngle <= attackDimensions.x)
             {
-                isInBuildup = false;
-                isAttacking = true;
-            }
-        } else if (isAttacking && !isInRecover)
-        {
-            Vector3 attackDimensions = new Vector3(attackDimensionsLength / 2, 1, attackDimensionsDepth / 2);
-            bool hit = Physics.BoxCast(rayCastOrigin.position + attackAngle, attackDimensions, attackAngle, Quaternion.Euler(attackAngle), attackDimensionsDepth/2, isPlayer);
-            if (hit)
-            {
-                //Do Damage
-            }
-            attackTimeElapsed += Time.deltaTime;
-            if (attackTimeElapsed >= attackTime)
-            {
-                isAttacking = false;
-                isInRecover = true;
-            }
-        } else if (isInRecover)
-        {
-            recoveryTimeElapsed += Time.deltaTime;
-            if (recoveryTimeElapsed >= recoveryTime)
-            {
-                isInRecover = false;
-                isInAttack = false;
+                //Do Damage to Player
             }
         }
-
-
+        isInRecover = true;
+        yield return new WaitForSeconds(recoveryTime);
+        isInRecover = false;
+        isInAttack = false;
     }
 }

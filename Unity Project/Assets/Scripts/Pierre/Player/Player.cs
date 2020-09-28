@@ -81,11 +81,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enchant.DoEnchants(weapon1, 0);
+        /*enchant.DoEnchants(weapon1, 0);
         if (dualWielding)
         {
         enchant.DoEnchants(weapon2, 0);
-        }
+        }*/
         Inputs();
         if (A && !isInRoll && !isInRecover)
         {
@@ -231,8 +231,9 @@ public class Player : MonoBehaviour
 
         if (!isInRoll)
         {
+            
             rollDirection = lastDirection;
-            targetSpeed = lStick * maxSpeed;
+            targetSpeed = Vector3.ClampMagnitude(lStick, 1) * maxSpeed;
         }
         Debug.DrawRay(transform.position, targetSpeed, Color.blue);
     }
@@ -372,8 +373,8 @@ public class Player : MonoBehaviour
 
     public void DoAttack(float damage, float knockback, GameObject enemy)
     {
-        //EnemyDamage enemyDamage = enemy.GetComponent<EnemyDamage>();
-        //enemyDamage.Damage(damage, knockback);
+        EnemyDamage enemyDamage = enemy.GetComponent<EnemyDamage>();
+        enemyDamage.Damage(damage, knockback, transform);
     }
 
     public void AttackEnchant(WeaponScriptableObject weapon)
