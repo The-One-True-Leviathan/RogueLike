@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9479960e238713e4fa31fa6725a9cc5e, type: 3}
+  m_Name: WeaponItemCardTest
+  m_EditorClassIdentifier: 
+  atk:
+  - {fileID: 11400000, guid: 120316fe616941440afd017b8ff8df9b, type: 2}
+  - {fileID: 11400000, guid: a1b01857fa9810245a8619fc60cf4b1e, type: 2}
+  enchantments:
+  - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
+  - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
+  weaponSprite: {fileID: 0}
+  weaponItemSprite: {fileID: 0}
+  weaponIcon: {fileID: 21300000, guid: 38edcc373fa5fc34fb8c527ffd641001, type: 3}
+  weaponIconSecondary: {fileID: 21300000, guid: b58396b875f6c4a4e9bae1cba4c38a99,
+    type: 3}
+  weaponUnique: 0
+  weaponBaseName: Sword
+  weaponRealName: Keen Sword of Length
+  weaponDescription: An ancient but elegant piece of refined steel.
+  weaponColor:
+    serializedVersion: 2
+    rgba: 4294901760
+  weaponID: 0
+  totalDamageMultiplier: 1.5
+  totalKnockbackMultiplier: 1
+  totalBuildupMultiplier: 1
+  totalReachMultiplier: {x: 1, y: 1, z: 16}
