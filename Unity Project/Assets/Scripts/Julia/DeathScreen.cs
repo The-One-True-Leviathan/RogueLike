@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class DeathScreen : MonoBehaviour
 {
-    public Compteur compteur;
     public UnityEngine.UI.Text scoreCoins, scoreBoulons;
 
 
