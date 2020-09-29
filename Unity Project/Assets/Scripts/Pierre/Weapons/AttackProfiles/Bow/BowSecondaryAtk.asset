@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec2c502abf03974a8aa1128062f725e, type: 3}
+  m_Name: BowSecondaryAtk
+  m_EditorClassIdentifier: 
+  isHeavy: 0
+  isRanged: 1
+  projectile:
+  - {fileID: 4478690898900698741, guid: 88089fce66a31954b94272d79636117e, type: 3}
+  - {fileID: 5259662877103535822, guid: 21bc4c9853bd0d14d9390134d4270128, type: 3}
+  - {fileID: 1962441331342611561, guid: bff6f944a84a40e4d9fb6e5edd584118, type: 3}
+  reach:
+  - {x: 0, y: 0, z: 0}
+  buildup: 0.1
+  isCharge: 1
+  chargeTime:
+  - 0.1
+  - 0.2
+  - 0.4
+  hitSpan:
+  - 0
+  - 0
+  - 0
+  recover:
+  - 0.2
+  - 0.2
+  - 0.15
+  cooldown:
+  - 0.3
+  - 0.3
+  - 0.2
+  damage:
+  - 0
+  - 0
+  - 0
+  knockBack:
+  - 0
+  - 0
+  - 0

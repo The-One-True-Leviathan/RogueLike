@@ -9,27 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: GuardingAttackEffect
-  m_EditorClassIdentifier: Assembly-CSharp:Weapons:EnchantmentsEffect
-  particles: {fileID: 2753346943785932558, guid: 35fb1136eee47c34cb7db2cd9121db4c,
+  m_Script: {fileID: 11500000, guid: ef22dad0b4bfb834cbf31dfb60925ed5, type: 3}
+  m_Name: EfBackBlast
+  m_EditorClassIdentifier: 
+  particles: {fileID: 6129277174579256132, guid: afc732c772c66c748a88295109738723,
     type: 3}
-  effectType: 3
-  type: 1
+  effectType: 0
+  type: 4
   useNativeRNG: 1
   nativeRNG: 0
   isInEffect: 0
   effectTicLength: 0
-  effectDuration: 0.5
-  effectReach: {x: 0, y: 0, z: 0}
+  effectDuration: 0.15
+  effectReach: {x: 30, y: 0, z: 6}
   useWeaponReach: 0
   centerOn: 0
   centerEffectOnAllEnemies: 0
   centerEffectOnClosestEnemy: 0
-  invertDirection: 0
-  effectStrength: 5
+  invertDirection: 1
+  effectStrength: 3
   effectChanceLower: 0
-  effectChanceUpper: 20
+  effectChanceUpper: 100
   effectAffectedLayers:
     serializedVersion: 2
     m_Bits: 256

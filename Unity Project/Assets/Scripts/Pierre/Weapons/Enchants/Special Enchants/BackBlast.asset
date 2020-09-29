@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2cc07dcfd8055449bf5e0a72a26356, type: 3}
+  m_Name: BackBlast
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 11400000, guid: aadd718a6b29c9f45b9e3514b4a95af7, type: 2}
+  enchantmentName: Back Blast
+  prefix: Back Blasting
+  suffix: Back Blast
+  description: Creates a blast in the opposite direction, dealing 3 damage.
+  color: {r: 0, g: 0, b: 0, a: 0}
+  rng: 0
+  multiplierDamage: 1
+  multiplierBuildup: 1
+  multiplierKnockback: 1
+  multiplierReach: {x: 1, y: 1, z: 1}

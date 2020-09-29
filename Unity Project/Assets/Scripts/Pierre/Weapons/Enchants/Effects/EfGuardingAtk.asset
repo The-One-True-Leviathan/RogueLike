@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: GuardingAttackEffect
-  m_EditorClassIdentifier: Assembly-CSharp:Weapons:EnchantmentsEffect
+  m_Script: {fileID: 11500000, guid: ef22dad0b4bfb834cbf31dfb60925ed5, type: 3}
+  m_Name: EfGuardingAtk
+  m_EditorClassIdentifier: 
   particles: {fileID: 2753346943785932558, guid: 35fb1136eee47c34cb7db2cd9121db4c,
     type: 3}
   effectType: 3
@@ -27,9 +27,9 @@ MonoBehaviour:
   centerEffectOnAllEnemies: 0
   centerEffectOnClosestEnemy: 0
   invertDirection: 0
-  effectStrength: 5
+  effectStrength: 0
   effectChanceLower: 0
   effectChanceUpper: 20
   effectAffectedLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0

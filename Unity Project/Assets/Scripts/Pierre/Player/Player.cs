@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     public WeaponScriptableObject weapon1, weapon2, weaponInAtk, weaponInHitSpan, switchSpace; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
                                                                                                //when switching weapons in both hands
     public AttackProfileScriptableObject profileInUse;
-    public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity, hasShot;
+    public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity, hasShot, isInHeavyAtk;
     public float hitSpanDamage;
     public int hitSpanAtkNumber, chargeLevel;
     public Vector3 attackDirection;
@@ -211,19 +211,19 @@ public class Player : MonoBehaviour
         rStick.Normalize();
         normalizedLStick = lStick.normalized; 
 
-        if (!(rStick == Vector3.zero))
+        if (!(rStick == Vector3.zero) && !isInHeavyAtk)
         {
             lastDirection = rStick;
         }
 
-        if (normalizedLStick != Vector3.zero)
+        if (normalizedLStick != Vector3.zero && !isInHeavyAtk)
         {
             lastDirection = normalizedLStick;
         }
 
 
         attackDirection = lastDirection;
-        if (!(rStick == Vector3.zero))
+        if (!(rStick == Vector3.zero) && !isInHeavyAtk)
         {
             attackDirection = rStick;
         }
@@ -243,8 +243,18 @@ public class Player : MonoBehaviour
 
         currentSpeed.x = Mathf.SmoothDamp(currentSpeed.x, targetSpeed.x, ref xVelocity, accelerationTime);
         currentSpeed.z = Mathf.SmoothDamp(currentSpeed.z, targetSpeed.z, ref zVelocity, accelerationTime);
+        if(isInHeavyAtk)
+        {
+            currentSpeed = Vector3.zero;
+            targetSpeed = Vector3.zero;
+            xVelocity = zVelocity = 0;
+        }
 
         rigidbody.velocity = currentSpeed;
+        if (isInCharge)
+        {
+            rigidbody.velocity = currentSpeed/2;
+        }
     }
 
     public void Attack(WeaponScriptableObject weapon, int atkNumber)
@@ -270,11 +280,16 @@ public class Player : MonoBehaviour
         print("start attack");
         isInBuildup = true;
         chargeLevel = 0;
+        if (weapon.atk[atkNumber].isHeavy)
+        {
+            isInHeavyAtk = true;
+        }
         if (!weapon.atk[atkNumber].isCharge)
         {
             yield return new WaitForSeconds(weapon.atk[atkNumber].buildup*weapon.totalBuildupMultiplier);
         } else
         {
+            isInCharge = true;
             yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0]*weapon.totalBuildupMultiplier);
             print("attack charge 0");
             if (!X)
@@ -300,6 +315,7 @@ public class Player : MonoBehaviour
         }
         print("attack");
         isInHitSpan = true;
+        enchant.DoEnchants(weapon, 4);
         weaponInHitSpan = weapon;
         hitSpanDamage = (weapon.atk[atkNumber].damage[chargeLevel]) * weapon.totalDamageMultiplier;
         isInBuildup = false;
@@ -307,6 +323,8 @@ public class Player : MonoBehaviour
         isInCooldown = true;
         yield return new WaitForSeconds((weapon.atk[atkNumber].hitSpan[chargeLevel])*weapon.totalBuildupMultiplier);
         isInHitSpan = false;
+        isInHeavyAtk = false;
+        isInCharge = true;
         yield return new WaitForSeconds((weapon.atk[atkNumber].recover[chargeLevel] - weapon.atk[atkNumber].hitSpan[chargeLevel])* weapon.totalBuildupMultiplier);
         print("recover");
         isInRecover = false;

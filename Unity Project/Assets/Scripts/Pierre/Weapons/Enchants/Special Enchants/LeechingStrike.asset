@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f2cc07dcfd8055449bf5e0a72a26356, type: 3}
-  m_Name: GuardingAttack
+  m_Name: LeechingStrike
   m_EditorClassIdentifier: 
   effects:
-  - {fileID: 11400000, guid: 4376bf04a0087a84cbb16669ecae7aea, type: 2}
-  - {fileID: 11400000, guid: 377aa13b0416d874482cca65837ef052, type: 2}
-  enchantmentName: Guarding Attack
-  prefix: Guarding
-  suffix: Guarding Attack
-  description: For each enemy you hit, you have an individual 20% chance of gaining
-    immunity for 0.8 seconds.
-  color: {r: 1, g: 1, b: 1, a: 0}
+  - {fileID: 11400000, guid: 39a31af7be7746a48bd07b95f9c97d21, type: 2}
+  enchantmentName: Leeching Strike
+  prefix: Leeching
+  suffix: Leeching Strikes
+  description: On every hit, you have an individual 10% chance to regain 2HP.
+  color: {r: 0, g: 0, b: 0, a: 0}
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 1

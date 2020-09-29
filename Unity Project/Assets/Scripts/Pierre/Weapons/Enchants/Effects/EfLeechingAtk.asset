@@ -9,27 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: GuardingAttackEffect
-  m_EditorClassIdentifier: Assembly-CSharp:Weapons:EnchantmentsEffect
-  particles: {fileID: 2753346943785932558, guid: 35fb1136eee47c34cb7db2cd9121db4c,
+  m_Script: {fileID: 11500000, guid: ef22dad0b4bfb834cbf31dfb60925ed5, type: 3}
+  m_Name: EfLeechingAtk
+  m_EditorClassIdentifier: 
+  particles: {fileID: 7608338295425577811, guid: 9938687793233a9409f5a8fa323a871a,
     type: 3}
-  effectType: 3
+  effectType: 1
   type: 1
   useNativeRNG: 1
   nativeRNG: 0
   isInEffect: 0
   effectTicLength: 0
-  effectDuration: 0.5
+  effectDuration: 0
   effectReach: {x: 0, y: 0, z: 0}
   useWeaponReach: 0
   centerOn: 0
   centerEffectOnAllEnemies: 0
   centerEffectOnClosestEnemy: 0
   invertDirection: 0
-  effectStrength: 5
+  effectStrength: 2
   effectChanceLower: 0
   effectChanceUpper: 20
   effectAffectedLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0

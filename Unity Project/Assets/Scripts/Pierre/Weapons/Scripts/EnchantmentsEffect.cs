@@ -16,7 +16,7 @@ namespace Weapons
 
         public EffectEnchantmentType effectType;
         [Tooltip("Type : 0 = Idle, 1 = Attack, 2 = Kill, 3 = Damage")]
-        public int type; //0 = Idle, 1 = Attack, 2 = Kill, 3 = Damage
+        public int type; //0 = Idle, 1 = An Enemy is Hit, 2 = An Enemy is Killed, 3 = Damage, 4 = Any Attacks
         [Tooltip("Should the effect use the rng given by the whole enchantment or roll its own ?")]
         public bool useNativeRNG; //Should the effect use the rng given by the whole enchantment or roll his own ?
         public int nativeRNG; //Contains the rng given by the whole enchantment

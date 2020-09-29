@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2cc07dcfd8055449bf5e0a72a26356, type: 3}
+  m_Name: ExplosiveStrikes
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 11400000, guid: b3f6a2e0abc90c049ae6a9cf92ff972e, type: 2}
+  enchantmentName: Explosive Strike
+  prefix: Explosive
+  suffix: Explosions
+  description: Enemies you hit have a 33% chance of creating a blast behind them,
+    dealing 3 damage.
+  color: {r: 0, g: 0, b: 0, a: 0}
+  rng: 0
+  multiplierDamage: 1
+  multiplierBuildup: 1
+  multiplierKnockback: 1
+  multiplierReach: {x: 1, y: 1, z: 1}
