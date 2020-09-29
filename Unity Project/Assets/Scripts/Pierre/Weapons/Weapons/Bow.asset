@@ -18,8 +18,9 @@ MonoBehaviour:
   enchantments: []
   weaponSprite: {fileID: 0}
   weaponItemSprite: {fileID: 0}
-  weaponIcon: {fileID: 0}
-  weaponIconSecondary: {fileID: 0}
+  weaponIcon: {fileID: 21300000, guid: d42daf69f6dd6794e9519ea2db1907f6, type: 3}
+  weaponIconSecondary: {fileID: 21300000, guid: 8970c70f69783c549ba95fbae94f06d1,
+    type: 3}
   weaponUnique: 0
   weaponBaseName: Bow
   weaponRealName: 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7457847842000493519
+--- !u!1 &567205499789051484
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7457847842000493517}
-  - component: {fileID: 7457847842000493516}
-  - component: {fileID: 7457847842000493514}
-  - component: {fileID: 7457847842000493515}
-  - component: {fileID: 7457847842000493512}
+  - component: {fileID: 567205499789051486}
+  - component: {fileID: 567205499789051487}
+  - component: {fileID: 567205499789051481}
+  - component: {fileID: 567205499789051480}
+  - component: {fileID: 567205499789051483}
   m_Layer: 11
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7457847842000493517
+--- !u!4 &567205499789051486
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457847842000493519}
+  m_GameObject: {fileID: 567205499789051484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.25, y: 0.505, z: -4.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7457847842000493516
+--- !u!136 &567205499789051487
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457847842000493519}
+  m_GameObject: {fileID: 567205499789051484}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -48,13 +48,13 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7457847842000493514
+--- !u!54 &567205499789051481
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457847842000493519}
+  m_GameObject: {fileID: 567205499789051484}
   serializedVersion: 2
   m_Mass: 0.2
   m_Drag: 0
@@ -64,13 +64,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &7457847842000493515
+--- !u!114 &567205499789051480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457847842000493519}
+  m_GameObject: {fileID: 567205499789051484}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc413b6cb2197bd4ba98c954f7d422b3, type: 3}
@@ -79,7 +79,7 @@ MonoBehaviour:
   layerEnemies:
     serializedVersion: 2
     m_Bits: 256
-  enchant: {fileID: 7457847842000493512}
+  enchant: {fileID: 567205499789051483}
   absoluteMaxHealth: 0
   maxHealth: 0
   health: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
   normalizedLStick: {x: 0, y: 0, z: 0}
   currentSpeed: {x: 0, y: 0, z: 0}
   targetSpeed: {x: 0, y: 0, z: 0}
-  maxSpeed: 5
-  accelerationTime: 0.1
+  maxSpeed: 4
+  accelerationTime: 0.05
   isInRoll: 0
   rollLength: 0.1
   rollRecover: 0.2
@@ -103,9 +103,9 @@ MonoBehaviour:
   rollDirection: {x: 0, y: 0, z: 0}
   dualWielding: 0
   switchTime: 0.2
-  weapon1: {fileID: 11400000, guid: 83b377ce9a146a64ab933fdeb6d0f033, type: 2}
-  weapon2: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
-  weaponInAtk: {fileID: 0}
+  weapon1: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
+  weapon2: {fileID: 11400000, guid: 659fabecd2c908b4da381ec258ca7b9e, type: 2}
+  weaponInAtk: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
   weaponInHitSpan: {fileID: 0}
   switchSpace: {fileID: 0}
   profileInUse: {fileID: 0}
@@ -116,20 +116,24 @@ MonoBehaviour:
   isInCooldown: 0
   isInHitSpan: 0
   isInImmunity: 0
+  hasShot: 0
+  isInHeavyAtk: 0
   hitSpanDamage: 0
   hitSpanAtkNumber: 0
   chargeLevel: 0
   attackDirection: {x: 0, y: 0, z: 0}
   enemiesHitLastAttack: []
+  enemiesHitLastAttackRanged: []
   closestEnemyHitLastAttack: {fileID: 0}
+  latestEnemyKilled: {fileID: 0}
   clostestEnemyDistance: 0
---- !u!114 &7457847842000493512
+--- !u!114 &567205499789051483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457847842000493519}
+  m_GameObject: {fileID: 567205499789051484}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8e9d57598f2f0a47ab07a775bc0aa29, type: 3}
