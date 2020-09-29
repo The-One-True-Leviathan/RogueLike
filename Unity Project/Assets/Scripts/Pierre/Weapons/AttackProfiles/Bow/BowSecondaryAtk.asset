@@ -20,12 +20,14 @@ MonoBehaviour:
   - {fileID: 1962441331342611561, guid: bff6f944a84a40e4d9fb6e5edd584118, type: 3}
   reach:
   - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   buildup: 0.1
   isCharge: 1
   chargeTime:
-  - 0.1
-  - 0.2
-  - 0.4
+  - 0.3
+  - 0.9
+  - 1.2
   hitSpan:
   - 0
   - 0
@@ -35,9 +37,9 @@ MonoBehaviour:
   - 0.2
   - 0.15
   cooldown:
-  - 0.3
-  - 0.3
-  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
   damage:
   - 0
   - 0

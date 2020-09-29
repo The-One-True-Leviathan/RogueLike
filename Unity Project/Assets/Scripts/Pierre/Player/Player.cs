@@ -216,16 +216,18 @@ public class Player : MonoBehaviour
             lastDirection = rStick;
         }
 
-        if (normalizedLStick != Vector3.zero && !isInHeavyAtk)
+        if (!isInHeavyAtk)
         {
-            lastDirection = normalizedLStick;
-        }
+            if (normalizedLStick != Vector3.zero)
+            {
+                lastDirection = normalizedLStick;
+            }
 
-
-        attackDirection = lastDirection;
-        if (!(rStick == Vector3.zero) && !isInHeavyAtk)
-        {
-            attackDirection = rStick;
+            attackDirection = lastDirection;
+            if (!(rStick == Vector3.zero))
+            {
+                attackDirection = rStick;
+            }
         }
         Debug.DrawRay(transform.position, attackDirection, Color.red);
 
@@ -292,7 +294,7 @@ public class Player : MonoBehaviour
             isInCharge = true;
             yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0]*weapon.totalBuildupMultiplier);
             print("attack charge 0");
-            if (!X)
+            if (!X && !B)
             {
                 chargeLevel = 0;
                 yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
@@ -301,7 +303,7 @@ public class Player : MonoBehaviour
             {
                 yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                 print("attack charge 1");
-                if (!X)
+                if (!X && !B)
                 {
                     chargeLevel = 1;
                 }
@@ -324,7 +326,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds((weapon.atk[atkNumber].hitSpan[chargeLevel])*weapon.totalBuildupMultiplier);
         isInHitSpan = false;
         isInHeavyAtk = false;
-        isInCharge = true;
+        isInCharge = false;
         yield return new WaitForSeconds((weapon.atk[atkNumber].recover[chargeLevel] - weapon.atk[atkNumber].hitSpan[chargeLevel])* weapon.totalBuildupMultiplier);
         print("recover");
         isInRecover = false;

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atk:
   - {fileID: 11400000, guid: 0b30a7b3b829c6a46a0950ecdccaa457, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bbde3df19cbea314fadf63d57f8bdf0a, type: 2}
   enchantments: []
   weaponSprite: {fileID: 0}
   weaponItemSprite: {fileID: 0}
@@ -23,7 +23,7 @@ MonoBehaviour:
     type: 3}
   weaponUnique: 0
   weaponBaseName: Bow
-  weaponRealName: 
+  weaponRealName: Bow
   weaponDescription: An archaic but effective missile weapon.
   weaponColor:
     serializedVersion: 2
