@@ -15,13 +15,12 @@ public class WeaponItemCard : MonoBehaviour
     public Image panel;
 
     // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
         weapon.InitializeWeapon();
         texts = GetComponentsInChildren<Text>();
         panel = GetComponentInChildren<Image>();
         itemUI = gameObject;
-        itemUI.SetActive(false);
         string[] displayEnchantUI = new string[4];
         //displayWeaponNameUI.text = weapon.weaponRealName;
         for (int i = 0; i < 4; i++)

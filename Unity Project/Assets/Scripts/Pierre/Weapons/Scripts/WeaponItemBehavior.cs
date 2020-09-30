@@ -9,20 +9,27 @@ public class WeaponItemBehavior : MonoBehaviour
     public InteractibleBehavior interactible;
     public Player player;
     public Rigidbody rigidBody;
+    public Animator animator;
     Vector3 currentSpeed;
     public float dropStrength = 1, stopTime, refx, refz;
     public bool dropped = false;
+    public SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        interactible = GetComponentInChildren<InteractibleBehavior>();
+        rigidBody = GetComponent<Rigidbody>();
         if (weapon != null)
         {
             weapon.InitializeWeapon();
             gameObject.name = weapon.weaponRealName;
+            sprite.sprite = weapon.weaponItemSprite;
+            GetComponentInChildren<WeaponItemCard>().weapon = weapon;
+            GetComponentInChildren<WeaponItemCard>().Initialize();
         }
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        interactible = GetComponentInChildren<InteractibleBehavior>();
-        rigidBody = GetComponent<Rigidbody>();
     }
 
     public void Dropped()
@@ -30,6 +37,8 @@ public class WeaponItemBehavior : MonoBehaviour
         weapon = player.droppedWeapon;
         weapon.InitializeWeapon();
         gameObject.name = weapon.weaponRealName;
+        GetComponentInChildren<WeaponItemCard>().weapon = weapon;
+        GetComponentInChildren<WeaponItemCard>().Initialize();
         currentSpeed = player.attackDirection * dropStrength;
         rigidBody.AddForce(currentSpeed, ForceMode.Impulse);
     }
@@ -51,6 +60,7 @@ public class WeaponItemBehavior : MonoBehaviour
                 player.ChangeWeapon(weapon);
                 Object.Destroy(gameObject);
             }
+            animator.SetBool("Open", interactible.interactible);
         }
     }
 }
