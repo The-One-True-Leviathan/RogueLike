@@ -18,13 +18,13 @@ MonoBehaviour:
   enchantments:
   - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
   weaponSprite: {fileID: 0}
-  weaponItemSprite: {fileID: 0}
+  weaponItemSprite: {fileID: 21300000, guid: d42daf69f6dd6794e9519ea2db1907f6, type: 3}
   weaponIcon: {fileID: 21300000, guid: d42daf69f6dd6794e9519ea2db1907f6, type: 3}
   weaponIconSecondary: {fileID: 21300000, guid: 8970c70f69783c549ba95fbae94f06d1,
     type: 3}
   weaponUnique: 0
   weaponBaseName: Bow
-  weaponRealName: Bow of Keen Edge
+  weaponRealName: Keen Bow
   weaponDescription: An archaic but effective missile weapon.
   weaponColor:
     serializedVersion: 2
