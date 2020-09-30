@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
     public bool dualWielding; //Is the character wielding two different weapons ?
     public float switchTime;
-    public WeaponScriptableObject weapon1, weapon2, weaponInAtk, weaponInHitSpan, switchSpace; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
+    public WeaponScriptableObject weapon1, weapon2, weaponInAtk, weaponInHitSpan, switchSpace, droppedWeapon = null; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
                                                                                                //when switching weapons in both hands
     public AttackProfileScriptableObject profileInUse;
     public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity, hasShot, isInHeavyAtk;
@@ -148,6 +148,20 @@ public class Player : MonoBehaviour
         isInCooldown = true;
         yield return new WaitForSeconds(switchTime);
         isInCooldown = false;
+    }
+
+    public void ChangeWeapon(WeaponScriptableObject newWeapon)
+    {
+        if (!dualWielding)
+        {
+            dualWielding = true;
+            weapon2 = newWeapon;
+        } else
+        {
+            droppedWeapon = weapon2;
+            droppedWeapon = null;
+            weapon2 = newWeapon;
+        }
     }
 
     public void Roll()
