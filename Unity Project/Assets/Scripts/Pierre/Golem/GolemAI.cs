@@ -10,7 +10,7 @@ public class GolemAI : MonoBehaviour
 {
 
     GameObject player;
-    Rigidbody rigidbody;
+    Rigidbody rigidBody;
     EnemyDamage damageManager;
     public Transform rayCastOrigin;
 
@@ -31,7 +31,7 @@ public class GolemAI : MonoBehaviour
     public bool playerInRange;
 
     //Combat
-    public float attackRange;
+    public float attackRange, attackDamage, attackKnockback;
     public bool isInAttack, isInBuildup, isAttacking, isInRecover;
     public float buildupTime, attackTime, recoveryTime, attackDimensionsLength, attackDimensionsDepth;
     float buildupTimeElapsed, attackTimeElapsed, recoveryTimeElapsed;
@@ -41,7 +41,7 @@ public class GolemAI : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        rigidbody = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         damageManager = GetComponent<EnemyDamage>();
     }
 
@@ -64,7 +64,7 @@ public class GolemAI : MonoBehaviour
         distanceToPlayer = enemyToPlayer.magnitude;
         if (!damageManager.isInKnockback)
         {
-            rigidbody.velocity = Vector3.zero;
+            rigidBody.velocity = Vector3.zero;
         }
         if (distanceToPlayer < maxAwaken)
         {
@@ -155,7 +155,7 @@ public class GolemAI : MonoBehaviour
             targetVelocity = angleToPlayer * maxSpeed;
             currentVelocity.x = Mathf.SmoothDamp(currentVelocity.x, targetVelocity.x, ref refVelocityx, accelerationTime);
             currentVelocity.z = Mathf.SmoothDamp(currentVelocity.z, targetVelocity.z, ref refVelocityz, accelerationTime);
-            rigidbody.velocity = currentVelocity;
+            rigidBody.velocity = currentVelocity;
         } else
         {
             currentVelocity = Vector3.zero;
@@ -177,7 +177,7 @@ public class GolemAI : MonoBehaviour
         isInBuildup = false;
         isAttacking = true;
         Collider[] hitPlayer = Physics.OverlapSphere(transform.position, attackDimensions.z, isPlayer);
-        foreach (Collider player in hitPlayer)
+        foreach (Collider target in hitPlayer)
         {
             Vector3 playerDirection = player.transform.position - transform.position;
 
@@ -185,7 +185,7 @@ public class GolemAI : MonoBehaviour
             print(playerAngle);
             if (playerAngle <= attackDimensions.x)
             {
-                //Do Damage to Player
+                player.GetComponent<Player>().PlayerDamage(attackDamage);
             }
         }
         isInRecover = true;

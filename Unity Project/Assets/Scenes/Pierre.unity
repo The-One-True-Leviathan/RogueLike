@@ -187,7 +187,7 @@ MonoBehaviour:
   maxHP: 20
   currentHP: 20
   player: {fileID: 0}
-  rigidbody: {fileID: 0}
+  rigidBody: {fileID: 0}
   isInKnockback: 0
   knockbackSpeed: 0
   knockbackResistance: 3
@@ -223,6 +223,8 @@ MonoBehaviour:
   playerInMind: 0
   playerInRange: 0
   attackRange: 1
+  attackDamage: 0
+  attackKnockback: 0
   isInAttack: 0
   isInBuildup: 0
   isAttacking: 0
@@ -488,6 +490,8 @@ MonoBehaviour:
   playerInMind: 0
   playerInRange: 0
   attackRange: 1
+  attackDamage: 0
+  attackKnockback: 0
   isInAttack: 0
   isInBuildup: 0
   isAttacking: 0
@@ -528,7 +532,7 @@ MonoBehaviour:
   maxHP: 20
   currentHP: 20
   player: {fileID: 0}
-  rigidbody: {fileID: 0}
+  rigidBody: {fileID: 0}
   isInKnockback: 0
   knockbackSpeed: 0
   knockbackResistance: 3
@@ -1986,7 +1990,7 @@ MonoBehaviour:
   maxHP: 20
   currentHP: 20
   player: {fileID: 0}
-  rigidbody: {fileID: 0}
+  rigidBody: {fileID: 0}
   isInKnockback: 0
   knockbackSpeed: 0
   knockbackResistance: 3
@@ -2022,6 +2026,8 @@ MonoBehaviour:
   playerInMind: 0
   playerInRange: 0
   attackRange: 1
+  attackDamage: 0
+  attackKnockback: 0
   isInAttack: 0
   isInBuildup: 0
   isAttacking: 0
@@ -2311,6 +2317,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 48ae34832b39d874cbf94d27b92988be,
         type: 2}
+    - target: {fileID: 567205499789051480, guid: d592b9dfced1a3249986d877eaff160c,
+        type: 3}
+      propertyPath: isInRoll
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567205499789051480, guid: d592b9dfced1a3249986d877eaff160c,
+        type: 3}
+      propertyPath: interactible.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 567205499789051484, guid: d592b9dfced1a3249986d877eaff160c,
         type: 3}
       propertyPath: m_Name

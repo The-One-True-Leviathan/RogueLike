@@ -6,7 +6,7 @@ public class EnemyDamage : MonoBehaviour
 {
     public float maxHP, currentHP;
     public Player player;
-    public Rigidbody rigidbody;
+    public Rigidbody rigidBody;
     public bool isInKnockback;
     float refKnockbackx, refKnockbacky, refKnockbackz;
     public float knockbackSpeed, knockbackResistance = 1;
@@ -15,7 +15,7 @@ public class EnemyDamage : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        rigidbody = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class EnemyDamage : MonoBehaviour
         {
             currentVelocity.x = Mathf.SmoothDamp(currentVelocity.x, Vector3.zero.x, ref refKnockbackx, 0.2f);
             currentVelocity.z = Mathf.SmoothDamp(currentVelocity.z, Vector3.zero.z, ref refKnockbackz, 0.2f);
-            rigidbody.velocity = currentVelocity;
+            rigidBody.velocity = currentVelocity;
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using UnityEditor;
 using UnityEngine;
@@ -7,18 +8,16 @@ using Weapons;
 
 public class Player : MonoBehaviour
 {
+    //Appels de composants nécessaires
     public LayerMask layerEnemies;
-    Rigidbody rigidbody;
+    Rigidbody rigidBody;
     public EnchantmentManager enchant;
+    public HealthBar healthBar;
 
+    public float damageImmunity; //Longeur (en secondes) de l'immunité après avoir prit des dégâts
 
-    public int absoluteMaxHealth;
-    public int maxHealth;
-    public float health;
-    public float damageImmunity;
-
-    Controler controller;
-    public bool A, B, Y, X;
+    Controler controller; //Appel du controlleur
+    public bool south, secondaryAtk, north, mainAtk;
     public Vector3 rStick, lStick, lastDirection, normalizedLStick;
 
 
@@ -27,6 +26,9 @@ public class Player : MonoBehaviour
     public float maxSpeed = 10f, accelerationTime = 0.3f;
 
 
+    public Collider[] allInteractibleInRange;
+    public float interactRange, interactAngle;
+    public LayerMask interactible;
 
 
 
@@ -52,31 +54,32 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
         weapon1.InitializeWeapon();
         if (weapon2 != null)
         {
             weapon2.InitializeWeapon();
         }
         enchant = GetComponent<EnchantmentManager>();
-        rigidbody = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         controller = new Controler();
         controller.Enable();
         lastDirection = Vector3.forward;
-        controller.Keyboard.Attack1.started += ctx => X = true;
-        controller.Keyboard.Attack1.canceled += ctx => X = false;
+        controller.Keyboard.Attack1.started += ctx => mainAtk = true;
+        controller.Keyboard.Attack1.canceled += ctx => mainAtk = false;
 
 
-        controller.Keyboard.Attack2.started += ctx => B = true;
-        controller.Keyboard.Attack2.canceled += ctx => B = false;
+        controller.Keyboard.Attack2.started += ctx => secondaryAtk = true;
+        controller.Keyboard.Attack2.canceled += ctx => secondaryAtk = false;
 
-        controller.Keyboard.Switch.started += ctx => Y = true;
-        controller.Keyboard.Switch.canceled += ctx => Y = false;
+        controller.Keyboard.Switch.started += ctx => north = true;
+        controller.Keyboard.Switch.canceled += ctx => north = false;
 
-        controller.Keyboard.Roll.started += ctx => A = true;
-        controller.Keyboard.Roll.canceled += ctx => A = false;
+        controller.Keyboard.Roll.started += ctx => south = true;
+        controller.Keyboard.Roll.canceled += ctx => south = false;
 
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -87,20 +90,20 @@ public class Player : MonoBehaviour
         enchant.DoEnchants(weapon2, 0);
         }*/
         Inputs();
-        if (A && !isInRoll && !isInRecover)
+        if (south && !isInRoll && !isInRecover)
         {
             Roll();
         }
-        
+
 
         if (!isInAttack && !isInCooldown)
         {
-            if (X)
+            if (mainAtk)
             {
                 Attack(weapon1, 0);
             }
 
-            if (B)
+            if (secondaryAtk)
             {
                 if (dualWielding)
                 {
@@ -112,14 +115,19 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (dualWielding && Y &&!isInCooldown)
+        if (dualWielding && north && !isInCooldown)
         {
             Switch();
         }
-        
+
+        InteractSphere();
+        if (controller.Keyboard.Interact.triggered)
+        {
+            InteractAction();
+        }
 
         Move();
-        
+
 
         if (isInHitSpan)
         {
@@ -161,27 +169,19 @@ public class Player : MonoBehaviour
 
     public void Heal(float amount)
     {
-        health += amount;
-        if (health > maxHealth)
-        {
-            health = maxHealth;
-        }
+        healthBar.ApplyDamage(-amount);
     }
 
-    public void IncreaseMaxHealth(int amount)
+    public void IncreaseMaxHealth(float amount)
     {
-        maxHealth += amount;
-        if (maxHealth > absoluteMaxHealth)
-        {
-            maxHealth = absoluteMaxHealth;
-        }
+        healthBar.UpgradeLife(amount);
     }
 
-    public void PlayerDamage(int amount)
+    public void PlayerDamage(float amount)
     {
         if (!isInImmunity && !isInRoll)
         {
-            health -= amount;
+            healthBar.ApplyDamage(amount);
             enchant.DoEnchants(weapon1, 3);
             if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
             Immunity(damageImmunity);
@@ -205,11 +205,11 @@ public class Player : MonoBehaviour
 
     public void Inputs()
     {
-        //XLong = controller.Keyboard.Attack1.;
+        //mainAtkLong = controller.Keyboard.Attack1.;
         rStick = new Vector3(controller.Keyboard.LookAround.ReadValue<Vector2>().x, 0, controller.Keyboard.LookAround.ReadValue<Vector2>().y);
         lStick = new Vector3(controller.Keyboard.Movement.ReadValue<Vector2>().x, 0, controller.Keyboard.Movement.ReadValue<Vector2>().y);
         rStick.Normalize();
-        normalizedLStick = lStick.normalized; 
+        normalizedLStick = lStick.normalized;
 
         if (!(rStick == Vector3.zero) && !isInHeavyAtk)
         {
@@ -233,7 +233,7 @@ public class Player : MonoBehaviour
 
         if (!isInRoll)
         {
-            
+
             rollDirection = lastDirection;
             targetSpeed = Vector3.ClampMagnitude(lStick, 1) * maxSpeed;
         }
@@ -245,17 +245,17 @@ public class Player : MonoBehaviour
 
         currentSpeed.x = Mathf.SmoothDamp(currentSpeed.x, targetSpeed.x, ref xVelocity, accelerationTime);
         currentSpeed.z = Mathf.SmoothDamp(currentSpeed.z, targetSpeed.z, ref zVelocity, accelerationTime);
-        if(isInHeavyAtk)
+        if (isInHeavyAtk)
         {
             currentSpeed = Vector3.zero;
             targetSpeed = Vector3.zero;
             xVelocity = zVelocity = 0;
         }
 
-        rigidbody.velocity = currentSpeed;
+        rigidBody.velocity = currentSpeed;
         if (isInCharge)
         {
-            rigidbody.velocity = currentSpeed/2;
+            rigidBody.velocity = currentSpeed / 3;
         }
     }
 
@@ -266,13 +266,13 @@ public class Player : MonoBehaviour
         enemiesHitLastAttack.Clear();
         enemiesHitLastAttackRanged.Clear();
         clostestEnemyDistance = Mathf.Infinity;
-        weaponInAtk = weapon; 
+        weaponInAtk = weapon;
         isInAttack = true;
         hasShot = false;
         hitSpanAtkNumber = atkNumber;
         StartCoroutine("ResolveAttack", atkNumber);
         //{
-            //StartCoroutine("ChargeAttack1", weapon);
+        //StartCoroutine("ChargeAttack1", weapon);
         //}
     }
 
@@ -288,13 +288,13 @@ public class Player : MonoBehaviour
         }
         if (!weapon.atk[atkNumber].isCharge)
         {
-            yield return new WaitForSeconds(weapon.atk[atkNumber].buildup*weapon.totalBuildupMultiplier);
+            yield return new WaitForSeconds(weapon.atk[atkNumber].buildup * weapon.totalBuildupMultiplier);
         } else
         {
             isInCharge = true;
-            yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0]*weapon.totalBuildupMultiplier);
+            yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0] * weapon.totalBuildupMultiplier);
             print("attack charge 0");
-            if (!X && !B)
+            if (!mainAtk && !secondaryAtk)
             {
                 chargeLevel = 0;
                 yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
@@ -303,7 +303,7 @@ public class Player : MonoBehaviour
             {
                 yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                 print("attack charge 1");
-                if (!X && !B)
+                if (!mainAtk && !secondaryAtk)
                 {
                     chargeLevel = 1;
                 }
@@ -323,22 +323,22 @@ public class Player : MonoBehaviour
         isInBuildup = false;
         isInRecover = true;
         isInCooldown = true;
-        yield return new WaitForSeconds((weapon.atk[atkNumber].hitSpan[chargeLevel])*weapon.totalBuildupMultiplier);
+        yield return new WaitForSeconds((weapon.atk[atkNumber].hitSpan[chargeLevel]) * weapon.totalBuildupMultiplier);
         isInHitSpan = false;
         isInHeavyAtk = false;
         isInCharge = false;
-        yield return new WaitForSeconds((weapon.atk[atkNumber].recover[chargeLevel] - weapon.atk[atkNumber].hitSpan[chargeLevel])* weapon.totalBuildupMultiplier);
+        yield return new WaitForSeconds((weapon.atk[atkNumber].recover[chargeLevel] - weapon.atk[atkNumber].hitSpan[chargeLevel]) * weapon.totalBuildupMultiplier);
         print("recover");
         isInRecover = false;
         isInAttack = false;
-        yield return new WaitForSeconds((weapon.atk[atkNumber].cooldown[chargeLevel] - weapon.atk[atkNumber].recover[chargeLevel])*weapon.totalBuildupMultiplier);
+        yield return new WaitForSeconds((weapon.atk[atkNumber].cooldown[chargeLevel] - weapon.atk[atkNumber].recover[chargeLevel]) * weapon.totalBuildupMultiplier);
         print("cooldown");
         isInCooldown = false;
     }
 
     public void HitSpan(WeaponScriptableObject weapon, float damage, int atkNumber)
     {
-        if(weapon.atk[atkNumber].reach[chargeLevel] != Vector3.zero)
+        if (weapon.atk[atkNumber].reach[chargeLevel] != Vector3.zero)
         {
             Collider[] hitEnemies = Physics.OverlapSphere(transform.position, weapon.atk[atkNumber].reach[chargeLevel].z * weapon.totalReachMultiplier.z, layerEnemies);
             foreach (Collider enemy in hitEnemies)
@@ -348,10 +348,10 @@ public class Player : MonoBehaviour
                 if (!enemiesHitLastAttack.Contains(enemy.gameObject))
                 {
                     Vector3 enemyDirection = enemy.transform.position - transform.position;
-                    
+
                     float enemyAngle = Vector3.Angle(attackDirection, enemyDirection);
                     print(enemyAngle);
-                    if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x*weapon.totalReachMultiplier.x)
+                    if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x * weapon.totalReachMultiplier.x)
                     {
                         if (enemyDirection.magnitude < clostestEnemyDistance)
                         {
@@ -365,7 +365,7 @@ public class Player : MonoBehaviour
                         DoAttack(damage, finalKnockback, enemy.gameObject);
                     }
                 }
-                
+
 
             }
             AttackEnchant(weapon);
@@ -381,7 +381,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    
     public void KillEnchant ()
     {
         enchant.DoEnchants(weapon1, 2);
@@ -402,6 +402,42 @@ public class Player : MonoBehaviour
         for (int i = 0; i < enemiesHitLastAttack.Count; i++) 
         {
             enchant.DoEnchants(weapon, 1);
+        }
+    }
+    
+    public void InteractSphere()
+    {
+        allInteractibleInRange = Physics.OverlapSphere(transform.position, interactRange, interactible);
+        foreach (Collider interactible in allInteractibleInRange)
+        {
+            interactible.GetComponent<InteractibleBehavior>().interactible = true;
+        }
+    }
+
+    public void InteractAction()
+    {
+        if (!allInteractibleInRange.Count().Equals(0))
+        {
+            if (allInteractibleInRange.Count().Equals(1))
+            {
+                allInteractibleInRange[0].GetComponent<InteractibleBehavior>().interacted = true;
+            } 
+            else
+            {
+                float smallestAngle = Mathf.Infinity;
+                Collider interactionTarget = allInteractibleInRange[0];
+                foreach (Collider interactible in allInteractibleInRange)
+                {
+                    Vector3 playerToInteractible = interactible.transform.position - transform.position;
+                    float interactibleAngle = Vector3.Angle(attackDirection, playerToInteractible);
+                    if (interactibleAngle < smallestAngle)
+                    {
+                        interactionTarget = interactible;
+                        smallestAngle = interactibleAngle;
+                    }
+                }
+                interactionTarget.GetComponent<InteractibleBehavior>().interacted = true;
+            }
         }
     }
 }

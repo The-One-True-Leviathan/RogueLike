@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 567205499789051480}
   - component: {fileID: 567205499789051483}
   m_Layer: 11
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -80,14 +80,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   enchant: {fileID: 567205499789051483}
-  absoluteMaxHealth: 0
-  maxHealth: 0
-  health: 0
+  healthBar: {fileID: 0}
   damageImmunity: 0.2
-  A: 0
-  B: 0
-  Y: 0
-  X: 0
+  south: 0
+  secondaryAtk: 0
+  north: 0
+  mainAtk: 0
   rStick: {x: 0, y: 0, z: 0}
   lStick: {x: 0, y: 0, z: 0}
   lastDirection: {x: 0, y: 0, z: 0}
