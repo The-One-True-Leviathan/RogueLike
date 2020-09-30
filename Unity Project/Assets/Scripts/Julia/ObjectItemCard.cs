@@ -13,6 +13,7 @@ public class ObjectItemCard : MonoBehaviour
     void Start()
     {
         texts = GetComponentsInChildren<Text>();
+        objectUI = gameObject;
         texts[0].text = item.itemName;
         texts[1].text = item.itemDescription;
     }
