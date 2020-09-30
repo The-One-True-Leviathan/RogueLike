@@ -9,16 +9,34 @@ namespace items
     {
         public ItemScriptableObject itemScriptableObject;
         public HealthBar healthBar;
+        public Compteur compteur;
+        public InteractibleBehavior interactibleBehavior;
         // Start is called before the first frame update
         void Start()
         {
             healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
+            interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (interactibleBehavior.interacted && itemScriptableObject.isFromShop)
+            {
+                if (itemScriptableObject.itemPrice >= compteur.piecettesActuelles)
+                {
+                compteur.Buy(itemScriptableObject.itemPrice);
+                ApplyEffect();
+                }
+                else
+                {
+                    //animation de l'itemCard
+                }
+            }
+            if (interactibleBehavior.interactible)
+            {
 
+            }
         }
 
         private void OnCollisionEnter(Collision player)
