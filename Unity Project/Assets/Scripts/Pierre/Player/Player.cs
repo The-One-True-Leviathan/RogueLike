@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     Rigidbody rigidBody;
     public EnchantmentManager enchant;
     public HealthBar healthBar;
+    public GameObject weaponDropOriginal;
 
     public float damageImmunity; //Longeur (en secondes) de l'immunité après avoir prit des dégâts
 
@@ -156,11 +157,18 @@ public class Player : MonoBehaviour
         {
             dualWielding = true;
             weapon2 = newWeapon;
-        } else
+        }
+        else
         {
             droppedWeapon = weapon2;
-            droppedWeapon = null;
+            Instantiate(weaponDropOriginal, transform.position+attackDirection/2f, transform.rotation);
+            //droppedWeapon = null;
             weapon2 = newWeapon;
+        }
+        weapon1.InitializeWeapon();
+        if (weapon2 != null)
+        {
+            weapon2.InitializeWeapon();
         }
     }
 

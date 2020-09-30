@@ -15,40 +15,41 @@ public class WeaponItemBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (weapon != null)
+        {
+            weapon.InitializeWeapon();
+            gameObject.name = weapon.weaponRealName;
+        }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         interactible = GetComponentInChildren<InteractibleBehavior>();
         rigidBody = GetComponent<Rigidbody>();
-        if (player.droppedWeapon != null)
-        {
-            Dropped();
-        }
     }
 
     public void Dropped()
     {
-        dropped = true;
         weapon = player.droppedWeapon;
+        weapon.InitializeWeapon();
+        gameObject.name = weapon.weaponRealName;
         currentSpeed = player.attackDirection * dropStrength;
-        currentSpeed.x = Mathf.SmoothDamp(currentSpeed.x, 0, ref refx, stopTime);
-        currentSpeed.z = Mathf.SmoothDamp(currentSpeed.z, 0, ref refz, stopTime);
+        rigidBody.AddForce(currentSpeed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (interactible.interacted)
+        if (weapon == null)
         {
-            player.ChangeWeapon(weapon);
-            Object.Destroy(gameObject);
-        }
-        if (dropped)
-        {
-            rigidBody.velocity = currentSpeed;
+            if (player.droppedWeapon != null)
+            {
+                Dropped();
+                player.droppedWeapon = null;
+            }
         } else
         {
-            if (currentSpeed.x == 0 && currentSpeed.z == 0)
+            if (interactible.interacted)
             {
-                dropped = false;
+                player.ChangeWeapon(weapon);
+                Object.Destroy(gameObject);
             }
         }
     }
