@@ -25,10 +25,10 @@ public class WeaponItemBehavior : MonoBehaviour
         if (weapon != null)
         {
             weapon.InitializeWeapon();
-            gameObject.name = weapon.weaponRealName;
             sprite.sprite = weapon.weaponItemSprite;
             GetComponentInChildren<WeaponItemCard>().weapon = weapon;
             GetComponentInChildren<WeaponItemCard>().Initialize();
+            gameObject.name = weapon.weaponRealName;
         }
     }
 
