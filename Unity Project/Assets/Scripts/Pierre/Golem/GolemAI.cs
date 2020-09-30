@@ -10,6 +10,7 @@ public class GolemAI : MonoBehaviour
 {
 
     GameObject player;
+    public Player playerScript;
     Rigidbody rigidBody;
     EnemyDamage damageManager;
     public Transform rayCastOrigin;
@@ -41,6 +42,7 @@ public class GolemAI : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<Player>();
         rigidBody = GetComponent<Rigidbody>();
         damageManager = GetComponent<EnemyDamage>();
     }
@@ -139,9 +141,9 @@ public class GolemAI : MonoBehaviour
                 isInBuildup = true;
                 attackAngle = angleToPlayer;
                 buildupTimeElapsed = attackTimeElapsed = recoveryTimeElapsed = 0;
+                Attack();
             }
             isInAttack = true;
-            Attack();
         } else if (!isInAttack)
         {
             Move();
@@ -185,7 +187,7 @@ public class GolemAI : MonoBehaviour
             print(playerAngle);
             if (playerAngle <= attackDimensions.x)
             {
-                player.GetComponent<Player>().PlayerDamage(attackDamage);
+                playerScript.PlayerDamage(attackDamage);
             }
         }
         isInRecover = true;

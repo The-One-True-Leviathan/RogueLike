@@ -71,20 +71,29 @@ namespace Weapons
                 if (effectType == EffectEnchantmentType.Heal)
                 {
                     playerScript.Heal(effectStrength);
-                    Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up));
+                    if (particles)
+                    {
+                        Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up), player.transform);
+                    }
                 }
                 else
                 if (effectType == EffectEnchantmentType.ImmunityChance)
                 {
                     playerScript.Immunity(effectDuration);
                     Debug.LogWarning("Immunity !");
-                    Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up), player.transform);
+                    if (particles)
+                    {
+                        Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up), player.transform);
+                    }
                 }
                 else
                 if (effectType == EffectEnchantmentType.Teleport)
                 {
                     ResolveTeleport();
-                    Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up));
+                    if (particles)
+                    {
+                        Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up), player.transform);
+                    }
                 }
             }
         }
@@ -125,7 +134,7 @@ namespace Weapons
                 target.Add(playerScript.latestEnemyKilled);
             }
             Debug.LogWarning("Attack 5 " + target.Count + " Target is " + target[0].name);
-            Debug.LogWarning("Closest Enemy Hit is " + playerScript.closestEnemyHitLastAttack.name);
+            //Debug.LogWarning("Closest Enemy Hit is " + playerScript.closestEnemyHitLastAttack.name);
 
             foreach (GameObject center in target)
             {
@@ -142,7 +151,20 @@ namespace Weapons
                         enemyDamage.Damage(effectStrength, effectKnockback, center.transform);
                     }
                 }
-                Instantiate(particles, center.transform.position, Quaternion.LookRotation((center.transform.position - player.transform.position) * direction, Vector3.up));
+                if (centerOn == CenterOn.Player)
+                {
+                    if (particles)
+                    {
+                        Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up), player.transform);
+                    }
+                }
+                else
+                {
+                    if (particles)
+                    {
+                        Instantiate(particles, center.transform.position, Quaternion.LookRotation((center.transform.position - player.transform.position) * direction, Vector3.up));
+                    }
+                }
             }
         }
 

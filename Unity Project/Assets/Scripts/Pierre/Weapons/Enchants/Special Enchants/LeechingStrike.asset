@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeechingStrike
   m_EditorClassIdentifier: 
   effects:
-  - {fileID: 11400000, guid: 39a31af7be7746a48bd07b95f9c97d21, type: 2}
+  - {fileID: 11400000, guid: 1613bcc980a52f64ab9d1ec4b2a8515d, type: 2}
   enchantmentName: Leeching Strike
   prefix: Leeching
   suffix: Leeching Strikes

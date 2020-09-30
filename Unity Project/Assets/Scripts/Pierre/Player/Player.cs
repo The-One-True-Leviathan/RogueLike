@@ -84,11 +84,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*enchant.DoEnchants(weapon1, 0);
+        enchant.DoEnchants(weapon1, 0);
         if (dualWielding)
         {
         enchant.DoEnchants(weapon2, 0);
-        }*/
+        }
         Inputs();
         if (south && !isInRoll && !isInRecover)
         {
@@ -169,7 +169,8 @@ public class Player : MonoBehaviour
 
     public void Heal(float amount)
     {
-        healthBar.ApplyDamage(-amount);
+        //healthBar.ApplyDamage(-amount);
+        Debug.LogError("Healed for " + amount);
     }
 
     public void IncreaseMaxHealth(float amount)
@@ -181,7 +182,8 @@ public class Player : MonoBehaviour
     {
         if (!isInImmunity && !isInRoll)
         {
-            healthBar.ApplyDamage(amount);
+            //healthBar.ApplyDamage(amount);
+            Debug.LogError("Damaged for " + amount);
             enchant.DoEnchants(weapon1, 3);
             if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
             Immunity(damageImmunity);

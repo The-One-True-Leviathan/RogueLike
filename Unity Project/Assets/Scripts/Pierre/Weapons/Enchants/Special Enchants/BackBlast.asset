@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BackBlast
   m_EditorClassIdentifier: 
   effects:
-  - {fileID: 11400000, guid: aadd718a6b29c9f45b9e3514b4a95af7, type: 2}
+  - {fileID: 11400000, guid: dcf41959d52f52a4cb50fe74ffe7f6e5, type: 2}
   enchantmentName: Back Blast
   prefix: Back Blasting
   suffix: Back Blast

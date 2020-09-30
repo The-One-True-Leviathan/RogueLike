@@ -17,7 +17,7 @@ MonoBehaviour:
   effectType: 1
   type: 1
   useNativeRNG: 1
-  nativeRNG: 0
+  nativeRNG: 71
   isInEffect: 0
   effectTicLength: 0
   effectDuration: 0
@@ -28,8 +28,9 @@ MonoBehaviour:
   centerEffectOnClosestEnemy: 0
   invertDirection: 0
   effectStrength: 2
+  effectKnockback: 0
   effectChanceLower: 0
-  effectChanceUpper: 20
+  effectChanceUpper: 10
   effectAffectedLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -14,20 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 6129277174579256132, guid: afc732c772c66c748a88295109738723,
     type: 3}
-  effectType: 0
+  effectType: 2
   type: 4
   useNativeRNG: 1
-  nativeRNG: 0
+  nativeRNG: 59
   isInEffect: 0
   effectTicLength: 0
   effectDuration: 0.15
-  effectReach: {x: 30, y: 0, z: 6}
+  effectReach: {x: 45, y: 0, z: 4}
   useWeaponReach: 0
   centerOn: 0
   centerEffectOnAllEnemies: 0
   centerEffectOnClosestEnemy: 0
   invertDirection: 1
   effectStrength: 3
+  effectKnockback: 3
   effectChanceLower: 0
   effectChanceUpper: 100
   effectAffectedLayers:
