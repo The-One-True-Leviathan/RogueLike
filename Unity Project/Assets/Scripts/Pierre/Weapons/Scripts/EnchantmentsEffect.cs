@@ -31,7 +31,7 @@ namespace Weapons
         public bool centerEffectOnAllEnemies, centerEffectOnClosestEnemy;
         List<GameObject> target;
         public bool invertDirection;
-        public float effectStrength;
+        public float effectStrength, effectKnockback;
         [Tooltip("Int Number to inform the % of chance of the effect happening each time its activated")]
         public int effectChanceLower, effectChanceUpper;
         public LayerMask effectAffectedLayers;
@@ -114,6 +114,7 @@ namespace Weapons
             } else if (centerOn == CenterOn.ClosestEnemy)
             {
                 target.Add(playerScript.closestEnemyHitLastAttack);
+                Debug.LogWarning("Closest Enemy Hit is " + playerScript.closestEnemyHitLastAttack.name);
             } else if (centerOn == CenterOn.Player)
             {
                 target.Add(player);
@@ -123,7 +124,8 @@ namespace Weapons
                 target.Clear();
                 target.Add(playerScript.latestEnemyKilled);
             }
-            Debug.LogWarning("Attack 5 " + target.Count);
+            Debug.LogWarning("Attack 5 " + target.Count + " Target is " + target[0].name);
+            Debug.LogWarning("Closest Enemy Hit is " + playerScript.closestEnemyHitLastAttack.name);
 
             foreach (GameObject center in target)
             {
@@ -136,6 +138,8 @@ namespace Weapons
                     {
                         Debug.DrawRay(center.transform.position, enemyDirection, Color.red);
                         Debug.LogError("Enemy hit ! Inflicted " + effectStrength + " damage !");
+                        EnemyDamage enemyDamage = enemy.GetComponent<EnemyDamage>();
+                        enemyDamage.Damage(effectStrength, effectKnockback, center.transform);
                     }
                 }
                 Instantiate(particles, center.transform.position, Quaternion.LookRotation((center.transform.position - player.transform.position) * direction, Vector3.up));

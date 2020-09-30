@@ -2303,8 +2303,14 @@ PrefabInstance:
     - target: {fileID: 567205499789051480, guid: d592b9dfced1a3249986d877eaff160c,
         type: 3}
       propertyPath: dualWielding
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 567205499789051480, guid: d592b9dfced1a3249986d877eaff160c,
+        type: 3}
+      propertyPath: weapon1
+      value: 
+      objectReference: {fileID: 11400000, guid: 48ae34832b39d874cbf94d27b92988be,
+        type: 2}
     - target: {fileID: 567205499789051484, guid: d592b9dfced1a3249986d877eaff160c,
         type: 3}
       propertyPath: m_Name
@@ -2313,7 +2319,7 @@ PrefabInstance:
     - target: {fileID: 567205499789051486, guid: d592b9dfced1a3249986d877eaff160c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.25
+      value: 3.45
       objectReference: {fileID: 0}
     - target: {fileID: 567205499789051486, guid: d592b9dfced1a3249986d877eaff160c,
         type: 3}

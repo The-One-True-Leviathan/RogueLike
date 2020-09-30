@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2cc07dcfd8055449bf5e0a72a26356, type: 3}
+  m_Name: Bloodlust
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 11400000, guid: 1768c0efd3a739449b061908e7efd289, type: 2}
+  - {fileID: 11400000, guid: 29cf620507039db479c3af59932f561f, type: 2}
+  enchantmentName: Bloodlust
+  prefix: Bloodlust
+  suffix: Bloodlust
+  description: You lose 1HP every 10 seconds, but you regain 5HP when you kill an
+    enemy. Your attacks are 20% faster.
+  color: {r: 0, g: 0, b: 0, a: 0}
+  rng: 0
+  multiplierDamage: 1
+  multiplierBuildup: 0.8
+  multiplierKnockback: 1
+  multiplierReach: {x: 1, y: 1, z: 1}
