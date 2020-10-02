@@ -607,6 +607,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemCard
       objectReference: {fileID: 0}
+    - target: {fileID: 4033548036087675312, guid: dde7f48d2b55cf544bde6bc39277a8d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8804411264681048032, guid: dde7f48d2b55cf544bde6bc39277a8d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -731,6 +736,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 2685275101446175492, guid: cb2ec2c944b2289428501e2166c1f3f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3859840843604253177, guid: cb2ec2c944b2289428501e2166c1f3f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,6 +859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WeaponCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911430507416909539, guid: 5f3a46b804e442f43880b5bf935ecd63,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6911430507416909550, guid: 5f3a46b804e442f43880b5bf935ecd63,
         type: 3}

@@ -36,9 +36,10 @@ public class WeaponItemBehavior : MonoBehaviour
     {
         weapon = player.droppedWeapon;
         weapon.InitializeWeapon();
-        gameObject.name = weapon.weaponRealName;
+        sprite.sprite = weapon.weaponItemSprite;
         GetComponentInChildren<WeaponItemCard>().weapon = weapon;
         GetComponentInChildren<WeaponItemCard>().Initialize();
+        gameObject.name = weapon.weaponRealName;
         currentSpeed = player.attackDirection * dropStrength;
         rigidBody.AddForce(currentSpeed, ForceMode.Impulse);
     }

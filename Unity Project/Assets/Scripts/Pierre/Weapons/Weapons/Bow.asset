@@ -27,7 +27,7 @@ MonoBehaviour:
   weaponDescription: An archaic but effective missile weapon.
   weaponColor:
     serializedVersion: 2
-    rgba: 0
+    rgba: 4294967295
   weaponID: 1
   totalDamageMultiplier: 1
   totalKnockbackMultiplier: 1
