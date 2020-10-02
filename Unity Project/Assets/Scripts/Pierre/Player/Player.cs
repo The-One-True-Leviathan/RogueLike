@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public Vector3 currentSpeed, targetSpeed;
     float xVelocity, zVelocity;
     public float maxSpeed = 10f, accelerationTime = 0.3f;
+    public bool isSlowed;
 
 
     public Collider[] allInteractibleInRange;
