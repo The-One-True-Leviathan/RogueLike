@@ -32,4 +32,4 @@ MonoBehaviour:
   totalDamageMultiplier: 1
   totalKnockbackMultiplier: 1
   totalBuildupMultiplier: 1
-  totalReachMultiplier: {x: 1, y: 1, z: 1}
+  totalReachMultiplier: {x: 1, y: 1, z: 5.497558e+11}

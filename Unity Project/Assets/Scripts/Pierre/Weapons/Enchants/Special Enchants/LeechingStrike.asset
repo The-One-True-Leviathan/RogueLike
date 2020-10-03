@@ -18,7 +18,8 @@ MonoBehaviour:
   prefix: Leeching
   suffix: Leeching Strikes
   description: On every hit, you have an individual 10% chance to regain 2HP.
-  color: {r: 0, g: 0, b: 0, a: 0}
+  rarity: 1
+  color: {r: 0, g: 0, b: 1, a: 1}
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 1

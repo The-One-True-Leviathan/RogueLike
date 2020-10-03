@@ -81,6 +81,8 @@ MonoBehaviour:
     m_Bits: 256
   enchant: {fileID: 567205499789051483}
   healthBar: {fileID: 0}
+  weaponDropOriginal: {fileID: 2613380414544597894, guid: 68a4e3566bc73864dac96df2e480b961,
+    type: 3}
   damageImmunity: 0.2
   south: 0
   secondaryAtk: 0
@@ -94,18 +96,26 @@ MonoBehaviour:
   targetSpeed: {x: 0, y: 0, z: 0}
   maxSpeed: 4
   accelerationTime: 0.05
+  isSlowed: 0
+  allInteractibleInRange: []
+  interactRange: 0.8
+  interactAngle: 0
+  interactible:
+    serializedVersion: 2
+    m_Bits: 1024
   isInRoll: 0
   rollLength: 0.1
   rollRecover: 0.2
   rollSpeed: 18
   rollDirection: {x: 0, y: 0, z: 0}
-  dualWielding: 0
+  dualWielding: 1
   switchTime: 0.2
   weapon1: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
   weapon2: {fileID: 11400000, guid: 659fabecd2c908b4da381ec258ca7b9e, type: 2}
   weaponInAtk: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
   weaponInHitSpan: {fileID: 0}
   switchSpace: {fileID: 0}
+  droppedWeapon: {fileID: 0}
   profileInUse: {fileID: 0}
   isInBuildup: 0
   isInCharge: 0

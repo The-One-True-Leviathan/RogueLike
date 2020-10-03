@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Compteur
   - HUD
+  - GameManager
   layers:
   - Default
   - TransparentFX

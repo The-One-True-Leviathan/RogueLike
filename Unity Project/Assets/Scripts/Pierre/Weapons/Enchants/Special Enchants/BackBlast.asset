@@ -18,7 +18,8 @@ MonoBehaviour:
   prefix: Back Blasting
   suffix: Back Blast
   description: Creates a blast in the opposite direction, dealing 3 damage.
-  color: {r: 0, g: 0, b: 0, a: 0}
+  rarity: 1
+  color: {r: 0, g: 1, b: 0, a: 1}
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 1

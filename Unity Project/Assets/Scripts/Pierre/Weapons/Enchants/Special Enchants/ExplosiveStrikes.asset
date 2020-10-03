@@ -19,6 +19,7 @@ MonoBehaviour:
   suffix: Explosions
   description: Enemies you hit have a 33% chance of creating a blast behind them,
     dealing 3 damage.
+  rarity: 1
   color: {r: 0, g: 0, b: 0, a: 0}
   rng: 0
   multiplierDamage: 1
