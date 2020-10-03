@@ -29,7 +29,10 @@ public class WeaponItemCard : MonoBehaviour
         }
         for (int i = 0; i < weapon.enchantments.Count; i++)
         {
+            if (weapon.enchantments[i])
+            {
             displayEnchantUI[i] = weapon.enchantments[i].name;
+            }
         }
         //displayDescriptionWeaponUI.text = weapon.weaponDescription;
         texts[0].text = weapon.weaponRealName;

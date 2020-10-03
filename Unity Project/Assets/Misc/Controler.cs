@@ -97,6 +97,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""b11ebd30-db6b-4730-8352-e213fa9dab99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -385,6 +393,28 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65406ea1-4e6d-4986-a06e-6a0e1bef85bb"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""038754de-8012-44f0-bf00-15702396663a"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -409,6 +439,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_Test = m_Keyboard.FindAction("Test", throwIfNotFound: true);
         m_Keyboard_Pause = m_Keyboard.FindAction("Pause", throwIfNotFound: true);
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
+        m_Keyboard_Inventory = m_Keyboard.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -468,6 +499,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_Test;
     private readonly InputAction m_Keyboard_Pause;
     private readonly InputAction m_Keyboard_Interact;
+    private readonly InputAction m_Keyboard_Inventory;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -482,6 +514,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Test => m_Wrapper.m_Keyboard_Test;
         public InputAction @Pause => m_Wrapper.m_Keyboard_Pause;
         public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
+        public InputAction @Inventory => m_Wrapper.m_Keyboard_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -521,6 +554,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInteract;
+                @Inventory.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -555,6 +591,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -580,5 +619,6 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnTest(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }
