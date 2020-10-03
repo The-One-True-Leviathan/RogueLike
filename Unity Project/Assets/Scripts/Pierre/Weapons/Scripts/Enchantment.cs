@@ -4,12 +4,13 @@ using UnityEngine;
 
 namespace Weapons
 {
+    public enum EnchantRarity { Simple, Special, Cursed }
     [CreateAssetMenu(fileName = "newEnchantement", menuName = "Pierre/Enchantment/Enchantment", order = 0)]
-
     public class Enchantment : ScriptableObject
     {
         public EnchantmentsEffect[] effects;
         public string enchantmentName, prefix, suffix, description;
+        public EnchantRarity rarity;
         public Color color;
 
         public int rng;
@@ -18,6 +19,19 @@ namespace Weapons
 
         public void Initialize()
         {
+            switch (rarity)
+            {
+                case EnchantRarity.Simple:
+                    color = Color.green;
+                    break;
+                case EnchantRarity.Special:
+                    color = Color.blue;
+                    break;
+                case EnchantRarity.Cursed:
+                    color = Color.red;
+                    break;
+            }
+
             for (int i = 0; i < effects.Length; i++)
             {
                 effects[i].InitializeEnchantmentEffect();
