@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class LoopingSpikeTraps : MonoBehaviour
 {
-    public Systems systems;
     public BoxCollider spikes;
     public Material material;
     public int spikesDamage;
     bool canStartLoop;
+
+    //Player
+    public GameObject player;
+    public Player playerScript;
 
     private void Start()
     {
         material.color = Color.yellow;
         spikes.enabled = false;
         canStartLoop = true;
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<Player>();
     }
 
     private void FixedUpdate()
@@ -42,7 +47,7 @@ public class LoopingSpikeTraps : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            systems.TakeDamage(spikesDamage);
+            playerScript.PlayerDamage(spikesDamage);
         }
     }
 }

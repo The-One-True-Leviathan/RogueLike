@@ -11,11 +11,18 @@ public class ExplosionBarrel : MonoBehaviour
     public float explosionRange;
     public LayerMask currentLayer;
 
-    //Reference to Systems Manager
-    public Systems systems;
+    //Player
+    public GameObject player;
+    public Player playerScript;
 
     //Damage
     [SerializeField] private int explosionDamage = 5;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<Player>();
+    }
 
 
     void Update()
@@ -39,7 +46,7 @@ public class ExplosionBarrel : MonoBehaviour
         {
             if (obj.CompareTag("Player"))
             {
-                systems.TakeDamage(explosionDamage);
+                playerScript.PlayerDamage(explosionDamage);
             }
         }
 

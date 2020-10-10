@@ -13,7 +13,9 @@ public class TableFlip : MonoBehaviour
     public List<Vector3> overlapSize = new List<Vector3>();
     public LayerMask currentLayer;
     public Controler controler;
+    public List<InteractibleBehavior> interactibleBehaviors;
     bool tableIsFliped, canFlipBack, canFlipTop, canFlipLeft, canFlipRight;
+    Animator animator;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class TableFlip : MonoBehaviour
         {
             obj.SetActive(false);
         }
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -30,31 +33,65 @@ public class TableFlip : MonoBehaviour
         {
             DrawOverlaps();
         }
-        controler.Keyboard.Interact.performed += ctx => FlipTheFuckingTable();
+        for (int i = 0; i < interactibleBehaviors.Count; i++)
+        {
+            if (interactibleBehaviors[i].interacted)
+            {
+                FlipTheFuckingTable(i);
+            }
+        }
     }
 
-    void FlipTheFuckingTable()
+    void FlipTheFuckingTable(int side)
     {
-       if (canFlipBack)
+        switch (side) 
+        {
+            case 0:
+                Debug.Log("Flip Back");
+                animator.SetInteger("FlipInt", 0);
+                indicatorObject[0].SetActive(false);
+                tableIsFliped = true;
+                break;
+            case 1:
+                Debug.Log("Flip Top");
+                animator.SetInteger("FlipInt", 1);
+                indicatorObject[1].SetActive(false);
+                tableIsFliped = true;
+                break;
+            case 2:
+                Debug.Log("Flip Right");
+                animator.SetInteger("FlipInt", 2);
+                indicatorObject[2].SetActive(false);
+                tableIsFliped = true;
+                break;
+            case 3:
+                Debug.Log("Flip Left");
+                animator.SetInteger("FlipInt", 3);
+                indicatorObject[3].SetActive(false);
+                tableIsFliped = true;
+                break;
+        }
+
+       /*if (canFlipBack)
        {
-            //flip the table backwards
+            animator.SetTrigger("FlipBack");
             tableIsFliped = true;
        }
        else if (canFlipTop)
        {
-            //flip the table on top
+            animator.SetTrigger("FlipFront");
             tableIsFliped = true;
        }
        else if (canFlipLeft)
        {
-            //flip the table left
+            animator.SetTrigger("FlipLeft");
             tableIsFliped = true;
        }
        else if (canFlipRight)
        {
-            //flip th table right
+            animator.SetTrigger("FlipRight");
             tableIsFliped = true;
-       }
+       }*/
     }
 
     void DrawOverlaps()

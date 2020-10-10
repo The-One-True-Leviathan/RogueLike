@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PressureSpikeTraps : MonoBehaviour
 {
-    public Systems systems;
     public BoxCollider pressurePlate;
     public BoxCollider spikes;
     public Material material;
     public int spikesDamage;
 
+    //Player
+    public GameObject player;
+    public Player playerScript;
+
     private void Start()
     {
         spikes.enabled = false;
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<Player>();
     }
 
     private void Update()
@@ -30,7 +35,7 @@ public class PressureSpikeTraps : MonoBehaviour
             }
             else
             {
-                systems.TakeDamage(spikesDamage);
+                playerScript.PlayerDamage(spikesDamage);
             }
             
         }

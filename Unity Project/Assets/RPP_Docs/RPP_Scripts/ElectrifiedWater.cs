@@ -5,15 +5,20 @@ using UnityEngine;
 public class ElectrifiedWater : MonoBehaviour
 {
     public Transform poolCenter;
-    public Systems systems;
     public Vector3 wetZone;
     public LayerMask currentLayer;
     public int electricDamage;
     bool canTakeDamage;
 
+    //Player
+    public GameObject player;
+    public Player playerScript;
+
     private void Start()
     {
         canTakeDamage = true;
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<Player>();
     }
 
     private void FixedUpdate()
@@ -32,7 +37,7 @@ public class ElectrifiedWater : MonoBehaviour
         {
             if (obj.CompareTag("Player"))
             {
-                systems.TakeDamage(electricDamage);
+                playerScript.PlayerDamage(electricDamage);
             }
         }
 
