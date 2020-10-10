@@ -17,7 +17,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vieTemp = max1;
+        //vieTemp = max1;
         bar.fillAmount = (vieTemp/max1);
     }
 
@@ -53,7 +53,7 @@ public class HealthBar : MonoBehaviour
     public void ApplyDamage(float damage)
     {
         vieTemp -= damage;
-        if ((vieTemp-damage) >= vieMax)
+        if (vieTemp > vieMax)
         {
             vieTemp = vieMax;
         }

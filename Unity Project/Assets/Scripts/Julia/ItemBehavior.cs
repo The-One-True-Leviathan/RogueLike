@@ -11,9 +11,11 @@ namespace items
         public HealthBar healthBar;
         public Compteur compteur;
         public InteractibleBehavior interactibleBehavior;
+        bool used = false;
         // Start is called before the first frame update
         void Start()
         {
+            compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
             healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
         }
@@ -21,43 +23,53 @@ namespace items
         // Update is called once per frame
         void Update()
         {
-            if (interactibleBehavior.interacted && itemScriptableObject.isFromShop)
+            if (interactibleBehavior.interacted && !used)
             {
-                if (itemScriptableObject.itemPrice >= compteur.piecettesActuelles)
+                if (itemScriptableObject.isFromShop)
                 {
-                compteur.Buy(itemScriptableObject.itemPrice);
-                ApplyEffect();
-                }
-                else
+                    if (itemScriptableObject.itemPrice >= compteur.piecettesActuelles)
+                    {
+                        compteur.Buy(itemScriptableObject.itemPrice);
+                        ApplyEffect();
+                    }
+                    else
+                    {
+                        //Not enough moneh !!
+                    }
+                } else
                 {
-                    //animation de l'itemCard
+                    ApplyEffect();
                 }
             }
             if (interactibleBehavior.interactible)
             {
-
+                //animation de l'itemCard
             }
         }
-
+        /*
         private void OnCollisionEnter(Collision player)
         {
             if (player.gameObject.tag == "Player" && itemScriptableObject.isFromShop == false)
             {
                 ApplyEffect();
             }
-        }
+        }*/
 
         public void ApplyEffect()
         {
-            if (itemScriptableObject.itemType == ItemType.Heal)
+            if (!used)
             {
-                healthBar.ApplyDamage(-itemScriptableObject.strength);
+                if (itemScriptableObject.itemType == ItemType.Heal)
+                {
+                    healthBar.ApplyDamage(-itemScriptableObject.strength);
+                }
+                else if (itemScriptableObject.itemType == ItemType.MaxPlus)
+                {
+                    healthBar.UpgradeLife(itemScriptableObject.strength);
+                }
+                used = true;
             }
-            else if (itemScriptableObject.itemType == ItemType.MaxPlus)
-            {
-                healthBar.UpgradeLife(itemScriptableObject.strength);
-            }
-            Destroy(gameObject, 1);
+            Destroy(gameObject);
         }
     }
 }

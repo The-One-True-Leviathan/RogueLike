@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Weapons;
 
 public class Player : MonoBehaviour
@@ -17,9 +18,9 @@ public class Player : MonoBehaviour
 
     public float damageImmunity; //Longeur (en secondes) de l'immunité après avoir prit des dégâts
 
-    Controler controller; //Appel du controlleur
+    public Controler controller; //Appel du controlleur
     public bool south, secondaryAtk, north, mainAtk;
-    public Vector3 rStick, lStick, lastDirection, normalizedLStick;
+    public Vector3 mousePosition, rStick, lStick, lastDirection, normalizedLStick;
 
 
     public Vector3 currentSpeed, targetSpeed;
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
+        healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
         weapon1.InitializeWeapon();
         if (weapon2 != null)
         {
@@ -192,7 +193,7 @@ public class Player : MonoBehaviour
 
     public void Heal(float amount)
     {
-        //healthBar.ApplyDamage(-amount);
+        healthBar.ApplyDamage(-amount);
         Debug.LogError("Healed for " + amount);
     }
 
@@ -205,7 +206,7 @@ public class Player : MonoBehaviour
     {
         if (!isInImmunity && !isInRoll)
         {
-            //healthBar.ApplyDamage(amount);
+            healthBar.ApplyDamage(amount);
             Debug.LogError("Damaged for " + amount);
             enchant.DoEnchants(weapon1, 3);
             if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
@@ -230,9 +231,17 @@ public class Player : MonoBehaviour
 
     public void Inputs()
     {
-        //mainAtkLong = controller.Keyboard.Attack1.;
-        rStick = new Vector3(controller.Keyboard.LookAround.ReadValue<Vector2>().x, 0, controller.Keyboard.LookAround.ReadValue<Vector2>().y);
+        if (Gamepad.current != null)
+        {
+            rStick = new Vector3(controller.Keyboard.LookAround.ReadValue<Vector2>().x, 0, controller.Keyboard.LookAround.ReadValue<Vector2>().y);
+        }
+        else
+        {
+            rStick = mousePosition - transform.position;
+            rStick.y = 0;
+        }
         lStick = new Vector3(controller.Keyboard.Movement.ReadValue<Vector2>().x, 0, controller.Keyboard.Movement.ReadValue<Vector2>().y);
+        
         rStick.Normalize();
         normalizedLStick = lStick.normalized;
 

@@ -331,7 +331,7 @@ public class @Controler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4e374c73-3d33-467e-8a63-5f9f063abc5c"",
-                    ""path"": ""<Pointer>/position"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
