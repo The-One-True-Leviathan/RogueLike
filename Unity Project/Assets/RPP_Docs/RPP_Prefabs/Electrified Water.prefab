@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8294836376395169482}
   - component: {fileID: 8294836376395169485}
   - component: {fileID: 8294836376395169484}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Electrified Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -396,6 +396,17 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""64b934fd-e620-49e5-b54d-c783dc7d1ec3"",
+                    ""path"": ""<DualShockGamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""65406ea1-4e6d-4986-a06e-6a0e1bef85bb"",
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",

@@ -37,6 +37,7 @@ public class ElectrifiedWater : MonoBehaviour
         {
             if (obj.CompareTag("Player"))
             {
+                Debug.Log("Taking Eletric Damage");
                 playerScript.PlayerDamage(electricDamage);
             }
         }

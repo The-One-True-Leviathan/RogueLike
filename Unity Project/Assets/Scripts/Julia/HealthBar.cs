@@ -17,14 +17,14 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //vieTemp = max1;
-        bar.fillAmount = (vieTemp/max1);
+        //vieTemp = max1;      
+       //bar.fillAmount = (vieTemp/max1);        REACTIVER CETTE LIGNE APRES
     }
 
     // Update is called once per frame
     public void Update()
     {
-        displayLife.text = vieTemp.ToString() + "/" + vieMax.ToString();
+        //displayLife.text = vieTemp.ToString() + "/" + vieMax.ToString();      REACTIVER CETTE LIGNE APRES
         if (vieTemp >= max2)
         {
             bar3.fillAmount = ((vieTemp - max2) / max1);
@@ -39,7 +39,7 @@ public class HealthBar : MonoBehaviour
         }
         else if (vieTemp <= max1)
         {
-            bar3.fillAmount = 0f;
+            bar3.fillAmount = 0f;       
             bar2.fillAmount = 0f;
             bar.fillAmount = (vieTemp  / max1);
             print("hey");

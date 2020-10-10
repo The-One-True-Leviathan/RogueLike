@@ -61,13 +61,13 @@ public class TableFlip : MonoBehaviour
             case 2:
                 Debug.Log("Flip Right");
                 animator.SetInteger("FlipInt", 2);
-                indicatorObject[2].SetActive(false);
+                indicatorObject[3].SetActive(false);
                 tableIsFliped = true;
                 break;
             case 3:
                 Debug.Log("Flip Left");
                 animator.SetInteger("FlipInt", 3);
-                indicatorObject[3].SetActive(false);
+                indicatorObject[2].SetActive(false);
                 tableIsFliped = true;
                 break;
         }

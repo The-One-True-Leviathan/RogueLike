@@ -29,6 +29,7 @@ public class PressureSpikeTraps : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log("The player's Ass is about to be EXPANDED");
             if (spikes.enabled == false)
             {
                 StartCoroutine(CountdownBeforeSpikes());
