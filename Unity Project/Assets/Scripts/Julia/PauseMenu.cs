@@ -35,14 +35,14 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
 
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.one;
         Time.timeScale = 0f;
         gameIsPaused = true;
     }

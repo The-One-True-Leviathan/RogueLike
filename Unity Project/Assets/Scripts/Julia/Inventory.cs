@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 {
     public Controler controller;
     public GameObject inventoryItem;
+    public GameObject subcanvas;
     public Player player;
     public Image[] weaponImages;
     public Text[] texts;
@@ -23,6 +24,7 @@ public class Inventory : MonoBehaviour
         texts = GetComponentsInChildren<Text>();
         weaponImages = GetComponentsInChildren<Image>();
         inventoryItem = gameObject;
+        subcanvas = GameObject.FindGameObjectWithTag("InventoryCanvas");
         for (int i = 0; i < 4; i++)
         {
             displayEnchantInventory1.Add("<enchantment slot>");
@@ -111,10 +113,10 @@ public class Inventory : MonoBehaviour
         }
         if(isOpen)
         {
-            inventoryItem.GetComponent<RectTransform>().localScale = Vector3.one;
+            subcanvas.GetComponent<RectTransform>().localScale = Vector3.one;
         } else
         {
-            inventoryItem.GetComponent<RectTransform>().localScale = Vector3.zero;
+            subcanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
         }
     }
 }

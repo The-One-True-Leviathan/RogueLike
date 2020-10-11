@@ -306,6 +306,17 @@
                 },
                 {
                     "name": "",
+                    "id": "972a7ab0-e6dd-4f20-a537-4af70a569d2f",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d048f879-7ab5-481d-8dd3-d4a02467c788",
                     "path": "<XInputController>/buttonSouth",
                     "interactions": "",

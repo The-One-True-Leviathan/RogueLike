@@ -15,7 +15,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("HUB");
+        SceneManager.LoadScene("Release 1");
     }
 
     public void QuitGame()

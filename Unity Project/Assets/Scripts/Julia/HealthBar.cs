@@ -18,13 +18,13 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         //vieTemp = max1;      
-       //bar.fillAmount = (vieTemp/max1);        REACTIVER CETTE LIGNE APRES
+       //bar.fillAmount = (vieTemp/max1);     //   REACTIVER CETTE LIGNE APRES
     }
 
     // Update is called once per frame
     public void Update()
     {
-        //displayLife.text = vieTemp.ToString() + "/" + vieMax.ToString();      REACTIVER CETTE LIGNE APRES
+        displayLife.text = vieTemp.ToString() + "/" + vieMax.ToString();    //  REACTIVER CETTE LIGNE APRES
         if (vieTemp >= max2)
         {
             bar3.fillAmount = ((vieTemp - max2) / max1);
