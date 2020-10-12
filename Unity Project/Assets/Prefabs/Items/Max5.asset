@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a19f0f6858fbe364794938aeb21afba3, type: 3}
-  m_Name: Heal5
+  m_Name: Max5
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: 90017d56ece93af47a66a05c8e519a1a, type: 3}
-  itemName: Bandage
-  itemDescription: A small bandage to heal your wounds.
+  itemSprite: {fileID: 0}
+  itemName: Reinforcement potion
+  itemDescription: Up a little your max HPs
   isFromShop: 0
   itemCollider: {fileID: 0}
-  itemPrice: 10
-  itemType: 0
+  itemPrice: 20
+  itemType: 1
   strength: 5

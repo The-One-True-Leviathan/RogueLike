@@ -11,6 +11,7 @@ namespace items
         public HealthBar healthBar;
         public Compteur compteur;
         public InteractibleBehavior interactibleBehavior;
+        public SpriteRenderer spriteRenderer;
         bool used = false;
         // Start is called before the first frame update
         void Start()
@@ -18,6 +19,8 @@ namespace items
             compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
             healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            spriteRenderer.sprite = itemScriptableObject.itemSprite;
         }
 
         // Update is called once per frame
