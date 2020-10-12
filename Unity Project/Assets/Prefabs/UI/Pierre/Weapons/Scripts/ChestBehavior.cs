@@ -19,7 +19,7 @@ namespace Weapons
         void Start()
         {
             gameManager = GameObject.FindGameObjectWithTag("GameManager");
-            weaponGeneration = gameManager.GetComponent<RandomWeaponGeneration>();
+            weaponGeneration = GetComponent<RandomWeaponGeneration>();
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
             weaponGeneration.quality = quality;

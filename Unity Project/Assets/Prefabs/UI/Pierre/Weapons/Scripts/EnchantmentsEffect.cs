@@ -29,7 +29,7 @@ namespace Weapons
         public bool useWeaponReach;
         public CenterOn centerOn;
         public bool centerEffectOnAllEnemies, centerEffectOnClosestEnemy;
-        List<GameObject> target;
+        List<GameObject> target = new List<GameObject>();
         public bool invertDirection;
         public float effectStrength, effectKnockback;
         [Tooltip("Int Number to inform the % of chance of the effect happening each time its activated")]
@@ -100,7 +100,10 @@ namespace Weapons
 
         public void ResolveDamage()
         {
-            target.Clear();
+            if (target.Count != 0)
+            {
+                target.Clear();
+            }
             Debug.LogWarning("Attack 1");
             Vector3 reach;
             if (useWeaponReach)

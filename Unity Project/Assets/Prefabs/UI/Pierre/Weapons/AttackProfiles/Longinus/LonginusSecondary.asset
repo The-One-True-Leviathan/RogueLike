@@ -10,26 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ec2c502abf03974a8aa1128062f725e, type: 3}
-  m_Name: SwordSecondaryAtk
+  m_Name: LonginusSecondary
   m_EditorClassIdentifier: 
   isHeavy: 1
   isRanged: 0
-  projectile: []
+  projectile:
+  - {fileID: 0}
   reach:
-  - {x: 90, y: 0, z: 1.5}
-  buildup: 0.25
+  - {x: 135, y: 0, z: 1.8}
+  buildup: 0.1
   isCharge: 0
   chargeTime:
   - 0
   hitSpan:
-  - 0.08
+  - 0.02
   recover:
-  - 0.2
+  - 0.1
   cooldown:
-  - 0.35
+  - 0.4
   damage:
-  - 6
+  - 14
   knockBack:
-  - 2.4
+  - 8
   recoil:
-  - {x: 2.4, y: 0}
+  - {x: 20, y: 0.03}

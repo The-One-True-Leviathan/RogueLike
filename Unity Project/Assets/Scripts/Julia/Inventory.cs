@@ -42,6 +42,8 @@ public class Inventory : MonoBehaviour
         {
             displayEnchantInventory1[i] = "<enchantment slot>";
             displayDescriptionEnchant1[i] = "<enchant this by attacking a book>";
+            texts[i + 2].color = Color.grey;
+            texts[i + 12].color = Color.grey;
         }
         for (int i = 0; i < player.weapon1.enchantments.Count; i++)
         {
@@ -68,6 +70,8 @@ public class Inventory : MonoBehaviour
             {
                 displayEnchantInventory2[i] = "<enchantment slot>";
                 displayDescriptionEnchant2[i] = "<enchant this by attacking a book>";
+                texts[i + 8].color = Color.grey;
+                texts[i + 16].color = Color.grey;
             }
             for (int i = 0; i < player.weapon2.enchantments.Count; i++)
             {
@@ -99,6 +103,8 @@ public class Inventory : MonoBehaviour
                 displayDescriptionEnchant2[i] = "";
                 texts[i + 8].text = displayEnchantInventory2[i];
                 texts[i + 16].text = displayDescriptionEnchant2[i];
+                texts[i + 8].color = Color.grey;
+                texts[i + 16].color = Color.grey;
             }
             weaponImages[2].sprite = player.weapon1.weaponIconSecondary;
         }

@@ -57,6 +57,10 @@ public class HealthBar : MonoBehaviour
         {
             vieTemp = vieMax;
         }
+        if (vieTemp < 0)
+        {
+            vieTemp = 0;
+        }
         
     }
         

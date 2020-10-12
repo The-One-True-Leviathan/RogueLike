@@ -27,7 +27,7 @@ MonoBehaviour:
   weaponDescription: An ancient but elegant piece of refined steel.
   weaponColor:
     serializedVersion: 2
-    rgba: 4294901760
+    rgba: 4294967295
   weaponID: 0
   totalDamageMultiplier: 1
   totalKnockbackMultiplier: 1

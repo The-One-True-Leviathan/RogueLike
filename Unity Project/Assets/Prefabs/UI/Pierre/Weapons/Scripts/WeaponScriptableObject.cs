@@ -67,6 +67,17 @@ namespace Weapons
                 {
                     weaponRealName = weaponBaseName;
                 }
+                for (int i = 0; i < enchantments.Count; i++)
+                {
+                    if (enchantments[i].rarity == EnchantRarity.Cursed)
+                    {
+                        weaponColor = Color.red;
+                    }
+                }
+            } else
+            {
+                weaponRealName = weaponBaseName;
+                weaponColor = Color.yellow;
             }
         }
 

@@ -46,7 +46,8 @@ MonoBehaviour:
   baseWeapons:
   - {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
   - {fileID: 11400000, guid: 659fabecd2c908b4da381ec258ca7b9e, type: 2}
-  uniqueWeapons: []
+  uniqueWeapons:
+  - {fileID: 11400000, guid: 49b10640acf44a04bbe35c4e33719ed0, type: 2}
   weaponsGenerated: []
   simpleEnchants:
   - {fileID: 11400000, guid: ba28db977f3c61441a685c28ec67db6a, type: 2}

@@ -20,7 +20,8 @@ MonoBehaviour:
   suffix: Bloodlust
   description: You lose 1HP every 10 seconds, but you regain 5HP when you kill an
     enemy. Your attacks are 20% faster.
-  color: {r: 0, g: 0, b: 0, a: 0}
+  rarity: 2
+  color: {r: 1, g: 0, b: 0, a: 1}
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 0.8

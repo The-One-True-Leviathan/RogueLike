@@ -105,6 +105,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""b103ae0b-2a07-453b-a8da-2aebac0bfe8b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -156,6 +164,61 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": ""right"",
                     ""id"": ""0887a40a-d386-4dd7-bbdf-7d9ad14441c2"",
                     ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""cd53aa8f-a009-49a1-b681-3c4c8cca6a95"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a720e22d-626b-4269-aa3d-5ec0406846fa"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""365b40e7-5ae6-4435-9dcb-605c4829656f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""64197f7c-40c5-44a3-9216-d3f596c25a80"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""dbf56293-194f-44c2-934c-53cee4c6f36a"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -253,17 +316,6 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""99e1f559-3b37-4c44-aa5e-0dd4936cf923"",
-                    ""path"": ""<XInputController>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""dccce192-5c38-4585-84bf-076dfd9034c8"",
                     ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
@@ -309,7 +361,7 @@ public class @Controler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d9e9ea5e-7c5d-424a-9a94-a99a78d444d2"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -332,6 +384,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""d048f879-7ab5-481d-8dd3-d4a02467c788"",
                     ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2408a18-e10d-46a1-a86c-c7a8c26bbf9c"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -375,7 +438,7 @@ public class @Controler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0d12513b-43d6-4828-b2ec-05c6815aa680"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""path"": ""<XInputController>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -430,11 +493,33 @@ public class @Controler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""038754de-8012-44f0-bf00-15702396663a"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""path"": ""<XInputController>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99e1f559-3b37-4c44-aa5e-0dd4936cf923"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b3a398b-e28c-4fcc-9ef7-b6db18463704"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -462,6 +547,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_Pause = m_Keyboard.FindAction("Pause", throwIfNotFound: true);
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
         m_Keyboard_Inventory = m_Keyboard.FindAction("Inventory", throwIfNotFound: true);
+        m_Keyboard_Drop = m_Keyboard.FindAction("Drop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -522,6 +608,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_Pause;
     private readonly InputAction m_Keyboard_Interact;
     private readonly InputAction m_Keyboard_Inventory;
+    private readonly InputAction m_Keyboard_Drop;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -537,6 +624,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Keyboard_Pause;
         public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
         public InputAction @Inventory => m_Wrapper.m_Keyboard_Inventory;
+        public InputAction @Drop => m_Wrapper.m_Keyboard_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -579,6 +667,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Inventory.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
+                @Drop.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
+                @Drop.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
+                @Drop.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -616,6 +707,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
+                @Drop.started += instance.OnDrop;
+                @Drop.performed += instance.OnDrop;
+                @Drop.canceled += instance.OnDrop;
             }
         }
     }
@@ -642,5 +736,6 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
 }

@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     public WeaponScriptableObject weapon1, weapon2, weaponInAtk, weaponInHitSpan, switchSpace, droppedWeapon = null; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
                                                                                                //when switching weapons in both hands
     public AttackProfileScriptableObject profileInUse;
-    public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity, hasShot, isInHeavyAtk;
+    public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity, hasShot, isInHeavyAtk, isInRecoil;
     public float hitSpanDamage;
     public int hitSpanAtkNumber, chargeLevel;
     public Vector3 attackDirection;
@@ -97,7 +97,13 @@ public class Player : MonoBehaviour
         {
             Roll();
         }
-
+        if (dualWielding)
+        {
+            if(controller.Keyboard.Drop.triggered)
+            {
+                DropWeapon();
+            }
+        }
 
         if (!isInAttack && !isInCooldown)
         {
@@ -162,16 +168,23 @@ public class Player : MonoBehaviour
         }
         else
         {
-            droppedWeapon = weapon2;
-            Instantiate(weaponDropOriginal, transform.position+attackDirection/2f, transform.rotation);
+            DropWeapon();
             //droppedWeapon = null;
             weapon2 = newWeapon;
+            dualWielding = true;
         }
         weapon1.InitializeWeapon();
         if (weapon2 != null)
         {
             weapon2.InitializeWeapon();
         }
+    }
+
+    public void DropWeapon()
+    {
+        droppedWeapon = weapon2;
+        Instantiate(weaponDropOriginal, transform.position + attackDirection / 2f, transform.rotation);
+        dualWielding = false;
     }
 
     public void Roll()
@@ -185,7 +198,9 @@ public class Player : MonoBehaviour
     public IEnumerator RollCoroutine()
     {
         targetSpeed = rollDirection * rollSpeed;
+        GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale = new Vector3(1,0.5f,1);
         yield return new WaitForSeconds(rollLength);
+        GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale = new Vector3(1, 1f, 1);
         isInRoll = false;
         yield return new WaitForSeconds(rollRecover);
         isInRecover = false;
@@ -276,14 +291,16 @@ public class Player : MonoBehaviour
 
     public void Move()
     {
-
-        currentSpeed.x = Mathf.SmoothDamp(currentSpeed.x, targetSpeed.x, ref xVelocity, accelerationTime);
-        currentSpeed.z = Mathf.SmoothDamp(currentSpeed.z, targetSpeed.z, ref zVelocity, accelerationTime);
-        if (isInHeavyAtk)
+        if (!isInRecoil)
         {
-            currentSpeed = Vector3.zero;
-            targetSpeed = Vector3.zero;
-            xVelocity = zVelocity = 0;
+            currentSpeed.x = Mathf.SmoothDamp(currentSpeed.x, targetSpeed.x, ref xVelocity, accelerationTime);
+            currentSpeed.z = Mathf.SmoothDamp(currentSpeed.z, targetSpeed.z, ref zVelocity, accelerationTime);
+            if (isInHeavyAtk)
+            {
+                currentSpeed = Vector3.zero;
+                targetSpeed = Vector3.zero;
+                xVelocity = zVelocity = 0;
+            }
         }
 
         rigidBody.velocity = currentSpeed;
@@ -354,6 +371,7 @@ public class Player : MonoBehaviour
         enchant.DoEnchants(weapon, 4);
         weaponInHitSpan = weapon;
         hitSpanDamage = (weapon.atk[atkNumber].damage[chargeLevel]) * weapon.totalDamageMultiplier;
+        StartCoroutine("RecoilCoroutine", weapon.atk[atkNumber].recoil[chargeLevel]);
         isInBuildup = false;
         isInRecover = true;
         isInCooldown = true;
@@ -415,7 +433,14 @@ public class Player : MonoBehaviour
             }
         }
     }
-    
+    public IEnumerator RecoilCoroutine(Vector2 recoil)
+    {
+        isInRecoil = true;
+        currentSpeed = attackDirection * -recoil.x;
+        yield return new WaitForSeconds(recoil.y);
+        isInRecoil = false;
+    }
+
     public void KillEnchant ()
     {
         enchant.DoEnchants(weapon1, 2);

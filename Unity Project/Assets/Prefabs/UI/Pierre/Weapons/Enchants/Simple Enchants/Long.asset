@@ -15,8 +15,9 @@ MonoBehaviour:
   effects: []
   enchantmentName: Long
   prefix: Long
-  suffix: Length
+  suffix: Reach
   description: Doubles weapon's length.
+  rarity: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   rng: 0
   multiplierDamage: 1

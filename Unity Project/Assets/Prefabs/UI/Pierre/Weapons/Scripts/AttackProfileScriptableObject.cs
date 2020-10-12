@@ -24,5 +24,6 @@ namespace Weapons
                                                    //Cooldown is the time after the buildup during which the character cannot attack again
         public float[] damage = new float[1]; //The number of HP reduced from the enemy health
         public float[] knockBack = new float[1]; //How forcefully is the enemy thrown back
+        public Vector2[] recoil = new Vector2[1]; //How forcefully the player is knocked back (or forward) by the attack
     }
 }

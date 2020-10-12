@@ -8,13 +8,14 @@ namespace Weapons
     public enum Quality { Common, Uncommon, Rare, VeryRare, Legendary, Artifact}
     public class RandomWeaponGeneration : MonoBehaviour
     {
-        public List<WeaponScriptableObject> baseWeapons, uniqueWeapons, weaponsGenerated;
+        public List<WeaponScriptableObject> baseWeapons, uniqueWeapons, weaponsGenerated = new List<WeaponScriptableObject>();
         public List<Enchantment> simpleEnchants, specialEnchants, cursedEnchants;
         public Quality quality;
         int rng;
         // Start is called before the first frame update
         public List<WeaponScriptableObject> Generate()
         {
+            weaponsGenerated.Clear();
             switch(quality)
             {
                 case Quality.Common:
