@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace items
 {
@@ -10,9 +12,13 @@ namespace items
         public ItemScriptableObject itemScriptableObject;
         public HealthBar healthBar;
         public Compteur compteur;
+        public MerchantScript merchantScript;
         public InteractibleBehavior interactibleBehavior;
         public SpriteRenderer spriteRenderer;
         bool used = false;
+        public GameObject itemCard;
+        bool cardIsOn = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -21,6 +27,7 @@ namespace items
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             spriteRenderer.sprite = itemScriptableObject.itemSprite;
+            itemCard = GameObject.Find("ItemCard");
         }
 
         // Update is called once per frame
@@ -33,11 +40,12 @@ namespace items
                     if (itemScriptableObject.itemPrice >= compteur.piecettesActuelles)
                     {
                         compteur.Buy(itemScriptableObject.itemPrice);
+                        merchantScript.BuyingDialogue();
                         ApplyEffect();
                     }
                     else
                     {
-                        //Not enough moneh !!
+                        merchantScript.NoMoneyDialogue();
                     }
                 } else
                 {
@@ -46,17 +54,17 @@ namespace items
             }
             if (interactibleBehavior.interactible)
             {
-                //animation de l'itemCard
+                if (!cardIsOn)
+                {
+                    itemCard.GetComponent<RectTransform>().localScale = Vector3.one;
+                    cardIsOn = true;
+                }else
+                {
+                    itemCard.GetComponent<RectTransform>().localScale = Vector3.zero;
+                    cardIsOn = false;
+                }
             }
-        }
-        /*
-        private void OnCollisionEnter(Collision player)
-        {
-            if (player.gameObject.tag == "Player" && itemScriptableObject.isFromShop == false)
-            {
-                ApplyEffect();
-            }
-        }*/
+        } 
 
         public void ApplyEffect()
         {
