@@ -305,6 +305,17 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3c34e588-e116-4d98-8baa-3bca41a04b84"",
+                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""70c2d521-c1e3-4137-ad8b-2773680fc817"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -318,6 +329,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""dccce192-5c38-4585-84bf-076dfd9034c8"",
                     ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efd748fd-af50-4dc6-9d1c-66a17769aeb2"",
+                    ""path"": ""<DualShockGamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -382,6 +404,17 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3067a460-44f7-4eb2-aa29-b8ac638b8e35"",
+                    ""path"": ""<DualShockGamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""d048f879-7ab5-481d-8dd3-d4a02467c788"",
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
@@ -395,6 +428,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""c2408a18-e10d-46a1-a86c-c7a8c26bbf9c"",
                     ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d56a05a-56bf-440f-8fc5-e1931865228c"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -426,6 +470,17 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2c675381-a063-4218-a668-665fcedab829"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Test"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f2fc7260-972a-48e1-bbf5-974c3d3f4e7e"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -439,6 +494,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""0d12513b-43d6-4828-b2ec-05c6815aa680"",
                     ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69fe4e7c-eb1f-401c-85c0-83fc9ed877ab"",
+                    ""path"": ""<DualShockGamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -503,6 +569,17 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""dde3e5c3-55e2-4e68-a75f-a2649cf7f7ad"",
+                    ""path"": ""<DualShockGamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""99e1f559-3b37-4c44-aa5e-0dd4936cf923"",
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
@@ -516,6 +593,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""9b3a398b-e28c-4fcc-9ef7-b6db18463704"",
                     ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a4446735-310b-4194-b78b-3a07fb808db9"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
