@@ -35,6 +35,11 @@ public class Compteur : MonoBehaviour
         nbrePiecettes -= price;
     }
 
+    public void HudBuy(int price)
+    {
+        nbreBoulon -= price;
+    }
+
     public void SaveMoney()
     {
         SystemSaver.SaveMoney(this);

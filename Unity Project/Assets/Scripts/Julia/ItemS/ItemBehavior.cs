@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ namespace items
         public SpriteRenderer spriteRenderer;
         bool used = false;
         public GameObject itemCard;
+        public Animator animator;
         bool cardIsOn = false;
 
         // Start is called before the first frame update
@@ -27,7 +29,7 @@ namespace items
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             spriteRenderer.sprite = itemScriptableObject.itemSprite;
-            itemCard = GameObject.Find("ItemCard");
+            animator = itemCard.GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -52,18 +54,8 @@ namespace items
                     ApplyEffect();
                 }
             }
-            if (interactibleBehavior.interactible)
-            {
-                if (!cardIsOn)
-                {
-                    itemCard.GetComponent<RectTransform>().localScale = Vector3.one;
-                    cardIsOn = true;
-                }else
-                {
-                    itemCard.GetComponent<RectTransform>().localScale = Vector3.zero;
-                    cardIsOn = false;
-                }
-            }
+
+            animator.SetBool("Open", interactibleBehavior.interactible);
         } 
 
         public void ApplyEffect()

@@ -15,6 +15,9 @@ public class ExplosionBarrel : MonoBehaviour
     public GameObject player;
     public Player playerScript;
 
+    //Barrel shop
+    public ShoppingManager shoppingManager;
+
     //Damage
     [SerializeField] private int explosionDamage = 5;
 
@@ -22,6 +25,15 @@ public class ExplosionBarrel : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
+        shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
+        if (shoppingManager.BarrelsWereBought)
+        {
+            gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
+        }
+        else
+        {
+            gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
+        }
     }
 
 

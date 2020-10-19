@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class HUBManager : MonoBehaviour
 {
-    public bool potionsShopPurchased, barrelsShopPurchased, enchantsShopPurchased = false;
+    public bool potionsShopPurchased = false, barrelsShopPurchased = false, enchantsShopPurchased = false;
     public GameObject potionShop, barrelsShop;
     //pour sauvegarder ces valeurs il faudra probablement une liste
 
     // Start is called before the first frame update
     public void Start()
     {
+        DontDestroyOnLoad(this);
+
         if (potionsShopPurchased == true)
         {
             potionShop.SetActive(true);

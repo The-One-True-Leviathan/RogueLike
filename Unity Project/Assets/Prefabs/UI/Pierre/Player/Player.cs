@@ -40,6 +40,9 @@ public class Player : MonoBehaviour
     public Vector3 rollDirection;
 
 
+    //potions
+    public bool strenght, speed;
+    public float strenghtMultiplier, speedMultiplier;
 
 
     public bool dualWielding; //Is the character wielding two different weapons ?
@@ -308,6 +311,10 @@ public class Player : MonoBehaviour
         {
             rigidBody.velocity = currentSpeed / 3;
         }
+        if (speed)
+        {
+            rigidBody.velocity *= speedMultiplier;
+        }
     }
 
     public void Attack(WeaponScriptableObject weapon, int atkNumber)
@@ -371,6 +378,10 @@ public class Player : MonoBehaviour
         enchant.DoEnchants(weapon, 4);
         weaponInHitSpan = weapon;
         hitSpanDamage = (weapon.atk[atkNumber].damage[chargeLevel]) * weapon.totalDamageMultiplier;
+        if(strenght)
+        {
+            hitSpanDamage *= strenghtMultiplier;
+        }
         StartCoroutine("RecoilCoroutine", weapon.atk[atkNumber].recoil[chargeLevel]);
         isInBuildup = false;
         isInRecover = true;
