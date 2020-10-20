@@ -6,7 +6,7 @@ public class GenManager : MonoBehaviour
 {
     public int roomAmount, maxRooms;
     public List<GameObject> rooms;
-    public List<bool[][]> availableSpawners;
+    public RoomBehavior[,] roomArray = new RoomBehavior[5,5];
     public List<Vector3> roomCoordinates = new List<Vector3>();
     // Start is called before the first frame update
     void Start()

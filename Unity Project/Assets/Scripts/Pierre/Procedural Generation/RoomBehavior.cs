@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomBehavior : MonoBehaviour
 {
     public int roomID;
-    public Vector2 roomCoo;
+    public Vector2 roomCoordinates;
     public GenManager genManager;
     public List<GameObject> spawners;
     bool isStartingRoom;
