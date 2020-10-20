@@ -97,7 +97,7 @@ MonoBehaviour:
   wetZone: {x: 5, y: 0.01, z: 5}
   currentLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2304
   electricDamage: 2
   player: {fileID: 0}
   playerScript: {fileID: 0}

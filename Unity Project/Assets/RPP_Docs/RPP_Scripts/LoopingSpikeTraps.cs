@@ -8,6 +8,7 @@ public class LoopingSpikeTraps : MonoBehaviour
     public Material material;
     public int spikesDamage;
     bool canStartLoop;
+    private Transform spikeLocation;
 
     //Player
     public GameObject player;
@@ -20,6 +21,7 @@ public class LoopingSpikeTraps : MonoBehaviour
         canStartLoop = true;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
+        spikeLocation = GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -48,6 +50,11 @@ public class LoopingSpikeTraps : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerScript.PlayerDamage(spikesDamage);
+
+        }
+        if (collision.GetComponent<EnemyDamage>())
+        {
+            collision.GetComponent<EnemyDamage>().Damage(spikesDamage, 0, spikeLocation);
         }
     }
 }

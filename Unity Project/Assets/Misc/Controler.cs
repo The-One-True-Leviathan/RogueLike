@@ -113,6 +113,22 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""SlowDownTime"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd76a49c-bbb5-4609-86ca-fd6a76ad8859"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""NormalizeTime"",
+                    ""type"": ""Button"",
+                    ""id"": ""a45804cb-7152-4bf8-95a5-7e8b098ed812"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
                 }
             ],
             ""bindings"": [
@@ -610,6 +626,72 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5022916-2b4b-48ca-9584-f238c273f28c"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowDownTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""149706af-59c6-4591-b366-8afe733551d6"",
+                    ""path"": ""<DualShockGamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowDownTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff52dc6c-f724-4972-81b3-b6a624362b6d"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowDownTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfce8990-9921-4502-b3ed-ac7fe653db92"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NormalizeTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abb4a1ab-4176-451d-a505-f5c7f56a9e21"",
+                    ""path"": ""<DualShockGamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NormalizeTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7395eca3-100a-4f45-b9e4-3dad608d8d35"",
+                    ""path"": ""<XboxOneGampadiOS>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NormalizeTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -636,6 +718,8 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
         m_Keyboard_Inventory = m_Keyboard.FindAction("Inventory", throwIfNotFound: true);
         m_Keyboard_Drop = m_Keyboard.FindAction("Drop", throwIfNotFound: true);
+        m_Keyboard_SlowDownTime = m_Keyboard.FindAction("SlowDownTime", throwIfNotFound: true);
+        m_Keyboard_NormalizeTime = m_Keyboard.FindAction("NormalizeTime", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -697,6 +781,8 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_Interact;
     private readonly InputAction m_Keyboard_Inventory;
     private readonly InputAction m_Keyboard_Drop;
+    private readonly InputAction m_Keyboard_SlowDownTime;
+    private readonly InputAction m_Keyboard_NormalizeTime;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -713,6 +799,8 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
         public InputAction @Inventory => m_Wrapper.m_Keyboard_Inventory;
         public InputAction @Drop => m_Wrapper.m_Keyboard_Drop;
+        public InputAction @SlowDownTime => m_Wrapper.m_Keyboard_SlowDownTime;
+        public InputAction @NormalizeTime => m_Wrapper.m_Keyboard_NormalizeTime;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -758,6 +846,12 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Drop.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
+                @SlowDownTime.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSlowDownTime;
+                @SlowDownTime.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSlowDownTime;
+                @SlowDownTime.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSlowDownTime;
+                @NormalizeTime.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
+                @NormalizeTime.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
+                @NormalizeTime.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -798,6 +892,12 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
+                @SlowDownTime.started += instance.OnSlowDownTime;
+                @SlowDownTime.performed += instance.OnSlowDownTime;
+                @SlowDownTime.canceled += instance.OnSlowDownTime;
+                @NormalizeTime.started += instance.OnNormalizeTime;
+                @NormalizeTime.performed += instance.OnNormalizeTime;
+                @NormalizeTime.canceled += instance.OnNormalizeTime;
             }
         }
     }
@@ -825,5 +925,7 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
+        void OnSlowDownTime(InputAction.CallbackContext context);
+        void OnNormalizeTime(InputAction.CallbackContext context);
     }
 }

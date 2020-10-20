@@ -8,6 +8,7 @@ public class PressureSpikeTraps : MonoBehaviour
     public BoxCollider spikes;
     public Material material;
     public int spikesDamage;
+    private Transform spikeLocation;
 
     //Player
     public GameObject player;
@@ -18,6 +19,7 @@ public class PressureSpikeTraps : MonoBehaviour
         spikes.enabled = false;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
+        spikeLocation = GetComponent<Transform>();
     }
 
     private void Update()
@@ -27,9 +29,9 @@ public class PressureSpikeTraps : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.GetComponent<EnemyDamage>())
         {
-            Debug.Log("The player's Ass is about to be EXPANDED");
+            Debug.Log("Someone's Ass is about to be EXPANDED");
             if (spikes.enabled == false)
             {
                 StartCoroutine(CountdownBeforeSpikes());
@@ -37,8 +39,8 @@ public class PressureSpikeTraps : MonoBehaviour
             else
             {
                 playerScript.PlayerDamage(spikesDamage);
-            }
-            
+                collision.GetComponent<EnemyDamage>().Damage(spikesDamage, 0, spikeLocation);
+            }           
         }
     }
 

@@ -15,7 +15,7 @@ public class RoomBehavior : MonoBehaviour
         genManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GenManager>();
         if (isStartingRoom)
         {
-            genManager.roomCoordinates.Add(Vector3.zero);
+            //genManager.roomCoordinates.Add(Vector3.zero);
         }
         genManager.rooms.Add(gameObject);
         roomID = genManager.roomAmount;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5084236836728438365}
   - component: {fileID: 8723668755448471933}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,8 @@ GameObject:
   - component: {fileID: 5458119346111684168}
   - component: {fileID: 5458119346111684171}
   - component: {fileID: 5458119346111684183}
-  m_Layer: 14
+  - component: {fileID: 3242825050056262823}
+  m_Layer: 8
   m_Name: Explosive Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +160,34 @@ MonoBehaviour:
   explosionRange: 6.08
   currentLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2304
+  enemyDamage: {fileID: 0}
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  shoppingManager: {fileID: 0}
   explosionDamage: 5
+  explosionKnockBack: 10
+--- !u!114 &3242825050056262823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458119346111684170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ddd1e4d41f8b04abcee07ecd822219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1
+  currentHP: 1
+  player: {fileID: 0}
+  rigidBody: {fileID: 0}
+  isInKnockback: 0
+  knockbackSpeed: 0
+  knockbackResistance: 1000
+  knockbackDirection: {x: 0, y: 0, z: 0}
+  currentVelocity: {x: 0, y: 0, z: 0}
+  targetVelocity: {x: 0, y: 0, z: 0}
+  isTrap: 0
+  isEnvironment: 0
