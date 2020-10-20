@@ -22,7 +22,7 @@ public class ExplosionBarrel : MonoBehaviour
     public ShoppingManager shoppingManager;
 
     //Damage
-    [SerializeField] private int explosionDamage = 5;
+    [SerializeField] private int explosionDamage = 5, explosionKnockBack = 10;
 
     void Start()
     {
@@ -58,7 +58,11 @@ public class ExplosionBarrel : MonoBehaviour
         {
             if (obj.CompareTag("Player"))
             {
-                playerScript.PlayerDamage(explosionDamage);
+                playerScript.PlayerDamage(explosionDamage);      
+            }
+            if (obj.GetComponent<EnemyDamage>())
+            {
+                obj.GetComponent<EnemyDamage>().Damage(explosionDamage, explosionKnockBack, barrelPosition);
             }
         }
     }

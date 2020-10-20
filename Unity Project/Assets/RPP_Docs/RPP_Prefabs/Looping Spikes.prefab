@@ -108,6 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spikes: {fileID: 6913734137929099168}
   material: {fileID: 2100000, guid: 1e4c6356fc22cfd46b45b42d6a188f2c, type: 2}
-  spikesDamage: 3
+  spikesDamage: 2
   player: {fileID: 0}
   playerScript: {fileID: 0}
