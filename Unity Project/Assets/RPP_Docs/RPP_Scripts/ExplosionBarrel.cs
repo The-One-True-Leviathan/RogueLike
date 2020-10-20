@@ -11,6 +11,9 @@ public class ExplosionBarrel : MonoBehaviour
     public float explosionRange;
     public LayerMask currentLayer;
 
+    //Script with the barrel's health
+    public EnemyDamage enemyDamage;
+
     //Player
     public GameObject player;
     public Player playerScript;
@@ -26,6 +29,8 @@ public class ExplosionBarrel : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
         shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
+        enemyDamage = GetComponent<EnemyDamage>();
+        enemyDamage.isTrap = true;
         if (shoppingManager.BarrelsWereBought)
         {
             gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
@@ -39,12 +44,7 @@ public class ExplosionBarrel : MonoBehaviour
 
     void Update()
     {
-        OnTriggerEnter(barrelCollider);
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Player"))
+        if (enemyDamage.currentHP <= 0)
         {
             StartCoroutine(ExplosionCountdown());
         }
@@ -61,11 +61,11 @@ public class ExplosionBarrel : MonoBehaviour
                 playerScript.PlayerDamage(explosionDamage);
             }
         }
-
     }
 
     IEnumerator ExplosionCountdown()
     {
+        Debug.Log("I AM ABOUT TO EXPLODE!!!");
         yield return new WaitForSeconds(2f);
         Explosion();
         Destroy(gameObject);

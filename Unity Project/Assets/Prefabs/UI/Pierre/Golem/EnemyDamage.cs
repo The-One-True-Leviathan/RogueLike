@@ -11,6 +11,7 @@ public class EnemyDamage : MonoBehaviour
     float refKnockbackx, refKnockbacky, refKnockbackz;
     public float knockbackSpeed, knockbackResistance = 1;
     public Vector3 knockbackDirection, currentVelocity, targetVelocity;
+    public bool isTrap = false, isEnvironment = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,7 @@ public class EnemyDamage : MonoBehaviour
         {
             currentHP = maxHP;
         }
-        if (currentHP <= 0)
+        if (currentHP <= 0 && !isTrap && !isEnvironment)
         {
             player.latestEnemyKilled = this.gameObject;
             player.KillEnchant();
