@@ -1,19 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SlowDownTime : MonoBehaviour
 {
-    // Update is called once per frame
-    void FixedUpdate()
+    bool TimeBeingSlowed;
+    Controler controler;
+
+    private void Awake()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            Time.timeScale = 0.5f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-        }
+        controler = new Controler();
+        controler.Keyboard.Enable();
+        controler.Keyboard.SlowDownTime.performed += ctx => SlowDownMan();
+        controler.Keyboard.NormalizeTime.performed += ctx => LeaveTimeAlone();
+    }
+
+    void SlowDownMan()
+    {
+        Debug.Log("Time is Being Slowed");
+        Time.timeScale = 0.5f;
+    }
+
+    void LeaveTimeAlone()
+    {
+        Debug.Log("Time Is Normal Again");
+        Time.timeScale = 1f;
     }
 }
