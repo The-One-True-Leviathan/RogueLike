@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 20489777116809264}
   m_Layer: 0
-  m_Name: Pressure Spike Traps TRUE
+  m_Name: Pressure Spike Traps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

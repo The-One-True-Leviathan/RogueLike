@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6913734137929099168}
   - component: {fileID: 6913734137929099169}
   m_Layer: 14
-  m_Name: Looping Spikes
+  m_Name: Looping Spikes OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

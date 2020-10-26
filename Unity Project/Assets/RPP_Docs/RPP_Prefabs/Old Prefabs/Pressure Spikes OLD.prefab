@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3294343776052587297}
   - component: {fileID: 3294343776052587296}
   m_Layer: 14
-  m_Name: Pressure Spikes
+  m_Name: Pressure Spikes OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
