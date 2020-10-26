@@ -166,16 +166,16 @@ MonoBehaviour:
   - {fileID: 8314348764999427869, guid: 0ce6f29790d30244cb2173b14d90f338, type: 3}
   weird:
   - {fileID: 18389823044048807, guid: 1e82424ccbbbde542aa08c686bd3b64f, type: 3}
-  sizeX: 6
-  sizeY: 6
+  sizeX: 12
+  sizeY: 12
   marginX: 2
   marginY: 2
   startX: 0
   startY: 0
   resolutionX: 1
   resolutionY: 1
-  minMainCorridorLength: 3
-  maxMainCorridorLength: 6
+  minMainCorridorLength: 10
+  maxMainCorridorLength: 12
   chanceMainCorridorSnakes: 0.5
   chanceToCreateNewCorridor: 0.66
   minSecCorridorLength: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
   chanceSecCorridorDestroy: 0.5
   chanceSecCorridorCreates: 0.4
   chanceToAddBonus: 0.2
-  minimumBonuses: 2
+  minimumBonuses: 3
 --- !u!4 &178893922
 Transform:
   m_ObjectHideFlags: 0
