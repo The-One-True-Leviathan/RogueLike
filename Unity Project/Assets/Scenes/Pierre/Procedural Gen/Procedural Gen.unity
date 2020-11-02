@@ -155,7 +155,7 @@ MonoBehaviour:
   rooms:
   - {fileID: 4287890957490183576, guid: 7a6f0e182637b874c8450962f90800f3, type: 3}
   corridorRooms:
-  - {fileID: 8658751863626628854, guid: 5ee40268dbf9e6342b4e010db10e16ee, type: 3}
+  - {fileID: 4287890957490183576, guid: 7a6f0e182637b874c8450962f90800f3, type: 3}
   ends:
   - {fileID: 3389482924930987055, guid: 6e65ec08dce6bbd41ab8a4f1cdf77eb4, type: 3}
   starts:
@@ -166,26 +166,25 @@ MonoBehaviour:
   - {fileID: 8314348764999427869, guid: 0ce6f29790d30244cb2173b14d90f338, type: 3}
   weird:
   - {fileID: 18389823044048807, guid: 1e82424ccbbbde542aa08c686bd3b64f, type: 3}
-  allRoomsInDungeon: []
   sizeX: 12
   sizeY: 12
-  marginX: 4
-  marginY: 4
+  marginX: 2
+  marginY: 2
   startX: 0
   startY: 0
   resolutionX: 1
   resolutionY: 1
-  minMainCorridorLength: 4
-  maxMainCorridorLength: 6
-  chanceMainCorridorSnakes: 0.3
+  minMainCorridorLength: 10
+  maxMainCorridorLength: 12
+  chanceMainCorridorSnakes: 0.5
   chanceToCreateNewCorridor: 0.66
-  minSecCorridorLength: 2
+  minSecCorridorLength: 1
   maxSecCorridorLength: 3
   chanceSecCorridorSnakes: 0.2
   chanceSecCorridorDestroy: 0.5
-  chanceSecCorridorCreates: 0.2
+  chanceSecCorridorCreates: 0.4
   chanceToAddBonus: 0.2
-  minimumBonuses: 1
+  minimumBonuses: 3
 --- !u!4 &178893922
 Transform:
   m_ObjectHideFlags: 0
