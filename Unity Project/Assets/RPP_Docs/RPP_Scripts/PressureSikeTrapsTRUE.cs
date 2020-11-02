@@ -23,11 +23,6 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
         spikeLocation = GetComponent<Transform>();
     }
 
-    private void Update()
-    {
-        OnTriggerEnter(pressurePlate);
-    }
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player") || collision.GetComponent<EnemyDamage>())
@@ -51,14 +46,13 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
         // Prep
         spikePressure.SetInteger("PressureSpikeInt", 1);
         yield return new WaitForSeconds(1.5f);
-        spikes.enabled = true;
-        OnTriggerEnter(spikes);
         // Attack
+        pressurePlate.enabled = false;
+        spikes.enabled = true;
         spikePressure.SetInteger("PressureSpikeInt", 2);
         yield return new WaitForSeconds(1f);
-        pressurePlate.enabled = false;
-        spikes.enabled = false;
         // Retract
+        spikes.enabled = false;
         spikePressure.SetInteger("PressureSpikeInt", 3);
         yield return new WaitForSeconds(1f);
         // Idle

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoopingSpikeTrapsTRUE : MonoBehaviour
 {
-    public BoxCollider spikes;
+    [SerializeField] BoxCollider spikes;
     public Animator spikesLoop;
     public int spikesDamage;
     bool canStartLoop;
@@ -16,6 +16,7 @@ public class LoopingSpikeTrapsTRUE : MonoBehaviour
 
     private void Start()
     {
+        spikes = GetComponent<BoxCollider>();
         spikes.enabled = false;
         canStartLoop = true;
         spikesLoop.SetInteger("LoopSpikesInt", 1);
@@ -38,7 +39,6 @@ public class LoopingSpikeTrapsTRUE : MonoBehaviour
         canStartLoop = false;        
         spikes.enabled = true;
         spikesLoop.SetInteger("LoopSpikesInt", 3);
-        OnTriggerEnter(spikes);
         yield return new WaitForSeconds(0.3f);
         spikes.enabled = false;
         spikesLoop.SetInteger("LoopSpikesInt", 2);
@@ -51,7 +51,6 @@ public class LoopingSpikeTrapsTRUE : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerScript.PlayerDamage(spikesDamage);
-
         }
         if (collision.GetComponent<EnemyDamage>())
         {

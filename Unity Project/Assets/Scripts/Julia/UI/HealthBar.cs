@@ -17,8 +17,8 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //vieTemp = max1;      
-       //bar.fillAmount = (vieTemp/max1);     //   REACTIVER CETTE LIGNE APRES
+        vieTemp = max1;      
+        bar.fillAmount = (vieTemp/max1);     //   REACTIVER CETTE LIGNE APRES
     }
 
     // Update is called once per frame
