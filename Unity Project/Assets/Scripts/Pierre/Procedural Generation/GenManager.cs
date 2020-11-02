@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityScript.Scripting.Pipeline;
@@ -11,7 +12,7 @@ namespace ProcGen
     public class GenManager : MonoBehaviour
     {
         public int roomAmount = 0, maxRooms;
-        public List<GameObject> rooms, corridorRooms, ends, starts, none, bonus, weird, allRoomsInDungeon;
+        public List<GameObject> rooms, corridorRooms, ends, starts, none, bonus, weird, allRoomsInDungeon, unsureRooms, verifiedRooms;
         List<int> allRoomsX = new List<int>();
         List<int> allRoomsY = new List<int>();
         public RoomType[,] roomArray;
@@ -58,10 +59,7 @@ namespace ProcGen
             BranchOut();
             Furnish();
             BuildDungeon();
-            for (int i = 0; i < allRoomsInDungeon.Count; i++)
-            {
-                allRoomsInDungeon[i].GetComponent<RoomBehavior>().Connect();
-            }
+            Connect();
         }
 
         public void StartRoom()
@@ -176,11 +174,11 @@ namespace ProcGen
             GameObject currentRoom;
             switch (roomArray[x, y])
             {
-                case RoomType.None:
+                case RoomType.None:/*
                     rng = UnityEngine.Random.Range(0, none.Count - 1);
                     currentRoom = Instantiate(none[rng], new Vector3(x * resolutionX, 0, y * resolutionY), Quaternion.identity);
                     currentRoom.GetComponent<RoomBehavior>().roomType = RoomType.None;
-                    allRoomsInDungeon.Add(currentRoom);
+                    allRoomsInDungeon.Add(currentRoom);*/
                     break;
                 case RoomType.Start:
                     rng = UnityEngine.Random.Range(0, starts.Count - 1);
@@ -238,6 +236,30 @@ namespace ProcGen
                     break;
             }
         }
+
+        private void Connect()
+        {
+            //determine virtual connections
+            for (int i = 0; i < allRoomsInDungeon.Count; i++)
+            {
+                allRoomsInDungeon[i].GetComponent<RoomBehavior>().Connect();
+            }
+
+            //place doors and walls depending on virtual connections
+            for (int i = 0; i < allRoomsInDungeon.Count; i++)
+            {
+                if (allRoomsInDungeon[i].GetComponent<RoomBehavior>().roomType != RoomType.None)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        allRoomsInDungeon[i].transform.GetChild(0).GetChild(j).GetComponent<ConnectorBehavior>().CreateConnections();
+                    }
+                }
+            }
+        }
+
+
+    }
 
         struct Walker
         {
@@ -471,4 +493,4 @@ namespace ProcGen
         }
 
     }
-}
+

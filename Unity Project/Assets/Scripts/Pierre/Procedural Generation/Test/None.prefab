@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: None
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -46,6 +46,9 @@ MonoBehaviour:
   roomID: 0
   roomX: 0
   roomY: 0
+  sizeDungeonX: 0
+  sizeDungeonY: 0
+  genManager: {fileID: 0}
   connectUp: 0
   connectDown: 0
   connectLeft: 0

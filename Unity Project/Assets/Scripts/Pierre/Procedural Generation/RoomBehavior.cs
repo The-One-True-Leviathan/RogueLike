@@ -13,7 +13,7 @@ namespace ProcGen
         public int roomID, roomX, roomY, sizeDungeonX, sizeDungeonY;
         public GenManager genManager;
         public bool connectUp, connectDown, connectLeft, connectRight;
-        public List<int> connectList, refuseList;
+        public List<RoomBehavior> connectList, refuseList;
         [Header("Chances to Connect")]
         float corridorToRoom = 0.33f, roomToRoom = 1;
         public bool isStartingRoom;
@@ -99,7 +99,7 @@ namespace ProcGen
                 nextRoom = genManager.allRoomsInDungeon[i].GetComponent<RoomBehavior>();
                 if (nextRoom.roomType != RoomType.None)
                 {
-                    if (!refuseList.Contains<int>(nextRoom.roomID) & !connectList.Contains<int>(nextRoom.roomID))
+                    if (!refuseList.Contains<RoomBehavior>(nextRoom) & !connectList.Contains<RoomBehavior>(nextRoom))
                     {
                         if (nextRoom.roomX == roomX)
                         {
@@ -112,8 +112,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectUp = true;
                                             connectDown = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.End:
@@ -121,8 +121,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectUp = true;
                                             connectDown = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.Room:
@@ -130,12 +130,12 @@ namespace ProcGen
                                         {
                                             nextRoom.connectUp = true;
                                             connectDown = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         } else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                     case RoomType.Bonus:
@@ -143,13 +143,13 @@ namespace ProcGen
                                         {
                                             nextRoom.connectUp = true;
                                             connectDown = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                         
@@ -164,8 +164,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectDown = true;
                                             connectUp = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.End:
@@ -173,8 +173,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectDown = true;
                                             connectUp = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.Room:
@@ -182,13 +182,13 @@ namespace ProcGen
                                         {
                                             nextRoom.connectDown = true;
                                             connectUp = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                     case RoomType.Bonus:
@@ -196,13 +196,13 @@ namespace ProcGen
                                         {
                                             nextRoom.connectDown = true;
                                             connectUp = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
 
@@ -220,8 +220,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectRight = true;
                                             connectLeft = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.End:
@@ -229,8 +229,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectRight = true;
                                             connectLeft = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.Room:
@@ -238,13 +238,13 @@ namespace ProcGen
                                         {
                                             nextRoom.connectRight = true;
                                             connectLeft = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                     case RoomType.Bonus:
@@ -252,13 +252,13 @@ namespace ProcGen
                                         {
                                             nextRoom.connectRight = true;
                                             connectLeft = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
 
@@ -273,8 +273,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectLeft = true;
                                             connectRight = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.End:
@@ -282,8 +282,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectLeft = true;
                                             connectRight = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.Room:
@@ -291,13 +291,13 @@ namespace ProcGen
                                         {
                                             nextRoom.connectLeft = true;
                                             connectRight = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                     case RoomType.Bonus:
@@ -305,13 +305,13 @@ namespace ProcGen
                                         {
                                             nextRoom.connectLeft = true;
                                             connectRight = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
 
@@ -332,7 +332,7 @@ namespace ProcGen
                 nextRoom = genManager.allRoomsInDungeon[i].GetComponent<RoomBehavior>();
                 if (nextRoom.roomType != RoomType.None & nextRoom.roomType != RoomType.End)
                 {
-                    if (!refuseList.Contains<int>(nextRoom.roomID) & !connectList.Contains<int>(nextRoom.roomID))
+                    if (!refuseList.Contains<RoomBehavior>(nextRoom) & !connectList.Contains<RoomBehavior>(nextRoom))
                     {
                         if (nextRoom.roomX == roomX)
                         {
@@ -345,8 +345,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectUp = true;
                                             connectDown = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.Room:
@@ -354,26 +354,26 @@ namespace ProcGen
                                         {
                                             nextRoom.connectUp = true;
                                             connectDown = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         } else if (UnityEngine.Random.value < roomToRoom)
                                         {
                                             nextRoom.connectUp = true;
                                             connectDown = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                     case RoomType.Bonus:
                                         nextRoom.connectUp = true;
                                         connectDown = true;
-                                        connectList.Add(nextRoom.roomID);
-                                        nextRoom.connectList.Add(roomID);
+                                        connectList.Add(nextRoom);
+                                        nextRoom.connectList.Add(this);
                                         break;
 
                                 }
@@ -387,8 +387,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectDown = true;
                                             connectUp = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.Room:
@@ -396,27 +396,27 @@ namespace ProcGen
                                         {
                                             nextRoom.connectDown = true;
                                             connectUp = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else if (UnityEngine.Random.value < roomToRoom)
                                         {
                                             nextRoom.connectDown = true;
                                             connectUp = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                     case RoomType.Bonus:
                                         nextRoom.connectDown = true;
                                         connectUp = true;
-                                        connectList.Add(nextRoom.roomID);
-                                        nextRoom.connectList.Add(roomID);
+                                        connectList.Add(nextRoom);
+                                        nextRoom.connectList.Add(this);
                                         break;
 
                                 }
@@ -433,8 +433,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectRight = true;
                                             connectLeft = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.Room:
@@ -442,27 +442,27 @@ namespace ProcGen
                                         {
                                             nextRoom.connectRight = true;
                                             connectLeft = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else if (UnityEngine.Random.value < roomToRoom)
                                         {
                                             nextRoom.connectRight = true;
                                             connectLeft = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                     case RoomType.Bonus:
                                         nextRoom.connectRight = true;
                                         connectLeft = true;
-                                        connectList.Add(nextRoom.roomID);
-                                        nextRoom.connectList.Add(roomID);
+                                        connectList.Add(nextRoom);
+                                        nextRoom.connectList.Add(this);
                                         break;
 
                                 }
@@ -476,8 +476,8 @@ namespace ProcGen
                                         {
                                             nextRoom.connectLeft = true;
                                             connectRight = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         break;
                                     case RoomType.Room:
@@ -485,27 +485,27 @@ namespace ProcGen
                                         {
                                             nextRoom.connectLeft = true;
                                             connectRight = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else if (UnityEngine.Random.value < roomToRoom)
                                         {
                                             nextRoom.connectLeft = true;
                                             connectRight = true;
-                                            connectList.Add(nextRoom.roomID);
-                                            nextRoom.connectList.Add(roomID);
+                                            connectList.Add(nextRoom);
+                                            nextRoom.connectList.Add(this);
                                         }
                                         else
                                         {
-                                            refuseList.Add(nextRoom.roomID);
-                                            nextRoom.refuseList.Add(roomID);
+                                            refuseList.Add(nextRoom);
+                                            nextRoom.refuseList.Add(this);
                                         }
                                         break;
                                     case RoomType.Bonus:
                                         nextRoom.connectLeft = true;
                                         connectRight = true;
-                                        connectList.Add(nextRoom.roomID);
-                                        nextRoom.connectList.Add(roomID);
+                                        connectList.Add(nextRoom);
+                                        nextRoom.connectList.Add(this);
                                         break;
 
                                 }
