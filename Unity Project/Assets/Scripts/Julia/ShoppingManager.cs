@@ -18,6 +18,7 @@ public class ShoppingManager : MonoBehaviour
     void Update()
     {
         
+        
     }
     
     public void BarrelUpdate()

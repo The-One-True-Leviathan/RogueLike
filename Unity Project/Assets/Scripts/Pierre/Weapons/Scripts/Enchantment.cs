@@ -12,6 +12,7 @@ namespace Weapons
         public string enchantmentName, prefix, suffix, description;
         public EnchantRarity rarity;
         public Color color;
+        public int price;
 
         public int rng;
         public float multiplierDamage = 1, multiplierBuildup = 1, multiplierKnockback = 1;
