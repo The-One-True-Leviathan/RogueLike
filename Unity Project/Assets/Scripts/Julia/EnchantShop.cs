@@ -16,6 +16,9 @@ public class EnchantShop : MonoBehaviour
     public Text[] descriptionTexts;
     public bool enchantShopOpen = false;
     public GameObject confirmationCanvas;
+    public Text confirmationText;
+    public int numeroEnchant;
+    public List<bool> isEnchantementBough;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +30,16 @@ public class EnchantShop : MonoBehaviour
         enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
         confirmationCanvas = GameObject.Find("Confirmation");
         confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+        confirmationText = confirmationCanvas.GetComponent<Text>();
+        
         for(int i = 0; i < enchantments.Count; i++)
         {
             nameTexts[i].text = enchantments[i].enchantmentName;
             descriptionTexts[i].text = enchantments[i].description;
+            isEnchantementBough.Add(false);
         }
         
+
     }
 
     // Update is called once per frame
@@ -51,19 +58,34 @@ public class EnchantShop : MonoBehaviour
         
     }
 
-    public void Enchant()
+    public void Enchant(int numeroEnchant)
     {
-
+        confirmationText.text = "This enchantement costs" + enchantments[numeroEnchant].price;
+        confirmationText.color = Color.white;
+        confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
+        Debug.LogError(enchantments[numeroEnchant].enchantmentName);
     }
 
+    
     public void Confirm()
     {
+        if(compteur.boulonsActuels >= enchantments[numeroEnchant].price)
+        {
+            compteur.HudBuy(enchantments[numeroEnchant].price);
+            shopping.boughtEnchantements.Add(enchantments[numeroEnchant]);
+            enchantments.Remove(enchantments[numeroEnchant]);
+            confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
 
+        }
+        else
+        {
+            confirmationText.color = Color.red;
+        }
     }
     
     public void No()
     {
-
+        confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
     }
 
     //contenir 8 slots d'enchants
@@ -72,5 +94,7 @@ public class EnchantShop : MonoBehaviour
     //1 fonction pour chaque confirmation
     //doit afficher un texte de confirmation avec le prix de l'enchant
     //envoyer les infos au shopping manager qui lui va conserver quel enchant ont été achetés
+    //faire en sorte de ne pas pouvoir acheter un objet deux fois
+    //FAUDRA PENSER A SAVE ENCHANTEMENTS
 
 }
