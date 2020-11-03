@@ -37,7 +37,7 @@ public class LoopingSpikeTraps : MonoBehaviour
         canStartLoop = false;
         material.color = Color.red;
         spikes.enabled = true;
-        OnTriggerEnter(spikes);
+        //OnTriggerEnter(spikes);
         yield return new WaitForSeconds(0.3f);
         spikes.enabled = false;
         material.color = Color.yellow;
@@ -50,7 +50,6 @@ public class LoopingSpikeTraps : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerScript.PlayerDamage(spikesDamage);
-
         }
         if (collision.GetComponent<EnemyDamage>())
         {

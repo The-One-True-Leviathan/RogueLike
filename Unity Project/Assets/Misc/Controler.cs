@@ -129,6 +129,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""Rewind"",
+                    ""type"": ""Button"",
+                    ""id"": ""40c2c0bf-2ca1-477f-88e5-77c73ea91bfe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
                 }
             ],
             ""bindings"": [
@@ -692,6 +700,28 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""NormalizeTime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""72439400-1ecc-4b46-a7f8-3abc765526e4"",
+                    ""path"": ""<Keyboard>/capsLock"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rewind"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""351df75c-c53e-45a8-bd4c-26a7797fe24d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rewind"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -720,6 +750,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_Drop = m_Keyboard.FindAction("Drop", throwIfNotFound: true);
         m_Keyboard_SlowDownTime = m_Keyboard.FindAction("SlowDownTime", throwIfNotFound: true);
         m_Keyboard_NormalizeTime = m_Keyboard.FindAction("NormalizeTime", throwIfNotFound: true);
+        m_Keyboard_Rewind = m_Keyboard.FindAction("Rewind", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -783,6 +814,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_Drop;
     private readonly InputAction m_Keyboard_SlowDownTime;
     private readonly InputAction m_Keyboard_NormalizeTime;
+    private readonly InputAction m_Keyboard_Rewind;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -801,6 +833,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Drop => m_Wrapper.m_Keyboard_Drop;
         public InputAction @SlowDownTime => m_Wrapper.m_Keyboard_SlowDownTime;
         public InputAction @NormalizeTime => m_Wrapper.m_Keyboard_NormalizeTime;
+        public InputAction @Rewind => m_Wrapper.m_Keyboard_Rewind;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -852,6 +885,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @NormalizeTime.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
                 @NormalizeTime.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
                 @NormalizeTime.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
+                @Rewind.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
+                @Rewind.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
+                @Rewind.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -898,6 +934,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @NormalizeTime.started += instance.OnNormalizeTime;
                 @NormalizeTime.performed += instance.OnNormalizeTime;
                 @NormalizeTime.canceled += instance.OnNormalizeTime;
+                @Rewind.started += instance.OnRewind;
+                @Rewind.performed += instance.OnRewind;
+                @Rewind.canceled += instance.OnRewind;
             }
         }
     }
@@ -927,5 +966,6 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnDrop(InputAction.CallbackContext context);
         void OnSlowDownTime(InputAction.CallbackContext context);
         void OnNormalizeTime(InputAction.CallbackContext context);
+        void OnRewind(InputAction.CallbackContext context);
     }
 }

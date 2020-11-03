@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+//enum Direction { Haut, Bas, Gauche, Droite }
 public class TableFlip : MonoBehaviour
 {
     public List<GameObject> indicatorObject = new List<GameObject>();
@@ -14,6 +16,8 @@ public class TableFlip : MonoBehaviour
     public List<InteractibleBehavior> interactibleBehaviors;
     bool tableIsFliped, canFlipBack, canFlipTop, canFlipLeft, canFlipRight;
     Animator animator;
+    EnemyDamage enemyDamage;
+    [SerializeField] GameObject tableObj;
 
     private void Start()
     {
@@ -23,6 +27,8 @@ public class TableFlip : MonoBehaviour
             obj.SetActive(false);
         }
         animator = GetComponent<Animator>();
+        enemyDamage = GetComponent<EnemyDamage>();
+        enemyDamage.isTable = true;
     }
 
     private void FixedUpdate()
@@ -38,10 +44,16 @@ public class TableFlip : MonoBehaviour
                 FlipTheFuckingTable(i);
             }
         }
+
+        if (enemyDamage.currentHP <= 0)
+        {
+            tableObj.SetActive(false);
+        }
     }
 
     void FlipTheFuckingTable(int side)
     {
+        
         switch (side) 
         {
             case 0:

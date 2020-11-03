@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6587366903447481107}
-  m_Layer: 0
+  - component: {fileID: 5383153248848631722}
+  m_Layer: 10
   m_Name: Table MAIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5383153248848631722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6624887467484785530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeecfa290028e554a918c93db26f32a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8798521534188129909
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +56,7 @@ GameObject:
   - component: {fileID: 8798521534188129928}
   - component: {fileID: 8798521534188129911}
   - component: {fileID: 8798521534188129910}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: TableLeg (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +259,7 @@ GameObject:
   - component: {fileID: 8798521535032574455}
   - component: {fileID: 8798521535032574454}
   - component: {fileID: 8798521535032574453}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: TableLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +352,7 @@ GameObject:
   - component: {fileID: 8798521535139639594}
   - component: {fileID: 8798521535139639593}
   - component: {fileID: 8798521535139639592}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: TableTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +445,7 @@ GameObject:
   - component: {fileID: 8798521535186541353}
   - component: {fileID: 8798521535186541352}
   - component: {fileID: 8798521535186541335}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: TableLeg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +539,7 @@ GameObject:
   - component: {fileID: 4088597348743916099}
   - component: {fileID: 8798521535507029146}
   - component: {fileID: 7225384171976082433}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: Table ANIMATOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,6 +639,7 @@ MonoBehaviour:
   - {fileID: 8798521535852044950}
   - {fileID: 8798521535525940828}
   - {fileID: 8798521535656526487}
+  tableObj: {fileID: 8798521535507029144}
 --- !u!114 &7225384171976082433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,6 +664,7 @@ MonoBehaviour:
   targetVelocity: {x: 0, y: 0, z: 0}
   isTrap: 0
   isEnvironment: 0
+  isTable: 0
 --- !u!1 &8798521535525940807
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +1007,7 @@ GameObject:
   - component: {fileID: 8798521536037895970}
   - component: {fileID: 8798521536037895969}
   - component: {fileID: 8798521536037895968}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: TableLeg (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

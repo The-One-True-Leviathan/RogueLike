@@ -9,7 +9,7 @@ public class ExplosionBarrel : MonoBehaviour
     public Transform barrelPosition;
     public GameObject barrelObject;
     public float explosionRange;
-    public LayerMask currentLayer;
+    [SerializeField] LayerMask currentLayer;
 
     //Script with the barrel's health
     public EnemyDamage enemyDamage;
@@ -52,6 +52,8 @@ public class ExplosionBarrel : MonoBehaviour
 
     void Explosion()
     {
+        // Cool Effect
+
         Collider[] objects = Physics.OverlapSphere(barrelPosition.position, explosionRange, currentLayer);
 
         foreach(Collider obj in objects)
@@ -72,7 +74,7 @@ public class ExplosionBarrel : MonoBehaviour
         Debug.Log("I AM ABOUT TO EXPLODE!!!");
         yield return new WaitForSeconds(2f);
         Explosion();
-        Destroy(gameObject);
+        barrelObject.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()

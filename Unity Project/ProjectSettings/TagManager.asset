@@ -8,6 +8,7 @@ TagManager:
   - HUD
   - GameManager
   - InventoryCanvas
+  - TEST
   layers:
   - Default
   - TransparentFX

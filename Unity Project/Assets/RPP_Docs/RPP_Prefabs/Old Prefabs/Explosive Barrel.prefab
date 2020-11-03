@@ -191,3 +191,4 @@ MonoBehaviour:
   targetVelocity: {x: 0, y: 0, z: 0}
   isTrap: 0
   isEnvironment: 0
+  isTable: 0
