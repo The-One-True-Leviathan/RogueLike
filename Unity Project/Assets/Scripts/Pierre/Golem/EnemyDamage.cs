@@ -11,7 +11,7 @@ public class EnemyDamage : MonoBehaviour
     float refKnockbackx, refKnockbacky, refKnockbackz;
     public float knockbackSpeed, knockbackResistance = 1;
     public Vector3 knockbackDirection, currentVelocity, targetVelocity;
-    public bool isTrap = false, isEnvironment = false;
+    public bool isTrap = false, isEnvironment = false, isTable = false;
     // Start is called before the first frame update
     void Start()
     {
