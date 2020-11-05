@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PersoPp walk side
+  m_Name: Persop idle side
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,22 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 4699842155992170130, guid: 63227081ec8b6294583fa919b984ac31,
-        type: 3}
-    - time: 0.16666667
-      value: {fileID: 6698610658300907383, guid: 63227081ec8b6294583fa919b984ac31,
-        type: 3}
-    - time: 0.33333334
       value: {fileID: 8568847213385951118, guid: 63227081ec8b6294583fa919b984ac31,
         type: 3}
-    - time: 0.5
-      value: {fileID: 1856415609375576881, guid: 63227081ec8b6294583fa919b984ac31,
+    - time: 0.016666668
+      value: {fileID: 8568847213385951118, guid: 63227081ec8b6294583fa919b984ac31,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -50,16 +44,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 4699842155992170130, guid: 63227081ec8b6294583fa919b984ac31, type: 3}
-    - {fileID: 6698610658300907383, guid: 63227081ec8b6294583fa919b984ac31, type: 3}
     - {fileID: 8568847213385951118, guid: 63227081ec8b6294583fa919b984ac31, type: 3}
-    - {fileID: 1856415609375576881, guid: 63227081ec8b6294583fa919b984ac31, type: 3}
+    - {fileID: 8568847213385951118, guid: 63227081ec8b6294583fa919b984ac31, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.033333335
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
