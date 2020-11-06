@@ -18,7 +18,7 @@ public class Rewind : MonoBehaviour
 
     void CallRewind()
     {
-        if (rewindCounter == 3)
+        if (rewindCounter >= 3)
         {
             Collider[] objects = Physics.OverlapSphere(playerTransform.position, rewindRange, rewindLayer);
 
@@ -26,14 +26,13 @@ public class Rewind : MonoBehaviour
             {
                 if (obj.GetComponent<RewindTable>())
                 {
-                    // Resets Table
+                    obj.GetComponent<RewindTable>().TableRewind();
                 }
                 if (obj.GetComponent<RewindExplosiveBarrel>())
                 {
-                    // Resets Explosive Barrel
+                    obj.GetComponent<RewindExplosiveBarrel>().BarrelRewind();
                 }
             }
-
             rewindCounter = 0;
         }
     }

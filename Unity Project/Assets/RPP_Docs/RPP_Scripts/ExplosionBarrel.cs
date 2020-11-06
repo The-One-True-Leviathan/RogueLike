@@ -9,52 +9,69 @@ public class ExplosionBarrel : MonoBehaviour
     public Transform barrelPosition;
     public GameObject barrelObject;
     public float explosionRange;
-    [SerializeField] LayerMask currentLayer;
+    bool barrelIsIntact;
+    [SerializeField] LayerMask affectedLayers;
 
     //Script with the barrel's health
-    public EnemyDamage enemyDamage;
+    [SerializeField] EnemyDamage enemyDamage;
+    [SerializeField] float barrelHP;
 
     //Player
     public GameObject player;
     public Player playerScript;
 
+    // Particle Effects
+    public GameObject explosionParticles;
+
     //Barrel shop
     public ShoppingManager shoppingManager;
 
     //Damage
-    [SerializeField] private int explosionDamage = 5, explosionKnockBack = 10;
+    [SerializeField] int explosionDamage = 5, explosionKnockBack = 10;
 
-    void Start()
+    void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<Player>();
+        // Script Shoping Manager Julia
         shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
-        enemyDamage = GetComponent<EnemyDamage>();
-        enemyDamage.isTrap = true;
         if (shoppingManager.BarrelsWereBought)
         {
-            gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
+            gameObject.GetComponent<Transform>().localScale = Vector3.one;
         }
         else
         {
-            gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
+            gameObject.GetComponent<Transform>().localScale = Vector3.zero;
         }
+
+        // Mes Scripts d'explosion
+        if (enemyDamage.currentHP > 0)
+        {
+            barrelIsIntact = true;
+        }
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<Player>();
+        enemyDamage = GetComponent<EnemyDamage>();
+        enemyDamage.isTrap = true;
+        explosionParticles.SetActive(false);      
     }
 
 
     void Update()
     {
-        if (enemyDamage.currentHP <= 0)
+        barrelHP = enemyDamage.currentHP;
+
+        if (barrelHP <= 0 && barrelIsIntact == true)
         {
+            Debug.Log("Called Explosion");
             StartCoroutine(ExplosionCountdown());
+            barrelIsIntact = false;
         }
     }
 
     void Explosion()
     {
-        // Cool Effect
+        explosionParticles.SetActive(true);
 
-        Collider[] objects = Physics.OverlapSphere(barrelPosition.position, explosionRange, currentLayer);
+        Collider[] objects = Physics.OverlapSphere(barrelPosition.position, explosionRange, affectedLayers);
 
         foreach(Collider obj in objects)
         {
@@ -67,6 +84,7 @@ public class ExplosionBarrel : MonoBehaviour
                 obj.GetComponent<EnemyDamage>().Damage(explosionDamage, explosionKnockBack, barrelPosition);
             }
         }
+        barrelObject.SetActive(false);
     }
 
     IEnumerator ExplosionCountdown()
@@ -74,7 +92,6 @@ public class ExplosionBarrel : MonoBehaviour
         Debug.Log("I AM ABOUT TO EXPLODE!!!");
         yield return new WaitForSeconds(2f);
         Explosion();
-        barrelObject.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()
