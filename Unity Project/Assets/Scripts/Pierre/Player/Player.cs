@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public EnchantmentManager enchant;
     public HealthBar healthBar;
     public GameObject weaponDropOriginal;
+    public Animator animator;
 
     public float damageImmunity; //Longeur (en secondes) de l'immunité après avoir prit des dégâts
 
@@ -145,6 +146,8 @@ public class Player : MonoBehaviour
         {
             HitSpan(weaponInHitSpan, hitSpanDamage, hitSpanAtkNumber);
         }
+
+        Anim();
     }
 
     void Switch()
@@ -273,6 +276,11 @@ public class Player : MonoBehaviour
             if (normalizedLStick != Vector3.zero)
             {
                 lastDirection = normalizedLStick;
+                animator.SetBool("moving", true);
+            }
+            else
+            {
+                animator.SetBool("moving", false);
             }
 
             attackDirection = lastDirection;
@@ -292,6 +300,35 @@ public class Player : MonoBehaviour
         Debug.DrawRay(transform.position, targetSpeed, Color.blue);
     }
 
+    public void Anim()
+    {
+        if (lastDirection.x > 0.5 || lastDirection.x < -0.5)
+        {
+            animator.SetBool("horizontal", true);
+            animator.SetBool("up", false);
+            animator.SetBool("down", false);
+        }
+        if (lastDirection.z > 0.5)
+        {
+            animator.SetBool("horizontal", false);
+            animator.SetBool("up", true);
+            animator.SetBool("down", false);
+        }
+        if (lastDirection.z < -0.5)
+        {
+            animator.SetBool("horizontal", false);
+            animator.SetBool("up", false);
+            animator.SetBool("down", true);
+        }
+        if (lastDirection.x < -0.5)
+        {
+            animator.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            animator.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
     public void Move()
     {
         if (!isInRecoil)
