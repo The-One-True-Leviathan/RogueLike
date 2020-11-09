@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         vieTemp = max1;      
-        bar.fillAmount = (vieTemp/max1);     //   REACTIVER CETTE LIGNE APRES
+        //bar.fillAmount = (vieTemp/max1);     //   REACTIVER CETTE LIGNE APRES
     }
 
     // Update is called once per frame
