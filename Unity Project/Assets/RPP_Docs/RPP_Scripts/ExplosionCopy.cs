@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionBarrel : MonoBehaviour
+public class ExplosionCopy : MonoBehaviour
 {
     //Reference to the collider
     public CapsuleCollider barrelCollider;
@@ -51,13 +51,13 @@ public class ExplosionBarrel : MonoBehaviour
         playerScript = player.GetComponent<Player>();
         enemyDamage = GetComponent<EnemyDamage>();
         enemyDamage.isTrap = true;
-        explosionParticles.SetActive(false);      
+        explosionParticles.SetActive(false);
     }
 
 
     void Update()
     {
-        barrelHP = enemyDamage.currentHP;  
+        barrelHP = enemyDamage.currentHP;
 
         if (barrelHP <= 0 && barrelIsIntact == true)
         {
@@ -73,11 +73,11 @@ public class ExplosionBarrel : MonoBehaviour
 
         Collider[] objects = Physics.OverlapSphere(barrelPosition.position, explosionRange, affectedLayers);
 
-        foreach(Collider obj in objects)
+        foreach (Collider obj in objects)
         {
             if (obj.CompareTag("Player"))
             {
-                playerScript.PlayerDamage(explosionDamage);      
+                playerScript.PlayerDamage(explosionDamage);
             }
             if (obj.GetComponent<EnemyDamage>())
             {

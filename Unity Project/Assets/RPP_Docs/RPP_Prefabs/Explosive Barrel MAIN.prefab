@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2499602678550544555}
   - component: {fileID: 2499602678550544552}
   - component: {fileID: 4316413359257588099}
-  - component: {fileID: 2499602678550544564}
+  - component: {fileID: 2199145277145977780}
   - component: {fileID: 4904325398917405252}
   m_Layer: 8
   m_Name: Explosive Barrel
@@ -114,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2499602678550544564
+--- !u!114 &2199145277145977780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,18 +123,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2499602678550544553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2616f3e7cf787c049bd7ce54d267ec76, type: 3}
+  m_Script: {fileID: 11500000, guid: fa122a950ea52fc499a6bf40f97225b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   barrelCollider: {fileID: 2499602678550544552}
   barrelPosition: {fileID: 2499602678550544565}
   barrelObject: {fileID: 2499602678550544553}
-  explosionRange: 5
+  explosionRange: 4
   affectedLayers:
     serializedVersion: 2
     m_Bits: 18688
-  enemyDamage: {fileID: 0}
-  barrelHP: 0
+  enemyDamage: {fileID: 4904325398917405252}
+  barrelHP: 1
   player: {fileID: 0}
   playerScript: {fileID: 0}
   explosionParticles: {fileID: 3633350492269561669}
