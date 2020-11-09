@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class SlowDownTime : MonoBehaviour
 {
     bool TimeBeingSlowed;
     Controler controler;
+    public AudioMixer audioMixer;
+    public AudioMixerSnapshot normal, slow;
+    
 
     private void Awake()
     {
@@ -20,11 +24,13 @@ public class SlowDownTime : MonoBehaviour
     {
         Debug.Log("Time is Being Slowed");
         Time.timeScale = 0.5f;
+        slow.TransitionTo(0.5f);
     }
 
     void LeaveTimeAlone()
     {
         Debug.Log("Time Is Normal Again");
         Time.timeScale = 1f;
+        normal.TransitionTo(0.5f);
     }
 }
