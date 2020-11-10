@@ -11,7 +11,6 @@ public class PotionShop : MonoBehaviour
     public Player player;
     public HealthBar healthBar;
     public GameObject potionShopCanvas;
-    public Collider potionShopCollider;
     public InteractibleBehavior interactible;
 
     // Start is called before the first frame update
@@ -19,7 +18,6 @@ public class PotionShop : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponentInChildren<HealthBar>();
-        potionShopCanvas = GameObject.Find("Canvas potions");
         potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
         interactible = GetComponentInChildren<InteractibleBehavior>();
 
@@ -34,11 +32,13 @@ public class PotionShop : MonoBehaviour
         {
             potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
             potionShopOpen = true;
+            interactible.interacted = false;
         }
         else if(interactible.interacted && potionShopOpen)
         {
             potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             potionShopOpen = false;
+            interactible.interacted = false;
         }
     }
 
@@ -60,7 +60,8 @@ public class PotionShop : MonoBehaviour
         {
         player.speed = true;
         potionIsDrinked = true;
-
+            potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            potionShopOpen = false;
         }
     }
 
@@ -70,8 +71,11 @@ public class PotionShop : MonoBehaviour
         {
         player.strenght = true;
         potionIsDrinked = true;
-
+            potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            potionShopOpen = false;
         }
+
+
     }
 
     public void lifePotion()
@@ -80,7 +84,8 @@ public class PotionShop : MonoBehaviour
         {
         healthBar.UpgradeLife(5);
         potionIsDrinked = true;
-
+            potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            potionShopOpen = false;
         }
     }
     //si interaction avec la boutique ouvrir le canvas de la boutique

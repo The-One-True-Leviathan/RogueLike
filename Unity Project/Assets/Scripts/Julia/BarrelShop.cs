@@ -19,7 +19,6 @@ public class BarrelShop : MonoBehaviour
         compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
         interactible = GetComponentInChildren<InteractibleBehavior>();
         shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
-        barrelShopCanvas = GameObject.Find("Canvas barrils");
         barrelShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
 
     }
@@ -31,11 +30,13 @@ public class BarrelShop : MonoBehaviour
         {
             barrelShopCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
             barrelShopOpen = true;
+            interactible.interacted = false;
         }
         else if (interactible.interacted && barrelShopOpen)
         {
             barrelShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             barrelShopOpen = false;
+            interactible.interacted = false;
         }
     }
 

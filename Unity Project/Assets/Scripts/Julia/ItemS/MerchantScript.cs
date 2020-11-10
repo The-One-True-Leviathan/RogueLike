@@ -30,13 +30,13 @@ public class MerchantScript : MonoBehaviour
     // Update is called once per frame
     public void BuyingDialogue()
     {
-        int index = Random.Range(0, merchantQuotes.Count);
+        int index = Random.Range(0, merchantQuotes.Count-1);
         textBox.text = (merchantQuotes[index]);
     }
 
     public void NoMoneyDialogue()
     {
-        int index = Random.Range(0, badMerchantQuotes.Count);
+        int index = Random.Range(0, badMerchantQuotes.Count-1);
         textBox.text = (badMerchantQuotes[index]);
     }
 }

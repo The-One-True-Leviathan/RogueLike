@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
@@ -12,6 +13,11 @@ public class EnemyDamage : MonoBehaviour
     public float knockbackSpeed, knockbackResistance = 1;
     public Vector3 knockbackDirection, currentVelocity, targetVelocity;
     public bool isTrap = false, isEnvironment = false, isTable = false;
+
+    //Gestion du loot
+    public bool hasLoot;
+    public List<GameObject> possibleLoots;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +57,11 @@ public class EnemyDamage : MonoBehaviour
         {
             player.latestEnemyKilled = this.gameObject;
             player.KillEnchant();
+            if (hasLoot)
+            {
+                int index = Random.Range(0, possibleLoots.Count - 1);
+                Instantiate(possibleLoots[index], transform.position, Quaternion.identity);
+            }
             Object.Destroy(this.gameObject);
         }
         StopAllCoroutines();
