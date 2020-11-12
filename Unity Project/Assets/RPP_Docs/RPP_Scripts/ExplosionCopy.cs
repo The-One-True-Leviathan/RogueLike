@@ -9,19 +9,17 @@ public class ExplosionCopy : MonoBehaviour
     public Transform barrelPosition;
     public GameObject barrelObject;
     public float explosionRange;
-    bool barrelIsIntact;
     [SerializeField] LayerMask affectedLayers;
 
     //Script with the barrel's health
-    [SerializeField] EnemyDamage enemyDamage;
-    [SerializeField] float barrelHP;
+    public EnemyDamage enemyDamageBarril;
 
     //Player
     public GameObject player;
     public Player playerScript;
 
     // Particle Effects
-    public GameObject explosionParticles;
+    public ParticleSystem explosionParticles;
 
     //Barrel shop
     public ShoppingManager shoppingManager;
@@ -43,33 +41,26 @@ public class ExplosionCopy : MonoBehaviour
         }
 
         // Mes Scripts d'explosion
-        if (enemyDamage.currentHP > 0)
-        {
-            barrelIsIntact = true;
-        }
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
-        enemyDamage = GetComponent<EnemyDamage>();
-        enemyDamage.isTrap = true;
-        explosionParticles.SetActive(false);
+        enemyDamageBarril = GetComponent<EnemyDamage>();
+        enemyDamageBarril.isTrap = true;
+        explosionParticles.Stop();
     }
 
 
     void Update()
-    {
-        barrelHP = enemyDamage.currentHP;
-
-        if (barrelHP <= 0 && barrelIsIntact == true)
+    { 
+        if (enemyDamageBarril.currentHP <= 0)
         {
             Debug.Log("Called Explosion");
             StartCoroutine(ExplosionCountdown());
-            barrelIsIntact = false;
         }
     }
 
     void Explosion()
     {
-        explosionParticles.SetActive(true);
+        explosionParticles.Play();
 
         Collider[] objects = Physics.OverlapSphere(barrelPosition.position, explosionRange, affectedLayers);
 

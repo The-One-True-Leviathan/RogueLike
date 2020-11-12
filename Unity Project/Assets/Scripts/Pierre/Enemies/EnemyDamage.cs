@@ -53,7 +53,7 @@ public class EnemyDamage : MonoBehaviour
         {
             currentHP = maxHP;
         }
-        if (currentHP <= 0 && !isTrap && !isEnvironment)
+        if (currentHP <= 0 && !isTrap && !isEnvironment && !isTable)
         {
             player.latestEnemyKilled = this.gameObject;
             player.KillEnchant();

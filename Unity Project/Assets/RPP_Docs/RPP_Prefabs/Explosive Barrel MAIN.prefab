@@ -133,8 +133,7 @@ MonoBehaviour:
   affectedLayers:
     serializedVersion: 2
     m_Bits: 18688
-  enemyDamage: {fileID: 4904325398917405252}
-  barrelHP: 1
+  enemyDamageBarril: {fileID: 0}
   player: {fileID: 0}
   playerScript: {fileID: 0}
   explosionParticles: {fileID: 3633350492269561669}
@@ -212,6 +211,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrelObj: {fileID: 2499602678550544553}
+  explosionScript: {fileID: 2199145277145977780}
+  reverseParticles: {fileID: 6734807056998661705}
+--- !u!114 &6734807056998661705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633350492269561669}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abc950a57af2c144abfcb5f2fb61824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystems:
+  - {fileID: 3507472089642973239}
+  - {fileID: 3507469834815753093}
+  - {fileID: 3507730779883256351}
+  - {fileID: 3507682809991951859}
+  - {fileID: 3507793028781635055}
+  - {fileID: 3508229622862862405}
+  - {fileID: 3517531610456325145}
+  - {fileID: 3507636773524098965}
+  simulationTimes:
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  startTime: 2
+  simulationSpeedScale: 1
 --- !u!1 &8155407841870786477
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +486,54 @@ GameObject:
 --- !u!4 &3629950824941936329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3634328699611625215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3507472089642973239 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3634328699611625215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3507469834815753093 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198918736123329914, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3634328699611625215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3507730779883256351 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198805160044956896, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3634328699611625215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3507682809991951859 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198844874048127756, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3634328699611625215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3507793028781635055 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198604367962915600, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3634328699611625215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3508229622862862405 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198166025632870074, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3634328699611625215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3517531610456325145 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198003277540838118, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3634328699611625215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3507636773524098965 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198751835582626154, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   m_PrefabInstance: {fileID: 3634328699611625215}
   m_PrefabAsset: {fileID: 0}

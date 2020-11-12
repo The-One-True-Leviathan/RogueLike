@@ -16,19 +16,20 @@ public class TableFlip : MonoBehaviour
     public List<InteractibleBehavior> interactibleBehaviors;
     bool tableIsFliped, canFlipBack, canFlipTop, canFlipLeft, canFlipRight;
     Animator animator;
-    EnemyDamage enemyDamage;
+    public EnemyDamage enemyDamageTable;
     [SerializeField] GameObject tableObj;
+    [SerializeField] ParticleSystem tableDestruction;
 
     private void Start()
     {
+        tableDestruction.Stop();
         tableIsFliped = false;
         foreach (GameObject obj in indicatorObject)
         {
             obj.SetActive(false);
         }
         animator = GetComponent<Animator>();
-        enemyDamage = GetComponent<EnemyDamage>();
-        enemyDamage.isTable = true;
+        enemyDamageTable.isTable = true;
     }
 
     private void FixedUpdate()
@@ -45,15 +46,15 @@ public class TableFlip : MonoBehaviour
             }
         }
 
-        if (enemyDamage.currentHP <= 0)
+        if (enemyDamageTable.currentHP <= 0)
         {
+            tableDestruction.Play();
             tableObj.SetActive(false);
         }
     }
 
     void FlipTheFuckingTable(int side)
-    {
-        
+    {        
         switch (side) 
         {
             case 0:

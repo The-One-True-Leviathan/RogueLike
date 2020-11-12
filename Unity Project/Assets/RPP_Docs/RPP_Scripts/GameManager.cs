@@ -26,6 +26,4 @@ public class GameManager : MonoBehaviour
             rewind.rewindCounter = 0;
         }
     }
-
-
 }

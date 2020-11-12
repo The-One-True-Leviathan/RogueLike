@@ -18,6 +18,7 @@ public class Rewind : MonoBehaviour
 
     void CallRewind()
     {
+        Debug.Log("Called Rewind");
         if (rewindCounter >= 3)
         {
             Collider[] objects = Physics.OverlapSphere(playerTransform.position, rewindRange, rewindLayer);
