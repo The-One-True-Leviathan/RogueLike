@@ -22,6 +22,7 @@ public class SpiderAI : MonoBehaviour
         timeSeenPlayer,
         seeingFalloff = 1, //Multiplier to how fast does timeSeenPlayer falls off
         memoryMax = 5, //How long does the AI memorize the player
+        lastTimeSincePlayerSeen = 0, //How long since the AI saw the player
         hearingDistance, //How far can the AI hear the player
         hearingFalloff; //How long (in seconds) does it take for the AI to forget the noise
     public bool seeingPlayer, //Is the AI seeing the player
@@ -56,6 +57,17 @@ public class SpiderAI : MonoBehaviour
     public bool isInAttack;
 
 
+    //Search
+    public float searchMaxTime = 5,
+        searchTime = 0,
+        distanceToSearchPoint = 1.5f,
+        lookingAroundRadiusMin = 4,
+        lookingAroundRadiusMax = 12;
+    public bool arrivedToSearchPoint = false,
+        lookingAround = false,
+        movingToNextSearchPoint = false;
+    public Vector3 lastKnownPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,9 +88,14 @@ public class SpiderAI : MonoBehaviour
     void Update()
     {
         seeingPlayer = false;
-        if (DistanceToPlayer() < seeingDistance)
+        if (DistanceToPlayer() < seeingDistance || targetingPlayer)
         {
             SightCast();
+        }
+
+        if (seeingPlayer)
+        {
+            lastKnownPosition = playerObject.transform.position;
         }
 
         switch (state) 
@@ -93,6 +110,7 @@ public class SpiderAI : MonoBehaviour
                 Pursue();
                 break;
             case SpiderState.Search:
+                Search();
                 break;
             case SpiderState.Attack:
                 Attack();
@@ -149,6 +167,7 @@ public class SpiderAI : MonoBehaviour
 
         if (timeSeenPlayer >= seeingReactTime)
         {
+            timeSeenPlayer = 0;
             targetingPlayer = true;
             state = SpiderState.Approach;
         }
@@ -158,7 +177,7 @@ public class SpiderAI : MonoBehaviour
     {
         if(!isInJump)
         {
-            if (distanceToPlayer < pursueDistance)
+            if (distanceToPlayer < pursueDistance || !seeingPlayer)
             {
                 state = SpiderState.Pursue;
                 return;
@@ -169,6 +188,8 @@ public class SpiderAI : MonoBehaviour
                 return;
             }
         }
+
+        Memory();
 
         if (!isInJump)
         {
@@ -198,7 +219,7 @@ public class SpiderAI : MonoBehaviour
     {
         if (!isInJump)
         {
-            if (distanceToPlayer > pursueDistance)
+            if (distanceToPlayer > pursueDistance && seeingPlayer)
             {
                 state = SpiderState.Approach;
                 return;
@@ -209,7 +230,10 @@ public class SpiderAI : MonoBehaviour
                 return;
             }
         }
-        
+
+
+        Memory();
+
         moveTarget = playerObject.transform.position;
         navMeshAgent.speed = pursueSpeed;
         navMeshAgent.acceleration = pursueAcceleration;
@@ -282,6 +306,95 @@ public class SpiderAI : MonoBehaviour
         }
 
 
+    }
+
+    void Memory()
+    {
+
+        if (!seeingPlayer)
+        {
+            lastTimeSincePlayerSeen += Time.deltaTime;
+        }
+        else
+        {
+            lastTimeSincePlayerSeen = 0;
+        }
+
+        if (lastTimeSincePlayerSeen > memoryMax)
+        {
+            searchTime = 0;
+            lookingAround = false;
+            state = SpiderState.Search;
+        }
+    }
+
+    void Search()
+    {
+        if (seeingPlayer)
+        {
+            targetingPlayer = true;
+            movingToNextSearchPoint = false;
+            state = SpiderState.Approach;
+            return;
+        }
+        if (!lookingAround)
+        {
+            arrivedToSearchPoint = navMeshAgent.remainingDistance < distanceToSearchPoint;
+            if (!movingToNextSearchPoint)
+            {
+                MoveToLastKnownPosition();
+            }
+
+            if (arrivedToSearchPoint)
+            {
+                movingToNextSearchPoint = false;
+                lookingAround = true;
+            }
+        }
+        if (lookingAround)
+        {
+            if (searchTime >= searchMaxTime)
+            {
+                state = SpiderState.Dormant;
+                return;
+            }
+            else
+            {
+                searchTime += Time.deltaTime;
+            }
+            if (!movingToNextSearchPoint)
+            {
+                StartCoroutine("LookAround");
+            }
+        }
+
+    }
+
+    void MoveToLastKnownPosition()
+    {
+        movingToNextSearchPoint = true;
+        moveTarget = lastKnownPosition;
+        navMeshAgent.speed = pursueSpeed;
+        navMeshAgent.acceleration = pursueAcceleration;
+        navMeshAgent.SetDestination(moveTarget);
+    }
+
+    IEnumerator LookAround()
+    {
+        movingToNextSearchPoint = true;
+        float rngx = Random.Range(-1, 1);
+        float rngz = Random.Range(-1, 1);
+        Vector3 direction = new Vector3(rngx, 0, rngz);
+        direction.Normalize();
+        direction = direction * Random.Range(lookingAroundRadiusMin, lookingAroundRadiusMax);
+        moveTarget = lastKnownPosition + direction;
+        navMeshAgent.speed = pursueSpeed;
+        navMeshAgent.acceleration = pursueAcceleration;
+        navMeshAgent.SetDestination(moveTarget);
+        float movetime = (navMeshAgent.remainingDistance / navMeshAgent.speed)+0.2f;
+        yield return new WaitForSeconds(movetime);
+        lastKnownPosition = transform.position;
+        movingToNextSearchPoint = false;
     }
 
 
