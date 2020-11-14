@@ -12,6 +12,7 @@ public class BoutonsEnchant : MonoBehaviour
     void Start()
     {
         btn = GetComponent<Button>();
+        enchantShop = GetComponentInParent<EnchantShop>();
         btn.onClick.AddListener(() => { EnchantNumber(); });
     }
 

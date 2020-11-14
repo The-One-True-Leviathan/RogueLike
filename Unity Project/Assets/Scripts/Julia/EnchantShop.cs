@@ -26,11 +26,8 @@ public class EnchantShop : MonoBehaviour
         compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
         interactible = GetComponentInChildren<InteractibleBehavior>();
         shopping = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
-        enchantShopCanvas = GameObject.Find("Canvas enchants");
         enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
-        confirmationCanvas = GameObject.Find("Confirmation");
         confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
-        confirmationText = confirmationCanvas.GetComponent<Text>();
         
         for(int i = 0; i < enchantments.Count; i++)
         {
@@ -49,11 +46,13 @@ public class EnchantShop : MonoBehaviour
         {
             enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
             enchantShopOpen = true;
+            interactible.interacted = false;
         }
         else if (interactible.interacted && enchantShopOpen)
         {
             enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             enchantShopOpen = false;
+            interactible.interacted = false;
         }
         
     }
@@ -75,6 +74,8 @@ public class EnchantShop : MonoBehaviour
             shopping.boughtEnchantements.Add(enchantments[numeroEnchant]);
             enchantments.Remove(enchantments[numeroEnchant]);
             confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            enchantShopOpen = false;
 
         }
         else
