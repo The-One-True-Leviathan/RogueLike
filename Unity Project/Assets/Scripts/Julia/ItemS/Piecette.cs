@@ -8,6 +8,7 @@ public class Piecette : MonoBehaviour
     GameObject compteurPieces;
     Compteur Compteur;
     bool pickUp;
+    public int valueMoney; 
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,9 @@ public class Piecette : MonoBehaviour
     {
         if(!pickUp)
         {
-            Compteur.GainPiecettes();
+            Compteur.GainPiecettes(valueMoney);
             pickUp = true;
-            Destroy(gameObject, 1);
+            Destroy(gameObject);
         }
         
     }

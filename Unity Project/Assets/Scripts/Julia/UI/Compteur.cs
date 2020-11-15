@@ -18,10 +18,10 @@ public class Compteur : MonoBehaviour
         displayBoulon.text = "Boulons:" + nbreBoulon.ToString();
     }
 
-    public void GainPiecettes()
+    public void GainPiecettes(int value)
     {
         //son récupération
-        nbrePiecettes++;  
+        nbrePiecettes += value;  
     }
 
     public void GainBoulon()
