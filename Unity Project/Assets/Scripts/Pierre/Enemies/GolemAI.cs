@@ -1,197 +1,389 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.AI;
 
 public class GolemAI : MonoBehaviour
 {
+    public enum GolemState { Dormant, Pursue, Search, Attack }
+    public GolemState state = GolemState.Dormant;
 
-    GameObject player;
-    public Player playerScript;
-    Rigidbody rigidBody;
-    EnemyDamage damageManager;
-    public Transform rayCastOrigin;
+    NavMeshAgent navMeshAgent;
+    public Animator animator;
 
-    //Line of Sight
-    public float maxSight, reactTime; //How far can the enemy see ? / How fast does he react to the player ?
-    public float maxAwaken; //How far away should we start drawing raycasts to detect the player 
-    public float maxSpeed;
+    //sensing the player
+    public GameObject playerObject;
+    Player playerScript;
+    public LayerMask blocksLOS, playerMask;
+    public Vector3 toPlayer;
+    public float distanceToPlayer,
+        seeingDistance = 15, //How far can the AI see the player
+        seeingReactTime = 2, //How long does it take for the AI to start targeting the player
+        timeSeenPlayer,
+        seeingFalloff = 1, //Multiplier to how fast does timeSeenPlayer falls off
+        memoryMax = 5, //How long does the AI memorize the player
+        lastTimeSincePlayerSeen = 0, //How long since the AI saw the player
+        hearingDistance, //How far can the AI hear the player
+        hearingFalloff; //How long (in seconds) does it take for the AI to forget the noise
+    public bool seeingPlayer, //Is the AI seeing the player
+        hearingPlayer, //If the player makes another noise while this is true, the AI will give chase
+        targetingPlayer; //if this is true, the AI chases the player
 
-    public LayerMask blockLOS;
-    public LayerMask isPlayer;
+    //movements
+    public Vector3 moveTarget;
+    public float pursueSpeed = 3,
+        pursueAcceleration = 10;
+    public bool isInJump, canJump = true;
 
-    Vector3 enemyToPlayer, angleToPlayer, targetVelocity, currentVelocity;
-    float refVelocityx, refVelocityz;
-    public float accelerationTime;
-    public float distanceToPlayer;
 
-    public bool playerInSight, playerInMind;
-    public bool playerInRange;
+    //Attacks
+    public Vector3 attackDirection;
+    public float attackDistance = 1.5f,
+        attackRange = 3,
+        attackAngle = 80,
+        attackBuildup = 0.2f,
+        attackRecover = 0.2f,
+        attackCooldown = 0.2f,
+        attackDamage = 8f;
+    public bool isInAttack;
 
-    //Combat
-    public float attackRange, attackDamage, attackKnockback;
-    public bool isInAttack, isInBuildup, isAttacking, isInRecover;
-    public float buildupTime, attackTime, recoveryTime, attackDimensionsLength, attackDimensionsDepth;
-    float buildupTimeElapsed, attackTimeElapsed, recoveryTimeElapsed;
-    Vector3 attackAngle;
+
+    //Search
+    public float searchMaxTime = 5,
+        searchTime = 0,
+        distanceToSearchPoint = 1.5f,
+        lookingAroundRadiusMin = 4,
+        lookingAroundRadiusMax = 12;
+    public bool arrivedToSearchPoint = false,
+        lookingAround = false,
+        movingToNextSearchPoint = false;
+    public Vector3 lastKnownPosition;
+
+
+    //Animation
+    Vector3 lastPosition,
+        currentSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<Player>();
-        rigidBody = GetComponent<Rigidbody>();
-        damageManager = GetComponent<EnemyDamage>();
+
+    }
+
+    private void Awake()
+    {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject.GetComponent<Player>())
+        {
+            playerScript = playerObject.GetComponent<Player>();
+        }
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        lastPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player)
+        seeingPlayer = false;
+        if (DistanceToPlayer() < seeingDistance || targetingPlayer)
         {
-            Activation();
+            SightCast();
+        }
+
+        if (seeingPlayer)
+        {
+            lastKnownPosition = playerObject.transform.position;
+        }
+
+        switch (state)
+        {
+            case GolemState.Dormant:
+                Dormant();
+                break;
+            case GolemState.Pursue:
+                Pursue();
+                break;
+            case GolemState.Search:
+                Search();
+                break;
+            case GolemState.Attack:
+                Attack();
+                break;
+        }
+
+        Anim();
+    }
+
+    float DistanceToPlayer()
+    {
+        toPlayer = playerObject.transform.position - transform.position;
+        distanceToPlayer = toPlayer.magnitude;
+        return (distanceToPlayer);
+    }
+
+    bool SightCast()
+    {
+        float sightLength = seeingDistance;
+        Ray sightRay = new Ray(transform.position, toPlayer);
+        RaycastHit sightInfo;
+        if (Physics.Raycast(sightRay, out sightInfo, sightLength, blocksLOS))
+        {
+            sightLength = sightInfo.distance;
+            seeingPlayer = false;
+        }
+
+        if (Physics.Raycast(sightRay, out sightInfo, sightLength, playerMask))
+        {
+            sightLength = sightInfo.distance;
+            seeingPlayer = true;
+        }
+        return (seeingPlayer);
+    }
+
+    void Dormant()
+    {
+        navMeshAgent.SetDestination(transform.position);
+        if (seeingPlayer == true)
+        {
+            timeSeenPlayer += Time.deltaTime;
         }
         else
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            timeSeenPlayer -= Time.deltaTime * seeingFalloff;
+        }
+
+        if (timeSeenPlayer < 0)
+        {
+            timeSeenPlayer = 0;
+        }
+
+        if (timeSeenPlayer > seeingReactTime)
+        {
+            timeSeenPlayer = seeingReactTime;
+        }
+
+        if (timeSeenPlayer >= seeingReactTime)
+        {
+            timeSeenPlayer = 0;
+            targetingPlayer = true;
+            state = GolemState.Pursue;
         }
     }
 
-    void Activation()
+    void Pursue()
     {
-        enemyToPlayer = player.transform.position - rayCastOrigin.position;
-        distanceToPlayer = enemyToPlayer.magnitude;
-        if (!damageManager.isInKnockback)
+        if (!isInJump)
         {
-            rigidBody.velocity = Vector3.zero;
-        }
-        if (distanceToPlayer < maxAwaken)
-        {
-            angleToPlayer = enemyToPlayer;
-            angleToPlayer.Normalize();
-            Sightcast();
-            if (playerInSight && !playerInMind)
+            if (distanceToPlayer < attackDistance)
             {
-                StartCoroutine("ReactCoroutine");
-            }
-            if (!playerInSight)
-            {
-                StopCoroutine("ReactCoroutine");
-                playerInMind = false;
-            }
-            if (playerInMind)
-            {
-                React();
+                state = GolemState.Attack;
+                return;
             }
         }
-        
-    }
 
-    public IEnumerator ReactCoroutine()
-    {
-        yield return new WaitForSeconds(reactTime);
-        playerInMind = true;
-    }
 
-    void Sightcast() 
-    {
-        RaycastHit hit;
-        float hitLength = maxSight;
+        Memory();
 
-        //Detect if objects are between the player and the golem
-        Physics.Raycast(rayCastOrigin.position, angleToPlayer, out hit, hitLength, blockLOS);
-        if (hit.collider)
-        {
-            hitLength = hit.distance;
-        }
-
-        //Detect if the player is in range
-        Physics.Raycast(rayCastOrigin.position, angleToPlayer, out hit, hitLength, isPlayer);
-        if (hit.collider)
-        {
-            playerInSight = true;
-            //print("Player in sight !");
-            hitLength = hit.distance;
-        } else
-        {
-            playerInSight = false;
-        }
-
-        //Debug.DrawRay(rayCastOrigin.position, angleToPlayer * hitLength, Color.red);
-
-        //Detect if the player is in melee range
-        if (hit.distance <= attackRange)
-        {
-            playerInRange = true;
-        } else
-        {
-            playerInRange = false;
-        }
-    }
-
-    void React()
-    {
-        if (playerInRange)
-        {
-            if (!isInAttack)
-            {
-                isInBuildup = true;
-                attackAngle = angleToPlayer;
-                buildupTimeElapsed = attackTimeElapsed = recoveryTimeElapsed = 0;
-                Attack();
-            }
-            isInAttack = true;
-        } else if (!isInAttack)
-        {
-            Move();
-        }
-    }
-
-    void Move()
-    {
-        if (!damageManager.isInKnockback)
-        {
-            targetVelocity = angleToPlayer * maxSpeed;
-            currentVelocity.x = Mathf.SmoothDamp(currentVelocity.x, targetVelocity.x, ref refVelocityx, accelerationTime);
-            currentVelocity.z = Mathf.SmoothDamp(currentVelocity.z, targetVelocity.z, ref refVelocityz, accelerationTime);
-            rigidBody.velocity = currentVelocity;
-        } else
-        {
-            currentVelocity = Vector3.zero;
-            targetVelocity = Vector3.zero;
-            refVelocityx = 0;
-            refVelocityz = 0;
-        }
+        moveTarget = playerObject.transform.position;
+        navMeshAgent.speed = pursueSpeed;
+        navMeshAgent.acceleration = pursueAcceleration;
+        navMeshAgent.SetDestination(moveTarget);
     }
 
     void Attack()
     {
-        StartCoroutine("AttackCoroutine");
+        if (!isInAttack)
+        {
+            if (distanceToPlayer > attackDistance && !isInJump)
+            {
+                state = GolemState.Pursue;
+                return;
+            }
+
+            if (!isInJump)
+            {
+                isInAttack = true;
+                animator.SetInteger("state", 3);
+                attackDirection = toPlayer;
+                StartCoroutine("AttackCoroutine");
+            }
+        }
     }
-    public IEnumerator AttackCoroutine()
+
+    IEnumerator AttackCoroutine()
     {
-        Vector3 attackDimensions = new Vector3(attackDimensionsLength / 2, 1, attackDimensionsDepth / 2);
-        Vector3 attackDirection = player.transform.position - transform.position;
-        yield return new WaitForSeconds(buildupTime);
-        isInBuildup = false;
-        isAttacking = true;
-        Collider[] hitPlayer = Physics.OverlapSphere(transform.position, attackDimensions.z, isPlayer);
-        foreach (Collider target in hitPlayer)
+        isInAttack = true;
+        yield return new WaitForSeconds(attackBuildup);
+        DoDamage();
+        yield return new WaitForSeconds(attackRecover);
+        yield return new WaitForSeconds(attackCooldown);
+        isInAttack = false;
+
+    }
+
+    void DoDamage()
+    {
+        Collider[] hitPlayer = Physics.OverlapSphere(transform.position, attackRange, playerMask);
+        foreach (Collider player in hitPlayer)
         {
             Vector3 playerDirection = player.transform.position - transform.position;
 
             float playerAngle = Vector3.Angle(attackDirection, playerDirection);
             print(playerAngle);
-            if (playerAngle <= attackDimensions.x)
+            if (playerAngle <= attackAngle)
             {
-                playerScript.PlayerDamage(attackDamage);
+                if (playerObject.GetComponent<Player>())
+                {
+                    playerScript.PlayerDamage(attackDamage);
+                }
             }
         }
-        isInRecover = true;
-        yield return new WaitForSeconds(recoveryTime);
-        isInRecover = false;
-        isInAttack = false;
+
+
     }
+
+    void Memory()
+    {
+
+        if (!seeingPlayer)
+        {
+            lastTimeSincePlayerSeen += Time.deltaTime;
+        }
+        else
+        {
+            lastTimeSincePlayerSeen = 0;
+        }
+
+        if (lastTimeSincePlayerSeen > memoryMax)
+        {
+            searchTime = 0;
+            lookingAround = false;
+            state = GolemState.Search;
+        }
+    }
+
+    void Search()
+    {
+        if (seeingPlayer)
+        {
+            targetingPlayer = true;
+            movingToNextSearchPoint = false;
+            state = GolemState.Pursue;
+            return;
+        }
+        if (!lookingAround)
+        {
+            arrivedToSearchPoint = navMeshAgent.remainingDistance < distanceToSearchPoint;
+            if (!movingToNextSearchPoint)
+            {
+                MoveToLastKnownPosition();
+            }
+
+            if (arrivedToSearchPoint)
+            {
+                movingToNextSearchPoint = false;
+                lookingAround = true;
+            }
+        }
+        if (lookingAround)
+        {
+            if (searchTime >= searchMaxTime)
+            {
+                state = GolemState.Dormant;
+                return;
+            }
+            else
+            {
+                searchTime += Time.deltaTime;
+            }
+            if (!movingToNextSearchPoint)
+            {
+                StartCoroutine("LookAround");
+            }
+        }
+
+    }
+
+    void MoveToLastKnownPosition()
+    {
+        movingToNextSearchPoint = true;
+        moveTarget = lastKnownPosition;
+        navMeshAgent.speed = pursueSpeed;
+        navMeshAgent.acceleration = pursueAcceleration;
+        navMeshAgent.SetDestination(moveTarget);
+    }
+
+    IEnumerator LookAround()
+    {
+        movingToNextSearchPoint = true;
+        float rngx = Random.Range(-1, 1);
+        float rngz = Random.Range(-1, 1);
+        Vector3 direction = new Vector3(rngx, 0, rngz);
+        direction.Normalize();
+        direction = direction * Random.Range(lookingAroundRadiusMin, lookingAroundRadiusMax);
+        moveTarget = lastKnownPosition + direction;
+        navMeshAgent.speed = pursueSpeed;
+        navMeshAgent.acceleration = pursueAcceleration;
+        navMeshAgent.SetDestination(moveTarget);
+        float movetime = (navMeshAgent.remainingDistance / navMeshAgent.speed) + 0.2f;
+        yield return new WaitForSeconds(movetime);
+        lastKnownPosition = transform.position;
+        movingToNextSearchPoint = false;
+    }
+
+    void Anim()
+    {
+        currentSpeed = transform.position - lastPosition;
+        currentSpeed = currentSpeed / Time.deltaTime;
+        Vector3 normalizedSpeed = currentSpeed.normalized;
+        lastPosition = transform.position;
+
+        if (normalizedSpeed.x > 0.5 || normalizedSpeed.x < -0.5)
+        {
+            animator.SetBool("horizontal", true);
+            animator.SetBool("up", false);
+            animator.SetBool("down", false);
+        }
+        if (normalizedSpeed.z > 0.5)
+        {
+            animator.SetBool("horizontal", false);
+            animator.SetBool("up", true);
+            animator.SetBool("down", false);
+        }
+        if (normalizedSpeed.z < -0.5)
+        {
+            animator.SetBool("horizontal", false);
+            animator.SetBool("up", false);
+            animator.SetBool("down", true);
+        }
+        if (normalizedSpeed.x < -0.5)
+        {
+            animator.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            animator.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        if (isInJump)
+        {
+            animator.SetInteger("state", 2);
+            return;
+        }
+
+        if (!isInAttack && !isInJump)
+        {
+            if (currentSpeed.magnitude == 0)
+            {
+                animator.SetInteger("state", 0);
+            }
+            else
+            {
+                animator.SetInteger("state", 1);
+            }
+        }
+
+    }
+
 }
