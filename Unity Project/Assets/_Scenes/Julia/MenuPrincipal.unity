@@ -474,6 +474,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1904795300}
+        m_MethodName: PlaySoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &179058743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +551,7 @@ MonoBehaviour:
   size: {fileID: 0}
   scale: {x: 0, y: 0, z: 0}
   mouseOnButton: 0
+  soundWasPlayed: 0
 --- !u!1001 &227676593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,6 +559,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 546221577028122056, guid: be1a3eb1c22ee294085ec0bb0e5e7626,
+        type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 546221577028122056, guid: be1a3eb1c22ee294085ec0bb0e5e7626,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 546221577028122056, guid: be1a3eb1c22ee294085ec0bb0e5e7626,
+        type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 546221577028122056, guid: be1a3eb1c22ee294085ec0bb0e5e7626,
+        type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 546221577028122056, guid: be1a3eb1c22ee294085ec0bb0e5e7626,
+        type: 3}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 546221577028122057, guid: be1a3eb1c22ee294085ec0bb0e5e7626,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -704,6 +741,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1904795300}
+        m_MethodName: PlaySoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &260462215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,6 +805,7 @@ MonoBehaviour:
   size: {fileID: 0}
   scale: {x: 0, y: 0, z: 0}
   mouseOnButton: 0
+  soundWasPlayed: 0
 --- !u!65 &260462218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1203,6 +1252,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1904795300}
+        m_MethodName: PlaySoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &598516675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,6 +1329,7 @@ MonoBehaviour:
   size: {fileID: 0}
   scale: {x: 0, y: 0, z: 0}
   mouseOnButton: 0
+  soundWasPlayed: 0
 --- !u!1 &621842670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,6 +1499,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1904795300}
+        m_MethodName: PlaySoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &692047831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1491,6 +1563,7 @@ MonoBehaviour:
   size: {fileID: 0}
   scale: {x: 0, y: 0, z: 0}
   mouseOnButton: 0
+  soundWasPlayed: 0
 --- !u!65 &692047834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2284,6 +2357,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1904795300}
+        m_MethodName: PlaySoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1538649460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2350,6 +2434,7 @@ MonoBehaviour:
   size: {fileID: 0}
   scale: {x: 0, y: 0, z: 0}
   mouseOnButton: 0
+  soundWasPlayed: 0
 --- !u!1 &1551797080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,6 +2604,7 @@ GameObject:
   - component: {fileID: 1904795300}
   - component: {fileID: 1904795302}
   - component: {fileID: 1904795301}
+  - component: {fileID: 1904795303}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -2673,6 +2759,14 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!81 &1904795303
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904795295}
+  m_Enabled: 1
 --- !u!1 &1967447080
 GameObject:
   m_ObjectHideFlags: 0

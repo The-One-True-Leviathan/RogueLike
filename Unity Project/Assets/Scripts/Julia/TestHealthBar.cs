@@ -21,7 +21,8 @@ public class TestHealthBar : MonoBehaviour
         test = controller.Keyboard.Test.triggered;
         if (test)
         {
-            healthBar.UpgradeLife(testDamage);
+            FindObjectOfType<AudioManager>().Play("Survol");
+            //SoundManager.PlaySound(SoundManager.Sound.SurvolBouton);
         }
     }
 }

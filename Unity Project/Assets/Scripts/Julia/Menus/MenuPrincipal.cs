@@ -46,4 +46,9 @@ public class MenuPrincipal : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
+
+    public void PlaySoundClick()
+    {
+        FindObjectOfType<AudioManager>().Play("Click");
+    }
 }

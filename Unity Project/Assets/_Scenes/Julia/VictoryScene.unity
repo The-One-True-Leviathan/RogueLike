@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &11874163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4563237294739373180, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1413318759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &435887112
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +308,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &777283484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4563237293863212981, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1413318759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &777283486
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777283484}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &876499003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4563237294002361448, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1413318759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1413318759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -438,8 +494,60 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 994.6057
       objectReference: {fileID: 0}
+    - target: {fileID: 9164366014001939690, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164366014001939690, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+        type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164366014001939690, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164366014001939690, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+        type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe87b077b74cea4b9d28fce0a99d7d5, type: 3}
+--- !u!1 &1865183474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4563237294153747814, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1413318759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1865183476
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865183474}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1903142175
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,8 +577,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219ad7780e5a5724b8e833c123f6adc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayPiecettes: {fileID: 0}
-  displayBoulon: {fileID: 0}
+  displayPiecettes: {fileID: 11874163}
+  displayBoulon: {fileID: 876499003}
+  piecettesActuelles: 0
+  boulonsActuels: 0
 --- !u!4 &1903142177
 Transform:
   m_ObjectHideFlags: 0

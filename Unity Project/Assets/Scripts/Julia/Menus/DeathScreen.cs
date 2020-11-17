@@ -33,4 +33,9 @@ public class DeathScreen : MonoBehaviour
         Compteur.nbrePiecettes = 0;
         SceneManager.LoadScene("HUB");
     }
+
+    public void PlaySoundClick()
+    {
+        FindObjectOfType<AudioManager>().Play("Click");
+    }
 }

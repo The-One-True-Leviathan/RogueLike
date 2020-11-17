@@ -10,6 +10,7 @@ public class BehaviorButtons : MonoBehaviour
     public RectTransform size;
     public Vector3 scale;
     public bool mouseOnButton;
+    public bool soundWasPlayed = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,6 +22,12 @@ public class BehaviorButtons : MonoBehaviour
 
     public void Hover()
     {
+        if(!soundWasPlayed)
+        {
+            FindObjectOfType<AudioManager>().Play("SurvolBouton");
+            soundWasPlayed = true;
+        }
+        
         size.localScale = scale * 1.1f;
     }
 

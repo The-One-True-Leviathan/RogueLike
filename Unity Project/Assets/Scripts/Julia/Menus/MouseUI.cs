@@ -24,16 +24,23 @@ public class MouseUI : MonoBehaviour
         RaycastHit hit;
         Ray ray = mainCamera.ScreenPointToRay(mouse.position.ReadValue());
 
-        foreach (Collider button in btns)
-        {
-            button.GetComponent<BehaviorButtons>().NotHover();
-        }
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, UI))
         {
             hit.collider.GetComponent<BehaviorButtons>().Hover();
             hit.collider.GetComponent<BehaviorButtons>().mouseOnButton = true;
         }
+
+        foreach (Collider button in btns)
+        {
+            if (button.GetComponent<Collider>() != hit.collider)
+            {
+                button.GetComponent<BehaviorButtons>().NotHover();
+                button.GetComponent<BehaviorButtons>().soundWasPlayed = false;
+            }
+        }
+
+
     }
 
 }
