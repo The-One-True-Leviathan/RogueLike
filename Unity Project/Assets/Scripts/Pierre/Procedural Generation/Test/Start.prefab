@@ -54,10 +54,10 @@ MonoBehaviour:
   connectDown: 0
   connectLeft: 0
   connectRight: 0
-  connectList: 
-  refuseList: 
+  connectList: []
+  refuseList: []
   isStartingRoom: 0
-  roomType: 0
+  roomType: 3
 --- !u!1001 &8102541413629987354
 PrefabInstance:
   m_ObjectHideFlags: 0

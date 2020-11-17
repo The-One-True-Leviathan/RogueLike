@@ -242,7 +242,9 @@ namespace ProcGen
             //determine virtual connections
             for (int i = 0; i < allRoomsInDungeon.Count; i++)
             {
+                allRoomsInDungeon[i].GetComponent<RoomBehavior>().roomCount = allRoomsInDungeon.Count;
                 allRoomsInDungeon[i].GetComponent<RoomBehavior>().Connect();
+                Debug.LogError("Connected");
             }
 
             //place doors and walls depending on virtual connections

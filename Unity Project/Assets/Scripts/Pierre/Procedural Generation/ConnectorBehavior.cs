@@ -9,13 +9,15 @@ namespace ProcGen
         public enum ConnectorType { Up, Down, Left, Right};
         public ConnectorType connectorType;
         public RoomBehavior roomBehavior;
+        public RoomActivator roomActivator;
         public GameObject doorObject, wallObject;
         public float doorShiftX, doorShiftY, wallShiftX, wallShiftY;
         // Start is called before the first frame update
         public void CreateConnections()
         {
             roomBehavior = transform.parent.GetComponentInParent<RoomBehavior>();
-            switch(connectorType)
+            roomActivator = transform.parent.GetComponentInParent<RoomActivator>();
+            switch (connectorType)
             {
                 case ConnectorType.Up:
                     if (roomBehavior.connectUp)
@@ -63,14 +65,14 @@ namespace ProcGen
         {
             Debug.LogError("Placed Door !");
             Vector3 doorPos = transform.position + new Vector3(doorShiftX, 0, doorShiftY);
-            Instantiate(doorObject, doorPos, Quaternion.identity);
+            roomActivator.toActivate.Add(Instantiate(doorObject, doorPos, Quaternion.identity, transform.parent).transform.GetChild(0).gameObject);
         }
 
         void PlaceWall()
         {
             Debug.LogError("Placed Wall !");
             Vector3 wallPos = transform.position + new Vector3(wallShiftX, 0, wallShiftY);
-            Instantiate(wallObject, wallPos, Quaternion.identity);
+            roomActivator.toActivate.Add(Instantiate(wallObject, wallPos, Quaternion.identity, transform.parent).transform.GetChild(0).gameObject);
         }
     }
 }

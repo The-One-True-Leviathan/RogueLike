@@ -75,8 +75,8 @@ MonoBehaviour:
   approachSpeed: 20
   approachAcceleration: 20
   approachJumpRange: 5
-  approachJumpCooldownMin: 0.8
-  approachJumpCooldownMax: 1.2
+  approachJumpCooldownMin: 0.6
+  approachJumpCooldownMax: 1
   approachAngle: 60
   pursueSpeed: 5
   pursueAcceleration: 15
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 5
   currentHP: 5
+  currentDamage: 0
   player: {fileID: 0}
   rigidBody: {fileID: 0}
   isInKnockback: 0

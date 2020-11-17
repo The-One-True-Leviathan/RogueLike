@@ -227,7 +227,6 @@ public class SpiderAI : MonoBehaviour
         isInJump = false;
         yield return new WaitForSeconds(cooldown - time);
         canJump = true;
-
     }
 
     void Pursue()
@@ -289,18 +288,23 @@ public class SpiderAI : MonoBehaviour
 
     IEnumerator BackJump()
     {
+
         isInJump = true;
         navMeshAgent.speed = approachSpeed;
         navMeshAgent.acceleration = approachAcceleration;
-        float rng = Random.Range(-backJumpAngle / 2, backJumpAngle / 2) + Random.Range(-backJumpAngle / 2, backJumpAngle / 2);
+        float rng = Random.Range(-approachAngle / 2, approachAngle / 2) + Random.Range(-approachAngle / 2, approachAngle / 2);
         float cooldown = Random.Range(approachJumpCooldownMin, approachJumpCooldownMax);
         moveTarget = Quaternion.AngleAxis(rng, Vector3.up) * (transform.position - playerObject.transform.position);
         moveTarget.Normalize();
         moveTarget = moveTarget * approachJumpRange;
         navMeshAgent.SetDestination(transform.position + moveTarget);
-        yield return new WaitForSeconds(cooldown);
+        float time = ((navMeshAgent.destination - transform.position).magnitude / approachSpeed) * (approachAcceleration / 10);
+        Debug.Log(time);
+        yield return new WaitForSeconds(time);
         navMeshAgent.SetDestination(transform.position);
         isInJump = false;
+        yield return new WaitForSeconds(cooldown - time);
+        canJump = true;
     }
 
     void DoDamage()
