@@ -7,6 +7,13 @@ using UnityEngine.UI;
 
 public class MenuPrincipal : MonoBehaviour
 {
+    public GameObject menu, optionMenu;
+    Vector3 optionScale;
+
+    private void Start()
+    {
+        optionMenu.GetComponent<RectTransform>().localScale = Vector3.zero;
+    }
 
     private void OnMouseEnter()
     {
@@ -16,6 +23,18 @@ public class MenuPrincipal : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("Release 1");
+    }
+
+    public void OptionOpen()
+    {
+        optionMenu.GetComponent<RectTransform>().localScale = Vector3.one;
+        menu.GetComponent<RectTransform>().localScale = Vector3.zero;
+    }
+
+    public void OptionClose()
+    {
+        optionMenu.GetComponent<RectTransform>().localScale = Vector3.zero;
+        menu.GetComponent<RectTransform>().localScale = Vector3.one;
     }
 
     public void QuitGame()

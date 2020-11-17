@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public float maxHP, currentHP;
+    public float maxHP, currentHP, currentDamage;
     public Player player;
     public Rigidbody rigidBody;
     public bool isInKnockback;
@@ -46,6 +46,7 @@ public class EnemyDamage : MonoBehaviour
 
     public void Damage(float damage, float knockback, Transform knockbackOrigin)
     {
+        currentDamage = damage;
         knockbackDirection = transform.position - knockbackOrigin.position;
         knockbackSpeed = knockback;
         currentHP -= damage;

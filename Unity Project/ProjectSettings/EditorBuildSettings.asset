@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Julia/MenuPrincipal.unity
+    path: Assets/_Scenes/Julia/MenuPrincipal.unity
     guid: b7cd9eead51a1f344a6c53f3c4b1125e
   - enabled: 1
-    path: Assets/Scenes/Release 1.unity
+    path: Assets/_Scenes/Release 1.unity
     guid: 96238dcc002e9324f8182dc2742ef99d
   - enabled: 1
-    path: Assets/Scenes/Julia/DeathScreen.unity
+    path: Assets/_Scenes/Julia/DeathScreen.unity
     guid: 4416c60c1e6d4764bbf025a3b8f16ac4
   m_configObjects: {}

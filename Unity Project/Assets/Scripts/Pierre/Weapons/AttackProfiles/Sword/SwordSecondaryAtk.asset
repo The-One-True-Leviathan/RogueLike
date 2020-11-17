@@ -16,7 +16,7 @@ MonoBehaviour:
   isRanged: 0
   projectile: []
   reach:
-  - {x: 90, y: 0, z: 1.5}
+  - {x: 90, y: 0, z: 2.5}
   buildup: 0.25
   isCharge: 0
   chargeTime:
@@ -32,4 +32,4 @@ MonoBehaviour:
   knockBack:
   - 2.4
   recoil:
-  - {x: 2.4, y: 0}
+  - {x: -2.4, y: 0.2}
