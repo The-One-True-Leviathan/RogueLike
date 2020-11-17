@@ -10,7 +10,6 @@ public class MonsterSpawner : MonoBehaviour
     {
         int index = Random.Range(0, possibleEnnemies.Count - 1);
         Instantiate(possibleEnnemies[index], transform.position, Quaternion.identity, transform);
-        Object.Destroy(this.gameObject);
     }
 
 }
