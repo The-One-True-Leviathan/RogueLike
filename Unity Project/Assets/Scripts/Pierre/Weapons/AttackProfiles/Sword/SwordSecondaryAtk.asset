@@ -17,19 +17,19 @@ MonoBehaviour:
   projectile: []
   reach:
   - {x: 90, y: 0, z: 2.5}
-  buildup: 0.25
+  buildup: 0.1
   isCharge: 0
   chargeTime:
   - 0
   hitSpan:
-  - 0.08
-  recover:
   - 0.2
+  recover:
+  - 0.08
   cooldown:
-  - 0.35
+  - 0.08
   damage:
   - 6
   knockBack:
-  - 2.4
+  - 5
   recoil:
-  - {x: -2.4, y: 0.2}
+  - {x: -3, y: 0.2}
