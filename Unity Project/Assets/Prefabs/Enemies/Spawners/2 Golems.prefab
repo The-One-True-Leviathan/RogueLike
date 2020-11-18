@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: 2 Golems
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -47,17 +47,17 @@ PrefabInstance:
     - target: {fileID: 1009439986653119071, guid: 782cae6f4b72d1c42a10f9e289e9f946,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2654073
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 1009439986653119071, guid: 782cae6f4b72d1c42a10f9e289e9f946,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.313965
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 1009439986653119071, guid: 782cae6f4b72d1c42a10f9e289e9f946,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.7598
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1009439986653119071, guid: 782cae6f4b72d1c42a10f9e289e9f946,
         type: 3}
@@ -122,17 +122,17 @@ PrefabInstance:
     - target: {fileID: 1009439986653119071, guid: 782cae6f4b72d1c42a10f9e289e9f946,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.277654
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 1009439986653119071, guid: 782cae6f4b72d1c42a10f9e289e9f946,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.313965
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 1009439986653119071, guid: 782cae6f4b72d1c42a10f9e289e9f946,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.7598
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 1009439986653119071, guid: 782cae6f4b72d1c42a10f9e289e9f946,
         type: 3}
