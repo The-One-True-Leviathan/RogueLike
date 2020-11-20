@@ -18,16 +18,16 @@ MonoBehaviour:
   - {fileID: 0}
   reach:
   - {x: 135, y: 0, z: 1.8}
-  buildup: 0.1
+  buildup: 0.33
   isCharge: 0
   chargeTime:
   - 0
   hitSpan:
-  - 0.02
+  - 0.33
   recover:
-  - 0.1
+  - 0.15
   cooldown:
-  - 0.4
+  - 0.2
   damage:
   - 14
   knockBack:

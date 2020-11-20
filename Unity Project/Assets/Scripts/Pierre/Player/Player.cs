@@ -17,6 +17,11 @@ public class Player : MonoBehaviour
     public GameObject weaponDropOriginal;
     public Animator animator;
 
+
+    public PlayerCollisionDetector left, right, top, bottom;
+    public bool collisionLeft, collisionRight, collisionTop, collisionBottom;
+
+
     public float damageImmunity; //Longeur (en secondes) de l'immunité après avoir prit des dégâts
 
     public Controler controller; //Appel du controlleur
@@ -45,7 +50,7 @@ public class Player : MonoBehaviour
     public bool strenght, speed;
     public float strenghtMultiplier, speedMultiplier;
 
-
+    //combat
     public bool dualWielding; //Is the character wielding two different weapons ?
     public float switchTime;
     public WeaponScriptableObject weapon1, weapon2, weaponInAtk, weaponInHitSpan, switchSpace, droppedWeapon = null; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
@@ -252,6 +257,8 @@ public class Player : MonoBehaviour
 
     public void Inputs()
     {
+
+
         if (Gamepad.current != null)
         {
             rStick = new Vector3(controller.Keyboard.LookAround.ReadValue<Vector2>().x, 0, controller.Keyboard.LookAround.ReadValue<Vector2>().y);
@@ -331,6 +338,11 @@ public class Player : MonoBehaviour
     }
     public void Move()
     {
+        collisionLeft = left.isCollision;
+        collisionRight = right.isCollision;
+        collisionTop = top.isCollision;
+        collisionBottom = bottom.isCollision;
+
         if (!isInRecoil)
         {
             currentSpeed.x = Mathf.SmoothDamp(currentSpeed.x, targetSpeed.x, ref xVelocity, accelerationTime);
@@ -341,6 +353,23 @@ public class Player : MonoBehaviour
                 targetSpeed = Vector3.zero;
                 xVelocity = zVelocity = 0;
             }
+        }
+
+        if (collisionLeft && currentSpeed.x < 0)
+        {
+            currentSpeed.x = 0;
+        }
+        if (collisionRight && currentSpeed.x > 0)
+        {
+            currentSpeed.x = 0;
+        }
+        if (collisionTop && currentSpeed.z > 0)
+        {
+            currentSpeed.z = 0;
+        }
+        if (collisionBottom && currentSpeed.z < 0)
+        {
+            currentSpeed.z = 0;
         }
 
         rigidBody.velocity = currentSpeed;
