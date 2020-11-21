@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1009439986653119067}
   - component: {fileID: 1009439986653119064}
   - component: {fileID: 6796396950276213007}
+  - component: {fileID: 6459636240625160690}
   m_Layer: 8
   m_Name: Golem
   m_TagString: Untagged
@@ -140,8 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ddd1e4d41f8b04abcee07ecd822219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
-  currentHP: 5
+  maxHP: 20
+  currentHP: 20
+  currentDamage: 0
   player: {fileID: 0}
   rigidBody: {fileID: 0}
   isInKnockback: 0
@@ -155,6 +157,22 @@ MonoBehaviour:
   isTable: 0
   hasLoot: 0
   possibleLoots: []
+--- !u!54 &6459636240625160690
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009439986653119065}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!1 &1009439987344386210
 GameObject:
   m_ObjectHideFlags: 0

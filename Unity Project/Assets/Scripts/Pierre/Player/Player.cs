@@ -489,7 +489,7 @@ public class Player : MonoBehaviour
                         }
                         enemiesHitLastAttack.Add(enemy.gameObject);
                         Debug.DrawRay(transform.position, enemyDirection, Color.red);
-                        print("Enemy hit ! Inflicted " + damage + " damage !");
+                        Debug.LogError("Enemy hit ! Inflicted " + damage + " damage !");
                         float finalKnockback = weapon.atk[atkNumber].knockBack[chargeLevel] * weapon.totalKnockbackMultiplier;
                         DoAttack(damage, finalKnockback, enemy.gameObject);
                     }

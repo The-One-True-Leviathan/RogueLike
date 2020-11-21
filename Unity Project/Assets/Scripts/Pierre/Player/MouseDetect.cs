@@ -27,7 +27,6 @@ public class MouseDetect : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, MouseLayer))
         {
-            Debug.LogError("Hit");
             player.mousePosition = hit.point;
         }
 
