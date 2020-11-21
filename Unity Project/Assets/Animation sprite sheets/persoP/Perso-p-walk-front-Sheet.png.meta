@@ -110,8 +110,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
-        height: 36
+        width: 23
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: Perso-p-walk-front-Sheet_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 23
         y: 0
-        width: 19
-        height: 36
+        width: 23
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Perso-p-walk-front-Sheet_2
       rect:
         serializedVersion: 2
-        x: 38
+        x: 46
         y: 0
-        width: 19
-        height: 36
+        width: 23
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: Perso-p-walk-front-Sheet_3
       rect:
         serializedVersion: 2
-        x: 57
+        x: 69
         y: 0
-        width: 19
-        height: 36
+        width: 23
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: Perso-p-walk-front-Sheet_4
       rect:
         serializedVersion: 2
-        x: 76
+        x: 92
         y: 0
-        width: 19
-        height: 36
+        width: 23
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: Perso-p-walk-front-Sheet_5
       rect:
         serializedVersion: 2
-        x: 95
+        x: 115
         y: 0
-        width: 19
-        height: 36
+        width: 23
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 933f4c322359dc943a670958ea170ab4
+    spriteID: c1ea77162e773144fa36cae6d37241b7
     internalID: 0
     vertices: []
     indices: 
