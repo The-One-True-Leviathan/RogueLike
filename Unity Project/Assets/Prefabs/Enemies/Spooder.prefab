@@ -85,7 +85,7 @@ MonoBehaviour:
   canJump: 1
   attackDirection: {x: 0, y: 0, z: 0}
   attackDistance: 1.5
-  attackRange: 2
+  attackRange: 1.5
   attackAngle: 30
   attackBuildup: 0.2
   attackRecover: 0.4

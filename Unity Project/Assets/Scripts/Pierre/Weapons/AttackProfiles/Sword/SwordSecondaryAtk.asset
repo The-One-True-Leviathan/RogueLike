@@ -16,7 +16,7 @@ MonoBehaviour:
   isRanged: 0
   projectile: []
   reach:
-  - {x: 90, y: 0, z: 2.5}
+  - {x: 80, y: 0, z: 2}
   buildup: 0.1
   isCharge: 0
   chargeTime:

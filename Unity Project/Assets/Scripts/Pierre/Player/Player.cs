@@ -479,6 +479,7 @@ public class Player : MonoBehaviour
                     Vector3 enemyDirection = enemy.transform.position - transform.position;
 
                     float enemyAngle = Vector3.Angle(attackDirection, enemyDirection);
+                    enemyAngle -= enemy.bounds.extents.x;
                     print(enemyAngle);
                     if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x * weapon.totalReachMultiplier.x)
                     {
