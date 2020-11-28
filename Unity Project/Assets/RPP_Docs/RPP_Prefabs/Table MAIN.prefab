@@ -48,6 +48,7 @@ MonoBehaviour:
   tableObj: {fileID: 8798521535507029144}
   tableAnim: {fileID: 8798521535507029147}
   tableScript: {fileID: 8798521535507029146}
+  reverseParticles: {fileID: 9141229084654056180}
 --- !u!1 &8798521534188129909
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 15
   currentHP: 0
+  currentDamage: 0
   player: {fileID: 0}
   rigidBody: {fileID: 4088597348743916099}
   isInKnockback: 0
@@ -671,6 +673,8 @@ MonoBehaviour:
   isTrap: 0
   isEnvironment: 0
   isTable: 0
+  hasLoot: 0
+  possibleLoots: []
 --- !u!1 &8798521535525940807
 GameObject:
   m_ObjectHideFlags: 0

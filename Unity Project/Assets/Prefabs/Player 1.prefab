@@ -122,9 +122,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   isInRoll: 0
-  rollLength: 0.1
+  rollLength: 0.2
   rollRecover: 0.2
-  rollSpeed: 18
+  rollSpeed: 12
   rollDirection: {x: 0, y: 0, z: 0}
   strenght: 0
   speed: 0
