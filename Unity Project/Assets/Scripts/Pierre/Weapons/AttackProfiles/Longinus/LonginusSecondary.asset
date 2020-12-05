@@ -32,5 +32,6 @@ MonoBehaviour:
   - 14
   knockBack:
   - 8
+  animationIndex: 05000000
   recoil:
   - {x: 20, y: 0.03}

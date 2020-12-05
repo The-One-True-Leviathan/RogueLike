@@ -17,7 +17,7 @@ MonoBehaviour:
   projectile: []
   reach:
   - {x: 80, y: 0, z: 2}
-  buildup: 0.1
+  buildup: 0.2
   isCharge: 0
   chargeTime:
   - 0
@@ -31,5 +31,6 @@ MonoBehaviour:
   - 6
   knockBack:
   - 5
+  animationIndex: 03000000
   recoil:
   - {x: -3, y: 0.2}

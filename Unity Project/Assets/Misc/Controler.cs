@@ -319,7 +319,7 @@ public class @Controler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e09f4c4a-8ea5-4700-91d7-e0095facf867"",
-                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""path"": ""<XInputController>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -352,7 +352,7 @@ public class @Controler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""dccce192-5c38-4585-84bf-076dfd9034c8"",
-                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""path"": ""<XInputController>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -693,7 +693,7 @@ public class @Controler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7395eca3-100a-4f45-b9e4-3dad608d8d35"",
-                    ""path"": ""<XboxOneGampadiOS>/leftTrigger"",
+                    ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -716,6 +716,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""351df75c-c53e-45a8-bd4c-26a7797fe24d"",
                     ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rewind"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c33ac5eb-f2fc-4216-940a-775c65d7df56"",
+                    ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

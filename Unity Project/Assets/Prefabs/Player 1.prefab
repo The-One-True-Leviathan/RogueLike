@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Bits: 1024
   isInRoll: 0
   rollLength: 0.2
-  rollRecover: 0.2
+  rollRecover: 0.4
   rollSpeed: 12
   rollDirection: {x: 0, y: 0, z: 0}
   strenght: 0
@@ -286,7 +286,7 @@ Animator:
   m_GameObject: {fileID: 281752995880152277}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bdf4a172dcbcd3240b6d4410d4a246d4, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

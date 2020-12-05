@@ -26,12 +26,12 @@ MonoBehaviour:
   - 0.2
   - 0.5
   hitSpan:
-  - 0.08
-  - 0.08
+  - 0.13
+  - 0.13
   - 0.12
   recover:
-  - 0.05
-  - 0.05
+  - 0.1
+  - 0.1
   - 0.1
   cooldown:
   - 0.1
@@ -45,6 +45,7 @@ MonoBehaviour:
   - 1.8
   - 1.8
   - 2
+  animationIndex: 010000000100000002000000
   recoil:
   - {x: -5, y: 0.02}
   - {x: -5, y: 0.02}
