@@ -1639,7 +1639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &341973849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1818,7 +1818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &384946197
 Transform:
   m_ObjectHideFlags: 0
@@ -2198,6 +2198,12 @@ RectTransform:
   m_AnchoredPosition: {x: -301, y: 11.500001}
   m_SizeDelta: {x: 160, y: 52.999985}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &409201771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4347288608815791507, guid: 0ce5c0cd8cd9c6d44a17bd7b04c6dc49,
+    type: 3}
+  m_PrefabInstance: {fileID: 884640236}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &453666646
 GameObject:
   m_ObjectHideFlags: 0
@@ -4440,10 +4446,15 @@ PrefabInstance:
       propertyPath: isOpen
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1781156036016216538, guid: 0ce5c0cd8cd9c6d44a17bd7b04c6dc49,
+        type: 3}
+      propertyPath: subcanvas
+      value: 
+      objectReference: {fileID: 409201771}
     - target: {fileID: 4347288608815791507, guid: 0ce5c0cd8cd9c6d44a17bd7b04c6dc49,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4770388322434496857, guid: 0ce5c0cd8cd9c6d44a17bd7b04c6dc49,
         type: 3}
@@ -4573,7 +4584,7 @@ PrefabInstance:
     - target: {fileID: 4770388322434496861, guid: 0ce5c0cd8cd9c6d44a17bd7b04c6dc49,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4770388322893283458, guid: 0ce5c0cd8cd9c6d44a17bd7b04c6dc49,
         type: 3}
@@ -13453,7 +13464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1891960729
 Transform:
   m_ObjectHideFlags: 0
@@ -19693,6 +19704,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: animz
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242509774875915475, guid: a1e6110e332d61443b5ba3224be7170c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1e6110e332d61443b5ba3224be7170c, type: 3}

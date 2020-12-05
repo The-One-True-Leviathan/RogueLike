@@ -1,10 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using B83.Unity.Attributes;
-using UnityEditor;
-using System.Reflection;
-using System.Net.Http.Headers;
 
 namespace Weapons
 {

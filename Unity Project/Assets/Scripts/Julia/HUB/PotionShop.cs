@@ -1,7 +1,5 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
 public class PotionShop : MonoBehaviour
