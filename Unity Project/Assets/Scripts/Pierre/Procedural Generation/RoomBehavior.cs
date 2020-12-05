@@ -21,7 +21,7 @@ namespace ProcGen
         // Start is called before the first frame update
         void Awake()
         {
-            genManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GenManager>();
+            genManager = GameObject.FindGameObjectWithTag("Genmanager").GetComponent<GenManager>();
             if (isStartingRoom)
             {
                 //genManager.roomCoordinates.Add(Vector3.zero);

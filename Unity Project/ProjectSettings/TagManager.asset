@@ -11,6 +11,7 @@ TagManager:
   - TEST
   - Core
   - Door
+  - Genmanager
   layers:
   - Default
   - TransparentFX

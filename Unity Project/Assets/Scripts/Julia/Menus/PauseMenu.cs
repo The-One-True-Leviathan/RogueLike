@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public Controler controller;
-    public GameObject pauseMenuUI;
+    public GameObject pauseMenuUI, controlMenuUI;
     public AudioMixer audioMixer;
 
     private void Start()
@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
+        controlMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
@@ -67,5 +68,17 @@ public class PauseMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
+    }
+
+    public void Controls()
+    {
+        pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
+        controlMenuUI.GetComponent<RectTransform>().localScale = Vector3.one;
+    }
+
+    public void BackFromControls()
+    {
+        pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.one;
+        controlMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
     }
 }

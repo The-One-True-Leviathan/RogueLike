@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class MenuPrincipal : MonoBehaviour
 {
-    public GameObject menu, optionMenu;
+    public GameObject menu, optionMenu, pauseMenu;
     Vector3 optionScale;
 
     private void Start()
     {
         optionMenu.GetComponent<RectTransform>().localScale = Vector3.zero;
+        pauseMenu.GetComponent<RectTransform>().localScale = Vector3.zero;
     }
 
     private void OnMouseEnter()
@@ -22,7 +23,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Release 1");
+        SceneManager.LoadScene("HUB");
     }
 
     public void OptionOpen()
@@ -50,5 +51,17 @@ public class MenuPrincipal : MonoBehaviour
     public void PlaySoundClick()
     {
         FindObjectOfType<AudioManager>().Play("Click");
+    }
+
+    public void Controls()
+    {
+        optionMenu.GetComponent<RectTransform>().localScale = Vector3.zero;
+        pauseMenu.GetComponent<RectTransform>().localScale = Vector3.one;
+    }
+
+    public void BackFromControls()
+    {
+        pauseMenu.GetComponent<RectTransform>().localScale = Vector3.zero;
+        optionMenu.GetComponent<RectTransform>().localScale = Vector3.one;
     }
 }

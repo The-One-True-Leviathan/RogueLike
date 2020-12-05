@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/_Scenes/Julia/MenuPrincipal.unity
     guid: b7cd9eead51a1f344a6c53f3c4b1125e
   - enabled: 1
+    path: Assets/_Scenes/Lowenn/HUB.unity
+    guid: 7721b41f185a3d147877e7aea3540044
+  - enabled: 0
     path: Assets/_Scenes/Release 1.unity
     guid: 96238dcc002e9324f8182dc2742ef99d
   - enabled: 1
     path: Assets/_Scenes/Julia/DeathScreen.unity
     guid: 4416c60c1e6d4764bbf025a3b8f16ac4
+  - enabled: 1
+    path: Assets/_Scenes/Pierre/Procedural Gen.unity
+    guid: be029b5d3cda0f344bdf21d418010430
   m_configObjects: {}
