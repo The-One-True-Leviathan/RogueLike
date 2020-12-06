@@ -30,12 +30,14 @@ public class PotionShop : MonoBehaviour
         {
             potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
             potionShopOpen = true;
+            Time.timeScale = 0f;
             interactible.interacted = false;
         }
         else if(interactible.interacted && potionShopOpen)
         {
             potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             potionShopOpen = false;
+            Time.timeScale = 1f;
             interactible.interacted = false;
         }
     }

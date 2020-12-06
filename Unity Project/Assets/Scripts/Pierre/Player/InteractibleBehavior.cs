@@ -7,6 +7,7 @@ public class InteractibleBehavior : MonoBehaviour
     public bool interactible, interacted;
     public GameObject player;
     public Player playerScript;
+    public ParticleSystem interactibleParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,9 @@ public class InteractibleBehavior : MonoBehaviour
             {
                 interactible = false;
             }
+            interactibleParticle.Play();
+            //play interactible sound
+            //play particle effect
         }
     }
 }

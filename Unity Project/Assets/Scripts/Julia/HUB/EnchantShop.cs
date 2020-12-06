@@ -46,12 +46,14 @@ public class EnchantShop : MonoBehaviour
         {
             enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
             enchantShopOpen = true;
+            Time.timeScale = 0f;
             interactible.interacted = false;
         }
         else if (interactible.interacted && enchantShopOpen)
         {
             enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             enchantShopOpen = false;
+            Time.timeScale = 1f;
             interactible.interacted = false;
         }
         
