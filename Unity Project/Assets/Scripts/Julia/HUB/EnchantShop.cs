@@ -64,7 +64,7 @@ public class EnchantShop : MonoBehaviour
         confirmationText.text = "This enchantement costs" + enchantments[numeroEnchant].price;
         confirmationText.color = Color.white;
         confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
-        Debug.LogError(enchantments[numeroEnchant].enchantmentName);
+        //Debug.LogError(enchantments[numeroEnchant].enchantmentName);
     }
 
     

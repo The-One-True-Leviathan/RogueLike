@@ -16,21 +16,21 @@ MonoBehaviour:
   isRanged: 0
   projectile: []
   reach:
-  - {x: 80, y: 0, z: 2}
-  buildup: 0.2
+  - {x: 60, y: 0, z: 1}
+  buildup: 0.5
   isCharge: 0
   chargeTime:
   - 0
   hitSpan:
   - 0.2
   recover:
-  - 0.08
+  - 0.14
   cooldown:
-  - 0.08
+  - 0.6
   damage:
-  - 6
-  knockBack:
   - 5
+  knockBack:
+  - 10
   animationIndex: 03000000
   recoil:
-  - {x: -3, y: 0.2}
+  - {x: -6, y: 0.2}

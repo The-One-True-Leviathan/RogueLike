@@ -71,15 +71,15 @@ MonoBehaviour:
   hearingPlayer: 0
   targetingPlayer: 0
   moveTarget: {x: 0, y: 0, z: 0}
-  pursueDistance: 6
-  approachDistance: 8
+  pursueDistance: 4
+  approachDistance: 6
   approachSpeed: 20
   approachAcceleration: 20
   approachJumpRange: 5
   approachJumpCooldownMin: 0.6
-  approachJumpCooldownMax: 1
+  approachJumpCooldownMax: 0.8
   approachAngle: 60
-  pursueSpeed: 5
+  pursueSpeed: 4
   pursueAcceleration: 15
   isInJump: 0
   canJump: 1
@@ -87,9 +87,9 @@ MonoBehaviour:
   attackDistance: 1.5
   attackRange: 1.5
   attackAngle: 30
-  attackBuildup: 0.2
+  attackBuildup: 0.4
   attackRecover: 0.4
-  attackCooldown: 0.2
+  attackCooldown: 0.4
   attackDamage: 2
   backJumpAngle: 15
   isInAttack: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ddd1e4d41f8b04abcee07ecd822219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
-  currentHP: 5
+  maxHP: 6
+  currentHP: 6
   currentDamage: 0
   player: {fileID: 0}
   rigidBody: {fileID: 0}
@@ -164,8 +164,18 @@ MonoBehaviour:
   isTrap: 0
   isEnvironment: 0
   isTable: 0
-  hasLoot: 0
-  possibleLoots: []
+  hasLoot: 1
+  possibleLoots:
+  - {fileID: 3823640584244862351, guid: 4b4ce21aa6db1cc4ba4dc1b811fe6370, type: 3}
+  - {fileID: 3823640584244862351, guid: 4b4ce21aa6db1cc4ba4dc1b811fe6370, type: 3}
+  - {fileID: 49717417525935979, guid: ab54862ec1a884b4ab6dc99a2b56cf2c, type: 3}
+  - {fileID: 49717417525935979, guid: ab54862ec1a884b4ab6dc99a2b56cf2c, type: 3}
+  - {fileID: 201133913988617212, guid: 7cf5606f9751e684fba1e256596bce71, type: 3}
+  - {fileID: 201133913988617212, guid: 7cf5606f9751e684fba1e256596bce71, type: 3}
+  - {fileID: 201133913988617212, guid: 7cf5606f9751e684fba1e256596bce71, type: 3}
+  - {fileID: 3613680446243492395, guid: 301625046c0353749a784b9255c40624, type: 3}
+  - {fileID: 3613680446243492395, guid: 301625046c0353749a784b9255c40624, type: 3}
+  - {fileID: 3613680446243492395, guid: 301625046c0353749a784b9255c40624, type: 3}
 --- !u!54 &4388089067197531936
 Rigidbody:
   m_ObjectHideFlags: 0

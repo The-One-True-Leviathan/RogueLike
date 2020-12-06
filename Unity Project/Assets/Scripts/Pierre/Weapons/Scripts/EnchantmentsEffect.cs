@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 namespace Weapons
 {
@@ -54,15 +53,12 @@ namespace Weapons
             {
                 direction = 1f;
             }
-            Debug.LogWarning("Spécial 1");
             if (!useNativeRNG)
             {
-                Debug.LogWarning("Spécial 2");
                 nativeRNG = UnityEngine.Random.Range(1, 100);
             }
             if (nativeRNG >= effectChanceLower && nativeRNG <= effectChanceUpper)
             {
-                Debug.LogWarning("Spécial 3");
                 if (effectType == EffectEnchantmentType.Damage)
                 {
                     ResolveDamage();
@@ -80,7 +76,6 @@ namespace Weapons
                 if (effectType == EffectEnchantmentType.ImmunityChance)
                 {
                     playerScript.Immunity(effectDuration);
-                    Debug.LogWarning("Immunity !");
                     if (particles)
                     {
                         Instantiate(particles, player.transform.position, Quaternion.LookRotation((playerScript.attackDirection) * direction, Vector3.up), player.transform);
@@ -104,7 +99,6 @@ namespace Weapons
             {
                 target.Clear();
             }
-            Debug.LogWarning("Attack 1");
             Vector3 reach;
             if (useWeaponReach)
             {
@@ -113,20 +107,16 @@ namespace Weapons
             {
                 reach = effectReach;
             }
-            Debug.LogWarning("Attack 2");
 
             if (centerOn == CenterOn.AllEnemies)
             {
-                Debug.LogWarning("Attack 3");
                 for (int i = 0; i < playerScript.enemiesHitLastAttack.Count; i++)
                 {
                     target.Add(playerScript.enemiesHitLastAttack[i]);
-                    Debug.LogWarning("Attack 4");
                 }
             } else if (centerOn == CenterOn.ClosestEnemy)
             {
                 target.Add(playerScript.closestEnemyHitLastAttack);
-                Debug.LogWarning("Closest Enemy Hit is " + playerScript.closestEnemyHitLastAttack.name);
             } else if (centerOn == CenterOn.Player)
             {
                 target.Add(player);
@@ -136,7 +126,6 @@ namespace Weapons
                 target.Clear();
                 target.Add(playerScript.latestEnemyKilled);
             }
-            Debug.LogWarning("Attack 5 " + target.Count + " Target is " + target[0].name);
             //Debug.LogWarning("Closest Enemy Hit is " + playerScript.closestEnemyHitLastAttack.name);
 
             foreach (GameObject center in target)
@@ -149,7 +138,6 @@ namespace Weapons
                     if (enemyAngle <= reach.x)
                     {
                         Debug.DrawRay(center.transform.position, enemyDirection, Color.red);
-                        Debug.LogError("Enemy hit ! Inflicted " + effectStrength + " damage !");
                         EnemyDamage enemyDamage = enemy.GetComponent<EnemyDamage>();
                         enemyDamage.Damage(effectStrength, effectKnockback, center.transform);
                     }

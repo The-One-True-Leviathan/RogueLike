@@ -92,6 +92,7 @@ MonoBehaviour:
   weaponDropOriginal: {fileID: 2613380414544597894, guid: 68a4e3566bc73864dac96df2e480b961,
     type: 3}
   animator: {fileID: 281752995880152279}
+  weaponAnimator: {fileID: 7106781686984728853}
   left: {fileID: 4302258909477462513}
   right: {fileID: 531447136535613777}
   top: {fileID: 1926185286655362163}
@@ -112,7 +113,7 @@ MonoBehaviour:
   normalizedLStick: {x: 0, y: 0, z: 0}
   currentSpeed: {x: 0, y: 0, z: 0}
   targetSpeed: {x: 0, y: 0, z: 0}
-  maxSpeed: 4
+  maxSpeed: 5
   accelerationTime: 0.05
   isSlowed: 0
   allInteractibleInRange: []
@@ -128,8 +129,8 @@ MonoBehaviour:
   rollDirection: {x: 0, y: 0, z: 0}
   strenght: 0
   speed: 0
-  strenghtMultiplier: 0
-  speedMultiplier: 0
+  strenghtMultiplier: 1.5
+  speedMultiplier: 1.5
   dualWielding: 0
   switchTime: 0.2
   weapon1: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}

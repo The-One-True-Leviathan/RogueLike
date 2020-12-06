@@ -76,13 +76,13 @@ MonoBehaviour:
   isInJump: 0
   canJump: 1
   attackDirection: {x: 0, y: 0, z: 0}
-  attackDistance: 2
-  attackRange: 2
+  attackDistance: 1.5
+  attackRange: 1.5
   attackAngle: 80
   attackBuildup: 0.75
   attackRecover: 0.3
-  attackCooldown: 0.5
-  attackDamage: 8
+  attackCooldown: 0.8
+  attackDamage: 5
   isInAttack: 0
   searchMaxTime: 5
   searchTime: 0
@@ -155,8 +155,18 @@ MonoBehaviour:
   isTrap: 0
   isEnvironment: 0
   isTable: 0
-  hasLoot: 0
-  possibleLoots: []
+  hasLoot: 1
+  possibleLoots:
+  - {fileID: 5640554156492951416, guid: ea589fd277a5ce34194b2ccc6332d759, type: 3}
+  - {fileID: 7607466516117264808, guid: 548f9295e6ade1a409900c2d80e48f1f, type: 3}
+  - {fileID: 5640554156492951416, guid: ea589fd277a5ce34194b2ccc6332d759, type: 3}
+  - {fileID: 2461999316370480155, guid: 8dde2b9ba37abd14aafc41e69d8f21a9, type: 3}
+  - {fileID: 2461999316370480155, guid: 8dde2b9ba37abd14aafc41e69d8f21a9, type: 3}
+  - {fileID: 201133913988617212, guid: 7cf5606f9751e684fba1e256596bce71, type: 3}
+  - {fileID: 201133913988617212, guid: 7cf5606f9751e684fba1e256596bce71, type: 3}
+  - {fileID: 3613680446243492395, guid: 301625046c0353749a784b9255c40624, type: 3}
+  - {fileID: 3613680446243492395, guid: 301625046c0353749a784b9255c40624, type: 3}
+  - {fileID: 3613680446243492395, guid: 301625046c0353749a784b9255c40624, type: 3}
 --- !u!54 &6459636240625160690
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,7 +175,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009439986653119065}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0

@@ -26,7 +26,7 @@ public class PotionShop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(interactible.interacted && !potionShopOpen)
+        if(interactible.interacted && !potionShopOpen && !potionIsDrinked)
         {
             potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
             potionShopOpen = true;

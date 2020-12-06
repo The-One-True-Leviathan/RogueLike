@@ -241,7 +241,7 @@ namespace ProcGen
             {
                 allRoomsInDungeon[i].GetComponent<RoomBehavior>().roomCount = allRoomsInDungeon.Count;
                 allRoomsInDungeon[i].GetComponent<RoomBehavior>().Connect();
-                Debug.LogError("Connected");
+               // Debug.LogError("Connected");
             }
 
             //place doors and walls depending on virtual connections
@@ -286,7 +286,7 @@ namespace ProcGen
                 {
                     if (UnityEngine.Random.value < turnChance)
                     {
-                        Debug.LogError("Snaked !");
+                        //Debug.LogError("Snaked !");
                         ChangeDir();
                         speed = UnityEngine.Random.value < 0.5f ? -1 : 1;
                     }
@@ -344,7 +344,7 @@ namespace ProcGen
                 {
                     if (UnityEngine.Random.value < turnChance)
                     {
-                        Debug.LogError("Snaked !");
+                        //Debug.LogError("Snaked !");
                         ChangeDir();
                         speed = UnityEngine.Random.value < 0.5f ? -1 : 1;
                     }

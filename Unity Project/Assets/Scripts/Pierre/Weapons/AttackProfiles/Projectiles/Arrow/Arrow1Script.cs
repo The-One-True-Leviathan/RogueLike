@@ -41,7 +41,7 @@ public class Arrow1Script : MonoBehaviour
                 playerScript.enemiesHitLastAttackRanged.Add(enemy.gameObject);
                 pierce--;
                 enemy.GetComponent<EnemyDamage>().Damage(damage * weaponParent.totalDamageMultiplier, knockback * weaponParent.totalKnockbackMultiplier, transform);
-                Debug.LogError("Enemy Hit with ranged, dealt " + damage*weaponParent.totalDamageMultiplier);
+              //  Debug.LogError("Enemy Hit with ranged, dealt " + damage*weaponParent.totalDamageMultiplier);
                 playerScript.closestEnemyHitLastAttack = enemy.gameObject;
             }
             playerScript.AttackEnchant(weaponParent);

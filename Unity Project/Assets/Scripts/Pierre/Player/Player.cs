@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public GameObject weaponDropOriginal;
     public Animator animator;
+    public Animator weaponAnimator;
 
 
     public PlayerCollisionDetector left, right, top, bottom;
@@ -218,7 +219,6 @@ public class Player : MonoBehaviour
     public void Heal(float amount)
     {
         healthBar.ApplyDamage(-amount);
-        Debug.LogError("Healed for " + amount);
     }
 
     public void IncreaseMaxHealth(float amount)
@@ -231,7 +231,7 @@ public class Player : MonoBehaviour
         if (!isInImmunity && !isInRoll)
         {
             healthBar.ApplyDamage(amount);
-            Debug.LogError("Damaged for " + amount);
+            //Debug.LogError("Damaged for " + amount);
             enchant.DoEnchants(weapon1, 3);
             if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
             Immunity(damageImmunity);
@@ -410,6 +410,7 @@ public class Player : MonoBehaviour
         }
         if (!weapon.atk[atkNumber].isCharge)
         {
+            weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[0]);
             yield return new WaitForSeconds(weapon.atk[atkNumber].buildup * weapon.totalBuildupMultiplier);
         } else
         {
@@ -419,6 +420,7 @@ public class Player : MonoBehaviour
             if (!mainAtk && !secondaryAtk)
             {
                 chargeLevel = 0;
+                weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel]);
                 yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
             }
             else
@@ -428,11 +430,13 @@ public class Player : MonoBehaviour
                 if (!mainAtk && !secondaryAtk)
                 {
                     chargeLevel = 1;
+                    weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel]);
                 }
                 else
                 {
                     yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[2] - weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                     chargeLevel = 2;
+                    weaponAnimator.SetInteger("Index", 2);
                     print("attack charge 2");
                 }
             }
@@ -455,7 +459,8 @@ public class Player : MonoBehaviour
         isInHeavyAtk = false;
         isInCharge = false;
         yield return new WaitForSeconds((weapon.atk[atkNumber].recover[chargeLevel] - weapon.atk[atkNumber].hitSpan[chargeLevel]) * weapon.totalBuildupMultiplier);
-        print("recover");
+
+        weaponAnimator.SetInteger("Index", 0); print("recover");
         isInRecover = false;
         isInAttack = false;
         yield return new WaitForSeconds((weapon.atk[atkNumber].cooldown[chargeLevel] - weapon.atk[atkNumber].recover[chargeLevel]) * weapon.totalBuildupMultiplier);
@@ -467,20 +472,26 @@ public class Player : MonoBehaviour
     {
         if (weapon.atk[atkNumber].reach[chargeLevel] != Vector3.zero)
         {
+            Debug.LogWarning(weapon.atk[atkNumber].reach[chargeLevel].z * weapon.totalReachMultiplier.z);
             Collider[] hitEnemies = Physics.OverlapSphere(transform.position, weapon.atk[atkNumber].reach[chargeLevel].z * weapon.totalReachMultiplier.z, layerEnemies);
             foreach (Collider enemy in hitEnemies)
             {
-
                 print("hitspan");
                 if (!enemiesHitLastAttack.Contains(enemy.gameObject))
                 {
                     Vector3 enemyDirection = enemy.transform.position - transform.position;
 
                     float enemyAngle = Vector3.Angle(attackDirection, enemyDirection);
-                    print(enemyAngle);
                     float a = enemyDirection.magnitude;
+                    float b = enemyDirection.magnitude;
                     float c = enemy.bounds.extents.x;
-                    float additionalAngle = Mathf.Rad2Deg*Mathf.Acos((2 * (a * a) - (c * c) / 2 * (a * a)));
+                    float additionalAngle = Mathf.Rad2Deg*Mathf.Acos(((a * a) + (b*b) - (c * c)) / (2 * (a * b)));
+                    print(additionalAngle);
+                    if(additionalAngle < -1 || additionalAngle > 1)
+                    {
+                        //Debug.LogError("a = " + a + " // c = " + c + " //additional Angle = " + additionalAngle);
+                    }
+                    print(enemyAngle + " VS " + (weapon.atk[atkNumber].reach[chargeLevel].x * weapon.totalReachMultiplier.x + additionalAngle));
                     if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x * weapon.totalReachMultiplier.x + additionalAngle)
                     {
                         if (enemyDirection.magnitude < clostestEnemyDistance)
@@ -488,18 +499,18 @@ public class Player : MonoBehaviour
                             clostestEnemyDistance = enemyDirection.magnitude;
                             closestEnemyHitLastAttack = enemy.gameObject;
                         }
-                        enemiesHitLastAttack.Add(enemy.gameObject);
                         Debug.DrawRay(transform.position, enemyDirection, Color.red);
-                        Debug.LogError("Enemy hit ! Inflicted " + damage + " damage !");
+                        //Debug.LogError("Enemy hit ! Inflicted " + damage + " damage !");
                         float finalKnockback = weapon.atk[atkNumber].knockBack[chargeLevel] * weapon.totalKnockbackMultiplier;
                         DoAttack(damage, finalKnockback, enemy.gameObject);
+                        enemiesHitLastAttack.Add(enemy.gameObject);
                     }
                 }
 
 
             }
             AttackEnchant(weapon);
-            Debug.LogError("Number of Enemies hit : " + enemiesHitLastAttack.Count);
+            //Debug.LogError("Number of Enemies hit : " + enemiesHitLastAttack.Count);
         }
 
         if (weapon.atk[atkNumber].isRanged)

@@ -63,14 +63,14 @@ namespace ProcGen
 
         void PlaceDoor()
         {
-            Debug.LogError("Placed Door !");
+            //Debug.LogError("Placed Door !");
             Vector3 doorPos = transform.position + new Vector3(doorShiftX, 0, doorShiftY);
             roomActivator.toActivate.Add(Instantiate(doorObject, doorPos, Quaternion.identity, transform.parent).transform.GetChild(0).gameObject);
         }
 
         void PlaceWall()
         {
-            Debug.LogError("Placed Wall !");
+            //Debug.LogError("Placed Wall !");
             Vector3 wallPos = transform.position + new Vector3(wallShiftX, 0, wallShiftY);
             roomActivator.toActivate.Add(Instantiate(wallObject, wallPos, Quaternion.identity, transform.parent).transform.GetChild(0).gameObject);
         }

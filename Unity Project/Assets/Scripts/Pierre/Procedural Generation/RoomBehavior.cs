@@ -55,10 +55,10 @@ namespace ProcGen
         void StartConnect()
         {
             RoomBehavior nextRoom;
-            Debug.LogError(genManager.allRoomsInDungeon.Count);
+         //   Debug.LogError(genManager.allRoomsInDungeon.Count);
             for (int i = 0; i < genManager.allRoomsInDungeon.Count; i++)
             {
-                    Debug.LogError("tried connecting");
+             //       Debug.LogError("tried connecting");
                 if (genManager.allRoomsInDungeon[i].GetComponent<RoomBehavior>())
                 {
                     nextRoom = genManager.allRoomsInDungeon[i].GetComponent<RoomBehavior>();

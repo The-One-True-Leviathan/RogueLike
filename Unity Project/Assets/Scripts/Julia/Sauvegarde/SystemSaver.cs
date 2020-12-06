@@ -30,7 +30,7 @@ public static class SystemSaver
             return moneyData;
         }else
         {
-            Debug.LogError("Save file not found in" + moneyPath);
+            //Debug.LogError("Save file not found in" + moneyPath);
             return null;
         }
 
