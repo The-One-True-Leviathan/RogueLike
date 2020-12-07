@@ -77,6 +77,7 @@ public class EnchantShop : MonoBehaviour
             enchantments.Remove(enchantments[numeroEnchant]);
             confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            Time.timeScale = 1f;
             enchantShopOpen = false;
 
         }

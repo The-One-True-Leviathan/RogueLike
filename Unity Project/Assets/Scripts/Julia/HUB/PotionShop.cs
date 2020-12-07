@@ -61,6 +61,7 @@ public class PotionShop : MonoBehaviour
         player.speed = true;
         potionIsDrinked = true;
             potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            Time.timeScale = 1f;
             potionShopOpen = false;
         }
     }
@@ -72,6 +73,7 @@ public class PotionShop : MonoBehaviour
         player.strenght = true;
         potionIsDrinked = true;
             potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            Time.timeScale = 1f;
             potionShopOpen = false;
         }
 
@@ -85,6 +87,7 @@ public class PotionShop : MonoBehaviour
         healthBar.UpgradeLife(5);
         potionIsDrinked = true;
             potionShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            Time.timeScale = 1f;
             potionShopOpen = false;
         }
     }
