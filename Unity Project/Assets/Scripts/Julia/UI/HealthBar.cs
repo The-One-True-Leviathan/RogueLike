@@ -17,6 +17,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         vieTemp = max1;      
         bar.fillAmount = (vieTemp/max1);     //   REACTIVER CETTE LIGNE APRES
     }

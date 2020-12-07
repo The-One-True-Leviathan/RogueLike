@@ -968,7 +968,7 @@ MonoBehaviour:
     type: 3}
   doorShiftX: 0
   doorShiftY: 0
-  wallShiftX: 0
+  wallShiftX: -4
   wallShiftY: 0
 --- !u!1 &3913710720280980207
 GameObject:

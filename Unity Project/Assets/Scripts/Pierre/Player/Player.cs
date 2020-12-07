@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
         weapon1.InitializeWeapon();
         if (weapon2 != null)
