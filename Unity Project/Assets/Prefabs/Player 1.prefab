@@ -139,6 +139,8 @@ MonoBehaviour:
   weaponInHitSpan: {fileID: 0}
   switchSpace: {fileID: 0}
   droppedWeapon: {fileID: 0}
+  hitSlowFactor: 0.02
+  hitSlowLength: 0.06
   profileInUse: {fileID: 0}
   isInBuildup: 0
   isInCharge: 0
@@ -153,6 +155,7 @@ MonoBehaviour:
   hitSpanDamage: 0
   hitSpanAtkNumber: 0
   chargeLevel: 0
+  isInSlowMo: 0
   attackDirection: {x: 0, y: 0, z: 0}
   enemiesHitLastAttack: []
   enemiesHitLastAttackRanged: []

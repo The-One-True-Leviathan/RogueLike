@@ -105,8 +105,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   size: 0.5
-  speed: 5
-  damage: 1
+  speed: 8
+  damage: 3
   knockback: 1
   lifeTime: 5
   pierceMax: 1

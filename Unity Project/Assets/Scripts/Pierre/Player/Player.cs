@@ -53,11 +53,13 @@ public class Player : MonoBehaviour
     public bool dualWielding; //Is the character wielding two different weapons ?
     public float switchTime;
     public WeaponScriptableObject weapon1, weapon2, weaponInAtk, weaponInHitSpan, switchSpace, droppedWeapon = null; //Weapon 1 and 2 are the two "hands" of the player, weaponInHitSpan is used for multi-frame attacks, and switchSpace is only used 
-                                                                                               //when switching weapons in both hands
+                                                                                                                     //when switching weapons in both hands
+    public float hitSlowFactor, hitSlowLength;
     public AttackProfileScriptableObject profileInUse;
     public bool isInBuildup, isInCharge, isInAttack, isInRecover, isInCooldown, isInHitSpan, isInImmunity, hasShot, isInHeavyAtk, isInRecoil;
     public float hitSpanDamage;
     public int hitSpanAtkNumber, chargeLevel;
+    public bool isInSlowMo;
     public Vector3 attackDirection;
     public List<GameObject> enemiesHitLastAttack, enemiesHitLastAttackRanged;
     public GameObject closestEnemyHitLastAttack, latestEnemyKilled;
@@ -96,6 +98,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (healthBar.isDead)
+        {
+            animator.SetBool("death", true);
+            this.enabled = false;
+        }
         enchant.DoEnchants(weapon1, 0);
         if (dualWielding)
         {
@@ -204,6 +211,7 @@ public class Player : MonoBehaviour
     {
         isInRoll = true;
         isInRecover = true;
+        animator.SetBool("roll", true);
         StartCoroutine("RollCoroutine");
 
     }
@@ -215,6 +223,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(rollLength);
         GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale = new Vector3(1, 1f, 1);
         isInRoll = false;
+        animator.SetBool("roll", false);
         yield return new WaitForSeconds(rollRecover);
         isInRecover = false;
     }
@@ -546,6 +555,10 @@ public class Player : MonoBehaviour
     {
         EnemyDamage enemyDamage = enemy.GetComponent<EnemyDamage>();
         enemyDamage.Damage(damage, knockback, transform);
+        if (!isInSlowMo)
+        {
+            StartCoroutine("SlowMo");
+        }
     }
 
     public void AttackEnchant(WeaponScriptableObject weapon)
@@ -590,5 +603,17 @@ public class Player : MonoBehaviour
                 interactionTarget.GetComponent<InteractibleBehavior>().interacted = true;
             }
         }
+    }
+
+
+    public IEnumerator SlowMo()
+    {
+        isInSlowMo = true;
+        float preSlowMo = Time.timeScale;
+        float trueTime = (hitSlowLength * hitSlowFactor)/1;
+        Time.timeScale = Time.timeScale * hitSlowFactor;
+        yield return new WaitForSeconds(trueTime);
+        Time.timeScale = preSlowMo;
+        isInSlowMo = false;
     }
 }

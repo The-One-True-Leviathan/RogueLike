@@ -21,13 +21,13 @@ MonoBehaviour:
   weaponIcon: {fileID: 21300000, guid: a0ce994378ab96548bb5f768c14914de, type: 3}
   weaponIconSecondary: {fileID: 21300000, guid: 4448404cebc5be44ea3164732aed39bb,
     type: 3}
-  weaponUnique: 1
-  weaponBaseName: Lance of Longinus
-  weaponRealName: Lance of Longinus
-  weaponDescription: A weapon forged to slay gods, no armor can survive its blows.
+  weaponUnique: 0
+  weaponBaseName: Lance
+  weaponRealName: Lance
+  weaponDescription: It has a great reach, but its weight make it bulky.
   weaponColor:
     serializedVersion: 2
-    rgba: 44799
+    rgba: 16777215
   weaponID: 64
   totalDamageMultiplier: 1
   totalKnockbackMultiplier: 1

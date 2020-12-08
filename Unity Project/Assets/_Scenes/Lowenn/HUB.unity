@@ -6661,8 +6661,9 @@ MonoBehaviour:
   enchantments:
   - {fileID: 11400000, guid: 676da123d54848a4e9fb3e7e147cd826, type: 2}
   - {fileID: 11400000, guid: ba28db977f3c61441a685c28ec67db6a, type: 2}
-  - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
-  - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
+  - {fileID: 11400000, guid: 365019779e2c78444812f97171c6b331, type: 2}
+  - {fileID: 11400000, guid: 8997c109c5bf98b4fb7d52c8a0e8c424, type: 2}
+  - {fileID: 11400000, guid: 9e5b4d28624d31f4cbbd084610174549, type: 2}
   shopping: {fileID: 0}
   interactible: {fileID: 0}
   enchantShopCanvas: {fileID: 693344529}
@@ -32183,6 +32184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1792514693}
   - component: {fileID: 1792514692}
+  - component: {fileID: 1792514694}
   m_Layer: 0
   m_Name: Game manager
   m_TagString: GameManager
@@ -32218,6 +32220,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792514694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792514691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b049f8e83a11194ab285068eb93157c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseWeapons:
+  - {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
+  - {fileID: 11400000, guid: 659fabecd2c908b4da381ec258ca7b9e, type: 2}
+  - {fileID: 11400000, guid: 49b10640acf44a04bbe35c4e33719ed0, type: 2}
+  uniqueWeapons: []
+  weaponsGenerated: []
+  simpleEnchants:
+  - {fileID: 11400000, guid: ba28db977f3c61441a685c28ec67db6a, type: 2}
+  - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
+  - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
+  - {fileID: 11400000, guid: 676da123d54848a4e9fb3e7e147cd826, type: 2}
+  specialEnchants:
+  - {fileID: 11400000, guid: 9e5b4d28624d31f4cbbd084610174549, type: 2}
+  - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
+  - {fileID: 11400000, guid: 8997c109c5bf98b4fb7d52c8a0e8c424, type: 2}
+  - {fileID: 11400000, guid: 365019779e2c78444812f97171c6b331, type: 2}
+  availableSimpleEnchants:
+  - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
+  - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
+  availableSpecialEnchants:
+  - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
+  cursedEnchants:
+  - {fileID: 11400000, guid: aee3da24235e1e749b1b7e0e84e1e564, type: 2}
+  - {fileID: 11400000, guid: 4d53a9ec1771cb44abf30f17ef7321de, type: 2}
+  shoppingManager: {fileID: 0}
+  quality: 1
 --- !u!1 &1805160693
 GameObject:
   m_ObjectHideFlags: 0

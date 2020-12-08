@@ -20,6 +20,7 @@ MonoBehaviour:
   description: Creates a blast in the opposite direction, dealing 3 damage.
   rarity: 1
   color: {r: 0, g: 1, b: 0, a: 1}
+  price: 15
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 1

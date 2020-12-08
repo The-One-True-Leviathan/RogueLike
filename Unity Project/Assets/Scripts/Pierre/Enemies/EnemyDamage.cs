@@ -63,6 +63,7 @@ public class EnemyDamage : MonoBehaviour
                 Instantiate(possibleLoots[index], transform.position, Quaternion.identity);
             }
             Object.Destroy(this.gameObject);
+            Time.timeScale = 1;
         }
         StopAllCoroutines();
         StartCoroutine("Knockback");

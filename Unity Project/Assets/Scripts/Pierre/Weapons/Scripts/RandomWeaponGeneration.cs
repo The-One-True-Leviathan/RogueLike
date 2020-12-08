@@ -9,12 +9,31 @@ namespace Weapons
     public class RandomWeaponGeneration : MonoBehaviour
     {
         public List<WeaponScriptableObject> baseWeapons, uniqueWeapons, weaponsGenerated = new List<WeaponScriptableObject>();
-        public List<Enchantment> simpleEnchants, specialEnchants, cursedEnchants;
+        public List<Enchantment> simpleEnchants, specialEnchants, availableSimpleEnchants, availableSpecialEnchants, cursedEnchants;
+        public ShoppingManager shoppingManager;
         public Quality quality;
         int rng;
         // Start is called before the first frame update
+        private void Start()
+        {
+            shoppingManager = gameObject.GetComponent<ShoppingManager>();
+        }
         public List<WeaponScriptableObject> Generate()
         {
+            foreach (Enchantment enchant in simpleEnchants)
+            {
+                if (shoppingManager.boughtEnchantements.Contains(enchant))
+                {
+                    availableSimpleEnchants.Add(enchant);
+                }
+            }
+            foreach (Enchantment enchant in specialEnchants)
+            {
+                if (shoppingManager.boughtEnchantements.Contains(enchant))
+                {
+                    availableSpecialEnchants.Add(enchant);
+                }
+            }
             weaponsGenerated.Clear();
             switch(quality)
             {
@@ -99,12 +118,12 @@ namespace Weapons
             rng = Random.Range(0, 100);
             if (rng <= 60)
             {
-                rng = Random.Range(0, simpleEnchants.Count);
+                rng = Random.Range(0, availableSimpleEnchants.Count);
                 weaponsGenerated[weaponsGenerated.Count - 1].enchantments.Add(simpleEnchants[rng]);
             }
             else
             {
-                rng = Random.Range(0, specialEnchants.Count);
+                rng = Random.Range(0, availableSpecialEnchants.Count);
                 weaponsGenerated[weaponsGenerated.Count - 1].enchantments.Add(specialEnchants[rng]);
             }
             
@@ -120,13 +139,13 @@ namespace Weapons
                 rng = Random.Range(0, 100);
                 if (rng <= 50)
                 {
-                    rng = Random.Range(0, simpleEnchants.Count);
+                    rng = Random.Range(0, availableSimpleEnchants.Count);
                     weaponsGenerated[numberWeapon].enchantments.Add(simpleEnchants[rng]);
                 }
                 else if (rng <= 90)
                 {
                     i--;
-                    rng = Random.Range(0, specialEnchants.Count);
+                    rng = Random.Range(0, availableSpecialEnchants.Count);
                     weaponsGenerated[numberWeapon].enchantments.Add(specialEnchants[rng]);
                 }
                 else
@@ -148,13 +167,13 @@ namespace Weapons
                 rng = Random.Range(0, 100);
                 if (rng <= 50)
                 {
-                    rng = Random.Range(0, simpleEnchants.Count);
+                    rng = Random.Range(0, availableSimpleEnchants.Count);
                     weaponsGenerated[numberWeapon].enchantments.Add(simpleEnchants[rng]);
                 }
                 else if (rng <= 90)
                 {
                     i--;
-                    rng = Random.Range(0, specialEnchants.Count);
+                    rng = Random.Range(0, availableSpecialEnchants.Count);
                     weaponsGenerated[numberWeapon].enchantments.Add(specialEnchants[rng]);
                 }
                 else
@@ -177,12 +196,12 @@ namespace Weapons
                 rng = Random.Range(0, 100);
                 if (rng <= 30)
                 {
-                    rng = Random.Range(0, simpleEnchants.Count);
+                    rng = Random.Range(0, availableSimpleEnchants.Count);
                     weaponsGenerated[numberWeapon].enchantments.Add(simpleEnchants[rng]);
                 } else if (rng <= 80)
                 {
                     i--;
-                    rng = Random.Range(0, specialEnchants.Count);
+                    rng = Random.Range(0, availableSpecialEnchants.Count);
                     weaponsGenerated[numberWeapon].enchantments.Add(specialEnchants[rng]);
                 } else
                 {

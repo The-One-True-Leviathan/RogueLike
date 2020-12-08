@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
+    public float deathtime;
+    public bool isDead;
     public Image bar, bar2, bar3;
     public float fill;
     
@@ -46,7 +50,10 @@ public class HealthBar : MonoBehaviour
             print("hey");
             if (vieTemp <= 0)
             {
-                ApplyDeath();
+                if (!isDead)
+                {
+                    ApplyDeath();
+                }
             }
         }
            
@@ -67,9 +74,16 @@ public class HealthBar : MonoBehaviour
         
     public void ApplyDeath()
     {
+        isDead = true;
         //play death animation and death sound
-        SceneManager.LoadScene("DeathScreen");
+        StartCoroutine("Ded");
+        
+    }
 
+    public IEnumerator Ded()
+    {
+        yield return new WaitForSeconds(deathtime);
+        SceneManager.LoadScene("DeathScreen");
     }
 
     public void UpgradeLife(float bonusHealth)

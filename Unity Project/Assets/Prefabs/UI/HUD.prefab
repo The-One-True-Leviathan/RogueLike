@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2747bcbec55e05d4b90ea88b31bb52b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathtime: 2
+  isDead: 0
   bar: {fileID: 5090083315023800442}
   bar2: {fileID: 8762802767146876198}
   bar3: {fileID: 4002944284828268928}
