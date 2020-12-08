@@ -17,6 +17,7 @@ public class WeaponItemBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        weapon = Object.Instantiate(weapon) as WeaponScriptableObject;
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -34,7 +35,7 @@ public class WeaponItemBehavior : MonoBehaviour
 
     public void Dropped()
     {
-        weapon = player.droppedWeapon;
+        Start();
         weapon.InitializeWeapon();
         sprite.sprite = weapon.weaponItemSprite;
         GetComponentInChildren<WeaponItemCard>().weapon = weapon;
@@ -47,21 +48,12 @@ public class WeaponItemBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (weapon == null)
-        {
-            if (player.droppedWeapon != null)
-            {
-                Dropped();
-                player.droppedWeapon = null;
-            }
-        } else
-        {
             if (interactible.interacted)
             {
                 player.ChangeWeapon(weapon);
                 Object.Destroy(gameObject);
             }
             animator.SetBool("Open", interactible.interactible);
-        }
+       
     }
 }

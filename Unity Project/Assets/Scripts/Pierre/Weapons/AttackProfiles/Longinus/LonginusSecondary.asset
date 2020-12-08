@@ -23,15 +23,15 @@ MonoBehaviour:
   chargeTime:
   - 0
   hitSpan:
-  - 0.33
+  - 0.45
   recover:
   - 0.15
   cooldown:
-  - 0.2
+  - 0.4
   damage:
-  - 14
+  - 8
   knockBack:
   - 8
   animationIndex: 05000000
   recoil:
-  - {x: 20, y: 0.03}
+  - {x: 15, y: 0.15}

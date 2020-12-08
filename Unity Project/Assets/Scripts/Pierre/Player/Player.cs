@@ -194,7 +194,9 @@ public class Player : MonoBehaviour
     public void DropWeapon()
     {
         droppedWeapon = weapon2;
-        Instantiate(weaponDropOriginal, transform.position + attackDirection / 2f, transform.rotation);
+        GameObject dropped = Instantiate(weaponDropOriginal, transform.position + attackDirection / 2f, transform.rotation);
+        dropped.GetComponent<WeaponItemBehavior>().weapon = droppedWeapon;
+        dropped.GetComponent<WeaponItemBehavior>().Dropped();
         dualWielding = false;
     }
 
@@ -437,7 +439,7 @@ public class Player : MonoBehaviour
                 {
                     yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[2] - weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                     chargeLevel = 2;
-                    weaponAnimator.SetInteger("Index", 2);
+                    weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel]);
                     print("attack charge 2");
                 }
             }

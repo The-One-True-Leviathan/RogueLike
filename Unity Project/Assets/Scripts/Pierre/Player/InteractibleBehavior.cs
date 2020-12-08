@@ -11,6 +11,8 @@ public class InteractibleBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        interactibleParticle.Stop();
+        interactibleParticle.Clear();
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
     }
@@ -18,6 +20,7 @@ public class InteractibleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (interactible)
         {
             Vector3 thisToPlayer = transform.position - player.transform.position;
@@ -29,6 +32,9 @@ public class InteractibleBehavior : MonoBehaviour
             interactibleParticle.Play();
             //play interactible sound
             //play particle effect
+        } else
+        {
+            interactibleParticle.Stop();
         }
     }
 }

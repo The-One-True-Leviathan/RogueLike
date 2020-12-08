@@ -18,20 +18,36 @@ MonoBehaviour:
   - {fileID: 0}
   reach:
   - {x: 30, y: 0, z: 1.8}
+  - {x: 30, y: 0, z: 1.8}
+  - {x: 30, y: 0, z: 1.8}
   buildup: 0.2
-  isCharge: 0
+  isCharge: 1
   chargeTime:
-  - 0
+  - 0.2
+  - 0.3
+  - 0.5
   hitSpan:
+  - 0.075
+  - 0.075
   - 0.075
   recover:
   - 0.2
-  cooldown:
   - 0.2
+  - 0.4
+  cooldown:
+  - 0.4
+  - 0.4
+  - 0.8
   damage:
-  - 10
+  - 4
+  - 4
+  - 6
   knockBack:
-  - 10
-  animationIndex: 04000000
+  - 3
+  - 3
+  - 5
+  animationIndex: 040000000400000004000000
   recoil:
+  - {x: -2, y: 0.075}
+  - {x: -2, y: 0.075}
   - {x: -20, y: 0.075}
