@@ -12,6 +12,7 @@ TagManager:
   - Core
   - Door
   - Genmanager
+  - Map
   layers:
   - Default
   - TransparentFX
