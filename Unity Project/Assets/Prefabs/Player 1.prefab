@@ -87,6 +87,9 @@ MonoBehaviour:
   layerEnemies:
     serializedVersion: 2
     m_Bits: 256
+  layerEnchants:
+    serializedVersion: 2
+    m_Bits: 262144
   enchant: {fileID: 171786467894762962}
   healthBar: {fileID: 0}
   weaponDropOriginal: {fileID: 2613380414544597894, guid: 68a4e3566bc73864dac96df2e480b961,

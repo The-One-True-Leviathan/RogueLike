@@ -27,7 +27,7 @@ MonoBehaviour:
   weaponDescription: It has a great reach, but its weight make it bulky.
   weaponColor:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   weaponID: 64
   totalDamageMultiplier: 1
   totalKnockbackMultiplier: 1

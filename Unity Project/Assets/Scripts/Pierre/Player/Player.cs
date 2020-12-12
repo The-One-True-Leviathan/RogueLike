@@ -8,7 +8,7 @@ using Weapons;
 public class Player : MonoBehaviour
 {
     //Appels de composants nécessaires
-    public LayerMask layerEnemies;
+    public LayerMask layerEnemies, layerEnchants;
     Rigidbody rigidBody;
     public EnchantmentManager enchant;
     public HealthBar healthBar;
@@ -68,6 +68,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        weapon1 = Object.Instantiate(weapon1) as WeaponScriptableObject;
+        weapon2 = Object.Instantiate(weapon2) as WeaponScriptableObject;
         healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
         weapon1.InitializeWeapon();
         if (weapon2 != null)
@@ -484,7 +486,6 @@ public class Player : MonoBehaviour
     {
         if (weapon.atk[atkNumber].reach[chargeLevel] != Vector3.zero)
         {
-            Debug.LogWarning(weapon.atk[atkNumber].reach[chargeLevel].z * weapon.totalReachMultiplier.z);
             Collider[] hitEnemies = Physics.OverlapSphere(transform.position, weapon.atk[atkNumber].reach[chargeLevel].z * weapon.totalReachMultiplier.z, layerEnemies);
             foreach (Collider enemy in hitEnemies)
             {
@@ -498,12 +499,6 @@ public class Player : MonoBehaviour
                     float b = enemyDirection.magnitude;
                     float c = enemy.bounds.extents.x;
                     float additionalAngle = Mathf.Rad2Deg*Mathf.Acos(((a * a) + (b*b) - (c * c)) / (2 * (a * b)));
-                    print(additionalAngle);
-                    if(additionalAngle < -1 || additionalAngle > 1)
-                    {
-                        //Debug.LogError("a = " + a + " // c = " + c + " //additional Angle = " + additionalAngle);
-                    }
-                    print(enemyAngle + " VS " + (weapon.atk[atkNumber].reach[chargeLevel].x * weapon.totalReachMultiplier.x + additionalAngle));
                     if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x * weapon.totalReachMultiplier.x + additionalAngle)
                     {
                         if (enemyDirection.magnitude < clostestEnemyDistance)
@@ -518,6 +513,25 @@ public class Player : MonoBehaviour
                         enemiesHitLastAttack.Add(enemy.gameObject);
                     }
                 }
+
+
+            }
+            Collider[] hitEnchants = Physics.OverlapSphere(transform.position, weapon.atk[atkNumber].reach[chargeLevel].z * weapon.totalReachMultiplier.z, layerEnchants);
+            foreach (Collider hitEnchant in hitEnchants)
+            {
+                Vector3 enemyDirection = hitEnchant.transform.position - transform.position;
+
+                float enemyAngle = Vector3.Angle(attackDirection, enemyDirection);
+                float a = enemyDirection.magnitude;
+                float b = enemyDirection.magnitude;
+                float c = hitEnchant.bounds.extents.x;
+                float additionalAngle = Mathf.Rad2Deg * Mathf.Acos(((a * a) + (b * b) - (c * c)) / (2 * (a * b)));
+                if (enemyAngle <= weapon.atk[atkNumber].reach[chargeLevel].x * weapon.totalReachMultiplier.x + additionalAngle)
+                {
+                    Debug.LogWarning("Hit enchant");
+                    hitEnchant.GetComponent<EnchantItemBehavior>().Attacked();
+                }
+
 
 
             }

@@ -9,7 +9,7 @@ public class Arrow1Script : MonoBehaviour
     public GameObject playerObject;
     public Player playerScript;
     public WeaponScriptableObject weaponParent;
-    public LayerMask enemy;
+    public LayerMask enemy, enchant;
     public LayerMask environment;
     public float size, speed, damage, knockback, lifeTime;
     public int pierceMax;
@@ -45,6 +45,11 @@ public class Arrow1Script : MonoBehaviour
                 playerScript.closestEnemyHitLastAttack = enemy.gameObject;
             }
             playerScript.AttackEnchant(weaponParent);
+        }
+        Collider[] hitenchant = Physics.OverlapSphere(transform.position, size, enchant);
+        foreach (Collider enchant in hitenchant)
+        {
+            enchant.GetComponent<EnchantItemBehavior>().Attacked();
         }
         if (pierce <= 0)
         {
