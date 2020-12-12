@@ -129,7 +129,7 @@ MonoBehaviour:
   barrelCollider: {fileID: 2499602678550544552}
   barrelPosition: {fileID: 2499602678550544565}
   barrelObject: {fileID: 2499602678550544553}
-  explosionRange: 4
+  explosionRange: 2.8
   affectedLayers:
     serializedVersion: 2
     m_Bits: 18688
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 1
   currentHP: 1
+  currentDamage: 0
   player: {fileID: 0}
   rigidBody: {fileID: 4316413359257588099}
   isInKnockback: 0
@@ -165,6 +166,8 @@ MonoBehaviour:
   isTrap: 0
   isEnvironment: 0
   isTable: 0
+  hasLoot: 0
+  possibleLoots: []
 --- !u!1 &2911085998253617834
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 2911085998253617834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.53, y: -2.1, z: 15.24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6052, y: 0.3858, z: 0.6052}
   m_Children:
   - {fileID: 3629950824941936329}
   - {fileID: 2499602678550544565}
