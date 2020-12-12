@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GenerationDungeonMap : MonoBehaviour
 {
-    public List<GameObject> nodes;
     public List<NodeBehavior> nodeScripts;
     public int[] nodesToActivate;
     public int playerIsHere = 0;
@@ -19,8 +18,8 @@ public class GenerationDungeonMap : MonoBehaviour
         //génération de la carte
         nodeScripts[0].type = NodeBehavior.DungeonTypes.HUB;
         nodeScripts[0].hasAType = true;
-        nodeScripts[11].type = NodeBehavior.DungeonTypes.BOSS;
-        nodeScripts[11].hasAType = true;
+        nodeScripts[12].type = NodeBehavior.DungeonTypes.BOSS;
+        nodeScripts[12].hasAType = true;
 
         for (int i= 0; i < nodeScripts.Count; i++)
         {

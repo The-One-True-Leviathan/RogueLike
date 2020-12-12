@@ -12,7 +12,6 @@ public class NodeBehavior : MonoBehaviour
     public int number, deapth;
     public int[] canConnect;
     public Button button;
-    public Animator animButton;
     public List<Sprite> sprites;
     public Image image;
     public GenerationDungeonMap generation;
@@ -23,7 +22,7 @@ public class NodeBehavior : MonoBehaviour
     {
         generation = GetComponentInParent<GenerationDungeonMap>();
         image = GetComponent<Image>();
-        button.GetComponent<Button>();
+        button = GetComponent<Button>();
         //gestion d'où se trouve le joueur
     }
 
