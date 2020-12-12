@@ -6,39 +6,39 @@ using UnityEngine.UI;
 
 public class GenerationDungeonMap : MonoBehaviour
 {
-    public List<NodeBehavior> nodeScripts;
-    public int[] nodesToActivate;
+    public List<NodeBehavior> nodeBehaviors;
+    public List<int> nodesToActivate;
     public int playerIsHere = 0;
     public Sprite playerHead;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-    
-        //génération de la carte
-        nodeScripts[0].type = NodeBehavior.DungeonTypes.HUB;
-        nodeScripts[0].hasAType = true;
-        nodeScripts[12].type = NodeBehavior.DungeonTypes.BOSS;
-        nodeScripts[12].hasAType = true;
 
-        for (int i= 0; i < nodeScripts.Count; i++)
+        //génération de la carte
+        nodeBehaviors[0].type = NodeBehavior.DungeonTypes.HUB;
+        nodeBehaviors[0].hasAType = true;
+        nodeBehaviors[12].type = NodeBehavior.DungeonTypes.BOSS;
+        nodeBehaviors[12].hasAType = true;
+
+        for (int i= 0; i < nodeBehaviors.Count; i++)
         {
 
-            if (!nodeScripts[i].hasAType)
+            if (!nodeBehaviors[i].hasAType)
             {
-                int index = Random.Range(0, 2);
+                int index = Random.Range(0, 3);
                 switch (index)
                 {
                     case 0:
-                        nodeScripts[i].type = NodeBehavior.DungeonTypes.BOULON;
+                        nodeBehaviors[i].type = NodeBehavior.DungeonTypes.BOULON;
                         break;
 
                     case 1:
-                        nodeScripts[i].type = NodeBehavior.DungeonTypes.WEAPON;
+                        nodeBehaviors[i].type = NodeBehavior.DungeonTypes.WEAPON;
                         break;
 
                     case 2:
-                        nodeScripts[i].type = NodeBehavior.DungeonTypes.ENCHANT;
+                        nodeBehaviors[i].type = NodeBehavior.DungeonTypes.ENCHANT;
                         break;
                 }
             }
@@ -49,16 +49,22 @@ public class GenerationDungeonMap : MonoBehaviour
 
     public void MapUpdate()
     {
-        for (int i = 0; i < nodeScripts.Count; i++)
+        nodesToActivate.Clear();
+        for (int i = 0; i < nodeBehaviors.Count; i++)
         {
-            nodeScripts[i].desactivatingNode();
-            nodeScripts[i].UpdateNode();
+            nodeBehaviors[i].desactivatingNode();
+            nodeBehaviors[i].UpdateNode();
         }
-        nodesToActivate[1] = nodeScripts[playerIsHere].canConnect[1];
-        nodesToActivate[2] = nodeScripts[playerIsHere].canConnect[2];
-        nodeScripts[nodesToActivate[1]].activatingNode();
-        nodeScripts[nodesToActivate[2]].activatingNode();
-        nodeScripts[playerIsHere].GetComponent<Image>().sprite = playerHead;
+        for (int i = 0; i < nodeBehaviors[playerIsHere].canConnect.Count; i++)
+        {
+            nodesToActivate.Add(nodeBehaviors[playerIsHere].canConnect[i]);
+        }
+        foreach (int node in nodesToActivate)
+        {
+            nodeBehaviors[node].activatingNode();
+        }
+
+        nodeBehaviors[playerIsHere].GetComponent<Image>().sprite = playerHead;
 
     }
 }

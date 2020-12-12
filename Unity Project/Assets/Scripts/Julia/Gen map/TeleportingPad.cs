@@ -14,7 +14,7 @@ public class TeleportingPad : MonoBehaviour
         map = GameObject.FindGameObjectWithTag("Map");
         generation = map.GetComponent<GenerationDungeonMap>();
         interactible = GetComponentInChildren<InteractibleBehavior>();
-        map.GetComponent<RectTransform>().localScale = Vector3.one;
+        map.GetComponent<RectTransform>().localScale = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -25,11 +25,13 @@ public class TeleportingPad : MonoBehaviour
             map.GetComponent<RectTransform>().localScale = Vector3.one;
             generation.MapUpdate();
             mapIsOpen = true;
+            interactible.interacted = false;
         }
         else if (interactible.interacted && mapIsOpen)
         {
             map.GetComponent<RectTransform>().localScale = Vector3.zero;
             mapIsOpen = false;
+            interactible.interacted = false;
         }
             
     }

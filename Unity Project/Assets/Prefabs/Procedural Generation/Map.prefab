@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ea06a69012580498bc54e02d93b5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeScripts:
+  nodeBehaviors:
   - {fileID: 1473260538243657363}
   - {fileID: 1473260537087254751}
   - {fileID: 1473260536589473611}

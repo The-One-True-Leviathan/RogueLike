@@ -10,7 +10,7 @@ public class NodeBehavior : MonoBehaviour
     public DungeonTypes type;
     public bool hasAType;
     public int number, deapth;
-    public int[] canConnect;
+    public List<int> canConnect;
     public Button button;
     public List<Sprite> sprites;
     public Image image;
@@ -82,6 +82,7 @@ public class NodeBehavior : MonoBehaviour
 
     public void activatingNode()
     {
+        Debug.LogWarning("Node activated");
         button.enabled = true;
         button.GetComponent<RectTransform>().localScale = Vector3.one * scaleMultiplier;
     }
