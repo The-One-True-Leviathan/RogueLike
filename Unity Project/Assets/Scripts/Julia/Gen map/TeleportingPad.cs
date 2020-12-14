@@ -26,12 +26,14 @@ public class TeleportingPad : MonoBehaviour
             generation.MapUpdate();
             mapIsOpen = true;
             interactible.interacted = false;
+            Time.timeScale = 0f;
         }
         else if (interactible.interacted && mapIsOpen)
         {
             map.GetComponent<RectTransform>().localScale = Vector3.zero;
             mapIsOpen = false;
             interactible.interacted = false;
+            Time.timeScale = 1f;
         }
             
     }

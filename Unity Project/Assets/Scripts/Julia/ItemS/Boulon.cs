@@ -22,7 +22,7 @@ public class Boulon : MonoBehaviour
     {
         if(!pickUp)
         {
-            Compteur.GainBoulon();
+            Compteur.GainBoulon(1);
             pickUp = true;
             Destroy(gameObject, 1);
         }

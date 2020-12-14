@@ -6,11 +6,15 @@ public class TestHealthBar : MonoBehaviour
 {
     Controler controller;
     public HealthBar healthBar;
-    bool test;
+    public Compteur compteur;
+    bool test, cheat;
     public float testDamage = 4;
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+        healthBar = GameObject.FindGameObjectWithTag("GameManager").GetComponentInChildren<HealthBar>();
+        compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
         controller = new Controler();
         controller.Enable();
     }
@@ -18,11 +22,15 @@ public class TestHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        test = controller.Keyboard.Test.triggered;
+        test = controller.Keyboard.LifeCheat.triggered;
+        cheat = controller.Keyboard.MoneyCheat.triggered;
         if (test)
         {
-            FindObjectOfType<AudioManager>().Play("Survol");
-            //SoundManager.PlaySound(SoundManager.Sound.SurvolBouton);
+            healthBar.ApplyDamage(-5);
+        }
+        if (cheat)
+        {
+            compteur.GainBoulon(50);
         }
     }
 }

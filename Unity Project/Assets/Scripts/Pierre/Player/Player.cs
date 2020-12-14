@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         weapon1 = Object.Instantiate(weapon1) as WeaponScriptableObject;
         weapon2 = Object.Instantiate(weapon2) as WeaponScriptableObject;
         healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();

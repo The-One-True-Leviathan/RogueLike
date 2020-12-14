@@ -24,10 +24,10 @@ public class Compteur : MonoBehaviour
         nbrePiecettes += value;  
     }
 
-    public void GainBoulon()
+    public void GainBoulon(int value)
     {
         //son récupération
-        nbreBoulon++;
+        nbreBoulon += value;
     }
 
     public void Buy(int price)

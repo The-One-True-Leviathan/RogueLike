@@ -62,7 +62,7 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "Test",
+                    "name": "MoneyCheat",
                     "type": "Button",
                     "id": "7d55a281-06f0-429d-a494-57be671345e1",
                     "expectedControlType": "Button",
@@ -121,6 +121,14 @@
                     "name": "Rewind",
                     "type": "Button",
                     "id": "40c2c0bf-2ca1-477f-88e5-77c73ea91bfe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "LifeCheat",
+                    "type": "Button",
+                    "id": "444612bf-4bf8-4dcd-b355-e6a4f0fa123d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)"
@@ -475,7 +483,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Test",
+                    "action": "MoneyCheat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -486,7 +494,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Test",
+                    "action": "MoneyCheat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -718,6 +726,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rewind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af977fd4-dfe4-4762-b88c-e057a6fb9b03",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LifeCheat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac6bb998-c124-41b5-a0af-d1a5d328cf58",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LifeCheat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

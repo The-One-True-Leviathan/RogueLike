@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GenerationDungeonMap : MonoBehaviour
@@ -10,18 +11,58 @@ public class GenerationDungeonMap : MonoBehaviour
     public List<int> nodesToActivate;
     public int playerIsHere = 0;
     public Sprite playerHead;
+    public GameObject tutoObject, regenObject;
+    public Compteur compteur;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
 
         //génération de la carte
+        MapGeneration();
+        
+
+    }
+    // Update is called once per frame
+
+    public void MapUpdate()
+    {
+        nodesToActivate.Clear();
+        tutoObject.SetActive(false);
+        regenObject.SetActive(false);
+        for (int i = 0; i < nodeBehaviors.Count; i++)
+        {
+            nodeBehaviors[i].desactivatingNode();
+            nodeBehaviors[i].UpdateNode();
+        }
+        for (int i = 0; i < nodeBehaviors[playerIsHere].canConnect.Count; i++)
+        {
+            nodesToActivate.Add(nodeBehaviors[playerIsHere].canConnect[i]);
+        }
+        foreach (int node in nodesToActivate)
+        {
+            nodeBehaviors[node].activatingNode();
+        }
+
+        nodeBehaviors[playerIsHere].GetComponent<Image>().sprite = playerHead;
+
+        if (playerIsHere == 0)
+        {
+            tutoObject.SetActive(true);
+            regenObject.SetActive(true);
+        }
+
+    }
+
+    public void MapGeneration()
+    {
         nodeBehaviors[0].type = NodeBehavior.DungeonTypes.HUB;
         nodeBehaviors[0].hasAType = true;
         nodeBehaviors[12].type = NodeBehavior.DungeonTypes.BOSS;
         nodeBehaviors[12].hasAType = true;
 
-        for (int i= 0; i < nodeBehaviors.Count; i++)
+        for (int i = 0; i < nodeBehaviors.Count; i++)
         {
 
             if (!nodeBehaviors[i].hasAType)
@@ -44,27 +85,21 @@ public class GenerationDungeonMap : MonoBehaviour
             }
         }
 
+        MapUpdate();
     }
-    // Update is called once per frame
 
-    public void MapUpdate()
+    public void ButtonRegen()
     {
-        nodesToActivate.Clear();
-        for (int i = 0; i < nodeBehaviors.Count; i++)
+        if (compteur.boulonsActuels >= 1)
         {
-            nodeBehaviors[i].desactivatingNode();
-            nodeBehaviors[i].UpdateNode();
+            compteur.GainBoulon(-1);
+            MapGeneration();
         }
-        for (int i = 0; i < nodeBehaviors[playerIsHere].canConnect.Count; i++)
-        {
-            nodesToActivate.Add(nodeBehaviors[playerIsHere].canConnect[i]);
-        }
-        foreach (int node in nodesToActivate)
-        {
-            nodeBehaviors[node].activatingNode();
-        }
+        
+    }
 
-        nodeBehaviors[playerIsHere].GetComponent<Image>().sprite = playerHead;
-
+    public void Tuto()
+    {
+        SceneManager.LoadScene("Tuto");
     }
 }

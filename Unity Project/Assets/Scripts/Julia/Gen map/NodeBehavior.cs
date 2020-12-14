@@ -56,6 +56,7 @@ public class NodeBehavior : MonoBehaviour
     public void nodeSelected()
     {
         generation.playerIsHere = number;
+        Time.timeScale = 1f;
         switch (type)
         {
             case DungeonTypes.BOULON:

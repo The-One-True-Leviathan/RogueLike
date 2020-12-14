@@ -75,7 +75,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""Test"",
+                    ""name"": ""MoneyCheat"",
                     ""type"": ""Button"",
                     ""id"": ""7d55a281-06f0-429d-a494-57be671345e1"",
                     ""expectedControlType"": ""Button"",
@@ -134,6 +134,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": ""Rewind"",
                     ""type"": ""Button"",
                     ""id"": ""40c2c0bf-2ca1-477f-88e5-77c73ea91bfe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""LifeCheat"",
+                    ""type"": ""Button"",
+                    ""id"": ""444612bf-4bf8-4dcd-b355-e6a4f0fa123d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)""
@@ -488,7 +496,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Test"",
+                    ""action"": ""MoneyCheat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -499,7 +507,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Test"",
+                    ""action"": ""MoneyCheat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -733,6 +741,28 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""Rewind"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af977fd4-dfe4-4762-b88c-e057a6fb9b03"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LifeCheat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac6bb998-c124-41b5-a0af-d1a5d328cf58"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LifeCheat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -754,7 +784,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_Switch = m_Keyboard.FindAction("Switch", throwIfNotFound: true);
         m_Keyboard_Roll = m_Keyboard.FindAction("Roll", throwIfNotFound: true);
         m_Keyboard_MousePosition = m_Keyboard.FindAction("MousePosition", throwIfNotFound: true);
-        m_Keyboard_Test = m_Keyboard.FindAction("Test", throwIfNotFound: true);
+        m_Keyboard_MoneyCheat = m_Keyboard.FindAction("MoneyCheat", throwIfNotFound: true);
         m_Keyboard_Pause = m_Keyboard.FindAction("Pause", throwIfNotFound: true);
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
         m_Keyboard_Inventory = m_Keyboard.FindAction("Inventory", throwIfNotFound: true);
@@ -762,6 +792,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_SlowDownTime = m_Keyboard.FindAction("SlowDownTime", throwIfNotFound: true);
         m_Keyboard_NormalizeTime = m_Keyboard.FindAction("NormalizeTime", throwIfNotFound: true);
         m_Keyboard_Rewind = m_Keyboard.FindAction("Rewind", throwIfNotFound: true);
+        m_Keyboard_LifeCheat = m_Keyboard.FindAction("LifeCheat", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -818,7 +849,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_Switch;
     private readonly InputAction m_Keyboard_Roll;
     private readonly InputAction m_Keyboard_MousePosition;
-    private readonly InputAction m_Keyboard_Test;
+    private readonly InputAction m_Keyboard_MoneyCheat;
     private readonly InputAction m_Keyboard_Pause;
     private readonly InputAction m_Keyboard_Interact;
     private readonly InputAction m_Keyboard_Inventory;
@@ -826,6 +857,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_SlowDownTime;
     private readonly InputAction m_Keyboard_NormalizeTime;
     private readonly InputAction m_Keyboard_Rewind;
+    private readonly InputAction m_Keyboard_LifeCheat;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -837,7 +869,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Switch => m_Wrapper.m_Keyboard_Switch;
         public InputAction @Roll => m_Wrapper.m_Keyboard_Roll;
         public InputAction @MousePosition => m_Wrapper.m_Keyboard_MousePosition;
-        public InputAction @Test => m_Wrapper.m_Keyboard_Test;
+        public InputAction @MoneyCheat => m_Wrapper.m_Keyboard_MoneyCheat;
         public InputAction @Pause => m_Wrapper.m_Keyboard_Pause;
         public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
         public InputAction @Inventory => m_Wrapper.m_Keyboard_Inventory;
@@ -845,6 +877,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @SlowDownTime => m_Wrapper.m_Keyboard_SlowDownTime;
         public InputAction @NormalizeTime => m_Wrapper.m_Keyboard_NormalizeTime;
         public InputAction @Rewind => m_Wrapper.m_Keyboard_Rewind;
+        public InputAction @LifeCheat => m_Wrapper.m_Keyboard_LifeCheat;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -875,9 +908,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @MousePosition.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMousePosition;
-                @Test.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
-                @Test.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
-                @Test.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTest;
+                @MoneyCheat.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMoneyCheat;
+                @MoneyCheat.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMoneyCheat;
+                @MoneyCheat.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMoneyCheat;
                 @Pause.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnPause;
@@ -899,6 +932,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Rewind.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
                 @Rewind.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
                 @Rewind.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
+                @LifeCheat.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLifeCheat;
+                @LifeCheat.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLifeCheat;
+                @LifeCheat.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLifeCheat;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -924,9 +960,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
-                @Test.started += instance.OnTest;
-                @Test.performed += instance.OnTest;
-                @Test.canceled += instance.OnTest;
+                @MoneyCheat.started += instance.OnMoneyCheat;
+                @MoneyCheat.performed += instance.OnMoneyCheat;
+                @MoneyCheat.canceled += instance.OnMoneyCheat;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -948,6 +984,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Rewind.started += instance.OnRewind;
                 @Rewind.performed += instance.OnRewind;
                 @Rewind.canceled += instance.OnRewind;
+                @LifeCheat.started += instance.OnLifeCheat;
+                @LifeCheat.performed += instance.OnLifeCheat;
+                @LifeCheat.canceled += instance.OnLifeCheat;
             }
         }
     }
@@ -970,7 +1009,7 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnSwitch(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
-        void OnTest(InputAction.CallbackContext context);
+        void OnMoneyCheat(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
@@ -978,5 +1017,6 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnSlowDownTime(InputAction.CallbackContext context);
         void OnNormalizeTime(InputAction.CallbackContext context);
         void OnRewind(InputAction.CallbackContext context);
+        void OnLifeCheat(InputAction.CallbackContext context);
     }
 }
