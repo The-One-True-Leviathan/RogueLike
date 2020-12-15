@@ -13,7 +13,7 @@ public class TestHealthBar : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        healthBar = GameObject.FindGameObjectWithTag("GameManager").GetComponentInChildren<HealthBar>();
+        healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
         compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
         controller = new Controler();
         controller.Enable();

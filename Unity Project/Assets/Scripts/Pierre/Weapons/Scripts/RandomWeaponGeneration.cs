@@ -16,7 +16,7 @@ namespace Weapons
         // Start is called before the first frame update
         private void Start()
         {
-            shoppingManager = gameObject.GetComponent<ShoppingManager>();
+            shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
         }
         public List<WeaponScriptableObject> Generate()
         {

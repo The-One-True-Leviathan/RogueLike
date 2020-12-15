@@ -17,12 +17,14 @@ public class NodeBehavior : MonoBehaviour
     public GenerationDungeonMap generation;
     public List<string> nameScene;
     public float scaleMultiplier;
+    public GameObject mapObject;
     // Start is called before the first frame update
     void Start()
     {
         generation = GetComponentInParent<GenerationDungeonMap>();
         image = GetComponent<Image>();
         button = GetComponent<Button>();
+        mapObject = GameObject.FindGameObjectWithTag("Map");
         //gestion d'où se trouve le joueur
     }
 
@@ -57,7 +59,7 @@ public class NodeBehavior : MonoBehaviour
     {
         generation.playerIsHere = number;
         Time.timeScale = 1f;
-        switch (type)
+        /*switch (type)
         {
             case DungeonTypes.BOULON:
                 SceneManager.LoadScene(nameScene[0]);
@@ -78,7 +80,10 @@ public class NodeBehavior : MonoBehaviour
             case DungeonTypes.BOSS:
                 SceneManager.LoadScene("Boss");
                 break;
-        }
+        }*/
+
+        mapObject.GetComponent<RectTransform>().localScale = Vector3.zero;
+        SceneManager.LoadScene(nameScene[0]);
     }
 
     public void activatingNode()

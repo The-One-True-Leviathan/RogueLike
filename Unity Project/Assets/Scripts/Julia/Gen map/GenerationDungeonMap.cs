@@ -15,7 +15,6 @@ public class GenerationDungeonMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
 
         //génération de la carte

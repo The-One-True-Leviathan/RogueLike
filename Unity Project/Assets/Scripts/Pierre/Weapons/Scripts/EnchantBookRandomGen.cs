@@ -12,7 +12,7 @@ public class EnchantBookRandomGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shoppingManager = gameObject.GetComponent<ShoppingManager>();
+        shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
     }
 
     public List<Enchantment> Generate()

@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public Controler controller;
-    public GameObject pauseMenuUI, controlMenuUI, gameCompo, map;
+    public GameObject pauseMenuUI, controlMenuUI, gameCompo;
     public AudioMixer audioMixer;
 
     private void Start()
@@ -18,7 +18,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         controlMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         gameCompo = GameObject.Find("Game Components");
-        map = GameObject.FindGameObjectWithTag("Map");
     }
 
     // Update is called once per frame
@@ -63,7 +62,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Compteur.nbrePiecettes = 0;
         Destroy(gameCompo);
-        Destroy(map);
         SceneManager.LoadScene("MenuPrincipal");
     }
 
@@ -72,7 +70,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Compteur.nbrePiecettes = 0;
         Destroy(gameCompo);
-        Destroy(map);
         SceneManager.LoadScene("HUB");
     }
 
