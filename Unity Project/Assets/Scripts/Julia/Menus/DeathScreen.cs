@@ -7,7 +7,13 @@ using UnityEngine.SceneManagement;
 public class DeathScreen : MonoBehaviour
 {
     public UnityEngine.UI.Text scoreCoins, scoreBoulons;
+    public GameObject gameCompo, map;
 
+    private void Start()
+    {
+        gameCompo = GameObject.Find("Game Components");
+        map = GameObject.FindGameObjectWithTag("Map");
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,17 +26,22 @@ public class DeathScreen : MonoBehaviour
     {
         Compteur.nbrePiecettes = 0;
         Application.Quit();
+
     }
 
     public void Menu()
     {
         Compteur.nbrePiecettes = 0;
+        Destroy(gameCompo);
+        Destroy(map);
         SceneManager.LoadScene("MenuPrincipal");
     }
 
     public void ReturnHUB()
     {
         Compteur.nbrePiecettes = 0;
+        Destroy(gameCompo);
+        Destroy(map);
         SceneManager.LoadScene("HUB");
     }
 
