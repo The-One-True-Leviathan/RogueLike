@@ -2179,7 +2179,7 @@ GameObject:
   - component: {fileID: 2169393896131213686}
   - component: {fileID: 1042118640528492810}
   m_Layer: 16
-  m_Name: Big Corridors
+  m_Name: Big Corridors Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

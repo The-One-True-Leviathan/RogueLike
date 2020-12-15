@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2806946350758844191}
   - component: {fileID: 612553050181127840}
   m_Layer: 16
-  m_Name: Room 1 TDoor T2
+  m_Name: Multisquare TDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,8 +301,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7151474196416716596}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 11.3}
-  m_LocalScale: {x: 1, y: 1, z: 0.82872}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2506197349458231185}
   - {fileID: 301700521239535791}

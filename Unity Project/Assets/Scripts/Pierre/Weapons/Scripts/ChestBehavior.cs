@@ -9,22 +9,26 @@ namespace Weapons
     {
         public GameObject gameManager;
         public RandomWeaponGeneration weaponGeneration;
+        public EnchantBookRandomGen enchantGeneration;
+        //public RandomBoulonGeneration boulonGeneration;
         public InteractibleBehavior interactibleBehavior;
         public Player player;
+        public GenerationDungeonMap dungeonMap;
 
         public List<WeaponScriptableObject> weaponsInChest;
         public List<Enchantment> enchantmentsInChest;
+        public GameObject enchantItemOriginal;
         public Quality quality;
         // Start is called before the first frame update
         void Start()
         {
             gameManager = GameObject.FindGameObjectWithTag("GameManager");
+            dungeonMap = GameObject.FindGameObjectWithTag("Map").GetComponent<GenerationDungeonMap>();
             weaponGeneration = GetComponent<RandomWeaponGeneration>();
+            enchantGeneration = GetComponent<EnchantBookRandomGen>();
+            //boulonGeneration = GetComponent<RandomBoulonGeneration>();
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
-            weaponGeneration.quality = quality;
-            weaponGeneration.Generate();
-            weaponsInChest = weaponGeneration.weaponsGenerated;
         }
 
         // Update is called once per frame
@@ -32,22 +36,58 @@ namespace Weapons
         {
             if (interactibleBehavior.interacted)
             {
-                WeaponScriptableObject dropspace = player.droppedWeapon;
-                Vector3 orientationspace = player.attackDirection;
-                for (int i = 0; i < weaponsInChest.Count; i++)
+                switch (dungeonMap.nodeBehaviors[dungeonMap.playerIsHere].type)
                 {
-                    player.droppedWeapon = weaponsInChest[i];
-                    player.attackDirection = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
-                    player.attackDirection.Normalize();
-                    WeaponScriptableObject saveWeapon = player.weaponDropOriginal.GetComponent<WeaponItemBehavior>().weapon;
-                    player.weaponDropOriginal.GetComponent<WeaponItemBehavior>().weapon = weaponsInChest[i];
-                    Instantiate(player.weaponDropOriginal, transform.position + player.attackDirection / 2f, transform.rotation);
-                    player.weaponDropOriginal.GetComponent<WeaponItemBehavior>().weapon = saveWeapon;
+                    case NodeBehavior.DungeonTypes.BOULON:
+                        Boulon();
+                        break;
+                    case NodeBehavior.DungeonTypes.ENCHANT:
+                        Enchant();
+                        break;
+                    case NodeBehavior.DungeonTypes.WEAPON:
+                        Weapon();
+                        break;
                 }
-                player.attackDirection = orientationspace;
-                //player.droppedWeapon = dropspace;
-                Object.Destroy(gameObject);
             }
+
+        }
+
+        private void Weapon()
+        {
+            weaponGeneration.quality = quality;
+            weaponGeneration.Generate();
+            weaponsInChest = weaponGeneration.weaponsGenerated;
+            Vector3 orientationspace = player.attackDirection;
+            for (int i = 0; i < weaponsInChest.Count; i++)
+            {
+                player.attackDirection = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
+                player.attackDirection.Normalize();
+                Instantiate(player.weaponDropOriginal, transform.position + player.attackDirection / 2f, transform.rotation).
+                    GetComponent<WeaponItemBehavior>().weapon = weaponsInChest[i];
+            }
+            player.attackDirection = orientationspace;
+            //player.droppedWeapon = dropspace;
+            Object.Destroy(gameObject);
+        }
+
+        private void Boulon()
+        {
+
+        }
+
+        private void Enchant()
+        {
+            enchantGeneration.quality = quality;
+            enchantGeneration.Generate();
+            enchantmentsInChest = enchantGeneration.enchantGenerated;
+            for (int i = 0; i < enchantmentsInChest.Count; i++)
+            {
+                Vector3 direction = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+                direction.Normalize();
+                Instantiate(enchantItemOriginal, transform.position + direction / 2f, Quaternion.identity)
+                    .GetComponent<EnchantItemBehavior>().enchant = enchantmentsInChest[i];
+            }
+            Object.Destroy(gameObject);
         }
     }
 }

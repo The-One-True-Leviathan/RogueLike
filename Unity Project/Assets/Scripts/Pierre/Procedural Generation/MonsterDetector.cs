@@ -29,7 +29,14 @@ public class MonsterDetector : MonoBehaviour
         Collider[] foes = Physics.OverlapBox(detector.bounds.center, detector.bounds.extents, Quaternion.identity, ennemies);
         foreach (Collider foe in foes)
         {
-            allEnemiesDestroyed = false;
+            EnemyDamage enemy = foe.GetComponent<EnemyDamage>();
+            if (enemy.isTrap == true || enemy.isTable == true || enemy.isEnvironment == true)
+            { } else
+            {
+
+            
+                allEnemiesDestroyed = false;
+            }
         }
 
         if (allEnemiesDestroyed)

@@ -16,6 +16,7 @@ public class ElectrifiedWater : MonoBehaviour
 
     private void Start()
     {
+        wetZone = transform.localScale;
         canTakeDamage = true;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();

@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5389038561824463942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 12.74}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children:
   - {fileID: 671105981184897366}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 5389038562556047285}
   - component: {fileID: 6832704729943219701}
   m_Layer: 16
-  m_Name: Room 1 DDoor T2
+  m_Name: Eletric Diamond DDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

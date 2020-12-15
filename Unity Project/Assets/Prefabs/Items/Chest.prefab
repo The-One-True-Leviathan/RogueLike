@@ -143,11 +143,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   weaponGeneration: {fileID: 0}
+  enchantGeneration: {fileID: 0}
   interactibleBehavior: {fileID: 0}
   player: {fileID: 0}
+  dungeonMap: {fileID: 0}
   weaponsInChest: []
   enchantmentsInChest: []
-  quality: 3
+  enchantItemOriginal: {fileID: 0}
+  quality: 1
 --- !u!114 &5477359159474841076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,9 +179,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
   - {fileID: 11400000, guid: 8997c109c5bf98b4fb7d52c8a0e8c424, type: 2}
   - {fileID: 11400000, guid: 365019779e2c78444812f97171c6b331, type: 2}
+  availableSimpleEnchants: []
+  availableSpecialEnchants: []
   cursedEnchants:
   - {fileID: 11400000, guid: aee3da24235e1e749b1b7e0e84e1e564, type: 2}
   - {fileID: 11400000, guid: 4d53a9ec1771cb44abf30f17ef7321de, type: 2}
+  shoppingManager: {fileID: 0}
   quality: 1
 --- !u!1 &8779714307633727296
 GameObject:
@@ -228,6 +234,7 @@ MonoBehaviour:
   interacted: 0
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  interactibleParticle: {fileID: 0}
 --- !u!65 &8779714307633727298
 BoxCollider:
   m_ObjectHideFlags: 0
