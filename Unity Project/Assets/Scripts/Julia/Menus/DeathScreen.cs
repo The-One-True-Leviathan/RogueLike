@@ -8,10 +8,12 @@ public class DeathScreen : MonoBehaviour
 {
     public UnityEngine.UI.Text scoreCoins, scoreBoulons;
     public GameObject gameCompo;
+    public SaveandLoad saveandLoad;
 
     private void Start()
     {
         gameCompo = GameObject.Find("Game Components");
+        saveandLoad = gameCompo.GetComponent<SaveandLoad>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class DeathScreen : MonoBehaviour
     public void QuitGame()
     {
         Compteur.nbrePiecettes = 0;
+        saveandLoad.SaveAll();
         Application.Quit();
 
     }
@@ -31,6 +34,7 @@ public class DeathScreen : MonoBehaviour
     public void Menu()
     {
         Compteur.nbrePiecettes = 0;
+        saveandLoad.SaveAll();
         Destroy(gameCompo);
         SceneManager.LoadScene("MenuPrincipal");
     }
@@ -38,6 +42,7 @@ public class DeathScreen : MonoBehaviour
     public void ReturnHUB()
     {
         Compteur.nbrePiecettes = 0;
+        saveandLoad.SaveAll();
         Destroy(gameCompo);
         SceneManager.LoadScene("HUB");
     }

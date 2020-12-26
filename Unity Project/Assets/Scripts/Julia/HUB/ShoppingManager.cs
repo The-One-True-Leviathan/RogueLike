@@ -10,20 +10,24 @@ public class ShoppingManager : MonoBehaviour
 
     public bool BarrelsWereBought = false;
     public List<Enchantment> boughtEnchantements;
+    public List<int> numeroEnchantsBough;
 
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
-    
     public void BarrelUpdate()
     {
         BarrelsWereBought = true;
+    }
+
+    public void SaveShop()
+    {
+        SystemSaver.SaveShop(this);
+    }
+
+    public void LoadingShop()
+    {
+        DataSaver shopData = SystemSaver.LoadShop();
+        Debug.Log(shopData.barrelsBrought);
+        //boughtEnchantements = shopData.boughtEnchants;
+        numeroEnchantsBough = shopData.numeroBoughtEnchants;
+        BarrelsWereBought = shopData.barrelsBrought;
     }
 }

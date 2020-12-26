@@ -43,11 +43,12 @@ public class Compteur : MonoBehaviour
     public void SaveMoney()
     {
         SystemSaver.SaveMoney(this);
+        Debug.Log("Money is saved");
     }
 
     public void LoadMoney()
     {
-        DataSaver data = SystemSaver.LoadMoney();
-        nbreBoulon = data.boulons;
+        DataSaver moneyData = SystemSaver.LoadMoney();
+        nbreBoulon = moneyData.boulons;
     }
 }

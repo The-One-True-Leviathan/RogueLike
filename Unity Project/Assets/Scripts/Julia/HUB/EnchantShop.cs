@@ -35,6 +35,11 @@ public class EnchantShop : MonoBehaviour
             descriptionTexts[i].text = enchantments[i].description;
             isEnchantementBough.Add(false);
         }
+
+        for(int i = 0; i < shopping.numeroEnchantsBough.Count; i++)
+        {
+            shopping.boughtEnchantements.Add(enchantments[shopping.numeroEnchantsBough[i]]);
+        }
         
 
     }
@@ -74,6 +79,7 @@ public class EnchantShop : MonoBehaviour
         {
             compteur.HudBuy(enchantments[numeroEnchant].price);
             shopping.boughtEnchantements.Add(enchantments[numeroEnchant]);
+            shopping.numeroEnchantsBough.Add(numeroEnchant);
             enchantments.Remove(enchantments[numeroEnchant]);
             confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
