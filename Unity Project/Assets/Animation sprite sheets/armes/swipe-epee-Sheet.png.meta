@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 2117f233ca01a0d4eb3fcab5eb51d277
+guid: 5fab60977c6cac842866338f8896fd0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9040879190431018056
-    second: Front_0
+      213: 767754026394225575
+    second: swipe-epee-Sheet_0
   - first:
-      213: -4617293510232987901
-    second: Front_1
+      213: 1800894029998040012
+    second: swipe-epee-Sheet_1
   - first:
-      213: 3754754863996910684
-    second: Front_2
+      213: 4816039066259988516
+    second: swipe-epee-Sheet_2
   - first:
-      213: -5829380985280236941
-    second: Front_3
+      213: -1765255316373177722
+    second: swipe-epee-Sheet_3
+  - first:
+      213: -6711709890213267400
+    second: swipe-epee-Sheet_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Front_0
+      name: swipe-epee-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 48
+        width: 62
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,20 +116,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84cacda19b7a77d70800000000000000
-      internalID: 9040879190431018056
+      spriteID: 7ab8a12283c97aa00800000000000000
+      internalID: 767754026394225575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Front_1
+      name: swipe-epee-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 62
         y: 0
-        width: 32
-        height: 48
+        width: 62
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 307a8d214041cefb0800000000000000
-      internalID: -4617293510232987901
+      spriteID: cc3a728249f0ef810800000000000000
+      internalID: 1800894029998040012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Front_2
+      name: swipe-epee-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 124
         y: 0
-        width: 32
-        height: 48
+        width: 62
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5cb43fb7a19b1430800000000000000
-      internalID: 3754754863996910684
+      spriteID: 420a4d8a30206d240800000000000000
+      internalID: 4816039066259988516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Front_3
+      name: swipe-epee-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 186
         y: 0
-        width: 32
-        height: 48
+        width: 62
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +179,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37274f711e0e91fa0800000000000000
-      internalID: -5829380985280236941
+      spriteID: 68af4b974ad8087e0800000000000000
+      internalID: -1765255316373177722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: swipe-epee-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 0
+        width: 62
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838bc5e3a673bd2a0800000000000000
+      internalID: -6711709890213267400
       vertices: []
       indices: 
       edges: []
@@ -185,7 +209,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 75de8790b2e37294f8cc5eec87133b9e
+    spriteID: 2569de5350b0e3345a056b4c5fb7b357
     internalID: 0
     vertices: []
     indices: 

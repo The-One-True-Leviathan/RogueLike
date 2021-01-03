@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: ef475592c60772a40898f633c7a9780b
+guid: cf481398ceaafd14785f68e037b79913
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5000927251509650613
-    second: Back_0
+      213: -801806148557976469
+    second: arc-anim_resizegif-Sheet_0
   - first:
-      213: 564042922023100985
-    second: Back_1
+      213: 2091878340976738799
+    second: arc-anim_resizegif-Sheet_1
   - first:
-      213: -6931248352422374901
-    second: Back_2
+      213: 7425916698439965765
+    second: arc-anim_resizegif-Sheet_2
   - first:
-      213: 4990789188432626572
-    second: Back_3
+      213: 3904897622669494131
+    second: arc-anim_resizegif-Sheet_3
+  - first:
+      213: -2406807276235773681
+    second: arc-anim_resizegif-Sheet_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Back_0
+      name: arc-anim_resizegif-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 48
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,20 +116,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b4adc5d6dcd66540800000000000000
-      internalID: 5000927251509650613
+      spriteID: b6c4a785e896fd4f0800000000000000
+      internalID: -801806148557976469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_1
+      name: arc-anim_resizegif-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 25
         y: 0
-        width: 32
-        height: 48
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 932a2459c02e3d700800000000000000
-      internalID: 564042922023100985
+      spriteID: fe180439448d70d10800000000000000
+      internalID: 2091878340976738799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_2
+      name: arc-anim_resizegif-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 50
         y: 0
-        width: 32
-        height: 48
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b025ad7c8524fcf90800000000000000
-      internalID: -6931248352422374901
+      spriteID: 54cd72e94e72e0760800000000000000
+      internalID: 7425916698439965765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_3
+      name: arc-anim_resizegif-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 75
         y: 0
-        width: 32
-        height: 48
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +179,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8303651358d24540800000000000000
-      internalID: 4990789188432626572
+      spriteID: 3778b73e2bbf03630800000000000000
+      internalID: 3904897622669494131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc-anim_resizegif-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f092429b88d499ed0800000000000000
+      internalID: -2406807276235773681
       vertices: []
       indices: 
       edges: []
@@ -185,7 +209,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3408fc9e4534d67488d64867ff1b990c
+    spriteID: 053a2ffebefe93b44b2a77c0e36ecdcc
     internalID: 0
     vertices: []
     indices: 
