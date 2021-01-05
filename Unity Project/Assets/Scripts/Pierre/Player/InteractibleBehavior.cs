@@ -11,10 +11,10 @@ public class InteractibleBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        interactibleParticle.Stop();
-        interactibleParticle.Clear();
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
+        interactibleParticle.Stop();
+        interactibleParticle.Clear();
     }
 
     // Update is called once per frame

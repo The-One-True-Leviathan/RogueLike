@@ -24,6 +24,7 @@ public class TalkingPads : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("NIQUE");
         textBox.enabled = true;
     }
 }
