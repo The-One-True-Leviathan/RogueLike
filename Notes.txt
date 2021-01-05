@@ -1,24 +1,16 @@
 Génération procédurale :
-	- Placement des salles
-	- Placement de bonus jusqu'à un minimum
-	- Connexions virtuelles entre les salles
-	- Placement des portes ou murs en fonction de l'étape précédente
+	- Placement des salles X
+	- Placement de bonus jusqu'à un minimum X
+	- Connexions virtuelles entre les salles X
+	- Placement des portes ou murs en fonction de l'étape précédente X
 
 A faire :
-	- Régler le problème des parties de donjon non connectées au reste
-	- Créer les vraies salles
+	- Régler le problème des parties de donjon non connectées au reste X
+	- Créer les vraies salles X
 
 IA : 
-	- Organigramme des IA
-	- Installation des tools de NavMesh
+	- Organigramme des IA X
+	- Installation des tools de NavMesh X
 A faire :
-	- Vraiment programmer les IAs
-	- Placer les NavMesh dans les vraies salles
-
-
-Sollution procgen :
-- Créer une list<RoomBehavior> "Unsure", "Unconnected" et une autre "Verified"
-- Démarrer d'une salle au hazard, l'ajouter à Unsure
-- Regarder toutes les salles connectées à celle-ci. Si elles ne sont pas Verified, les ajouter à Unsure :
-	- Si une des salles est une corridor room, ajouter toutes les salles Unsure à Verified.
-	- Si aucune d'entre elles n'est une corridor room, faire la même vérification pour celles-ci
+	- Vraiment programmer les IAs X
+	- Placer les NavMesh dans les vraies salles X

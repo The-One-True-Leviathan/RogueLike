@@ -241,6 +241,10 @@ public class Player : MonoBehaviour
 
     public void PlayerDamage(float amount)
     {
+        PlayerDamage(amount, transform.position, 0, 0);
+    }
+    public void PlayerDamage(float amount, Vector3 origin, float kbstrength, float kblength)
+    {
         if (!isInImmunity && !isInRoll)
         {
             healthBar.ApplyDamage(amount);
@@ -248,6 +252,22 @@ public class Player : MonoBehaviour
             enchant.DoEnchants(weapon1, 3);
             if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
             Immunity(damageImmunity);
+        }
+        StartCoroutine(Knockback(origin, kbstrength, kblength));
+    }
+
+    private IEnumerator Knockback(Vector3 origin, float kbstrength, float kblength)
+    {
+        if (kblength != 0)
+        {
+            isInRecoil = true;
+        }
+        currentSpeed = (origin - transform.position).normalized * kbstrength;
+        currentSpeed.y = 0;
+        yield return new WaitForSeconds(kblength);
+        if (kblength != 0)
+        {
+            isInRecoil = false;
         }
     }
 
