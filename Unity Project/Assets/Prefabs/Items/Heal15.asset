@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a19f0f6858fbe364794938aeb21afba3, type: 3}
-  m_Name: Heal5
+  m_Name: Heal15
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: 90017d56ece93af47a66a05c8e519a1a, type: 3}
-  itemName: Small Health Potion
-  itemDescription: A potion to regain 5 HP
+  itemSprite: {fileID: 21300000, guid: 1ea67e1b22846f74c8d5ff4e97974914, type: 3}
+  itemName: Great Health Potion
+  itemDescription: A big potion to heal 15 HP
   isFromShop: 0
   itemCollider: {fileID: 0}
-  itemPrice: 20
+  itemPrice: 40
   itemType: 0
-  strength: 5
+  strength: 15

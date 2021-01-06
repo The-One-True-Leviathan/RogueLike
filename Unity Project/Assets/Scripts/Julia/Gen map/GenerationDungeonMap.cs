@@ -98,6 +98,7 @@ public class GenerationDungeonMap : MonoBehaviour
 
     public void Tuto()
     {
+        GameObject.Destroy(GameObject.Find("Game Components"));
         SceneManager.LoadScene("Tuto");
     }
 }

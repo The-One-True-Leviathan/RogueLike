@@ -25,7 +25,9 @@ namespace items
             compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
             healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
+            merchantScript = GameObject.Find("Merchant").GetComponent<MerchantScript>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            //itemCard = 
             spriteRenderer.sprite = itemScriptableObject.itemSprite;
             animator = itemCard.GetComponent<Animator>();
         }

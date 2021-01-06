@@ -15,7 +15,7 @@ public class MerchantScript : MonoBehaviour
         merchantQuotes.Add("We aim to please !");
         merchantQuotes.Add("Are you looking for protection or damage dealing ?");
         merchantQuotes.Add("Thank yooou !");
-        merchantQuotes.Add("Did you heard about the tanuki businessman ?");
+        merchantQuotes.Add("Have you heard about the tanuki businessman ?");
         merchantQuotes.Add("Got some other rare things on sale, stranger !");
         merchantQuotes.Add("What're ya buyin ?");
         merchantQuotes.Add("Is that all, stranger ?");
@@ -25,6 +25,7 @@ public class MerchantScript : MonoBehaviour
         badMerchantQuotes.Add("Look and buy. Nothing could be easier.");
         badMerchantQuotes.Add("We don't accept bells.");
         badMerchantQuotes.Add("Not enough money, stranger.");
+        badMerchantQuotes.Add("The khajiit has ware if you have coin");
     }
 
     // Update is called once per frame
