@@ -23,6 +23,7 @@ public class ExplosionCopy : MonoBehaviour
 
     //Barrel shop
     public ShoppingManager shoppingManager;
+    public bool isTuto;
 
     //Damage
     [SerializeField] int explosionDamage = 5, explosionKnockBack = 10;
@@ -31,7 +32,7 @@ public class ExplosionCopy : MonoBehaviour
     {
         // Script Shoping Manager Julia
         shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
-        if (shoppingManager.BarrelsWereBought)
+        if (shoppingManager.BarrelsWereBought || isTuto)
         {
             gameObject.GetComponent<Transform>().localScale = Vector3.one;
         }
@@ -68,7 +69,7 @@ public class ExplosionCopy : MonoBehaviour
         {
             if (obj.CompareTag("Player"))
             {
-                playerScript.PlayerDamage(explosionDamage);
+                playerScript.PlayerDamage(explosionDamage, transform.position, -10, 0.1f);
             }
             if (obj.GetComponent<EnemyDamage>())
             {

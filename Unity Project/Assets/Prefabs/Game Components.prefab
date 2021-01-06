@@ -66,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compteur: {fileID: 0}
   shop: {fileID: 0}
+  gameWasLaunchedOnce: 0
 --- !u!1 &2131136164081227826
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BarrelsWereBought: 0
   boughtEnchantements: []
+  numeroEnchantsBough: 
 --- !u!114 &2131136164081227831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +546,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6784269346176511325, guid: e1b64b4d1f2d1d848ae6ff19d527fdc8,
         type: 3}
+    - target: {fileID: 281752995880152278, guid: 7bba893ad029ae046ba15477a112c016,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 413575269548451996, guid: 7bba893ad029ae046ba15477a112c016,
         type: 3}
       propertyPath: m_IsActive

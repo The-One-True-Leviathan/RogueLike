@@ -17,8 +17,9 @@ public class ReturnHome : MonoBehaviour
     {
         if (interactible.interacted)
         {
-            SceneManager.LoadScene("HUB");
+            GameObject.Destroy(GameObject.Find("Game Components"));
             interactible.interacted = false;
+            SceneManager.LoadScene("HUB");
 
         }
     }

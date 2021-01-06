@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 9015800717123116085}
   - component: {fileID: 9015800717123116084}
   - component: {fileID: 9015800717123116083}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Arrow Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
