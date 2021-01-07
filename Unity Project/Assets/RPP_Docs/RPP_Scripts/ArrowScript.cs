@@ -29,7 +29,8 @@ public class ArrowScript : MonoBehaviour
     }
 
     IEnumerator ShootArrow()
-    {   
+    {
+        FindObjectOfType<AudioManager>().Play("Flèche lancé");
         arrowObject.transform.position += new Vector3(1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
         yield return new WaitForSeconds(4f);
         arrowObject.SetActive(false);

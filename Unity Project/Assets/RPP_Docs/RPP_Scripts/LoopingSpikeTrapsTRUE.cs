@@ -39,18 +39,22 @@ public class LoopingSpikeTrapsTRUE : MonoBehaviour
 
     IEnumerator SpikesLoop()
     {
+        //Attack
         canStartLoop = false;        
         spikes.enabled = true;
         spikesLoop1.SetInteger("LoopSpikesInt", 3);
         spikesLoop2.SetInteger("LoopSpikesInt", 3);
         spikesLoop3.SetInteger("LoopSpikesInt", 3);
         spikesLoop4.SetInteger("LoopSpikesInt", 3);
+        FindObjectOfType<AudioManager>().Play("Sorties des Piques");
         yield return new WaitForSeconds(0.3f);
+        // Retract
         spikes.enabled = false;
         spikesLoop1.SetInteger("LoopSpikesInt", 2);
         spikesLoop2.SetInteger("LoopSpikesInt", 2);
         spikesLoop3.SetInteger("LoopSpikesInt", 2);
         spikesLoop4.SetInteger("LoopSpikesInt", 2);
+        FindObjectOfType<AudioManager>().Play("Rentrée des piques");
         yield return new WaitForSeconds(2f);
         canStartLoop = true;
     }

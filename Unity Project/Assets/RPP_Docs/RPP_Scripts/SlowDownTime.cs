@@ -22,6 +22,7 @@ public class SlowDownTime : MonoBehaviour
 
     void SlowDownMan()
     {
+        FindObjectOfType<AudioManager>().Play("Slow Down Time");
         Debug.Log("Time is Being Slowed");
         Time.timeScale = 0.5f;
         slow.TransitionTo(0.5f);

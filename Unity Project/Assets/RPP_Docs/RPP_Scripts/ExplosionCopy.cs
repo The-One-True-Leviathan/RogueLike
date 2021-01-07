@@ -81,8 +81,10 @@ public class ExplosionCopy : MonoBehaviour
 
     IEnumerator ExplosionCountdown()
     {
+        FindObjectOfType<AudioManager>().Play("Préparation Explosion");
         Debug.Log("I AM ABOUT TO EXPLODE!!!");
         yield return new WaitForSeconds(2f);
+        FindObjectOfType<AudioManager>().Play("Explosion Barril");
         Explosion();
     }
 

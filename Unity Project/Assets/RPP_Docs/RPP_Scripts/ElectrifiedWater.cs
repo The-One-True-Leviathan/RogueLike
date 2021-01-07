@@ -8,7 +8,7 @@ public class ElectrifiedWater : MonoBehaviour
     public Vector3 wetZone;
     public LayerMask currentLayer;
     public int electricDamage;
-    bool canTakeDamage;
+    bool canTakeDamage, canStartSound;
 
     //Player
     public GameObject player;
@@ -18,13 +18,18 @@ public class ElectrifiedWater : MonoBehaviour
     {
         wetZone = transform.localScale;
         canTakeDamage = true;
+        canStartSound = true;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
     }
 
     private void FixedUpdate()
     {
-        if (canTakeDamage == true)
+        if (canStartSound)
+        {
+            StartCoroutine(SonElectric());
+        }
+        if (canTakeDamage)
         {
             StartCoroutine(ElectricDamage());
         }        
@@ -56,6 +61,13 @@ public class ElectrifiedWater : MonoBehaviour
         canTakeDamage = false;
         yield return new WaitForSeconds(1f);
         ConstantDamage();
+    }
+
+    IEnumerator SonElectric()
+    {
+        canStartSound = false;
+        FindObjectOfType<AudioManager>().Play("Eau électrifié");
+        yield return new WaitForSeconds(22f);
     }
    private void OnDrawGizmosSelected()
     {
