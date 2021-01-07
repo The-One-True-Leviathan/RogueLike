@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1133,6 +1133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BarrelsWereBought: 1
   boughtEnchantements: []
+  numeroEnchantsBough: 
 --- !u!1 &1666928235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,6 +1841,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb443f390f934bd458fd90de73926d38, type: 3}
+--- !u!1001 &6820753226969226914
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3476608942203000199, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_Name
+      value: Looping Spike Traps TRUE 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476608942203000203, guid: 79f5f49b86acdda468ba547cee89db4a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79f5f49b86acdda468ba547cee89db4a, type: 3}
 --- !u!1001 &6913734137415337463
 PrefabInstance:
   m_ObjectHideFlags: 0
