@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 20489777116809264}
   m_Layer: 14
-  m_Name: Pressure Spike Traps
+  m_Name: Pressure Spike Traps (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 20489777116809267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8164, y: 0.6375, z: 0.8164}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8090094658034477671}
   m_Father: {fileID: 0}
@@ -2366,7 +2366,7 @@ Transform:
   m_GameObject: {fileID: 8090094658034477675}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.709178, y: 4.709178, z: 4.709178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8090094656672023037}
   - {fileID: 1107041127554444886}

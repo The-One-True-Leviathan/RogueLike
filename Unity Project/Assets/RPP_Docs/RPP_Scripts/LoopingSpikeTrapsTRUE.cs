@@ -5,7 +5,7 @@ using UnityEngine;
 public class LoopingSpikeTrapsTRUE : MonoBehaviour
 {
     [SerializeField] BoxCollider spikes;
-    public Animator spikesLoop;
+    public Animator spikesLoop1, spikesLoop2, spikesLoop3, spikesLoop4;
     public int spikesDamage;
     bool canStartLoop;
     private Transform spikeLocation;
@@ -19,7 +19,10 @@ public class LoopingSpikeTrapsTRUE : MonoBehaviour
         spikes = GetComponent<BoxCollider>();
         spikes.enabled = false;
         canStartLoop = true;
-        spikesLoop.SetInteger("LoopSpikesInt", 1);
+        spikesLoop1.SetInteger("LoopSpikesInt", 1);
+        spikesLoop2.SetInteger("LoopSpikesInt", 1);
+        spikesLoop3.SetInteger("LoopSpikesInt", 1);
+        spikesLoop4.SetInteger("LoopSpikesInt", 1);
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
         spikeLocation = GetComponent<Transform>();
@@ -38,10 +41,16 @@ public class LoopingSpikeTrapsTRUE : MonoBehaviour
     {
         canStartLoop = false;        
         spikes.enabled = true;
-        spikesLoop.SetInteger("LoopSpikesInt", 3);
+        spikesLoop1.SetInteger("LoopSpikesInt", 3);
+        spikesLoop2.SetInteger("LoopSpikesInt", 3);
+        spikesLoop3.SetInteger("LoopSpikesInt", 3);
+        spikesLoop4.SetInteger("LoopSpikesInt", 3);
         yield return new WaitForSeconds(0.3f);
         spikes.enabled = false;
-        spikesLoop.SetInteger("LoopSpikesInt", 2);
+        spikesLoop1.SetInteger("LoopSpikesInt", 2);
+        spikesLoop2.SetInteger("LoopSpikesInt", 2);
+        spikesLoop3.SetInteger("LoopSpikesInt", 2);
+        spikesLoop4.SetInteger("LoopSpikesInt", 2);
         yield return new WaitForSeconds(2f);
         canStartLoop = true;
     }
