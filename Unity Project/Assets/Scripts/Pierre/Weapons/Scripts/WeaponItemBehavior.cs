@@ -14,10 +14,15 @@ public class WeaponItemBehavior : MonoBehaviour
     public float dropStrength = 1, stopTime, refx, refz;
     public bool dropped = false;
     public SpriteRenderer sprite;
+    public bool isFromShop = false;
     // Start is called before the first frame update
     void Start()
     {
-        weapon = Object.Instantiate(weapon) as WeaponScriptableObject;
+        if(weapon!=null)
+        {
+            weapon = Object.Instantiate(weapon) as WeaponScriptableObject;
+        }
+        
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -45,15 +50,45 @@ public class WeaponItemBehavior : MonoBehaviour
         rigidBody.AddForce(currentSpeed, ForceMode.Impulse);
     }
 
+    public void Shop()
+    {
+        weapon = Object.Instantiate(weapon) as WeaponScriptableObject;
+        weapon.InitializeWeapon();
+        sprite.sprite = weapon.weaponItemSprite;
+        GetComponentInChildren<WeaponItemCard>().weapon = weapon;
+        GetComponentInChildren<WeaponItemCard>().Initialize();
+        gameObject.name = weapon.weaponRealName;
+    }
+
     // Update is called once per frame
     void Update()
     {
-            if (interactible.interacted)
+        if (interactible.interacted)
+        {
+            if (isFromShop)
+            {
+                if(GetComponent<ShopWeapon>().weaponPrice <= GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>().piecettesActuelles)
+                {
+                    GameObject.Find("Merchant").GetComponent<MerchantScript>().BuyingDialogue();
+                    GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>().Buy(GetComponent<ShopWeapon>().weaponPrice);
+                    player.ChangeWeapon(weapon);
+                    Object.Destroy(gameObject);
+                }
+                else
+                {
+                    GameObject.Find("Merchant").GetComponent<MerchantScript>().NoMoneyDialogue();
+                }
+                interactible.interacted = false;
+            }
+
+            else
             {
                 player.ChangeWeapon(weapon);
                 Object.Destroy(gameObject);
+
             }
-            animator.SetBool("Open", interactible.interactible);
-       
+        }
+        animator.SetBool("Open", interactible.interactible);
+
     }
 }

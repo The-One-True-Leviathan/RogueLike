@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a19f0f6858fbe364794938aeb21afba3, type: 3}
-  m_Name: Max5
+  m_Name: Max10
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: 1522454b679e6ca44acba2e44ff89a15, type: 3}
-  itemName: Small reinforcement potion
-  itemDescription: Ups a little your max HPs (+5)
-  isFromShop: 0
+  itemSprite: {fileID: 21300000, guid: a15b6e2c758b37449b839504258a6987, type: 3}
+  itemName: Reinforcement potion
+  itemDescription: Ups your max HPs (+10)
+  isFromShop: 1
   itemCollider: {fileID: 0}
-  itemPrice: 30
+  itemPrice: 45
   itemType: 1
-  strength: 5
+  strength: 10

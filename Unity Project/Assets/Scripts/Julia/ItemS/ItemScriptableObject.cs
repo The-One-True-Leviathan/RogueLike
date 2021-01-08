@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace items
 {
-    public enum ItemType { Heal, MaxPlus}
+    public enum ItemType { Heal, MaxPlus, Boulon}
     [CreateAssetMenu(fileName = "newItem", menuName = "Julia/Item", order = 0)]
     public class ItemScriptableObject : ScriptableObject
     {

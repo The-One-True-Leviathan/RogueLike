@@ -145,6 +145,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""DungeonCheat"",
+                    ""type"": ""Button"",
+                    ""id"": ""b75aa85b-41ce-43cb-8b1c-758adcc075a8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
                 }
             ],
             ""bindings"": [
@@ -763,6 +771,17 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""LifeCheat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb211288-3b9f-4bc5-b3b9-ef0ddc9f8233"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DungeonCheat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -793,6 +812,7 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_NormalizeTime = m_Keyboard.FindAction("NormalizeTime", throwIfNotFound: true);
         m_Keyboard_Rewind = m_Keyboard.FindAction("Rewind", throwIfNotFound: true);
         m_Keyboard_LifeCheat = m_Keyboard.FindAction("LifeCheat", throwIfNotFound: true);
+        m_Keyboard_DungeonCheat = m_Keyboard.FindAction("DungeonCheat", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -858,6 +878,7 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_NormalizeTime;
     private readonly InputAction m_Keyboard_Rewind;
     private readonly InputAction m_Keyboard_LifeCheat;
+    private readonly InputAction m_Keyboard_DungeonCheat;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -878,6 +899,7 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @NormalizeTime => m_Wrapper.m_Keyboard_NormalizeTime;
         public InputAction @Rewind => m_Wrapper.m_Keyboard_Rewind;
         public InputAction @LifeCheat => m_Wrapper.m_Keyboard_LifeCheat;
+        public InputAction @DungeonCheat => m_Wrapper.m_Keyboard_DungeonCheat;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -935,6 +957,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @LifeCheat.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLifeCheat;
                 @LifeCheat.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLifeCheat;
                 @LifeCheat.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnLifeCheat;
+                @DungeonCheat.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDungeonCheat;
+                @DungeonCheat.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDungeonCheat;
+                @DungeonCheat.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDungeonCheat;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -987,6 +1012,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @LifeCheat.started += instance.OnLifeCheat;
                 @LifeCheat.performed += instance.OnLifeCheat;
                 @LifeCheat.canceled += instance.OnLifeCheat;
+                @DungeonCheat.started += instance.OnDungeonCheat;
+                @DungeonCheat.performed += instance.OnDungeonCheat;
+                @DungeonCheat.canceled += instance.OnDungeonCheat;
             }
         }
     }
@@ -1018,5 +1046,6 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnNormalizeTime(InputAction.CallbackContext context);
         void OnRewind(InputAction.CallbackContext context);
         void OnLifeCheat(InputAction.CallbackContext context);
+        void OnDungeonCheat(InputAction.CallbackContext context);
     }
 }

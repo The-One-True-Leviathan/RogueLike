@@ -18,6 +18,8 @@ namespace items
         public GameObject itemCard;
         public Animator animator;
         bool cardIsOn = false;
+        [SerializeField]
+        bool dialogueWasSaid = false;
 
         // Start is called before the first frame update
         void Start()
@@ -27,7 +29,6 @@ namespace items
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
             merchantScript = GameObject.Find("Merchant").GetComponent<MerchantScript>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            //itemCard = 
             spriteRenderer.sprite = itemScriptableObject.itemSprite;
             animator = itemCard.GetComponent<Animator>();
         }
@@ -39,39 +40,55 @@ namespace items
             {
                 if (itemScriptableObject.isFromShop)
                 {
-                    if (itemScriptableObject.itemPrice >= compteur.piecettesActuelles)
+                    if (itemScriptableObject.itemPrice <= compteur.piecettesActuelles)
                     {
+                        used = true;
                         compteur.Buy(itemScriptableObject.itemPrice);
                         merchantScript.BuyingDialogue();
                         ApplyEffect();
+                        
                     }
-                    else
+                    else if (!dialogueWasSaid)
                     {
+                        dialogueWasSaid = true;
                         merchantScript.NoMoneyDialogue();
+                        
                     }
                 } else
                 {
+                    used = true;
                     ApplyEffect();
                 }
+                interactibleBehavior.interacted = false;
             }
-
-            animator.SetBool("Open", interactibleBehavior.interactible);
+            if(animator!=null)
+            {
+                animator.SetBool("Open", interactibleBehavior.interactible);
+            }
+            
+            dialogueWasSaid = false;
         } 
 
         public void ApplyEffect()
         {
-            if (!used)
+            switch(itemScriptableObject.itemType)
             {
-                if (itemScriptableObject.itemType == ItemType.Heal)
-                {
+                case ItemType.Heal:
                     healthBar.ApplyDamage(-itemScriptableObject.strength);
-                }
-                else if (itemScriptableObject.itemType == ItemType.MaxPlus)
-                {
+                    break;
+
+                case ItemType.MaxPlus:
                     healthBar.UpgradeLife(itemScriptableObject.strength);
-                }
-                used = true;
+                    break;
+
+                case ItemType.Boulon:
+                    compteur.GainBoulon(1);
+                    break;
             }
+            
+
+                used = true;
+            
             Destroy(gameObject);
         }
     }

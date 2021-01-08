@@ -132,6 +132,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "DungeonCheat",
+                    "type": "Button",
+                    "id": "b75aa85b-41ce-43cb-8b1c-758adcc075a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -748,6 +756,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LifeCheat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb211288-3b9f-4bc5-b3b9-ef0ddc9f8233",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DungeonCheat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

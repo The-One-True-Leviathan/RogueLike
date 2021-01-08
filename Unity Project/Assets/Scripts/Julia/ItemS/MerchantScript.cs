@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class MerchantScript : MonoBehaviour
 {
     public Text textBox;
-    List<string> merchantQuotes, badMerchantQuotes;
+    public List<string> merchantQuotes, badMerchantQuotes;
+    int lastQuote = -1, lastBadQuote = -1; 
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +33,36 @@ public class MerchantScript : MonoBehaviour
     public void BuyingDialogue()
     {
         int index = Random.Range(0, merchantQuotes.Count-1);
+        if(lastQuote == index)
+        {
+            if(index == merchantQuotes.Count-1)
+            {
+                index -= 1;
+            }
+            else
+            {
+                index += 1;
+            }
+        }
+        lastQuote = index;
         textBox.text = (merchantQuotes[index]);
     }
 
     public void NoMoneyDialogue()
     {
         int index = Random.Range(0, badMerchantQuotes.Count-1);
+        if (lastBadQuote == index)
+        {
+            if (index == badMerchantQuotes.Count - 1)
+            {
+                index -= 1;
+            }
+            else
+            {
+                index += 1;
+            }
+        }
+        lastBadQuote = index;
         textBox.text = (badMerchantQuotes[index]);
     }
 }

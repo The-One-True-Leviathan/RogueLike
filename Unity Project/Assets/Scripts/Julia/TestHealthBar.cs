@@ -7,7 +7,7 @@ public class TestHealthBar : MonoBehaviour
     Controler controller;
     public HealthBar healthBar;
     public Compteur compteur;
-    bool test, cheat;
+    bool test, cheat, moreMoney;
     public float testDamage = 4;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class TestHealthBar : MonoBehaviour
     {
         test = controller.Keyboard.LifeCheat.triggered;
         cheat = controller.Keyboard.MoneyCheat.triggered;
+        moreMoney = controller.Keyboard.DungeonCheat.triggered;
         if (test)
         {
             healthBar.ApplyDamage(-5);
@@ -32,5 +33,10 @@ public class TestHealthBar : MonoBehaviour
         {
             compteur.GainBoulon(50);
         }
+        if (moreMoney)
+        {
+            compteur.GainPiecettes(50);
+        }
+        
     }
 }

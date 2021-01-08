@@ -5,7 +5,7 @@ using Weapons;
 
 namespace Weapons
 {
-    public enum Quality { Common, Uncommon, Rare, VeryRare, Legendary, Artifact}
+    public enum Quality { Common, Uncommon, Rare, VeryRare, Legendary, Artifact, NA}
     public class RandomWeaponGeneration : MonoBehaviour
     {
         public List<WeaponScriptableObject> baseWeapons, uniqueWeapons, weaponsGenerated = new List<WeaponScriptableObject>();
