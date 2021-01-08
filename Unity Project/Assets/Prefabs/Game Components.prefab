@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 2131136164081227828}
   - component: {fileID: 2131136164081227829}
   - component: {fileID: 2131136164081227831}
+  - component: {fileID: 1077319047307603987}
   m_Layer: 0
   m_Name: Game manager
   m_TagString: GameManager
@@ -152,6 +153,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d53a9ec1771cb44abf30f17ef7321de, type: 2}
   shoppingManager: {fileID: 0}
   quality: 1
+--- !u!114 &1077319047307603987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131136164081227826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202786acbbc8ed2428b11707801cf18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 2301655988124375891}
+  rewindRange: 3
+  rewindLayer:
+    serializedVersion: 2
+    m_Bits: 16640
+  rewindCounter: 0
 --- !u!1001 &2131136162975842608
 PrefabInstance:
   m_ObjectHideFlags: 0
