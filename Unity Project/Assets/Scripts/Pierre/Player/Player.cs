@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject weaponDropOriginal;
     public Animator animator;
     public Animator weaponAnimator;
+    public Screenshake screenshake;
 
 
     public PlayerCollisionDetector left, right, top, bottom;
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        screenshake = GetComponent<Screenshake>();
         weapon1 = Object.Instantiate(weapon1) as WeaponScriptableObject;
         weapon2 = Object.Instantiate(weapon2) as WeaponScriptableObject;
         healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
@@ -245,8 +247,10 @@ public class Player : MonoBehaviour
     }
     public void PlayerDamage(float amount, Vector3 origin, float kbstrength, float kblength)
     {
+
         if (!isInImmunity && !isInRoll)
         {
+            screenshake.Shake(0.05f, 0.1f*amount, 0.01f);
             healthBar.ApplyDamage(amount);
             //Debug.LogError("Damaged for " + amount);
             enchant.DoEnchants(weapon1, 3);
@@ -529,6 +533,7 @@ public class Player : MonoBehaviour
                         //Debug.LogError("Enemy hit ! Inflicted " + damage + " damage !");
                         float finalKnockback = weapon.atk[atkNumber].knockBack[chargeLevel] * weapon.totalKnockbackMultiplier;
                         DoAttack(damage, finalKnockback, enemy.gameObject);
+                        screenshake.Shake(0.05f, 0.05f*damage, 0.01f);
                         enemiesHitLastAttack.Add(enemy.gameObject);
                     }
                 }

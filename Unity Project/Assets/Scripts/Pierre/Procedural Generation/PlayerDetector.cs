@@ -35,7 +35,10 @@ public class PlayerDetector : MonoBehaviour
             if (other.tag == "Player")
             {
                 hasClosed = true;
-                monsters.SetActive(true);
+                if (monsters != null)
+                {
+                    monsters.SetActive(true);
+                }
                 foreach (GameObject door in doors)
                 {
                     door.GetComponent<DoorManager>().Close();

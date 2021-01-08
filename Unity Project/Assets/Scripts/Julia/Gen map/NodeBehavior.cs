@@ -95,6 +95,7 @@ public class NodeBehavior : MonoBehaviour
 
     public void desactivatingNode()
     {
+        button = GetComponent<Button>();
         button.enabled = false;
         button.GetComponent<RectTransform>().localScale = Vector3.one;
     }
