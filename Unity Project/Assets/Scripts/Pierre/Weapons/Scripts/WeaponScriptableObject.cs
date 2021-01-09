@@ -38,7 +38,7 @@ namespace Weapons
                 totalReachMultiplier.z *= enchantments[i].multiplierReach.z;
             }
 
-
+            Debug.Log("pouic");
             if (!weaponUnique)
             {
                 if (enchantments.Count != 0)
@@ -75,7 +75,10 @@ namespace Weapons
                 weaponRealName = weaponBaseName;
                 weaponColor = Color.yellow;
             }
+
+            Debug.Log("initialize weapon end");
         }
+
 
         public void AddEnchant(Enchantment enchant)
         {

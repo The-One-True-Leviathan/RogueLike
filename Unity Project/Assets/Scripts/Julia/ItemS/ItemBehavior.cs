@@ -22,15 +22,18 @@ namespace items
         bool dialogueWasSaid = false;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             compteur = GameObject.FindGameObjectWithTag("Compteur").GetComponent<Compteur>();
             healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
             interactibleBehavior = GetComponentInChildren<InteractibleBehavior>();
-            merchantScript = GameObject.Find("Merchant").GetComponent<MerchantScript>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             spriteRenderer.sprite = itemScriptableObject.itemSprite;
             animator = itemCard.GetComponent<Animator>();
+            if(itemScriptableObject.isFromShop)
+            {
+                merchantScript = GameObject.Find("Merchant").GetComponent<MerchantScript>();
+            }
         }
 
         // Update is called once per frame

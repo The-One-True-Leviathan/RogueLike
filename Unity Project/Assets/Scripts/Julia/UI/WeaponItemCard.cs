@@ -17,6 +17,7 @@ public class WeaponItemCard : MonoBehaviour
     public void Initialize()
     {
         weapon.InitializeWeapon();
+        Debug.Log("pouet");
         texts = GetComponentsInChildren<Text>();
         panel = GetComponentInChildren<Image>();
         itemUI = gameObject;
