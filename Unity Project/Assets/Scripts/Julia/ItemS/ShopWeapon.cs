@@ -8,12 +8,14 @@ public class ShopWeapon : MonoBehaviour
     // Start is called before the first frame update
     public RandomWeaponGeneration weaponGeneration;
     public WeaponItemBehavior weapon;
+    public PriceCard priceCard;
     public Quality quality = Quality.NA;
     public int weaponPrice;
     void Start()
     {
         weaponGeneration = GameObject.FindWithTag("GameManager").GetComponent<RandomWeaponGeneration>();
         weapon = GetComponent<WeaponItemBehavior>();
+        priceCard = GetComponentInChildren<PriceCard>();
         Quality originalQuality = weaponGeneration.quality;
         if(quality!=Quality.NA)
         {
@@ -52,6 +54,7 @@ public class ShopWeapon : MonoBehaviour
                 break;
         }
         Debug.Log(weaponPrice);
+        priceCard.DoPriceCard();
     }
 
     // Update is called once per frame
