@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3222042149294016830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3222042150365365900}
@@ -61,10 +61,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.7
-  m_Height: 5
+  m_Radius: 2
+  m_Height: 10
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 1.4366944}
 --- !u!199 &8854046180078422342
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -144,7 +144,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -4815,7 +4815,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3222042150365365896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -418.34, y: -347.42, z: -1231.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4868,8 +4868,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponGeneration: {fileID: 0}
   weapon: {fileID: 0}
-  quality: 6
-  weaponPrice: 0
+  quality: 3
+  weaponPrice: 25
 --- !u!114 &3222042150365365897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4882,7 +4882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c1cb1a3424f4345bae6eeb467c0965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 183c38bf20b553045a474e34bc91cab0, type: 2}
+  weapon: {fileID: 11400000, guid: 659fabecd2c908b4da381ec258ca7b9e, type: 2}
   interactible: {fileID: 3222042149294016829}
   player: {fileID: 0}
   rigidBody: {fileID: 0}
@@ -4893,7 +4893,7 @@ MonoBehaviour:
   refz: 0
   dropped: 0
   sprite: {fileID: 0}
-  isFromShop: 0
+  isFromShop: 1
 --- !u!212 &1203484050288991984
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5086,7 +5086,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &9063573342073646148
 MonoBehaviour:
@@ -5102,8 +5102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemUI: {fileID: 0}
   weapon: {fileID: 11400000, guid: 86f8ee1c6b6b84a4db171ca641da7280, type: 2}
-  displayWeaponNameUI: {fileID: 0}
-  displayDescriptionWeaponUI: {fileID: 0}
   texts: []
   panel: {fileID: 0}
 --- !u!95 &8309977904921519317

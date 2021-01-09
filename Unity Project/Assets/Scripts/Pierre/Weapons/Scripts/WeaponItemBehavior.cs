@@ -16,17 +16,17 @@ public class WeaponItemBehavior : MonoBehaviour
     public SpriteRenderer sprite;
     public bool isFromShop = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        if(weapon!=null)
+        if (weapon != null)
         {
             weapon = Object.Instantiate(weapon) as WeaponScriptableObject;
         }
-        
+
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        interactible = GetComponentInChildren<InteractibleBehavior>();
+        //interactible = GetComponentInChildren<InteractibleBehavior>();
         rigidBody = GetComponent<Rigidbody>();
         if (weapon != null)
         {
@@ -40,7 +40,7 @@ public class WeaponItemBehavior : MonoBehaviour
 
     public void Dropped()
     {
-        Start();
+        Awake();
         weapon.InitializeWeapon();
         sprite.sprite = weapon.weaponItemSprite;
         GetComponentInChildren<WeaponItemCard>().weapon = weapon;
@@ -63,6 +63,8 @@ public class WeaponItemBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("Open", interactible.interactible);
+        Debug.Log(interactible.interactible);
         if (interactible.interacted)
         {
             if (isFromShop)
@@ -88,7 +90,6 @@ public class WeaponItemBehavior : MonoBehaviour
 
             }
         }
-        animator.SetBool("Open", interactible.interactible);
 
     }
 }

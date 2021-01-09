@@ -14,12 +14,14 @@ namespace Weapons
         public Quality quality;
         int rng;
         // Start is called before the first frame update
-        private void Start()
+        private void Awake()
         {
             shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
         }
         public List<WeaponScriptableObject> Generate()
         {
+            availableSimpleEnchants.Clear();
+            availableSpecialEnchants.Clear();
             foreach (Enchantment enchant in simpleEnchants)
             {
                 if (shoppingManager.boughtEnchantements.Contains(enchant))

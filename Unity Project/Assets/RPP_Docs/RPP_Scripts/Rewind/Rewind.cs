@@ -13,6 +13,8 @@ public class Rewind : MonoBehaviour
 
     void Awake()
     {
+        controler = new Controler();
+        controler.Enable();
         controler.Keyboard.Rewind.performed += ctx => CallRewind();
     }
 

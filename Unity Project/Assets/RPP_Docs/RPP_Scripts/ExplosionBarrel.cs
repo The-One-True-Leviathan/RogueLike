@@ -33,13 +33,10 @@ public class ExplosionBarrel : MonoBehaviour
     {
         // Script Shoping Manager Julia
         shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
-        if (shoppingManager.BarrelsWereBought)
+
+        if(shoppingManager.BarrelsWereBought == true)
         {
-            gameObject.GetComponent<Transform>().localScale = Vector3.one;
-        }
-        else
-        {
-            gameObject.GetComponent<Transform>().localScale = Vector3.zero;
+            explosionDamage = explosionDamage * 2;
         }
 
         // Mes Scripts d'explosion

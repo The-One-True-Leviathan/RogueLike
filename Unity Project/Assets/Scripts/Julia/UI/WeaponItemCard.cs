@@ -9,7 +9,6 @@ public class WeaponItemCard : MonoBehaviour
 {
     public GameObject itemUI;
     public WeaponScriptableObject weapon;
-    public UnityEngine.UI.Text displayWeaponNameUI, displayDescriptionWeaponUI;
     public Text[] texts;
     //public string[] displayEnchantUI;
     public Image panel;

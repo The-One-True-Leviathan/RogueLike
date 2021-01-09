@@ -12,7 +12,7 @@ public class RewindCounter : MonoBehaviour
 
     private void Start()
     {
-        rewindScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Rewind>();
+        rewindScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Rewind>();
     }
 
 

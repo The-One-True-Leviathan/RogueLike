@@ -28,7 +28,8 @@ public class ShopWeapon : MonoBehaviour
         weaponGeneration.quality = originalQuality;
         weapon.Shop();
         weapon.isFromShop = true;
-        switch(quality)
+        Debug.Log(quality);
+        switch (quality)
         {
             case Quality.Common:
                 weaponPrice = 10;
@@ -50,6 +51,7 @@ public class ShopWeapon : MonoBehaviour
                 weaponPrice = 100;
                 break;
         }
+        Debug.Log(weaponPrice);
     }
 
     // Update is called once per frame
