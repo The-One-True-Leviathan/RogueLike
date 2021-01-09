@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoopingSpikeTraps : MonoBehaviour
+public class BigLoopingSpikesScript : MonoBehaviour
 {
-    public BoxCollider spikes;
-    public Material material;
+    [SerializeField] BoxCollider spikes;
+    public Animator spikesLoop;
     public int spikesDamage;
     bool canStartLoop;
     private Transform spikeLocation;
@@ -16,13 +16,15 @@ public class LoopingSpikeTraps : MonoBehaviour
 
     private void Start()
     {
-        material.color = Color.yellow;
+        spikes = GetComponent<BoxCollider>();
         spikes.enabled = false;
         canStartLoop = true;
+        spikesLoop.SetInteger("LoopSpikesAnimInt", 1);
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
         spikeLocation = GetComponent<Transform>();
     }
+
 
     private void FixedUpdate()
     {
@@ -34,13 +36,18 @@ public class LoopingSpikeTraps : MonoBehaviour
 
     IEnumerator SpikesLoop()
     {
+        //Attack
         canStartLoop = false;
-        material.color = Color.red;
         spikes.enabled = true;
-        //OnTriggerEnter(spikes);
+        spikesLoop.SetInteger("LoopSpikesAnimInt", 2);
+        Debug.Log("Looping Spike has Attacked");
+        FindObjectOfType<AudioManager>().Play("Sorties des Piques");
         yield return new WaitForSeconds(0.3f);
+        // Retract
         spikes.enabled = false;
-        material.color = Color.yellow;
+        spikesLoop.SetInteger("LoopSpikesAnimInt", 3);
+        Debug.Log("Looping Spike has Retracted");
+        FindObjectOfType<AudioManager>().Play("Rentrée des piques");
         yield return new WaitForSeconds(2f);
         canStartLoop = true;
     }

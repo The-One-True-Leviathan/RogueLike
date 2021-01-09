@@ -27,10 +27,10 @@ public class Rewind : MonoBehaviour
 
             foreach (Collider obj in objects)
             {
-                if (obj.GetComponent<RewindTable>())
+                /*if (obj.GetComponent<RewindTable>())
                 {
                     obj.GetComponent<RewindTable>().TableRewind();
-                }
+                }*/
                 if (obj.GetComponent<RewindExplosiveBarrel>())
                 {
                     obj.GetComponent<RewindExplosiveBarrel>().BarrelRewind();

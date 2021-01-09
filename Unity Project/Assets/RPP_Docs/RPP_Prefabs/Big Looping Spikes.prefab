@@ -25,13 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148510600654047776}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.48636723, y: -0.012890577, z: 0.49847782}
+  m_LocalPosition: {x: 0.48636723, y: 0.027109385, z: 0.4984777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 148510601437225398}
-  - {fileID: 9013769569169444381}
   m_Father: {fileID: 1024346714907014500}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &148510600654047779
 SpriteRenderer:
@@ -266,13 +265,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3028424885370113549}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.483634, y: -0.012890577, z: 0.49847782}
+  m_LocalPosition: {x: -0.483634, y: 0.027109385, z: 0.4984777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3028424884006331803}
-  - {fileID: 6133878861412108848}
   m_Father: {fileID: 1024346714907014500}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &3028424885370113550
 SpriteRenderer:
@@ -1791,7 +1789,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3514159391216486011}
-  - component: {fileID: 2951651087913264334}
   m_Layer: 14
   m_Name: piques pieges master 2
   m_TagString: Untagged
@@ -1806,8 +1803,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3514159391216486010}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.071, y: -1.25, z: -0.17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.5573673, y: 0.15710947, z: -1.7465234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3514159390114046904}
@@ -1823,28 +1820,9 @@ Transform:
   - {fileID: 3985250426264297311}
   - {fileID: 3985250425742272118}
   - {fileID: 3985250426188285171}
-  m_Father: {fileID: 5754482570372874826}
+  m_Father: {fileID: 6434206850098635863}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!95 &2951651087913264334
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3514159391216486010}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 259b0fa48dc59a64b9a12da40c39568a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3517959960746758994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,7 +1832,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3517959960746758995}
-  - component: {fileID: 2945600087539282406}
   m_Layer: 14
   m_Name: piques pieges master 4
   m_TagString: Untagged
@@ -1869,8 +1846,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3517959960746758994}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.071, y: -1.25, z: -0.17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.587366, y: 0.15710947, z: -1.7465234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3517959961848952464}
@@ -1886,28 +1863,9 @@ Transform:
   - {fileID: 3988206365752511095}
   - {fileID: 3988206366270681950}
   - {fileID: 3988206365829566939}
-  m_Father: {fileID: 5749557142500988770}
-  m_RootOrder: 1
+  m_Father: {fileID: 6434206850098635863}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!95 &2945600087539282406
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3517959960746758994}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 259b0fa48dc59a64b9a12da40c39568a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3517959961004399342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3391,13 +3349,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5749557142500988782}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.483634, y: -0.012890577, z: -0.49652326}
+  m_LocalPosition: {x: -0.483634, y: 0.027109385, z: -0.49652326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5749557143326047480}
-  - {fileID: 3517959960746758995}
   m_Father: {fileID: 1024346714907014500}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &5749557142500988781
 SpriteRenderer:
@@ -3632,13 +3589,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5754482570372874822}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.48636723, y: -0.012890577, z: -0.49652326}
+  m_LocalPosition: {x: 0.48636723, y: 0.027109385, z: -0.49652326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5754482569548032464}
-  - {fileID: 3514159391216486011}
   m_Father: {fileID: 1024346714907014500}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &5754482570372874821
 SpriteRenderer:
@@ -4833,7 +4789,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6133878861412108848}
-  - component: {fileID: 5561233112971077765}
   m_Layer: 14
   m_Name: piques pieges master 3
   m_TagString: Untagged
@@ -4848,8 +4803,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6133878861412108849}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.071, y: -1.25, z: -0.17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.587366, y: 0.15710947, z: -0.7515224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6133878860307574771}
@@ -4865,28 +4820,9 @@ Transform:
   - {fileID: 5950753940986778388}
   - {fileID: 5950753940468886077}
   - {fileID: 5950753940912834744}
-  m_Father: {fileID: 3028424885370113537}
-  m_RootOrder: 1
+  m_Father: {fileID: 6434206850098635863}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!95 &5561233112971077765
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6133878861412108849}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 259b0fa48dc59a64b9a12da40c39568a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6133878861663068509
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,9 +5156,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1024346714907014500}
-  - component: {fileID: 1944371486025476755}
   - component: {fileID: 6210932508114998672}
-  m_Layer: 0
+  - component: {fileID: 3851947390390091962}
+  m_Layer: 14
   m_Name: Big Looping Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5240,6 +5176,7 @@ Transform:
   m_LocalPosition: {x: -14.95, y: -2.136, z: 1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 6434206850098635863}
   - {fileID: 148510600654047788}
   - {fileID: 5754482570372874826}
   - {fileID: 3028424885370113537}
@@ -5247,26 +5184,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1944371486025476755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6457183097747578472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20ae42ce942d4842839ed9aff41b475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spikes: {fileID: 6210932508114998672}
-  spikesLoop1: {fileID: 7288449227488423080}
-  spikesLoop2: {fileID: 2951651087913264334}
-  spikesLoop3: {fileID: 5561233112971077765}
-  spikesLoop4: {fileID: 2945600087539282406}
-  spikesDamage: 3
-  player: {fileID: 0}
-  playerScript: {fileID: 0}
 --- !u!65 &6210932508114998672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5280,6 +5197,77 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9, y: 0.14, z: 1.9}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3851947390390091962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6457183097747578472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20ae42ce942d4842839ed9aff41b475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spikes: {fileID: 6210932508114998672}
+  spikesLoop: {fileID: 2173578206598307245}
+  spikesDamage: 3
+  player: {fileID: 0}
+  playerScript: {fileID: 0}
+--- !u!1 &7665084286929798654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6434206850098635863}
+  - component: {fileID: 2173578206598307245}
+  m_Layer: 14
+  m_Name: Piques
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6434206850098635863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7665084286929798654}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.03999996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9013769569169444381}
+  - {fileID: 3514159391216486011}
+  - {fileID: 6133878861412108848}
+  - {fileID: 3517959960746758995}
+  m_Father: {fileID: 1024346714907014500}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2173578206598307245
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7665084286929798654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 753a1192f89dfce4890d0b32ed016d98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9013769569169444380
 GameObject:
   m_ObjectHideFlags: 0
@@ -5289,7 +5277,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9013769569169444381}
-  - component: {fileID: 7288449227488423080}
   m_Layer: 14
   m_Name: piques pieges master 1
   m_TagString: Untagged
@@ -5304,8 +5291,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9013769569169444380}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.071, y: -1.25, z: -0.17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.5573673, y: 0.15710947, z: -0.7515224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9013769570347133918}
@@ -5321,28 +5308,9 @@ Transform:
   - {fileID: 8835480653880940345}
   - {fileID: 8835480654432595472}
   - {fileID: 8835480653940165781}
-  m_Father: {fileID: 148510600654047788}
-  m_RootOrder: 1
+  m_Father: {fileID: 6434206850098635863}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!95 &7288449227488423080
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9013769569169444380}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 259b0fa48dc59a64b9a12da40c39568a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9013769569278557646
 GameObject:
   m_ObjectHideFlags: 0

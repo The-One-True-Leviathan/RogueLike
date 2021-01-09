@@ -51,7 +51,7 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
         spikePressure2.SetInteger("PressureSpikeInt", 1);
         spikePressure3.SetInteger("PressureSpikeInt", 1);
         spikePressure4.SetInteger("PressureSpikeInt", 1);
-        FindObjectOfType<AudioManager>().Play("Préparation des Piques");
+        //FindObjectOfType<AudioManager>().Play("Préparation des Piques");
         yield return new WaitForSeconds(1.5f);
         // Attack
         pressurePlate.enabled = false;
@@ -60,7 +60,7 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
         spikePressure2.SetInteger("PressureSpikeInt", 2);
         spikePressure3.SetInteger("PressureSpikeInt", 2);
         spikePressure4.SetInteger("PressureSpikeInt", 2);
-        FindObjectOfType<AudioManager>().Play("Sorties des Piques");
+        //FindObjectOfType<AudioManager>().Play("Sorties des Piques");
         yield return new WaitForSeconds(1f);
         // Retract
         spikes.enabled = false;
@@ -68,7 +68,7 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
         spikePressure2.SetInteger("PressureSpikeInt", 3);
         spikePressure3.SetInteger("PressureSpikeInt", 3);
         spikePressure4.SetInteger("PressureSpikeInt", 3);
-        FindObjectOfType<AudioManager>().Play("Rentrée des piques");
+        //FindObjectOfType<AudioManager>().Play("Rentrée des piques");
         yield return new WaitForSeconds(1f);
         // Idle
         spikePressure1.SetInteger("PressureSpikeInt", 4);
