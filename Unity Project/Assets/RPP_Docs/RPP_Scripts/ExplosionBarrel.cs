@@ -78,7 +78,7 @@ public class ExplosionBarrel : MonoBehaviour
             }
             if (obj.GetComponent<EnemyDamage>())
             {
-                obj.GetComponent<EnemyDamage>().Damage(explosionDamage, explosionKnockBack, barrelPosition);
+                obj.GetComponent<EnemyDamage>().Damage(explosionDamage, explosionKnockBack, barrelPosition, true);
             }
         }
         barrelObject.SetActive(false);

@@ -11,7 +11,7 @@ public class EnemyDamage : MonoBehaviour
     float refKnockbackx, refKnockbacky, refKnockbackz;
     public float knockbackSpeed, knockbackResistance = 1;
     public Vector3 knockbackDirection, currentVelocity, targetVelocity;
-    public bool isTrap = false, isEnvironment = false, isTable = false;
+    public bool isTrap = false, isEnvironment = false, isTable = false, isBoss = false;
 
     //Gestion du loot
     public bool hasLoot;
@@ -45,27 +45,47 @@ public class EnemyDamage : MonoBehaviour
 
     public void Damage(float damage, float knockback, Transform knockbackOrigin)
     {
-        currentDamage = damage;
-        knockbackDirection = transform.position - knockbackOrigin.position;
-        knockbackSpeed = knockback;
-        currentHP -= damage;
-        if (currentHP > maxHP)
-        {
-            currentHP = maxHP;
-        }
-        if (currentHP <= 0 && !isTrap && !isEnvironment && !isTable)
-        {
-            player.latestEnemyKilled = this.gameObject;
-            player.KillEnchant();
-            if (hasLoot)
-            {
-                int index = Random.Range(0, possibleLoots.Count - 1);
-                Instantiate(possibleLoots[index], transform.position, Quaternion.identity);
-            }
-            Object.Destroy(this.gameObject);
-            Time.timeScale = 1;
-        }
-        StopAllCoroutines();
-        StartCoroutine("Knockback");
+        Damage(damage, knockback, knockbackOrigin, false);
     }
+    public void Damage(float damage, float knockback, Transform knockbackOrigin, bool barrel)
+    {
+        if (barrel)
+        {
+            currentDamage = damage;
+            knockbackDirection = transform.position - knockbackOrigin.position;
+            knockbackSpeed = knockback;
+            currentHP -= damage;
+            if (currentHP > maxHP)
+            {
+                currentHP = maxHP;
+            }
+            if (currentHP <= 0 && !isTrap && !isEnvironment && !isTable)
+            {
+                player.latestEnemyKilled = this.gameObject;
+                player.KillEnchant();
+                if (hasLoot)
+                {
+                    int index = Random.Range(0, possibleLoots.Count - 1);
+                    Instantiate(possibleLoots[index], transform.position, Quaternion.identity);
+                }
+                Object.Destroy(this.gameObject);
+                Time.timeScale = 1;
+            }
+            StopAllCoroutines();
+            StartCoroutine("Knockback");
+        }
+        else
+        {
+            if (isBoss)
+            {
+                Debug.Log("Bounced on Boss's armor");
+            }
+            else
+            {
+                Damage(damage, knockback, knockbackOrigin, true);
+            }
+        }
+    }
+
+
 }
