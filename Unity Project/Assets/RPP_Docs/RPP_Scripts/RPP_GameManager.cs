@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class RPP_GameManager : MonoBehaviour
 {
-    Rewind rewind;
+    [SerializeField] Rewind rewind;
 
     private void Start()
     {
