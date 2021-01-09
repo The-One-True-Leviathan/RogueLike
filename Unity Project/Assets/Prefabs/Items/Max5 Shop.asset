@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19f0f6858fbe364794938aeb21afba3, type: 3}
   m_Name: Max5 Shop
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: 1522454b679e6ca44acba2e44ff89a15, type: 3}
+  itemSprite: {fileID: -2056447876109434628, guid: d59e7d225ed59ae4aabbd27804829039,
+    type: 3}
   itemName: Small reinforcement potion
   itemDescription: Ups a little your max HPs
   isFromShop: 1
