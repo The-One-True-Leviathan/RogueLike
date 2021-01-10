@@ -54,6 +54,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   itemCard: {fileID: 1103341354203106016}
   animator: {fileID: 2025414587006226665}
+  dialogueWasSaid: 0
 --- !u!1 &201133914887858303
 GameObject:
   m_ObjectHideFlags: 0
@@ -4902,7 +4903,7 @@ Animator:
   m_GameObject: {fileID: 1103341354203106016}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15f4f9e1ce0ea1e44b3784574b0539da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

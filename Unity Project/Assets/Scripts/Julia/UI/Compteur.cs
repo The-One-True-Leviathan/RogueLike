@@ -14,8 +14,8 @@ public class Compteur : MonoBehaviour
     {
         piecettesActuelles = nbrePiecettes;
         boulonsActuels = nbreBoulon;
-        displayPiecettes.text = "Piecettes:" + nbrePiecettes.ToString();
-        displayBoulon.text = "Boulons:" + nbreBoulon.ToString();
+        displayPiecettes.text =  nbrePiecettes.ToString();
+        displayBoulon.text = nbreBoulon.ToString();
     }
 
     public void GainPiecettes(int value)
