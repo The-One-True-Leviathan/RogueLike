@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
         }
         for (int i = 0; i < player.weapon1.enchantments.Count; i++)
         {
-            displayEnchantInventory1[i] = player.weapon1.enchantments[i].name;
+            displayEnchantInventory1[i] = player.weapon1.enchantments[i].enchantmentName;
             texts[i + 2].color = Color.grey;
             texts[i + 2].color = player.weapon1.enchantments[i].color;
             displayDescriptionEnchant1[i] = player.weapon1.enchantments[i].description;
@@ -74,7 +74,7 @@ public class Inventory : MonoBehaviour
             }
             for (int i = 0; i < player.weapon2.enchantments.Count; i++)
             {
-                displayEnchantInventory2[i] = player.weapon2.enchantments[i].name;
+                displayEnchantInventory2[i] = player.weapon2.enchantments[i].enchantmentName;
                 texts[i + 8].color = Color.grey;
                 texts[i + 8].color = player.weapon2.enchantments[i].color;
                 displayDescriptionEnchant2[i] = player.weapon2.enchantments[i].description;

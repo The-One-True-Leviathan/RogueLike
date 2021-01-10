@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (!isInAttack && !isInCooldown)
+        if (!isInAttack && !isInCooldown && !isInCharge)
         {
             if (mainAtk)
             {

@@ -17,7 +17,7 @@ namespace Weapons
 
         public List<WeaponScriptableObject> weaponsInChest;
         public List<Enchantment> enchantmentsInChest;
-        public GameObject enchantItemOriginal;
+        public GameObject enchantItemOriginal, boulonItemOriginal;
         public Quality quality;
         // Start is called before the first frame update
         void Start()
@@ -62,8 +62,9 @@ namespace Weapons
             {
                 player.attackDirection = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
                 player.attackDirection.Normalize();
-                Instantiate(player.weaponDropOriginal, transform.position + player.attackDirection / 2f, transform.rotation).
-                    GetComponent<WeaponItemBehavior>().weapon = weaponsInChest[i];
+                GameObject weaponObj = Instantiate(player.weaponDropOriginal, transform.position + player.attackDirection / 2f, transform.rotation);
+                weaponObj.GetComponent<WeaponItemBehavior>().weapon = weaponsInChest[i];
+                weaponObj.GetComponent<WeaponItemBehavior>().Dropped();
             }
             player.attackDirection = orientationspace;
             //player.droppedWeapon = dropspace;
@@ -72,7 +73,8 @@ namespace Weapons
 
         private void Boulon()
         {
-
+            Instantiate(boulonItemOriginal, transform.position, Quaternion.identity);
+            Object.Destroy(gameObject);
         }
 
         private void Enchant()

@@ -32,7 +32,7 @@ public class Screenshake : MonoBehaviour
             shookCamera.transform.localPosition += new Vector3(x,y,0);
 
             yield return new WaitForSeconds(pause);
-            shookCamera.transform.localPosition = originalPos;
+            shookCamera.transform.localPosition = new Vector3(0,5,-5);
             elapsed += Time.deltaTime;
         }
     }
