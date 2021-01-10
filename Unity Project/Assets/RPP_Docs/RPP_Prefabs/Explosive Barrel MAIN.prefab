@@ -129,7 +129,7 @@ MonoBehaviour:
   barrelCollider: {fileID: 2499602678550544552}
   barrelPosition: {fileID: 2499602678550544565}
   barrelObject: {fileID: 2499602678550544553}
-  explosionRange: 2.8
+  explosionRange: 2.3
   affectedLayers:
     serializedVersion: 2
     m_Bits: 18688
@@ -138,6 +138,7 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   explosionParticles: {fileID: 3633350492269561669}
   shoppingManager: {fileID: 0}
+  isTuto: 0
   explosionDamage: 5
   explosionKnockBack: 10
 --- !u!114 &4904325398917405252
@@ -166,6 +167,7 @@ MonoBehaviour:
   isTrap: 0
   isEnvironment: 0
   isTable: 0
+  isBoss: 0
   hasLoot: 0
   possibleLoots: []
 --- !u!1 &2911085998253617834
