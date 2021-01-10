@@ -42,12 +42,18 @@ public class WeaponItemBehavior : MonoBehaviour
     {
         Awake();
         weapon.InitializeWeapon();
+        currentSpeed = player.attackDirection * dropStrength;
+        rigidBody.AddForce(currentSpeed, ForceMode.Impulse);
+        StartCoroutine(DroppedCorou());
+    }
+
+    private IEnumerator DroppedCorou()
+    {
+        yield return new WaitForSeconds(0.1f);
         sprite.sprite = weapon.weaponItemSprite;
         GetComponentInChildren<WeaponItemCard>().weapon = weapon;
         GetComponentInChildren<WeaponItemCard>().Initialize();
         gameObject.name = weapon.weaponRealName;
-        currentSpeed = player.attackDirection * dropStrength;
-        rigidBody.AddForce(currentSpeed, ForceMode.Impulse);
     }
 
     public void Shop()

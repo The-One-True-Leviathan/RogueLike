@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 2131136164081227831}
   - component: {fileID: 1077319047307603987}
   - component: {fileID: 7094205014664466851}
+  - component: {fileID: 3927101230359065860}
   m_Layer: 0
   m_Name: Game manager
   m_TagString: GameManager
@@ -115,7 +116,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BarrelsWereBought: 0
-  boughtEnchantements: []
+  boughtEnchantements:
+  - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
+  - {fileID: 11400000, guid: 676da123d54848a4e9fb3e7e147cd826, type: 2}
+  - {fileID: 11400000, guid: 9e5b4d28624d31f4cbbd084610174549, type: 2}
   numeroEnchantsBough: 
 --- !u!114 &2131136164081227831
 MonoBehaviour:
@@ -186,6 +190,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewind: {fileID: 1077319047307603987}
+--- !u!114 &3927101230359065860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131136164081227826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcccdad2b56e3b140830ad5165faf59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  simpleEnchants:
+  - {fileID: 11400000, guid: ba28db977f3c61441a685c28ec67db6a, type: 2}
+  - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
+  - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
+  - {fileID: 11400000, guid: 676da123d54848a4e9fb3e7e147cd826, type: 2}
+  specialEnchants:
+  - {fileID: 11400000, guid: 9e5b4d28624d31f4cbbd084610174549, type: 2}
+  - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
+  - {fileID: 11400000, guid: 8997c109c5bf98b4fb7d52c8a0e8c424, type: 2}
+  - {fileID: 11400000, guid: 365019779e2c78444812f97171c6b331, type: 2}
+  availableSimpleEnchants: []
+  availableSpecialEnchants: []
+  cursedEnchants:
+  - {fileID: 11400000, guid: aee3da24235e1e749b1b7e0e84e1e564, type: 2}
+  - {fileID: 11400000, guid: 4d53a9ec1771cb44abf30f17ef7321de, type: 2}
+  enchantGenerated: []
+  quality: 0
+  shoppingManager: {fileID: 0}
 --- !u!1001 &2131136162975842608
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 325362605304831707, guid: c0e3ab59731c0b446a9e8428e533c8b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8baae98a5afff4446b2fd800755fd2ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -307,6 +307,8 @@ MonoBehaviour:
   enchant: {fileID: 0}
   player: {fileID: 0}
   text: {fileID: 769630377976110432}
+  isFromShop: 0
+  isBought: 0
 --- !u!136 &1398301588763041599
 CapsuleCollider:
   m_ObjectHideFlags: 0

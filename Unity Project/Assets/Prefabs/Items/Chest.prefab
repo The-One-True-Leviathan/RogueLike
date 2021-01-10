@@ -152,6 +152,8 @@ MonoBehaviour:
   enchantmentsInChest: []
   enchantItemOriginal: {fileID: 1398301588763041598, guid: facd2b46b3cca5642983eadd3ee46fd3,
     type: 3}
+  boulonItemOriginal: {fileID: 5361304018820524046, guid: 18267e267d39eee48a5bdad82d85a82f,
+    type: 3}
   quality: 1
 --- !u!114 &5477359159474841076
 MonoBehaviour:

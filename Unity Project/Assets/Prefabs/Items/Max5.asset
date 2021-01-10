@@ -15,7 +15,7 @@ MonoBehaviour:
   itemSprite: {fileID: -2056447876109434628, guid: d59e7d225ed59ae4aabbd27804829039,
     type: 3}
   itemName: Small reinforcement potion
-  itemDescription: Ups a little your max HPs (+5)
+  itemDescription: Slightly increases your max HPs (+5)
   isFromShop: 0
   itemCollider: {fileID: 0}
   itemPrice: 30
