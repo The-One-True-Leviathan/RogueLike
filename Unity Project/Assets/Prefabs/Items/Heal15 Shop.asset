@@ -15,7 +15,7 @@ MonoBehaviour:
   itemSprite: {fileID: 7291431518102424173, guid: d59e7d225ed59ae4aabbd27804829039,
     type: 3}
   itemName: Great Health Potion
-  itemDescription: A big potion to heal 15 HP
+  itemDescription: Heals 15 HPs
   isFromShop: 1
   itemCollider: {fileID: 0}
   itemPrice: 40

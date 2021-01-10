@@ -15,7 +15,7 @@ MonoBehaviour:
   itemSprite: {fileID: 40256618279441228, guid: d59e7d225ed59ae4aabbd27804829039,
     type: 3}
   itemName: Big reinforcement potion
-  itemDescription: Ups a lots your max HPsv (+15)
+  itemDescription: Greatly increases your max HPs (+15)
   isFromShop: 1
   itemCollider: {fileID: 0}
   itemPrice: 60

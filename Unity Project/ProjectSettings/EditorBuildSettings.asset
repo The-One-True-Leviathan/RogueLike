@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Pierre/D1.unity
     guid: be029b5d3cda0f344bdf21d418010430
+  - enabled: 1
+    path: Assets/_Scenes/Pierre/D2.unity
+    guid: b00eb67f3c19b5e44a506c418bb78e5b
+  - enabled: 1
+    path: Assets/_Scenes/Pierre/D3.unity
+    guid: cc0931db6b948f14f9c340066a47583e
+  - enabled: 1
+    path: Assets/_Scenes/Pierre/D4.unity
+    guid: cf1e72f45c38e7e49adc53edaf08d4f3
   m_configObjects: {}

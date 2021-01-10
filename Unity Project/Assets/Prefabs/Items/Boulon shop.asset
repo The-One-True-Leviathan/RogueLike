@@ -15,7 +15,7 @@ MonoBehaviour:
   itemSprite: {fileID: -1718665988832583023, guid: aed0f7e0c962c5146a5282c730a8f3e7,
     type: 3}
   itemName: 'Bolt '
-  itemDescription: A bolt to buy in the HUB
+  itemDescription: A bolt that you can trade in the HUB
   isFromShop: 1
   itemCollider: {fileID: 0}
   itemPrice: 20

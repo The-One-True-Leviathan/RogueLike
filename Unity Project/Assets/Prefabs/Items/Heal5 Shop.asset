@@ -15,7 +15,7 @@ MonoBehaviour:
   itemSprite: {fileID: 4489218145090280533, guid: d59e7d225ed59ae4aabbd27804829039,
     type: 3}
   itemName: Small Health Potion
-  itemDescription: A potion
+  itemDescription: Heals 5 HPs
   isFromShop: 1
   itemCollider: {fileID: 0}
   itemPrice: 20

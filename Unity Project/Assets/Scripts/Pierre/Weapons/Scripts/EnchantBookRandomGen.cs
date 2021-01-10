@@ -17,6 +17,8 @@ public class EnchantBookRandomGen : MonoBehaviour
 
     public List<Enchantment> Generate()
     {
+        availableSimpleEnchants.Clear();
+        availableSpecialEnchants.Clear();
         foreach (Enchantment enchant in simpleEnchants)
         {
             if (shoppingManager.boughtEnchantements.Contains(enchant))
