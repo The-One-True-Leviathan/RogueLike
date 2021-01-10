@@ -13031,6 +13031,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "enchantment shop modeljoinedV\xE9"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 276236fd98e39c5469bba73a769e5a5c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 276236fd98e39c5469bba73a769e5a5c, type: 3}
 --- !u!4 &1623472723 stripped
@@ -21779,6 +21784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233965424041632324, guid: aa80221d2e5dd2f47a217e8a478dc6a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4095833056295549492, guid: aa80221d2e5dd2f47a217e8a478dc6a1,
         type: 3}
