@@ -45,7 +45,7 @@ MonoBehaviour:
   - 3
   - 3
   - 5
-  animationIndex: 010000000100000002000000
+  animationIndex: 01000000010000000100000002000000
   recoil:
   - {x: -5, y: 0.02}
   - {x: -5, y: 0.02}

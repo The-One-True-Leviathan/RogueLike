@@ -452,12 +452,13 @@ public class Player : MonoBehaviour
         } else
         {
             isInCharge = true;
+            weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[0]);
             yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0] * weapon.totalBuildupMultiplier);
             print("attack charge 0");
             if (!mainAtk && !secondaryAtk)
             {
                 chargeLevel = 0;
-                weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel]);
+                weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel+1]);
                 yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
             }
             else
@@ -467,13 +468,13 @@ public class Player : MonoBehaviour
                 if (!mainAtk && !secondaryAtk)
                 {
                     chargeLevel = 1;
-                    weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel]);
+                    weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel+1]);
                 }
                 else
                 {
                     yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[2] - weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                     chargeLevel = 2;
-                    weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel]);
+                    weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel+1]);
                     print("attack charge 2");
                 }
             }
