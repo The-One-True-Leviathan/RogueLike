@@ -164,7 +164,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   currentVelocity: {x: 0, y: 0, z: 0}
   targetVelocity: {x: 0, y: 0, z: 0}
-  isTrap: 0
+  isTrap: 1
   isEnvironment: 0
   isTable: 0
   isBoss: 0
@@ -260,7 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3423205980674269374}
   - component: {fileID: 1161875135462670238}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
