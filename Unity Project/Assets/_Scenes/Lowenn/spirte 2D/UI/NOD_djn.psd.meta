@@ -1,0 +1,449 @@
+fileFormatVersion: 2
+guid: 9b85698453bf9314eae896d522c7ac7b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6834155681497921902
+    second: NOD_djn_0
+  - first:
+      213: 7479523993632828016
+    second: NOD_djn_1
+  - first:
+      213: -6318270680169828360
+    second: NOD_djn_2
+  - first:
+      213: -6582997178397820322
+    second: NOD_djn_3
+  - first:
+      213: -8206519688483600264
+    second: NOD_djn_4
+  - first:
+      213: 995418684058748698
+    second: NOD_djn_5
+  - first:
+      213: 5134675244825368684
+    second: NOD_djn_6
+  - first:
+      213: -3388208234554495126
+    second: NOD_djn_7
+  - first:
+      213: -8045660993325814441
+    second: NOD_djn_8
+  - first:
+      213: -8847294063207801738
+    second: NOD_djn_9
+  - first:
+      213: -6520979173035183630
+    second: NOD_djn_10
+  - first:
+      213: -4559905149477406483
+    second: NOD_djn_11
+  - first:
+      213: -1863584943483418865
+    second: NOD_djn_12
+  - first:
+      213: -8233482105992410820
+    second: NOD_djn_13
+  - first:
+      213: -6434329229842937365
+    second: NOD_djn_14
+  - first:
+      213: 8217409781266225883
+    second: NOD_djn_15
+  - first:
+      213: -2296823084642847649
+    second: NOD_djn_16
+  - first:
+      213: -3992504860781928226
+    second: NOD_djn_17
+  - first:
+      213: 5828957839117929471
+    second: NOD_djn_18
+  - first:
+      213: -3889395384602537540
+    second: NOD_djn_19
+  - first:
+      213: -6434342970004811467
+    second: NOD_djn_20
+  - first:
+      213: 239139139703439637
+    second: NOD_djn_21
+  - first:
+      213: 3678034539744405895
+    second: NOD_djn_22
+  - first:
+      213: 726221030032885819
+    second: NOD_djn_23
+  - first:
+      213: 2044346996704956393
+    second: NOD_djn_24
+  - first:
+      213: 1215143693823762108
+    second: NOD_djn_25
+  - first:
+      213: -3220723219638082175
+    second: NOD_djn_26
+  - first:
+      213: -4826273791954787056
+    second: NOD_djn_27
+  - first:
+      213: 3456173093209110763
+    second: NOD_djn_28
+  - first:
+      213: 8467495640268530733
+    second: NOD_djn_29
+  - first:
+      213: -6236016259240677494
+    second: NOD_djn_30
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NOD_djn_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 132
+        width: 116
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2964998dd933821a0800000000000000
+      internalID: -6834155681497921902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_7
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 159
+        width: 52
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f635aef8aaaf0d0800000000000000
+      internalID: -3388208234554495126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_9
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 96
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c931bace8183580800000000000000
+      internalID: -8847294063207801738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_10
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 97
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f17483edf3d085a0800000000000000
+      internalID: -6520979173035183630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_12
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 23
+        width: 127
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0787ea1e573326e0800000000000000
+      internalID: -1863584943483418865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_21
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 13
+        width: 69
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5118ae1d7c7915300800000000000000
+      internalID: 239139139703439637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_24
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 13
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef4c3813cafe5c10800000000000000
+      internalID: 2044346996704956393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_8
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 96
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d299d44f1185090800000000000000
+      internalID: -8045660993325814441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_28
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 97
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8fdfedd1bc6ff20800000000000000
+      internalID: 3456173093209110763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_29
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 97
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24ef5f0c66928570800000000000000
+      internalID: 8467495640268530733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_30
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 97
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f266680483579a0800000000000000
+      internalID: -6236016259240677494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOD_djn_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 4
+        width: 40
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07aee79a17b9cc760800000000000000
+      internalID: 7479523993632828016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 40d0f490c1b06be438cdc00192d25b6b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
