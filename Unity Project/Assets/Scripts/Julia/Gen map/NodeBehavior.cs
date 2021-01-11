@@ -53,6 +53,7 @@ public class NodeBehavior : MonoBehaviour
                 image.sprite = sprites[4];
                 break;
         }
+        button.GetComponent<Image>().SetNativeSize();
     }
 
     public void nodeSelected()
@@ -97,6 +98,6 @@ public class NodeBehavior : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.enabled = false;
-        button.GetComponent<RectTransform>().localScale = Vector3.one;
+        button.GetComponent<RectTransform>().localScale = Vector3.one * 0.8f;
     }
 }
