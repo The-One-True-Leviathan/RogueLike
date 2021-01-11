@@ -44,6 +44,8 @@ public class GenerationDungeonMap : MonoBehaviour
         }
 
         nodeBehaviors[playerIsHere].GetComponent<Image>().sprite = playerHead;
+        nodeBehaviors[playerIsHere].GetComponent<Image>().SetNativeSize();
+        nodeBehaviors[playerIsHere].GetComponent<RectTransform>().localScale = Vector3.one * 0.8f;
 
         if (playerIsHere == 0)
         {

@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: e6494f1fad17fbb4ebad90158afe55bd
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7979463216389799626
+    second: turbo_NOD_0
+  - first:
+      213: 1270554791105096878
+    second: turbo_NOD_1
+  - first:
+      213: 7435332183853743242
+    second: turbo_NOD_2
+  - first:
+      213: 4957508984606043565
+    second: turbo_NOD_3
+  - first:
+      213: 1256925488058353379
+    second: turbo_NOD_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +100,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: turbo_NOD_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 151
+        width: 133
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6314ac05b70434190800000000000000
+      internalID: -7979463216389799626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turbo_NOD_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 133
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac6d7fc9dae1a110800000000000000
+      internalID: 1270554791105096878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turbo_NOD_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69.6
+        width: 133
+        height: 34.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8cb1a52a3b9f2760800000000000000
+      internalID: 7435332183853743242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turbo_NOD_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 28
+        width: 133
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad204ec72c9cc440800000000000000
+      internalID: 4957508984606043565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turbo_NOD_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 133
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e64ad8621f717110800000000000000
+      internalID: 1256925488058353379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
