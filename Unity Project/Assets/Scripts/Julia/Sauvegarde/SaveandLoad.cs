@@ -12,7 +12,7 @@ public class SaveandLoad : MonoBehaviour
     {
         compteur = GetComponentInChildren<Compteur>();
         shop = GetComponentInChildren<ShoppingManager>();
-        PlayerPrefs.GetInt("State");
+        gameWasLaunchedOnce = PlayerPrefs.GetInt("State");
         if (gameWasLaunchedOnce == 0)
         {
             SaveAll();

@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public Controler controller;
+    Compteur compteur;
     public GameObject pauseMenuUI, controlMenuUI, gameCompo;
     public AudioMixer audioMixer;
     public SaveandLoad saveandLoad;
@@ -19,6 +20,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         controlMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         gameCompo = GameObject.Find("Game Components");
+        compteur = gameCompo.GetComponentInChildren<Compteur>();
         saveandLoad = gameCompo.GetComponent<SaveandLoad>();
     }
 
@@ -55,7 +57,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Compteur.nbrePiecettes = 0;
+        compteur.nbrePiecettes = 0;
         saveandLoad.SaveAll();
         Application.Quit();
     }
@@ -63,7 +65,7 @@ public class PauseMenu : MonoBehaviour
     public void Menu()
     {
         Time.timeScale = 1f;
-        Compteur.nbrePiecettes = 0;
+        compteur.nbrePiecettes = 0;
         saveandLoad.SaveAll();
         Destroy(gameCompo);
         SceneManager.LoadScene("MenuPrincipal");
@@ -72,7 +74,7 @@ public class PauseMenu : MonoBehaviour
     public void ReturnHUB()
     {
         Time.timeScale = 1f;
-        Compteur.nbrePiecettes = 0;
+        compteur.nbrePiecettes = 0;
         saveandLoad.SaveAll();
         Destroy(gameCompo);
         SceneManager.LoadScene("HUB");

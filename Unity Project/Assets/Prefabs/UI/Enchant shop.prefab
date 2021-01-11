@@ -663,8 +663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compteur: {fileID: 0}
   enchantments:
-  - {fileID: 11400000, guid: 676da123d54848a4e9fb3e7e147cd826, type: 2}
-  - {fileID: 11400000, guid: ba28db977f3c61441a685c28ec67db6a, type: 2}
+  - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
+  - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
   - {fileID: 11400000, guid: 365019779e2c78444812f97171c6b331, type: 2}
   - {fileID: 11400000, guid: 8997c109c5bf98b4fb7d52c8a0e8c424, type: 2}
   - {fileID: 11400000, guid: 9e5b4d28624d31f4cbbd084610174549, type: 2}
@@ -689,6 +689,12 @@ MonoBehaviour:
   - {fileID: 224153709310405749}
   - {fileID: 224153708324038646}
   - {fileID: 224153709032915653}
+  buttons:
+  - {fileID: 224153709567806626}
+  - {fileID: 224153709226976334}
+  - {fileID: 224153708237697660}
+  - {fileID: 224153708834026901}
+  - {fileID: 224153707819096783}
   enchantShopOpen: 0
   confirmationCanvas: {fileID: 224153708086310696}
   confirmationText: {fileID: 224153707688708558}

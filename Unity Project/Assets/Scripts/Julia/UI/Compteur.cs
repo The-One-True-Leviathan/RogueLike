@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Compteur : MonoBehaviour
 {
     public UnityEngine.UI.Text displayPiecettes, displayBoulon;
-    static public int nbrePiecettes, nbreBoulon;
+    public int nbrePiecettes, nbreBoulon;
     public int piecettesActuelles, boulonsActuels;
 
     // Update is called once per frame

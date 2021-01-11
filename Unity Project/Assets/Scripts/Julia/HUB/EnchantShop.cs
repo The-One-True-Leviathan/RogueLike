@@ -1,6 +1,4 @@
-﻿using Microsoft.Win32.SafeHandles;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Weapons;
@@ -14,6 +12,7 @@ public class EnchantShop : MonoBehaviour
     public GameObject enchantShopCanvas;
     public Text[] nameTexts;
     public Text[] descriptionTexts;
+    public GameObject[] buttons;
     public bool enchantShopOpen = false;
     public GameObject confirmationCanvas;
     public Text confirmationText;
@@ -38,6 +37,8 @@ public class EnchantShop : MonoBehaviour
 
         for(int i = 0; i < shopping.numeroEnchantsBough.Count; i++)
         {
+            buttons[shopping.numeroEnchantsBough[i]].GetComponent<Button>().enabled = false;
+            buttons[shopping.numeroEnchantsBough[i]].GetComponentInChildren<Text>().text = "BOUGHT";
             shopping.boughtEnchantements.Add(enchantments[shopping.numeroEnchantsBough[i]]);
         }
         
@@ -64,10 +65,11 @@ public class EnchantShop : MonoBehaviour
         
     }
 
-    public void Enchant(int numeroEnchant)
+    public void Enchant(int wantedEnchant)
     {
-        confirmationText.text = "This enchantement costs" + enchantments[numeroEnchant].price;
+        confirmationText.text = "This enchantement costs" + enchantments[wantedEnchant].price;
         confirmationText.color = Color.white;
+        numeroEnchant = wantedEnchant;
         confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
         //Debug.LogError(enchantments[numeroEnchant].enchantmentName);
     }
@@ -80,7 +82,8 @@ public class EnchantShop : MonoBehaviour
             compteur.HudBuy(enchantments[numeroEnchant].price);
             shopping.boughtEnchantements.Add(enchantments[numeroEnchant]);
             shopping.numeroEnchantsBough.Add(numeroEnchant);
-            enchantments.Remove(enchantments[numeroEnchant]);
+            buttons[numeroEnchant].GetComponent<Button>().enabled = false;
+            buttons[numeroEnchant].GetComponentInChildren<Text>().text = "BOUGHT";
             confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
             Time.timeScale = 1f;

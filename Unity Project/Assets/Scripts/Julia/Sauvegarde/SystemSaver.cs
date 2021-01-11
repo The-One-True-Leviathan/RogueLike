@@ -6,6 +6,7 @@ public static class SystemSaver
 {
    public static void SaveMoney(Compteur compteur)
     {
+        Debug.LogWarning("Attempted Saving Money");
         BinaryFormatter moneyFormatter = new BinaryFormatter();
         string moneyPath = Application.persistentDataPath + "/money.saving";
         FileStream moneyStream = new FileStream(moneyPath, FileMode.Create);
@@ -18,6 +19,7 @@ public static class SystemSaver
 
     public static DataSaver LoadMoney()
     {
+        Debug.LogWarning("Attempted Loading Money");
         string moneyPath = Application.persistentDataPath + "/money.saving";
         if (File.Exists(moneyPath))
         {
@@ -38,6 +40,7 @@ public static class SystemSaver
 
     public static void SaveShop(ShoppingManager shopping)
     {
+        Debug.LogWarning("Attempted Saving Shop");
         BinaryFormatter shopFormatter = new BinaryFormatter();
         string shopPath = Application.persistentDataPath + "/shop.saving";
         FileStream shopStream = new FileStream(shopPath, FileMode.Create);
@@ -51,6 +54,7 @@ public static class SystemSaver
 
     public static DataSaver LoadShop()
     {
+        Debug.LogWarning("Attempted Loading Shop");
         string shopPath = Application.persistentDataPath + "/shop.saving";
         if (File.Exists(shopPath))
         {

@@ -24,10 +24,9 @@ public class ShoppingManager : MonoBehaviour
 
     public void LoadingShop()
     {
-        /*DataSaver shopData = SystemSaver.LoadShop();
-        Debug.Log(shopData.barrelsBrought);
+        DataSaver shopData = SystemSaver.LoadShop();
         //boughtEnchantements = shopData.boughtEnchants;
         numeroEnchantsBough = shopData.numeroBoughtEnchants;
-        BarrelsWereBought = shopData.barrelsBrought;*/
+        BarrelsWereBought = shopData.barrelsBrought;
     }
 }
