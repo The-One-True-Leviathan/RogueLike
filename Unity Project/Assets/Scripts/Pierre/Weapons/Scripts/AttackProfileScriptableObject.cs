@@ -7,7 +7,7 @@ namespace Weapons
     [CreateAssetMenu(fileName = "newAttackProfile", menuName = "Pierre/Weapon/Attack Profile", order = 0)]
     public class AttackProfileScriptableObject : ScriptableObject
     {
-        public bool isHeavy; //Is the attack heavy ? IE, can the player turn, roll or move during the buildup ?
+        public bool[] isHeavy = new bool[2]; //Is the attack heavy ? IE, can the player turn, roll or move during the buildup ?
 
         public bool isRanged; //Is the attack a projectile ?
         public GameObject[] projectile = new GameObject[1]; //What does the attack fire exactly ?

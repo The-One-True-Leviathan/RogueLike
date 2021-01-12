@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
             {
                 if (dualWielding)
                 {
-                    Attack(weapon2, 1);
+                    Attack(weapon1, 1);
                 } else
                 {
                     Attack(weapon1, 1);
@@ -311,10 +311,6 @@ public class Player : MonoBehaviour
         rStick.Normalize();
         normalizedLStick = lStick.normalized;
 
-        if (!(rStick == Vector3.zero) && !isInHeavyAtk)
-        {
-            lastDirection = rStick;
-        }
 
         if (!isInHeavyAtk)
         {
@@ -333,6 +329,7 @@ public class Player : MonoBehaviour
             {
                 attackDirection = rStick;
             }
+            Debug.LogWarning("attackDirection = "+attackDirection);
         }
         Debug.DrawRay(transform.position, attackDirection, Color.red);
 
@@ -444,7 +441,7 @@ public class Player : MonoBehaviour
         print("start attack");
         isInBuildup = true;
         chargeLevel = 0;
-        if (weapon.atk[atkNumber].isHeavy)
+        if (weapon.atk[atkNumber].isHeavy[0])
         {
             isInHeavyAtk = true;
         }
@@ -466,6 +463,10 @@ public class Player : MonoBehaviour
             }
             else
             {
+                if (weapon.atk[atkNumber].isHeavy[1])
+                {
+                    isInHeavyAtk = true;
+                }
                 yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                 print("attack charge 1");
                 if (!mainAtk && !secondaryAtk)
@@ -475,6 +476,10 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
+                    if (weapon.atk[atkNumber].isHeavy[2])
+                    {
+                        isInHeavyAtk = true;
+                    }
                     yield return new WaitForSeconds((weapon.atk[atkNumber].chargeTime[2] - weapon.atk[atkNumber].chargeTime[1] - weapon.atk[atkNumber].chargeTime[0]) * weapon.totalBuildupMultiplier);
                     chargeLevel = 2;
                     weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[chargeLevel+1]);
@@ -537,7 +542,7 @@ public class Player : MonoBehaviour
                         //Debug.LogError("Enemy hit ! Inflicted " + damage + " damage !");
                         float finalKnockback = weapon.atk[atkNumber].knockBack[chargeLevel] * weapon.totalKnockbackMultiplier;
                         DoAttack(damage, finalKnockback, enemy.gameObject);
-                        screenshake.Shake(0.05f, 0.05f*damage, 0.01f);
+                        screenshake.Shake(0.05f, 0.01f*damage, 0.01f);
                         enemiesHitLastAttack.Add(enemy.gameObject);
                     }
                 }

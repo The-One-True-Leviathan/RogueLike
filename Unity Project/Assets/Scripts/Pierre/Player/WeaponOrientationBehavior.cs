@@ -20,7 +20,7 @@ public class WeaponOrientationBehavior : MonoBehaviour
             orientation = player.attackDirection;
         } else
         {
-            orientation = player.rStick;
+            orientation = player.attackDirection;
         }
 
         transform.rotation = Quaternion.LookRotation(orientation, Vector3.up);
