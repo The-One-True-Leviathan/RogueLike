@@ -144,11 +144,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
   - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
   - {fileID: 11400000, guid: 676da123d54848a4e9fb3e7e147cd826, type: 2}
+  - {fileID: 11400000, guid: d4de6de6cf030f94384511df997b29ac, type: 2}
+  - {fileID: 11400000, guid: d5ce4ed7ef977ab4292c392c8571bb6a, type: 2}
   specialEnchants:
   - {fileID: 11400000, guid: 9e5b4d28624d31f4cbbd084610174549, type: 2}
   - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
   - {fileID: 11400000, guid: 8997c109c5bf98b4fb7d52c8a0e8c424, type: 2}
   - {fileID: 11400000, guid: 365019779e2c78444812f97171c6b331, type: 2}
+  - {fileID: 11400000, guid: 1737a22120f39e54cbfc770610ca273e, type: 2}
   availableSimpleEnchants:
   - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
   - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
@@ -194,11 +197,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a44f35baf6112f34b894da39539a6f87, type: 2}
   - {fileID: 11400000, guid: 38a21087f0eff504db1a1fe1370601e1, type: 2}
   - {fileID: 11400000, guid: 676da123d54848a4e9fb3e7e147cd826, type: 2}
+  - {fileID: 11400000, guid: d4de6de6cf030f94384511df997b29ac, type: 2}
+  - {fileID: 11400000, guid: d5ce4ed7ef977ab4292c392c8571bb6a, type: 2}
   specialEnchants:
   - {fileID: 11400000, guid: 9e5b4d28624d31f4cbbd084610174549, type: 2}
   - {fileID: 11400000, guid: b2ff7a7a1f936d244a15772dd29c9775, type: 2}
   - {fileID: 11400000, guid: 8997c109c5bf98b4fb7d52c8a0e8c424, type: 2}
   - {fileID: 11400000, guid: 365019779e2c78444812f97171c6b331, type: 2}
+  - {fileID: 11400000, guid: 1737a22120f39e54cbfc770610ca273e, type: 2}
   availableSimpleEnchants: []
   availableSpecialEnchants: []
   cursedEnchants:

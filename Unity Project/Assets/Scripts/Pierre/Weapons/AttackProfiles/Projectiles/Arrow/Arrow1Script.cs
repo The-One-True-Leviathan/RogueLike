@@ -14,6 +14,8 @@ public class Arrow1Script : MonoBehaviour
     public float size, speed, damage, knockback, lifeTime;
     public int pierceMax;
     int pierce;
+    public AudioClip spikesUp, spikesDown;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {

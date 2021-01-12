@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef22dad0b4bfb834cbf31dfb60925ed5, type: 3}
+  m_Name: EfExplosiveAtk
+  m_EditorClassIdentifier: 
+  particles: {fileID: 2632526174292844549, guid: fc96d0cbc66cadb43a56556c9c7c061c,
+    type: 3}
+  effectType: 2
+  type: 1
+  useNativeRNG: 1
+  nativeRNG: 40
+  isInEffect: 0
+  effectTicLength: 0
+  effectDuration: 0
+  effectReach: {x: 30, y: 0, z: 3}
+  useWeaponReach: 0
+  centerOn: 1
+  centerEffectOnAllEnemies: 0
+  centerEffectOnClosestEnemy: 1
+  invertDirection: 0
+  effectStrength: 3
+  effectKnockback: 2
+  effectChanceLower: 0
+  effectChanceUpper: 33
+  effectAffectedLayers:
+    serializedVersion: 2
+    m_Bits: 256

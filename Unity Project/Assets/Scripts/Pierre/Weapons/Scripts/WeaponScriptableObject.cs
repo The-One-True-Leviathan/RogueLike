@@ -28,6 +28,8 @@ namespace Weapons
         public void InitializeWeapon()
         {
             totalBuildupMultiplier = totalDamageMultiplier = totalKnockbackMultiplier = 1f;
+            totalReachMultiplier = Vector3.one;
+            totalRecoilMultiplier = Vector2.one;
             for(int i = 0; i < enchantments.Count; i++)
             {
                 enchantments[i].Initialize();
