@@ -13,6 +13,7 @@ public class ExplosionCopy : MonoBehaviour
 
     //Script with the barrel's health
     public EnemyDamage enemyDamageBarril;
+    bool canExplose = true;
 
     //Player
     public GameObject player;
@@ -56,8 +57,9 @@ public class ExplosionCopy : MonoBehaviour
 
     void Update()
     { 
-        if (enemyDamageBarril.currentHP <= 0)
+        if (enemyDamageBarril.currentHP <= 0 & canExplose)
         {
+            canExplose = false;
             Debug.Log("Called Explosion");
             StartCoroutine(ExplosionCountdown());
         }
@@ -84,16 +86,15 @@ public class ExplosionCopy : MonoBehaviour
     }
 
     IEnumerator ExplosionCountdown()
-    {
-        FindObjectOfType<AudioManager>().Play("Préparation Explosion");
+    { 
         audioSource.clip = préparationExplosion;
         audioSource.Play();
         Debug.Log("I AM ABOUT TO EXPLODE!!!");
         yield return new WaitForSeconds(2f);
-        FindObjectOfType<AudioManager>().Play("Explosion Barril");
         audioSource.clip = explosion;
         audioSource.Play();
         Explosion();
+        canExplose = false;
     }
 
     private void OnDrawGizmosSelected()

@@ -15,7 +15,7 @@ public class Rewind : MonoBehaviour
     {
         controler = new Controler();
         controler.Enable();
-        controler.Keyboard.Rewind.performed += ctx => CallRewind();
+        controler.Keyboard.Rewind.started += ctx => CallRewind();
     }
 
     void CallRewind()

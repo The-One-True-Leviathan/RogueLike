@@ -483,6 +483,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ce5c0cd8cd9c6d44a17bd7b04c6dc49, type: 3}
+--- !u!4 &469299360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 171786467894762967, guid: 7bba893ad029ae046ba15477a112c016,
+    type: 3}
+  m_PrefabInstance: {fileID: 989130973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &581413843 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3507472089642973239, guid: 697aae280c09dd741b1cdffad6e2e239,
@@ -1633,7 +1639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202786acbbc8ed2428b11707801cf18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 469299360}
   rewindRange: 3
   rewindLayer:
     serializedVersion: 2
