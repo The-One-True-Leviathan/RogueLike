@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     public Animator weaponAnimator;
     public Screenshake screenshake;
+    [SerializeField] Rewind rewind;
 
 
     public PlayerCollisionDetector left, right, top, bottom;
@@ -72,6 +73,7 @@ public class Player : MonoBehaviour
         weapon1 = Object.Instantiate(weapon1) as WeaponScriptableObject;
         weapon2 = Object.Instantiate(weapon2) as WeaponScriptableObject;
         healthBar = GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>();
+        rewind = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Rewind>();
         weapon1.InitializeWeapon();
         if (weapon2 != null)
         {
@@ -256,6 +258,7 @@ public class Player : MonoBehaviour
             enchant.DoEnchants(weapon1, 3);
             if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
             Immunity(damageImmunity);
+            rewind.PlayerIsDamaged();
         }
         StartCoroutine(Knockback(origin, kbstrength, kblength));
     }

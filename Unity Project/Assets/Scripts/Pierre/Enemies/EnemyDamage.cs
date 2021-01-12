@@ -12,6 +12,7 @@ public class EnemyDamage : MonoBehaviour
     public float knockbackSpeed, knockbackResistance = 1;
     public Vector3 knockbackDirection, currentVelocity, targetVelocity;
     public bool isTrap = false, isEnvironment = false, isTable = false, isBoss = false;
+    public Rewind rewind;
 
     //Gestion du loot
     public bool hasLoot;
@@ -22,6 +23,7 @@ public class EnemyDamage : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         rigidBody = GetComponent<Rigidbody>();
+        rewind = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Rewind>();
     }
 
     // Update is called once per frame
@@ -59,10 +61,11 @@ public class EnemyDamage : MonoBehaviour
             {
                 currentHP = maxHP;
             }
-            if (currentHP <= 0 && !isTrap && !isEnvironment && !isTable)
+            if (currentHP <= 0 && !isTrap && !isEnvironment)
             {
                 player.latestEnemyKilled = this.gameObject;
                 player.KillEnchant();
+                rewind.EnnemyIsKilled(); //Augmente le RewindCounter
                 if (hasLoot)
                 {
                     int index = Random.Range(0, possibleLoots.Count - 1);

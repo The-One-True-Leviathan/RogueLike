@@ -45,4 +45,20 @@ public class Rewind : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(playerTransform.position, rewindRange);
     }
+
+    public void EnnemyIsKilled()
+    {
+        if (rewindCounter > 3)
+        {
+            rewindCounter++;
+        }
+    }
+
+    public void PlayerIsDamaged()
+    {
+        if (rewindCounter > 3)
+        {
+            rewindCounter = 0;
+        }
+    }
 }
