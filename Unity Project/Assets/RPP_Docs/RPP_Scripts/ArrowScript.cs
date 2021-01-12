@@ -9,8 +9,7 @@ public class ArrowScript : MonoBehaviour
     [SerializeField] GameObject arrowObject;
     public float arrowSpeed = 15;
     public float arrowDamage = 4;
-    [SerializeField] AudioClip flecheLancé;
-    [SerializeField] AudioSource audioSource;
+    public bool goRight, goLeft, goUp, goDown; 
 
     //Player
     public Player playerScript;
@@ -32,10 +31,23 @@ public class ArrowScript : MonoBehaviour
     }
 
     IEnumerator ShootArrow()
-    {
-        audioSource.clip = flecheLancé;
-        audioSource.Play();
-        arrowObject.transform.position += new Vector3(1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
+    {        
+        if (goRight)
+        {
+            arrowObject.transform.position += new Vector3(1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
+        }
+        if (goLeft)
+        {
+            arrowObject.transform.position += new Vector3(-1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
+        }
+        if (goUp)
+        {
+            arrowObject.transform.position += new Vector3(0f, 0f, 1f) * Time.deltaTime * arrowSpeed;
+        }
+        if (goDown)
+        {
+            arrowObject.transform.position += new Vector3(0f, 0f, -1f) * Time.deltaTime * arrowSpeed;
+        }
         yield return new WaitForSeconds(4f);
         arrowObject.SetActive(false);
     }
