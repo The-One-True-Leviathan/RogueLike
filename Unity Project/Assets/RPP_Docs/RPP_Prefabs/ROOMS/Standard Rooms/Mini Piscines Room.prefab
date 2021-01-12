@@ -2416,6 +2416,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9217622073742288881}
     m_Modifications:
+    - target: {fileID: 2876085375619318518, guid: 4d0b31825abc41c47841adae743930cb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4601007470624324785, guid: 4d0b31825abc41c47841adae743930cb,
         type: 3}
       propertyPath: wetZone.x

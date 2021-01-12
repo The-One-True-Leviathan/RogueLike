@@ -12,7 +12,7 @@ namespace Weapons
         public string[] typeName;*/
         public AttackProfileScriptableObject[] atk = new AttackProfileScriptableObject[2];
         public List<Enchantment> enchantments;
-
+        
 
         public Sprite weaponSprite, weaponItemSprite, weaponIcon, weaponIconSecondary;
         public bool weaponUnique;
