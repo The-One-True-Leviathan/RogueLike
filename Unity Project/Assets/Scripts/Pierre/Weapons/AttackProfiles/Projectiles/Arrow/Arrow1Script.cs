@@ -49,7 +49,7 @@ public class Arrow1Script : MonoBehaviour
         Collider[] hitenchant = Physics.OverlapSphere(transform.position, size, enchant);
         foreach (Collider enchant in hitenchant)
         {
-            enchant.GetComponent<EnchantItemBehavior>().Attacked();
+            enchant.GetComponent<EnchantItemBehavior>().Attacked(weaponParent);
         }
         if (pierce <= 0)
         {

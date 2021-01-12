@@ -15,8 +15,9 @@ namespace Weapons
         public int price;
 
         public int rng;
-        public float multiplierDamage = 1, multiplierBuildup = 1, multiplierKnockback = 1, multiplierRecoil = 1;
+        public float multiplierDamage = 1, multiplierBuildup = 1, multiplierKnockback = 1;
         public Vector3 multiplierReach = new Vector3(1,1,1);
+        public Vector2 multiplierRecoil = new Vector2(1, 1);
 
         public void Initialize()
         {

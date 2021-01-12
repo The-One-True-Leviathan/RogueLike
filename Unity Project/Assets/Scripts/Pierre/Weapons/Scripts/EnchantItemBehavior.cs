@@ -43,4 +43,15 @@ public class EnchantItemBehavior : MonoBehaviour
             GameObject.Destroy(gameObject);
         }
     }
+
+    public void Attacked(WeaponScriptableObject weaponToEnchant)
+    {
+        if (weaponToEnchant.enchantments.Count < 4 && (isFromShop == false || isBought == true))
+        {
+            weaponToEnchant.enchantments.Add(enchant);
+            weaponToEnchant.InitializeWeapon();
+            GameObject.Destroy(gameObject);
+        }
+
+    }
 }

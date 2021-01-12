@@ -101,6 +101,9 @@ MonoBehaviour:
   enemy:
     serializedVersion: 2
     m_Bits: 256
+  enchant:
+    serializedVersion: 2
+    m_Bits: 262144
   environment:
     serializedVersion: 2
     m_Bits: 512

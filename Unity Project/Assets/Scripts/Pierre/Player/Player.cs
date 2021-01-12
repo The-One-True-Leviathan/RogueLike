@@ -491,7 +491,7 @@ public class Player : MonoBehaviour
         {
             hitSpanDamage *= strenghtMultiplier;
         }
-        StartCoroutine("RecoilCoroutine", weapon.atk[atkNumber].recoil[chargeLevel]);
+        StartCoroutine("RecoilCoroutine", weapon.atk[atkNumber].recoil[chargeLevel]*weapon.totalRecoilMultiplier);
         isInBuildup = false;
         isInRecover = true;
         isInCooldown = true;

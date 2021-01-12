@@ -1804,6 +1804,8 @@ MonoBehaviour:
   pages:
   - {fileID: 848217892482056528}
   - {fileID: 4372306175692054344}
+  next: {fileID: 3272064040339486909}
+  prev: {fileID: 1688397074644829797}
 --- !u!114 &224153708322739377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9071,7 +9073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2739048222569851704
 RectTransform:
   m_ObjectHideFlags: 0

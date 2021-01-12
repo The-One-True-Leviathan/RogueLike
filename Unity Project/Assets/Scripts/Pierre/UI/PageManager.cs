@@ -25,6 +25,7 @@ public class PageManager : MonoBehaviour
             activePage++;
             pages[activePage].SetActive(true);
         }
+        UpdateButtons();
     }
 
     public void Prev()
@@ -35,6 +36,7 @@ public class PageManager : MonoBehaviour
             activePage--;
             pages[activePage].SetActive(true);
         }
+        UpdateButtons();
     }
 
     void UpdateButtons()

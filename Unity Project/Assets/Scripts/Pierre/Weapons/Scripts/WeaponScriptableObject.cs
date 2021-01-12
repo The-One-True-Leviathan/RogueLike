@@ -22,6 +22,7 @@ namespace Weapons
 
         public float totalDamageMultiplier = 1, totalKnockbackMultiplier = 1, totalBuildupMultiplier = 1;
         public Vector3 totalReachMultiplier = new Vector3(1,1,1);
+        public Vector2 totalRecoilMultiplier = new Vector2(1, 1);
         GameObject player;
 
         public void InitializeWeapon()
@@ -36,6 +37,8 @@ namespace Weapons
                 totalReachMultiplier.x *= enchantments[i].multiplierReach.x;
                 totalReachMultiplier.y *= enchantments[i].multiplierReach.y;
                 totalReachMultiplier.z *= enchantments[i].multiplierReach.z;
+                totalRecoilMultiplier.x *= enchantments[i].multiplierRecoil.x;
+                totalRecoilMultiplier.y *= enchantments[i].multiplierRecoil.y;
             }
 
             Debug.Log("pouic");

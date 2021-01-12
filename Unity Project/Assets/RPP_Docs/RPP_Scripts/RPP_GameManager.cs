@@ -10,9 +10,4 @@ public class RPP_GameManager : MonoBehaviour
     {
         rewind = GameObject.FindGameObjectWithTag("Player").GetComponent<Rewind>();
     }
-
-    
-
-    
-    }
 }
