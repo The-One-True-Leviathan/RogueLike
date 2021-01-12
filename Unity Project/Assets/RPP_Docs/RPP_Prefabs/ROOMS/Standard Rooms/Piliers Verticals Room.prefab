@@ -2401,7 +2401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Edit_GA
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8140109749275353186, guid: 6364513d42316b74fadbf43c673aa681, type: 3}
+    - {fileID: 8458836688001916747, guid: 6364513d42316b74fadbf43c673aa681, type: 3}
+    - {fileID: 3191570732337602263, guid: 6364513d42316b74fadbf43c673aa681, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6364513d42316b74fadbf43c673aa681, type: 3}
 --- !u!4 &3629042136170759213 stripped
 Transform:
