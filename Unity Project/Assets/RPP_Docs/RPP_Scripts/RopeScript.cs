@@ -6,6 +6,8 @@ public class RopeScript : MonoBehaviour
 {
     [SerializeField] BoxCollider boxCollider;
     public ArrowScript arrowScript;
+    [SerializeField] AudioClip flecheLancé;
+    [SerializeField] AudioSource audioSource;
 
     private void Update()
     {
@@ -17,6 +19,8 @@ public class RopeScript : MonoBehaviour
         if (other.CompareTag("Player") || other.GetComponent<EnemyDamage>())
         {
             arrowScript.canShoot = true;
+            audioSource.clip = flecheLancé;
+            audioSource.Play();
         }
     }
 }

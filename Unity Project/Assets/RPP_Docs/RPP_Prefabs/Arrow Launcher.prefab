@@ -113,8 +113,10 @@ MonoBehaviour:
   arrowObject: {fileID: 0}
   arrowSpeed: 20
   arrowDamage: 4
-  "flecheLanc\xE9": {fileID: 8300000, guid: 137cd5a17f98be04b8a6bfcbd03220c6, type: 3}
-  audioSource: {fileID: 2901277186048031993}
+  goRight: 1
+  goLeft: 0
+  goUp: 0
+  goDown: 0
   playerScript: {fileID: 0}
 --- !u!1 &9015800717123116082
 GameObject:
@@ -578,3 +580,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 9015800718452291714}
   arrowScript: {fileID: 8205531229935949223}
+  "flecheLanc\xE9": {fileID: 8300000, guid: 137cd5a17f98be04b8a6bfcbd03220c6, type: 3}
+  audioSource: {fileID: 2901277186048031993}

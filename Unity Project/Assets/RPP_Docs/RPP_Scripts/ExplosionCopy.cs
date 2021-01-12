@@ -23,16 +23,20 @@ public class ExplosionCopy : MonoBehaviour
 
     //Barrel shop
     public ShoppingManager shoppingManager;
-    public bool isTuto;
+    public bool isActive;
 
     //Damage
     [SerializeField] int explosionDamage = 5, explosionKnockBack = 10;
+
+    //Sound Design
+    [SerializeField] AudioClip préparationExplosion, explosion;
+    [SerializeField] AudioSource audioSource;
 
     void Awake()
     {
         // Script Shoping Manager Julia
         shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
-        if (shoppingManager.BarrelsWereBought || isTuto)
+        if (shoppingManager.BarrelsWereBought || isActive)
         {
             gameObject.GetComponent<Transform>().localScale = Vector3.one;
         }
@@ -82,9 +86,13 @@ public class ExplosionCopy : MonoBehaviour
     IEnumerator ExplosionCountdown()
     {
         FindObjectOfType<AudioManager>().Play("Préparation Explosion");
+        audioSource.clip = préparationExplosion;
+        audioSource.Play();
         Debug.Log("I AM ABOUT TO EXPLODE!!!");
         yield return new WaitForSeconds(2f);
         FindObjectOfType<AudioManager>().Play("Explosion Barril");
+        audioSource.clip = explosion;
+        audioSource.Play();
         Explosion();
     }
 
