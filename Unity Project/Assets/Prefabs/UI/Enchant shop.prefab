@@ -668,6 +668,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 365019779e2c78444812f97171c6b331, type: 2}
   - {fileID: 11400000, guid: 8997c109c5bf98b4fb7d52c8a0e8c424, type: 2}
   - {fileID: 11400000, guid: 9e5b4d28624d31f4cbbd084610174549, type: 2}
+  - {fileID: 11400000, guid: d5ce4ed7ef977ab4292c392c8571bb6a, type: 2}
+  - {fileID: 11400000, guid: d4de6de6cf030f94384511df997b29ac, type: 2}
+  - {fileID: 11400000, guid: 1737a22120f39e54cbfc770610ca273e, type: 2}
   shopping: {fileID: 0}
   interactible: {fileID: 0}
   enchantShopCanvas: {fileID: 224153708348106101}
@@ -695,6 +698,9 @@ MonoBehaviour:
   - {fileID: 224153708237697660}
   - {fileID: 224153708834026901}
   - {fileID: 224153707819096783}
+  - {fileID: 224153709351812504}
+  - {fileID: 224153709257971551}
+  - {fileID: 224153707529144179}
   enchantShopOpen: 0
   confirmationCanvas: {fileID: 224153708086310696}
   confirmationText: {fileID: 224153707688708558}

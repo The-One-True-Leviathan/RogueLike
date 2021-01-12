@@ -19,9 +19,10 @@ MonoBehaviour:
   description: Doubles weapon's length.
   rarity: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  price: 10
+  price: 2
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 1
   multiplierKnockback: 1
   multiplierReach: {x: 1, y: 1, z: 2}
+  multiplierRecoil: {x: 1, y: 1}

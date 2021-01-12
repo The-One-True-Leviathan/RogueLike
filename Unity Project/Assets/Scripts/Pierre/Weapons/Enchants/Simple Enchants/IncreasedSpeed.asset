@@ -19,9 +19,10 @@ MonoBehaviour:
   description: Attacks are 20% faster.
   rarity: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  price: 10
+  price: 2
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 0.8
   multiplierKnockback: 1
   multiplierReach: {x: 1, y: 1, z: 1}
+  multiplierRecoil: {x: 1, y: 1}

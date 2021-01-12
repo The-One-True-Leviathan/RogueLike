@@ -333,7 +333,7 @@
                 {
                     "name": "",
                     "id": "3c34e588-e116-4d98-8baa-3bca41a04b84",
-                    "path": "<DualShockGamepad>/rightShoulder",
+                    "path": "<DualShockGamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -366,7 +366,7 @@
                 {
                     "name": "",
                     "id": "efd748fd-af50-4dc6-9d1c-66a17769aeb2",
-                    "path": "<DualShockGamepad>/rightTrigger",
+                    "path": "<DualShockGamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -730,6 +730,17 @@
                     "name": "",
                     "id": "c33ac5eb-f2fc-4216-940a-775c65d7df56",
                     "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rewind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a084318b-2f58-413d-95f9-44e4b1c7e970",
+                    "path": "<DualShockGamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

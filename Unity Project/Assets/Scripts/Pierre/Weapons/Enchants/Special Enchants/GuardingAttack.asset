@@ -21,9 +21,10 @@ MonoBehaviour:
     immunity for 0.5 seconds.
   rarity: 1
   color: {r: 1, g: 1, b: 1, a: 0}
-  price: 15
+  price: 5
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 1
   multiplierKnockback: 1
   multiplierReach: {x: 1, y: 1, z: 1}
+  multiplierRecoil: {x: 1, y: 1}

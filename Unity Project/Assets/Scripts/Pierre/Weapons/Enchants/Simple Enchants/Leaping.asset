@@ -19,7 +19,7 @@ MonoBehaviour:
   description: Increases the weapon recoil by 50%.
   rarity: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  price: 10
+  price: 2
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 1
