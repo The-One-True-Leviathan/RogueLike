@@ -11,19 +11,8 @@ public class RPP_GameManager : MonoBehaviour
         rewind = GameObject.FindGameObjectWithTag("Player").GetComponent<Rewind>();
     }
 
-    public void EnnemyIsKilled()
-    {
-        if (rewind.rewindCounter > 3)
-        {
-            rewind.rewindCounter++;
-        }
-    }
+    
 
-    public void PlayerIsDamaged()
-    {
-        if(rewind.rewindCounter > 3)
-        {
-            rewind.rewindCounter = 0;
-        }
+    
     }
 }
