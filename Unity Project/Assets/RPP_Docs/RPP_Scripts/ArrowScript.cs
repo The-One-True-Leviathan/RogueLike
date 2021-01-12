@@ -9,12 +9,15 @@ public class ArrowScript : MonoBehaviour
     [SerializeField] GameObject arrowObject;
     public float arrowSpeed = 15;
     public float arrowDamage = 4;
+    [SerializeField] AudioClip flecheLancé;
+    [SerializeField] AudioSource audioSource;
 
     //Player
     public Player playerScript;
 
     private void Start()
     {
+        canShoot = false;
         arrowCollider = GetComponent<BoxCollider>();
         arrowObject = this.gameObject;
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -30,7 +33,8 @@ public class ArrowScript : MonoBehaviour
 
     IEnumerator ShootArrow()
     {
-        FindObjectOfType<AudioManager>().Play("Flèche lancé");
+        audioSource.clip = flecheLancé;
+        audioSource.Play();
         arrowObject.transform.position += new Vector3(1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
         yield return new WaitForSeconds(4f);
         arrowObject.SetActive(false);

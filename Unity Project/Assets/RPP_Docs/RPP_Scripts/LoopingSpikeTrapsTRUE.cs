@@ -9,6 +9,8 @@ public class LoopingSpikeTrapsTRUE : MonoBehaviour
     public int spikesDamage;
     bool canStartLoop;
     private Transform spikeLocation;
+    [SerializeField] AudioClip spikesAttack, spikesRetract;
+    [SerializeField] AudioSource audioSource;
 
     //Player
     public GameObject player;
@@ -40,14 +42,16 @@ public class LoopingSpikeTrapsTRUE : MonoBehaviour
         canStartLoop = false;
         spikes.enabled = true;
         spikesLoop.SetInteger("LoopSpikesInt", 3);
-        Debug.Log("Looping Spike has Attacked");        
-        //FindObjectOfType<AudioManager>().Play("Sorties des Piques");       
+        Debug.Log("Looping Spike has Attacked");
+        audioSource.clip = spikesAttack;
+        audioSource.Play();
         yield return new WaitForSeconds(0.3f);
         // Retract
         spikes.enabled = false;
         spikesLoop.SetInteger("LoopSpikesInt", 2);
         Debug.Log("Looping Spike has Retracted");
-        //FindObjectOfType<AudioManager>().Play("Rentrée des piques");
+        audioSource.clip = spikesRetract;
+        audioSource.Play();
         yield return new WaitForSeconds(2f);        
         canStartLoop = true;
     }

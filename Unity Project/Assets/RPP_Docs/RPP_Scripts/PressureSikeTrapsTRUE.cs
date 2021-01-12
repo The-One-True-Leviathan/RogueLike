@@ -9,6 +9,8 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
     public int spikesDamage;
     private Transform spikeLocation;
     public Animator spikePressure1, spikePressure2, spikePressure3, spikePressure4;
+    [SerializeField] AudioClip spikesPrepare, spikesAttack, spikesRetract;
+    [SerializeField] AudioSource audioSource;
 
     //Player
     public GameObject player;
@@ -47,28 +49,31 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
     IEnumerator CountdownBeforeSpikes()
     {
         // Prep
+        audioSource.clip = spikesPrepare;
+        audioSource.Play();
         spikePressure1.SetInteger("PressureSpikeInt", 1);
         spikePressure2.SetInteger("PressureSpikeInt", 1);
         spikePressure3.SetInteger("PressureSpikeInt", 1);
         spikePressure4.SetInteger("PressureSpikeInt", 1);
-        //FindObjectOfType<AudioManager>().Play("Préparation des Piques");
         yield return new WaitForSeconds(1.5f);
         // Attack
         pressurePlate.enabled = false;
         spikes.enabled = true;
+        audioSource.clip = spikesAttack;
+        audioSource.Play();
         spikePressure1.SetInteger("PressureSpikeInt", 2);
         spikePressure2.SetInteger("PressureSpikeInt", 2);
         spikePressure3.SetInteger("PressureSpikeInt", 2);
         spikePressure4.SetInteger("PressureSpikeInt", 2);
-        //FindObjectOfType<AudioManager>().Play("Sorties des Piques");
         yield return new WaitForSeconds(1f);
         // Retract
         spikes.enabled = false;
+        audioSource.clip = spikesRetract;
+        audioSource.Play();
         spikePressure1.SetInteger("PressureSpikeInt", 3);
         spikePressure2.SetInteger("PressureSpikeInt", 3);
         spikePressure3.SetInteger("PressureSpikeInt", 3);
-        spikePressure4.SetInteger("PressureSpikeInt", 3);
-        //FindObjectOfType<AudioManager>().Play("Rentrée des piques");
+        spikePressure4.SetInteger("PressureSpikeInt", 3);        
         yield return new WaitForSeconds(1f);
         // Idle
         spikePressure1.SetInteger("PressureSpikeInt", 4);

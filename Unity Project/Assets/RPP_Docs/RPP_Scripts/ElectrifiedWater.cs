@@ -51,9 +51,7 @@ public class ElectrifiedWater : MonoBehaviour
                 Debug.Log("Ennemy is Taking Eletric Damage");
                 obj.GetComponent<EnemyDamage>().Damage(electricDamage, 0, poolCenter);
             }
-        }
-
-        canTakeDamage = true;
+        }        
     }
 
     IEnumerator ElectricDamage()
@@ -61,6 +59,7 @@ public class ElectrifiedWater : MonoBehaviour
         canTakeDamage = false;
         yield return new WaitForSeconds(1f);
         ConstantDamage();
+        canTakeDamage = true;
     }
 
     IEnumerator SonElectric()
