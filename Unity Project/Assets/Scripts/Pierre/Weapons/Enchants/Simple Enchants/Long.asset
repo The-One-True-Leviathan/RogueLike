@@ -16,13 +16,13 @@ MonoBehaviour:
   enchantmentName: Long
   prefix: Long
   suffix: Reach
-  description: Doubles weapon's length.
+  description: Increases your weapon's length by 50%.
   rarity: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 0, a: 1}
   price: 2
   rng: 0
   multiplierDamage: 1
   multiplierBuildup: 1
   multiplierKnockback: 1
-  multiplierReach: {x: 1, y: 1, z: 2}
+  multiplierReach: {x: 1, y: 1, z: 1.5}
   multiplierRecoil: {x: 1, y: 1}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec2c502abf03974a8aa1128062f725e, type: 3}
   m_Name: LonginusSecondary
   m_EditorClassIdentifier: 
-  isHeavy: 1
+  isHeavy: 01
   isRanged: 0
   projectile:
   - {fileID: 0}

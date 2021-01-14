@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fortune
   m_EditorClassIdentifier: 
   effects:
-  - {fileID: 11400000, guid: 1613bcc980a52f64ab9d1ec4b2a8515d, type: 2}
+  - {fileID: 11400000, guid: da808ff1c72332d4bae97d8f50b72624, type: 2}
   enchantmentName: Fortune
   prefix: Lucky
   suffix: Fortune

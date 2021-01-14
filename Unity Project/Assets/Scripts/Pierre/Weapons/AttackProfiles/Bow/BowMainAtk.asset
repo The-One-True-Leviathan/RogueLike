@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec2c502abf03974a8aa1128062f725e, type: 3}
   m_Name: BowMainAtk
   m_EditorClassIdentifier: 
-  isHeavy: 0
+  isHeavy: 000000
   isRanged: 1
   projectile:
   - {fileID: 7196682230831576678, guid: 885cda8c3b8afbd458cca27f77e21dfb, type: 3}
