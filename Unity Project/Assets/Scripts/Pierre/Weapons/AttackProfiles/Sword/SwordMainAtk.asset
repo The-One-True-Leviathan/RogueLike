@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec2c502abf03974a8aa1128062f725e, type: 3}
   m_Name: SwordMainAtk
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   isHeavy: 000001
-=======
-  isHeavy: 01
->>>>>>> 11ab140e4e97198890907bd345777ea6b8e89e4d
   isRanged: 0
   projectile: []
   reach:
