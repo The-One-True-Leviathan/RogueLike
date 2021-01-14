@@ -25,10 +25,6 @@ public class ElectrifiedWater : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (canStartSound)
-        {
-            StartCoroutine(SonElectric());
-        }
         if (canTakeDamage)
         {
             StartCoroutine(ElectricDamage());
@@ -60,13 +56,6 @@ public class ElectrifiedWater : MonoBehaviour
         yield return new WaitForSeconds(1f);
         ConstantDamage();
         canTakeDamage = true;
-    }
-
-    IEnumerator SonElectric()
-    {
-        canStartSound = false;
-        FindObjectOfType<AudioManager>().Play("Eau électrifié");
-        yield return new WaitForSeconds(22f);
     }
    private void OnDrawGizmosSelected()
     {
