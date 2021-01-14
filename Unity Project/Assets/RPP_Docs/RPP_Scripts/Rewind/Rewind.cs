@@ -28,10 +28,15 @@ public class Rewind : MonoBehaviour
 
             foreach (Collider obj in objects)
             {
-                if (obj.gameObject.CompareTag("BarrelMAIN"))
+                if (obj.gameObject.GetComponent<RewindExplosiveBarrel>())
                 {
                     Debug.Log("Detected Barrel");
                     obj.GetComponent<RewindExplosiveBarrel>().BarrelRewind();
+                }
+                if (obj.gameObject.GetComponent<RewindArrowLauncher>())
+                {
+                    Debug.Log("Detected Arrow Launcher");
+                    obj.GetComponent<RewindArrowLauncher>().canRewindArrow = true;
                 }
                 /*if (obj.gameObject.CompareTag("TEST"))
                 {

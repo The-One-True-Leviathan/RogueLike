@@ -7,8 +7,7 @@ public class ArrowScript : MonoBehaviour
     public bool canShoot = false;
     [SerializeField] BoxCollider arrowCollider;
     [SerializeField] GameObject arrowObject;
-    public float arrowSpeed = 15;
-    public float arrowDamage = 4;
+    public float arrowDamage = 4, arrowFlyingTime = 1, arrowSpeed = 15; 
     public bool goRight, goLeft, goUp, goDown; 
 
     //Player
@@ -22,7 +21,7 @@ public class ArrowScript : MonoBehaviour
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         if (canShoot)
         {
@@ -32,24 +31,27 @@ public class ArrowScript : MonoBehaviour
 
     IEnumerator ShootArrow()
     {        
-        if (goRight)
         {
-            arrowObject.transform.position += new Vector3(1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
-        }
-        if (goLeft)
-        {
-            arrowObject.transform.position += new Vector3(-1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
-        }
-        if (goUp)
-        {
-            arrowObject.transform.position += new Vector3(0f, 0f, 1f) * Time.deltaTime * arrowSpeed;
-        }
-        if (goDown)
-        {
-            arrowObject.transform.position += new Vector3(0f, 0f, -1f) * Time.deltaTime * arrowSpeed;
-        }
-        yield return new WaitForSeconds(4f);
-        arrowObject.SetActive(false);
+            if (goRight)
+            {
+                GoRight();
+            }
+            if (goLeft)
+            {
+                GoLeft();
+            }
+            if (goUp)
+            {
+                GoUp();
+            }
+            if (goDown)
+            {
+                GoDown();
+            }
+            yield return new WaitForSeconds(arrowFlyingTime);
+            arrowObject.SetActive(false);
+            canShoot = false;
+        }        
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -62,5 +64,22 @@ public class ArrowScript : MonoBehaviour
         {
             collision.GetComponent<EnemyDamage>().Damage(arrowDamage, 0, arrowObject.transform);
         }
+    }
+
+    public void GoRight()
+    {
+        arrowObject.transform.position += new Vector3(1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
+    }
+    public void GoLeft()
+    {
+        arrowObject.transform.position += new Vector3(-1f, 0f, 0f) * Time.deltaTime * arrowSpeed;
+    }
+    public void GoUp()
+    {
+        arrowObject.transform.position += new Vector3(0f, 0f, 1f) * Time.deltaTime * arrowSpeed;
+    }
+    public void GoDown()
+    {
+        arrowObject.transform.position += new Vector3(0f, 0f, -1f) * Time.deltaTime * arrowSpeed;
     }
 }
