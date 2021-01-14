@@ -384,9 +384,10 @@ public class Player : MonoBehaviour
             currentSpeed.z = Mathf.SmoothDamp(currentSpeed.z, targetSpeed.z, ref zVelocity, accelerationTime);
             if (isInHeavyAtk)
             {
-                currentSpeed = Vector3.zero;
-                targetSpeed = Vector3.zero;
-                xVelocity = zVelocity = 0;
+                currentSpeed *= 0.5f;
+                targetSpeed *= 0.5f;
+                xVelocity *= 0.5f;
+                zVelocity *= 0.5f;
             }
         }
 
@@ -496,7 +497,17 @@ public class Player : MonoBehaviour
         {
             hitSpanDamage *= strenghtMultiplier;
         }
-        StartCoroutine("RecoilCoroutine", weapon.atk[atkNumber].recoil[chargeLevel]*weapon.totalRecoilMultiplier);
+        if (normalizedLStick == Vector3.zero)
+        {
+                StartCoroutine("RecoilCoroutine", weapon.atk[atkNumber].recoil[chargeLevel] * weapon.totalRecoilMultiplier);
+        }
+        else if (Vector3.Angle(attackDirection, normalizedLStick) <= 60)
+        {
+            if (weapon.atk[atkNumber].recoil[chargeLevel].x * weapon.totalRecoilMultiplier.x <= 0)
+            {
+                StartCoroutine("RecoilCoroutine", weapon.atk[atkNumber].recoil[chargeLevel] * weapon.totalRecoilMultiplier);
+            }
+        }
         isInBuildup = false;
         isInRecover = true;
         isInCooldown = true;
