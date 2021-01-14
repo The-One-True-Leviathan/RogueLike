@@ -7,6 +7,9 @@ public class RewindExplosiveBarrel : MonoBehaviour
     [SerializeField] GameObject barrelObj;
     [SerializeField] ExplosionCopy explosionScript;
     [SerializeField] ReverseParticles reverseParticles;
+    [SerializeField] AudioClip reverseExplosion;
+    [SerializeField] AudioSource audioSource;
+
 
     private void Start()
     {
@@ -17,6 +20,7 @@ public class RewindExplosiveBarrel : MonoBehaviour
     {
         if(barrelObj.activeSelf == false)
         {
+            Debug.Log("Successfully Called Rewind Barrel");
             StartCoroutine(StartReverse());
         }
     }
@@ -24,9 +28,12 @@ public class RewindExplosiveBarrel : MonoBehaviour
     IEnumerator StartReverse()
     {
         explosionScript.enemyDamageBarril.currentHP = explosionScript.enemyDamageBarril.maxHP;
+        explosionScript.canExplose = true;
         reverseParticles.enabled = true;
+        audioSource.clip = reverseExplosion;
+        audioSource.Play();
         yield return new WaitForSeconds(2f);
-        barrelObj.SetActive(true);
+        barrelObj.SetActive(true);        
         reverseParticles.enabled = false;
     }
 }

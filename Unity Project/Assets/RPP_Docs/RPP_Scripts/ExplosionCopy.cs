@@ -13,7 +13,7 @@ public class ExplosionCopy : MonoBehaviour
 
     //Script with the barrel's health
     public EnemyDamage enemyDamageBarril;
-    bool canExplose = true;
+    public bool canExplose = true;
 
     //Player
     public GameObject player;
