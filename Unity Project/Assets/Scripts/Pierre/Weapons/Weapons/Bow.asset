@@ -33,3 +33,4 @@ MonoBehaviour:
   totalKnockbackMultiplier: 1
   totalBuildupMultiplier: 1
   totalReachMultiplier: {x: 1, y: 1, z: 1}
+  totalRecoilMultiplier: {x: 1, y: 1}

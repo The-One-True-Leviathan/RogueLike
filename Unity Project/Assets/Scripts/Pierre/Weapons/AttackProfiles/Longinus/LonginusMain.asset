@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec2c502abf03974a8aa1128062f725e, type: 3}
   m_Name: LonginusMain
   m_EditorClassIdentifier: =
-  isHeavy: 000001=
+  isHeavy: 000001
   isRanged: 0
   projectile:
   - {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   - 3
   - 3
   - 5
-  animationIndex: 04000000040000000400000004000000
+  animationIndex: feffffff040000000400000004000000
   recoil:
   - {x: -2, y: 0.075}
   - {x: -2, y: 0.075}
