@@ -36,6 +36,9 @@ namespace Weapons
         {
             if (interactibleBehavior.interacted)
             {
+                /* Raph
+                 * Son d'ouverture de coffre
+                 */
                 switch (dungeonMap.nodeBehaviors[dungeonMap.playerIsHere].type)
                 {
                     case NodeBehavior.DungeonTypes.BOULON:

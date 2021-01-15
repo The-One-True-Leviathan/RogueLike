@@ -236,11 +236,17 @@ public class Player : MonoBehaviour
     public void Heal(float amount)
     {
         healthBar.ApplyDamage(-amount);
+        /* Raph
+         * Son du heal
+         */
     }
 
     public void IncreaseMaxHealth(float amount)
     {
         healthBar.UpgradeLife(amount);
+        /* Raph
+         * Son du heal
+         */
     }
 
     public void PlayerDamage(float amount)
@@ -255,6 +261,9 @@ public class Player : MonoBehaviour
             screenshake.Shake(0.05f, 0.1f*amount, 0.01f);
             healthBar.ApplyDamage(amount);
             //Debug.LogError("Damaged for " + amount);
+            /* Raph
+             * Son de dégâts
+             */
             enchant.DoEnchants(weapon1, 3);
             if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
             Immunity(damageImmunity);
@@ -389,6 +398,12 @@ public class Player : MonoBehaviour
                 xVelocity *= 0.5f;
                 zVelocity *= 0.5f;
             }
+            if (currentSpeed != Vector3.zero)
+            {
+                /* Raph
+                 * Son des pas
+                 */
+            }
         }
 
         if (collisionLeft && currentSpeed.x < 0)
@@ -452,6 +467,9 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(weapon.atk[atkNumber].buildup * weapon.totalBuildupMultiplier);
         } else
         {
+            /* Raph :
+             Son de chargement             
+             */
             isInCharge = true;
             weaponAnimator.SetInteger("Index", weapon.atk[atkNumber].animationIndex[0]);
             yield return new WaitForSeconds(weapon.atk[atkNumber].chargeTime[0] * weapon.totalBuildupMultiplier);
@@ -488,6 +506,10 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        /* Raph :
+         Son d'attaque cri (cri[atkNumber])
+         Son d'attaque arme (weapon.audioClip)
+         */
         print("attack");
         isInHitSpan = true;
         enchant.DoEnchants(weapon, 4);
