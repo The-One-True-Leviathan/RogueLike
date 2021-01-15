@@ -136,7 +136,7 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""id"": ""40c2c0bf-2ca1-477f-88e5-77c73ea91bfe"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=1)""
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""LifeCheat"",

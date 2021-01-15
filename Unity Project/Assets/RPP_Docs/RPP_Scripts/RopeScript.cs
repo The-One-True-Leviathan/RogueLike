@@ -16,7 +16,7 @@ public class RopeScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") || other.GetComponent<EnemyDamage>())
+        if (other.CompareTag("Player") && arrowScript.canShoot == false || other.GetComponent<EnemyDamage>() && arrowScript.canShoot == false)
         {
             arrowScript.canShoot = true;
             audioSource.clip = flecheLancé;

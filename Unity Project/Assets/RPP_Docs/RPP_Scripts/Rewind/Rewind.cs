@@ -14,8 +14,8 @@ public class Rewind : MonoBehaviour
     void Awake()
     {
         controler = new Controler();
-        controler.Enable();
-        controler.Keyboard.Rewind.started += ctx => CallRewind();
+        controler.Keyboard.Enable();
+        controler.Keyboard.Rewind.performed += ctx => CallRewind();
     }
 
     void CallRewind()
@@ -23,18 +23,25 @@ public class Rewind : MonoBehaviour
         Debug.Log("Called Rewind");
         if (rewindCounter >= 3)
         {
+            Debug.Log("Rewind Successful");
             Collider[] objects = Physics.OverlapSphere(playerTransform.position, rewindRange, rewindLayer);
 
             foreach (Collider obj in objects)
             {
-                /*if (obj.GetComponent<RewindTable>())
+                if (obj.gameObject.GetComponent<RewindExplosiveBarrel>())
                 {
-                    obj.GetComponent<RewindTable>().TableRewind();
-                }*/
-                if (obj.GetComponent<RewindExplosiveBarrel>())
-                {
+                    Debug.Log("Detected Barrel");
                     obj.GetComponent<RewindExplosiveBarrel>().BarrelRewind();
                 }
+                if (obj.gameObject.GetComponent<RewindArrowLauncher>())
+                {
+                    Debug.Log("Detected Arrow Launcher");
+                    obj.GetComponent<RewindArrowLauncher>().canRewindArrow = true;
+                }
+                /*if (obj.gameObject.CompareTag("TEST"))
+                {
+                    Debug.Log("Detected Test Object");
+                }*/
             }
             rewindCounter = 0;
         }
