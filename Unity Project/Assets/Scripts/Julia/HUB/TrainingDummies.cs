@@ -7,11 +7,13 @@ public class TrainingDummies : MonoBehaviour
 {
     public EnemyDamage damage;
     public Text damageText;
+
     // Start is called before the first frame update
     void Start()
     {
         damage = GetComponent<EnemyDamage>();
         damageText = GetComponentInChildren<Text>();
+
     }
 
     // Update is called once per frame
@@ -32,4 +34,5 @@ public class TrainingDummies : MonoBehaviour
         damageText.text = null;
         
     }
+
 }

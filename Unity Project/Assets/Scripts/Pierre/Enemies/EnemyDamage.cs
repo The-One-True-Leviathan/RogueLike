@@ -13,6 +13,8 @@ public class EnemyDamage : MonoBehaviour
     public Vector3 knockbackDirection, currentVelocity, targetVelocity;
     public bool isTrap = false, isEnvironment = false, isTable = false, isBoss = false;
     public Rewind rewind;
+    public Material dmgShader, trueMaterial;
+    public SpriteRenderer objectSprite;
 
     //Gestion du loot
     public bool hasLoot;
@@ -43,6 +45,13 @@ public class EnemyDamage : MonoBehaviour
         isInKnockback = true;
         yield return new WaitForSeconds(0.3f);
         isInKnockback = false;
+    }
+
+    public IEnumerator DamageFeedback()
+    {
+        objectSprite.material = dmgShader;
+        yield return new WaitForSeconds(0.1f);
+        objectSprite.material = trueMaterial;
     }
 
     public void Damage(float damage, float knockback, Transform knockbackOrigin)
@@ -86,6 +95,7 @@ public class EnemyDamage : MonoBehaviour
             else
             {
                 Damage(damage, knockback, knockbackOrigin, true);
+                StartCoroutine(DamageFeedback());
             }
         }
     }

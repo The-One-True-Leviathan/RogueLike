@@ -385,6 +385,11 @@ MonoBehaviour:
   isTrap: 0
   isEnvironment: 0
   isTable: 0
+  isBoss: 0
+  rewind: {fileID: 0}
+  dmgShader: {fileID: 2100000, guid: d50644b1ca6e01244af2194ce013256d, type: 2}
+  trueMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  objectSprite: {fileID: 3136002171724247234}
   hasLoot: 0
   possibleLoots: []
 --- !u!114 &3136002172611753820

@@ -158,6 +158,9 @@ MonoBehaviour:
   isTable: 0
   isBoss: 0
   rewind: {fileID: 0}
+  dmgShader: {fileID: 2100000, guid: d50644b1ca6e01244af2194ce013256d, type: 2}
+  trueMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  objectSprite: {fileID: 1009439987344386212}
   hasLoot: 1
   possibleLoots:
   - {fileID: 5640554156492951416, guid: ea589fd277a5ce34194b2ccc6332d759, type: 3}

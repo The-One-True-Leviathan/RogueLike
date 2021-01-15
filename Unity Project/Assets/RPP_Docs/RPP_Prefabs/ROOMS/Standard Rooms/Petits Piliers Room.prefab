@@ -1721,7 +1721,6 @@ GameObject:
   - component: {fileID: 9029409191270450247}
   - component: {fileID: 185850508064205032}
   - component: {fileID: 6918718807220550370}
-  - component: {fileID: 411362929357038929}
   m_Layer: 16
   m_Name: pilier_mousse
   m_TagString: Untagged
@@ -1790,20 +1789,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &411362929357038929
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3655837876096345291}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4320277028912625539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2076,6 @@ GameObject:
   - component: {fileID: 1385740686474769452}
   - component: {fileID: 7648920278862793579}
   - component: {fileID: 146768188995140506}
-  - component: {fileID: 3530108618373898034}
   m_Layer: 16
   m_Name: mousse_corner
   m_TagString: Untagged
@@ -2160,20 +2144,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3530108618373898034
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8150496413372160192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &8838427251146305813
 GameObject:
   m_ObjectHideFlags: 0
