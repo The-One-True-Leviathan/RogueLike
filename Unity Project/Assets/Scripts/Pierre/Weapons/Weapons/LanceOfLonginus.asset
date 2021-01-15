@@ -16,10 +16,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 34efeb418a3405646bb36ce3b66ff809, type: 2}
   - {fileID: 11400000, guid: e8728c571d9fa9e41b6a7386f8ad4f56, type: 2}
   enchantments: []
+  audioClip: {fileID: 0}
   weaponSprite: {fileID: 0}
   weaponItemSprite: {fileID: 21300000, guid: a0ce994378ab96548bb5f768c14914de, type: 3}
-  weaponIcon: {fileID: 21300000, guid: a0ce994378ab96548bb5f768c14914de, type: 3}
-  weaponIconSecondary: {fileID: 21300000, guid: 4448404cebc5be44ea3164732aed39bb,
+  weaponIcon: {fileID: 7979140003175118091, guid: 1e95b128a88d3464b8a2ddd25a9e4505,
+    type: 3}
+  weaponIconSecondary: {fileID: 1547029416490422521, guid: 6183d93618c8d294bba25b4f274fc5e0,
     type: 3}
   weaponUnique: 0
   weaponBaseName: Lance

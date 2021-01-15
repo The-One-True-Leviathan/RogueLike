@@ -16,10 +16,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 120316fe616941440afd017b8ff8df9b, type: 2}
   - {fileID: 11400000, guid: a1b01857fa9810245a8619fc60cf4b1e, type: 2}
   enchantments: []
+  audioClip: {fileID: 0}
   weaponSprite: {fileID: 0}
   weaponItemSprite: {fileID: 21300000, guid: 38edcc373fa5fc34fb8c527ffd641001, type: 3}
-  weaponIcon: {fileID: 21300000, guid: 38edcc373fa5fc34fb8c527ffd641001, type: 3}
-  weaponIconSecondary: {fileID: 21300000, guid: b58396b875f6c4a4e9bae1cba4c38a99,
+  weaponIcon: {fileID: -6069180164141249328, guid: 1e95b128a88d3464b8a2ddd25a9e4505,
+    type: 3}
+  weaponIconSecondary: {fileID: 8229236257696651557, guid: 6183d93618c8d294bba25b4f274fc5e0,
     type: 3}
   weaponUnique: 0
   weaponBaseName: Sword

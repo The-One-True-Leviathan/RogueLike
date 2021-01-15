@@ -16,10 +16,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b30a7b3b829c6a46a0950ecdccaa457, type: 2}
   - {fileID: 11400000, guid: bbde3df19cbea314fadf63d57f8bdf0a, type: 2}
   enchantments: []
+  audioClip: {fileID: 0}
   weaponSprite: {fileID: 0}
   weaponItemSprite: {fileID: 21300000, guid: d42daf69f6dd6794e9519ea2db1907f6, type: 3}
-  weaponIcon: {fileID: 21300000, guid: d42daf69f6dd6794e9519ea2db1907f6, type: 3}
-  weaponIconSecondary: {fileID: 21300000, guid: 8970c70f69783c549ba95fbae94f06d1,
+  weaponIcon: {fileID: -95095592610097110, guid: 1e95b128a88d3464b8a2ddd25a9e4505,
+    type: 3}
+  weaponIconSecondary: {fileID: 6614713463717414060, guid: 6183d93618c8d294bba25b4f274fc5e0,
     type: 3}
   weaponUnique: 0
   weaponBaseName: Bow
