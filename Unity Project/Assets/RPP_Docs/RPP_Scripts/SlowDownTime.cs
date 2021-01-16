@@ -11,6 +11,8 @@ public class SlowDownTime : MonoBehaviour
     public AudioMixer audioMixer;
     public AudioMixerSnapshot normal, slow;
     public float currentSlowDownTimeCooldown, maxSlowDownTimeCooldown;
+    [SerializeField] AudioClip slowMo;
+    [SerializeField] AudioSource audioSource;
 
 
 
@@ -37,12 +39,11 @@ public class SlowDownTime : MonoBehaviour
         {
             canSlowDownTime = false;
             timeIsBeingSlowed = false;
-            controler.TimeControl.SlowDownTime.canceled += ctx => timeIsBeingSlowed = false;
         }
 
         if (timeIsBeingSlowed)
         {
-            SlowDownMan();
+            StartCoroutine (SlowDownMan());
             currentSlowDownTimeCooldown -= Time.deltaTime;
         }
         else
@@ -58,14 +59,18 @@ public class SlowDownTime : MonoBehaviour
         }
     }
 
-    void SlowDownMan()
+    IEnumerator SlowDownMan()
     {        
         if (canSlowDownTime && timeIsBeingSlowed)
         {
             Debug.Log("Time is Being Slowed");
+            audioSource.clip = slowMo;
+            audioSource.Play();
             Time.timeScale = 0.5f;
             slow.TransitionTo(0.5f);
-        }        
+            yield return new WaitForSeconds(maxSlowDownTimeCooldown);
+            LeaveTimeAlone();
+        } 
     }
 
     void LeaveTimeAlone()

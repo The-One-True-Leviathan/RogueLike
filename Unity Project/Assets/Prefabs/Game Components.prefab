@@ -180,6 +180,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16640
   rewindCounter: 0
+  rewind: {fileID: 8300000, guid: 686a28800862fd74196b47c3db021175, type: 3}
+  audioSource: {fileID: 4813591344651088329}
 --- !u!114 &3927101230359065860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,6 +679,12 @@ PrefabInstance:
 --- !u!4 &2301655988124375891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 171786467894762967, guid: 7bba893ad029ae046ba15477a112c016,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131136164069623428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &4813591344651088329 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6871964027837839181, guid: 7bba893ad029ae046ba15477a112c016,
     type: 3}
   m_PrefabInstance: {fileID: 2131136164069623428}
   m_PrefabAsset: {fileID: 0}

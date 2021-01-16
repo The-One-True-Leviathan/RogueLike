@@ -68,8 +68,8 @@ public class Player : MonoBehaviour
     public float clostestEnemyDistance;
 
     //Sound Design du Joueur
-    public AudioSource playerSource, weaponSource;
-    public AudioClip heal, dégâtsReçus, pasDuJoueur, chargementAttaque, roulade;
+    public AudioSource playerSource, weaponSource, stepsSource;
+    public AudioClip heal, dégâtsReçus, criDeMort, pasDuJoueur, chargementAttaque, roulade;
     public AudioClip[] attaques = new AudioClip[4];
 
     // Start is called before the first frame update
@@ -266,9 +266,20 @@ public class Player : MonoBehaviour
             screenshake.Shake(0.05f, 0.1f*amount, 0.01f);
             healthBar.ApplyDamage(amount);
             //Debug.LogError("Damaged for " + amount);
-            //RPP
-            playerSource.clip = dégâtsReçus;
-            playerSource.Play();
+
+            //RPP    
+            rewind.PlayerIsDamaged();
+            if (healthBar.vieTemp <= 0)
+            {
+                playerSource.clip = criDeMort;
+                playerSource.Play();
+            }
+            else
+            {
+                playerSource.clip = dégâtsReçus;
+                playerSource.Play();
+            }
+
             enchant.DoEnchants(weapon1, 3);
             if (dualWielding) { enchant.DoEnchants(weapon2, 3); }
             Immunity(damageImmunity);
@@ -406,8 +417,8 @@ public class Player : MonoBehaviour
             if (currentSpeed != Vector3.zero)
             {
                 //RPP
-                playerSource.clip = pasDuJoueur;
-                playerSource.Play();
+                stepsSource.clip = pasDuJoueur;
+                stepsSource.Play();
             }
         }
 

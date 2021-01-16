@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 120316fe616941440afd017b8ff8df9b, type: 2}
   - {fileID: 11400000, guid: a1b01857fa9810245a8619fc60cf4b1e, type: 2}
   enchantments: []
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cfb22bfdad9fa8e459526fad38dfbffe, type: 3}
   weaponSprite: {fileID: 0}
   weaponItemSprite: {fileID: 21300000, guid: 38edcc373fa5fc34fb8c527ffd641001, type: 3}
   weaponIcon: {fileID: -6069180164141249328, guid: 1e95b128a88d3464b8a2ddd25a9e4505,

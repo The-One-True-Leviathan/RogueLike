@@ -19,10 +19,14 @@ public class RewindArrowLauncher : MonoBehaviour
 
     private void Update()
     {
-        if (canRewindArrow)
+        if (canRewindArrow && arrowScript.hasBeenShot)
         {
             StartCoroutine(ArrowGoingBack());
             Debug.Log("Successfully Called Rewind Arrow Launcher");
+        }
+        else if (canRewindArrow && !arrowScript.hasBeenShot)
+        {
+            canRewindArrow = false;
         }
     }
  
@@ -32,24 +36,9 @@ public class RewindArrowLauncher : MonoBehaviour
         arrowObject.SetActive(true);
         audioSource.Play();
         arrowObject.transform.position = Vector3.MoveTowards(arrowObject.transform.position, launcherLocation, Time.deltaTime * arrowScript.arrowSpeed);
-        /*if (arrowObject.transform.position != launcherLocation.position && arrowScript.goRight)
-        {
-            arrowScript.GoLeft();
-        }
-        else if (arrowObject.transform.position != launcherLocation.position && arrowScript.goLeft)
-        {
-            arrowScript.GoRight();
-        }
-        else if (arrowObject.transform.position != launcherLocation.position && arrowScript.goUp)
-        {
-            arrowScript.GoDown();
-        }
-        else if (arrowObject.transform.position != launcherLocation.position && arrowScript.goDown)
-        {
-            arrowScript.GoUp();
-        }*/
         Debug.Log("Arrow is back in Launcher");
         yield return new WaitForSeconds(arrowScript.arrowFlyingTime);
         canRewindArrow = false;
+        arrowScript.hasBeenShot = false;
     }
 }

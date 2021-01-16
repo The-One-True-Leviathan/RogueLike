@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowScript : MonoBehaviour
 {
-    public bool canShoot = false;
+    public bool canShoot = false, hasBeenShot = false;
     [SerializeField] BoxCollider arrowCollider;
     [SerializeField] GameObject arrowObject;
     public float arrowDamage = 4, arrowFlyingTime = 1, arrowSpeed = 15; 
@@ -50,6 +50,7 @@ public class ArrowScript : MonoBehaviour
             }
             yield return new WaitForSeconds(arrowFlyingTime);
             arrowObject.SetActive(false);
+            hasBeenShot = true;
             canShoot = false;
         }        
     }
