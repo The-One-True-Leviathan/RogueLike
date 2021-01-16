@@ -777,6 +777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sound manager
       objectReference: {fileID: 0}
+    - target: {fileID: 546221577028122059, guid: be1a3eb1c22ee294085ec0bb0e5e7626,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1a3eb1c22ee294085ec0bb0e5e7626, type: 3}
 --- !u!4 &3233965424041632326 stripped

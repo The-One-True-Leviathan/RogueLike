@@ -916,6 +916,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 413575270529543084, guid: 7bba893ad029ae046ba15477a112c016,
+        type: 3}
+      propertyPath: maxSlowDownTimeCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bba893ad029ae046ba15477a112c016, type: 3}
 --- !u!1001 &1012353997
