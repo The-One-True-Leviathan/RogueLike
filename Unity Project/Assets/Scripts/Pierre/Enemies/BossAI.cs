@@ -118,6 +118,9 @@ public class BossAI : MonoBehaviour
             case BossState.Attack:
                 Attack();
                 break;
+            case BossState.Spawn:
+                Spawn();
+                break;
         }
 
         Anim();
@@ -367,7 +370,7 @@ public class BossAI : MonoBehaviour
     {
         isInSpawn = true;
         yield return new WaitForSeconds(spawnBuildup);
-        Instantiate(spiderOriginal);
+        Instantiate(spiderOriginal, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(spawnRecover);
         isInSpawn = false;
         isInSpawnCooldown = true;
