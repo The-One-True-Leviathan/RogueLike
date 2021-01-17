@@ -22,21 +22,18 @@ public class PauseMenu : MonoBehaviour
         gameCompo = GameObject.Find("Game Components");
         compteur = gameCompo.GetComponentInChildren<Compteur>();
         saveandLoad = gameCompo.GetComponent<SaveandLoad>();
+        controller.Keyboard.Pause.performed += ctx => MenuWork();
     }
 
-    // Update is called once per frame
-    void Update()
+    void MenuWork()
     {
-      if (controller.Keyboard.Pause.triggered)
+        if (gameIsPaused)
         {
-            if (gameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
 
