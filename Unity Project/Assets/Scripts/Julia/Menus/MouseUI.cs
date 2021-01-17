@@ -29,6 +29,7 @@ public class MouseUI : MonoBehaviour
         {
             hit.collider.GetComponent<BehaviorButtons>().Hover();
             hit.collider.GetComponent<BehaviorButtons>().mouseOnButton = true;
+            Debug.Log("touch");
         }
 
         foreach (Collider button in btns)
