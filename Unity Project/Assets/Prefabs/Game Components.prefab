@@ -180,6 +180,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16640
   rewindCounter: 0
+  rewind: {fileID: 8300000, guid: 686a28800862fd74196b47c3db021175, type: 3}
+  audioSource: {fileID: 4813591344651088329}
 --- !u!114 &3927101230359065860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,6 +682,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2131136164069623428}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &4813591344651088329 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6871964027837839181, guid: 7bba893ad029ae046ba15477a112c016,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131136164069623428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3131633185969903503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,6 +784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sound manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 546221577028122059, guid: be1a3eb1c22ee294085ec0bb0e5e7626,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1a3eb1c22ee294085ec0bb0e5e7626, type: 3}

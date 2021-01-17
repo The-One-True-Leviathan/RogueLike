@@ -10,6 +10,8 @@ public class Rewind : MonoBehaviour
     [SerializeField] LayerMask rewindLayer;
     public int rewindCounter = 0;
     Controler controler;
+    [SerializeField] AudioClip rewind;
+    [SerializeField] AudioSource audioSource;
 
     void Awake()
     {
@@ -24,6 +26,9 @@ public class Rewind : MonoBehaviour
         if (rewindCounter >= 3)
         {
             Debug.Log("Rewind Successful");
+            audioSource.clip = rewind;
+            audioSource.Play();
+
             Collider[] objects = Physics.OverlapSphere(playerTransform.position, rewindRange, rewindLayer);
 
             foreach (Collider obj in objects)
@@ -63,9 +68,6 @@ public class Rewind : MonoBehaviour
 
     public void PlayerIsDamaged()
     {
-        if (rewindCounter > 3)
-        {
             rewindCounter = 0;
-        }
     }
 }

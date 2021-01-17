@@ -115,22 +115,6 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""SlowDownTime"",
-                    ""type"": ""Button"",
-                    ""id"": ""dd76a49c-bbb5-4609-86ca-fd6a76ad8859"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""NormalizeTime"",
-                    ""type"": ""Button"",
-                    ""id"": ""a45804cb-7152-4bf8-95a5-7e8b098ed812"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(behavior=1)""
-                },
-                {
                     ""name"": ""Rewind"",
                     ""type"": ""Button"",
                     ""id"": ""40c2c0bf-2ca1-477f-88e5-77c73ea91bfe"",
@@ -150,6 +134,14 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""name"": ""DungeonCheat"",
                     ""type"": ""Button"",
                     ""id"": ""b75aa85b-41ce-43cb-8b1c-758adcc075a8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""NormalizeTime"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d44a26c-902c-443a-845f-ce6c476c313f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)""
@@ -653,72 +645,6 @@ public class @Controler : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f5022916-2b4b-48ca-9584-f238c273f28c"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SlowDownTime"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""149706af-59c6-4591-b366-8afe733551d6"",
-                    ""path"": ""<DualShockGamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SlowDownTime"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ff52dc6c-f724-4972-81b3-b6a624362b6d"",
-                    ""path"": ""<XInputController>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SlowDownTime"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cfce8990-9921-4502-b3ed-ac7fe653db92"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NormalizeTime"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""abb4a1ab-4176-451d-a505-f5c7f56a9e21"",
-                    ""path"": ""<DualShockGamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NormalizeTime"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7395eca3-100a-4f45-b9e4-3dad608d8d35"",
-                    ""path"": ""<XInputController>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NormalizeTime"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""72439400-1ecc-4b46-a7f8-3abc765526e4"",
                     ""path"": ""<Keyboard>/capsLock"",
                     ""interactions"": """",
@@ -793,6 +719,88 @@ public class @Controler : IInputActionCollection, IDisposable
                     ""action"": ""DungeonCheat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc83b9de-8a1e-4450-a8d7-0077620f5cde"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NormalizeTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66214079-8bcb-4ec0-880e-d56833ab32a0"",
+                    ""path"": ""<DualShockGamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NormalizeTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69a074aa-6a4a-4027-971c-01e6ef8caa76"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NormalizeTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""TimeControl"",
+            ""id"": ""feada16f-16ea-4390-a982-34bc35cd7e86"",
+            ""actions"": [
+                {
+                    ""name"": ""SlowDownTime"",
+                    ""type"": ""Button"",
+                    ""id"": ""60235f00-aff6-4945-b767-f0ceca46d567"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""01096b7a-b3f3-45c0-8baf-17ffe813c996"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowDownTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce59643c-e82f-43a5-aec0-2e386b0c2102"",
+                    ""path"": ""<DualShockGamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowDownTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05614274-804a-416c-9734-b4711aad9bfb"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowDownTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -819,11 +827,13 @@ public class @Controler : IInputActionCollection, IDisposable
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
         m_Keyboard_Inventory = m_Keyboard.FindAction("Inventory", throwIfNotFound: true);
         m_Keyboard_Drop = m_Keyboard.FindAction("Drop", throwIfNotFound: true);
-        m_Keyboard_SlowDownTime = m_Keyboard.FindAction("SlowDownTime", throwIfNotFound: true);
-        m_Keyboard_NormalizeTime = m_Keyboard.FindAction("NormalizeTime", throwIfNotFound: true);
         m_Keyboard_Rewind = m_Keyboard.FindAction("Rewind", throwIfNotFound: true);
         m_Keyboard_LifeCheat = m_Keyboard.FindAction("LifeCheat", throwIfNotFound: true);
         m_Keyboard_DungeonCheat = m_Keyboard.FindAction("DungeonCheat", throwIfNotFound: true);
+        m_Keyboard_NormalizeTime = m_Keyboard.FindAction("NormalizeTime", throwIfNotFound: true);
+        // TimeControl
+        m_TimeControl = asset.FindActionMap("TimeControl", throwIfNotFound: true);
+        m_TimeControl_SlowDownTime = m_TimeControl.FindAction("SlowDownTime", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -885,11 +895,10 @@ public class @Controler : IInputActionCollection, IDisposable
     private readonly InputAction m_Keyboard_Interact;
     private readonly InputAction m_Keyboard_Inventory;
     private readonly InputAction m_Keyboard_Drop;
-    private readonly InputAction m_Keyboard_SlowDownTime;
-    private readonly InputAction m_Keyboard_NormalizeTime;
     private readonly InputAction m_Keyboard_Rewind;
     private readonly InputAction m_Keyboard_LifeCheat;
     private readonly InputAction m_Keyboard_DungeonCheat;
+    private readonly InputAction m_Keyboard_NormalizeTime;
     public struct KeyboardActions
     {
         private @Controler m_Wrapper;
@@ -906,11 +915,10 @@ public class @Controler : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
         public InputAction @Inventory => m_Wrapper.m_Keyboard_Inventory;
         public InputAction @Drop => m_Wrapper.m_Keyboard_Drop;
-        public InputAction @SlowDownTime => m_Wrapper.m_Keyboard_SlowDownTime;
-        public InputAction @NormalizeTime => m_Wrapper.m_Keyboard_NormalizeTime;
         public InputAction @Rewind => m_Wrapper.m_Keyboard_Rewind;
         public InputAction @LifeCheat => m_Wrapper.m_Keyboard_LifeCheat;
         public InputAction @DungeonCheat => m_Wrapper.m_Keyboard_DungeonCheat;
+        public InputAction @NormalizeTime => m_Wrapper.m_Keyboard_NormalizeTime;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -956,12 +964,6 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Drop.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDrop;
-                @SlowDownTime.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSlowDownTime;
-                @SlowDownTime.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSlowDownTime;
-                @SlowDownTime.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnSlowDownTime;
-                @NormalizeTime.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
-                @NormalizeTime.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
-                @NormalizeTime.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
                 @Rewind.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
                 @Rewind.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
                 @Rewind.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRewind;
@@ -971,6 +973,9 @@ public class @Controler : IInputActionCollection, IDisposable
                 @DungeonCheat.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDungeonCheat;
                 @DungeonCheat.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDungeonCheat;
                 @DungeonCheat.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnDungeonCheat;
+                @NormalizeTime.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
+                @NormalizeTime.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
+                @NormalizeTime.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNormalizeTime;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -1011,12 +1016,6 @@ public class @Controler : IInputActionCollection, IDisposable
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
-                @SlowDownTime.started += instance.OnSlowDownTime;
-                @SlowDownTime.performed += instance.OnSlowDownTime;
-                @SlowDownTime.canceled += instance.OnSlowDownTime;
-                @NormalizeTime.started += instance.OnNormalizeTime;
-                @NormalizeTime.performed += instance.OnNormalizeTime;
-                @NormalizeTime.canceled += instance.OnNormalizeTime;
                 @Rewind.started += instance.OnRewind;
                 @Rewind.performed += instance.OnRewind;
                 @Rewind.canceled += instance.OnRewind;
@@ -1026,10 +1025,46 @@ public class @Controler : IInputActionCollection, IDisposable
                 @DungeonCheat.started += instance.OnDungeonCheat;
                 @DungeonCheat.performed += instance.OnDungeonCheat;
                 @DungeonCheat.canceled += instance.OnDungeonCheat;
+                @NormalizeTime.started += instance.OnNormalizeTime;
+                @NormalizeTime.performed += instance.OnNormalizeTime;
+                @NormalizeTime.canceled += instance.OnNormalizeTime;
             }
         }
     }
     public KeyboardActions @Keyboard => new KeyboardActions(this);
+
+    // TimeControl
+    private readonly InputActionMap m_TimeControl;
+    private ITimeControlActions m_TimeControlActionsCallbackInterface;
+    private readonly InputAction m_TimeControl_SlowDownTime;
+    public struct TimeControlActions
+    {
+        private @Controler m_Wrapper;
+        public TimeControlActions(@Controler wrapper) { m_Wrapper = wrapper; }
+        public InputAction @SlowDownTime => m_Wrapper.m_TimeControl_SlowDownTime;
+        public InputActionMap Get() { return m_Wrapper.m_TimeControl; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TimeControlActions set) { return set.Get(); }
+        public void SetCallbacks(ITimeControlActions instance)
+        {
+            if (m_Wrapper.m_TimeControlActionsCallbackInterface != null)
+            {
+                @SlowDownTime.started -= m_Wrapper.m_TimeControlActionsCallbackInterface.OnSlowDownTime;
+                @SlowDownTime.performed -= m_Wrapper.m_TimeControlActionsCallbackInterface.OnSlowDownTime;
+                @SlowDownTime.canceled -= m_Wrapper.m_TimeControlActionsCallbackInterface.OnSlowDownTime;
+            }
+            m_Wrapper.m_TimeControlActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @SlowDownTime.started += instance.OnSlowDownTime;
+                @SlowDownTime.performed += instance.OnSlowDownTime;
+                @SlowDownTime.canceled += instance.OnSlowDownTime;
+            }
+        }
+    }
+    public TimeControlActions @TimeControl => new TimeControlActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -1053,10 +1088,13 @@ public class @Controler : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
-        void OnSlowDownTime(InputAction.CallbackContext context);
-        void OnNormalizeTime(InputAction.CallbackContext context);
         void OnRewind(InputAction.CallbackContext context);
         void OnLifeCheat(InputAction.CallbackContext context);
         void OnDungeonCheat(InputAction.CallbackContext context);
+        void OnNormalizeTime(InputAction.CallbackContext context);
+    }
+    public interface ITimeControlActions
+    {
+        void OnSlowDownTime(InputAction.CallbackContext context);
     }
 }

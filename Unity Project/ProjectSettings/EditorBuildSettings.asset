@@ -29,4 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Pierre/D4.unity
     guid: cf1e72f45c38e7e49adc53edaf08d4f3
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 3834b05b0766c7248b2cbba3ab79831e,
+      type: 2}
