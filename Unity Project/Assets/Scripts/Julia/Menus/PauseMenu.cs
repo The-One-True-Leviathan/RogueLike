@@ -96,4 +96,9 @@ public class PauseMenu : MonoBehaviour
         controlMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.one;
     }
+
+    public void PlaySoundClick()
+    {
+        FindObjectOfType<AudioManager>().Play("Click");
+    }
 }

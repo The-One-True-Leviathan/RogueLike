@@ -294,7 +294,6 @@ GameObject:
   m_Component:
   - component: {fileID: 435887115}
   - component: {fileID: 435887114}
-  - component: {fileID: 435887113}
   - component: {fileID: 435887116}
   m_Layer: 0
   m_Name: Main Camera
@@ -303,14 +302,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &435887113
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435887112}
-  m_Enabled: 1
 --- !u!20 &435887114
 Camera:
   m_ObjectHideFlags: 0
@@ -515,6 +506,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1190508373
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -38.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 618
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178373, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504865153076178375, guid: e265dbac7c27f814792db1f720d40e77,
+        type: 3}
+      propertyPath: m_Name
+      value: Sound manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e265dbac7c27f814792db1f720d40e77, type: 3}
 --- !u!1001 &1413318759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -672,6 +732,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 435887114}
+    - target: {fileID: 4563237294002361449, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60
+      objectReference: {fileID: 0}
     - target: {fileID: 4563237294784395889, guid: bbe87b077b74cea4b9d28fce0a99d7d5,
         type: 3}
       propertyPath: m_Text
@@ -812,6 +877,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayPiecettes: {fileID: 11874163}
   displayBoulon: {fileID: 876499003}
+  nbrePiecettes: 0
+  nbreBoulon: 0
   piecettesActuelles: 0
   boulonsActuels: 0
 --- !u!4 &1903142177

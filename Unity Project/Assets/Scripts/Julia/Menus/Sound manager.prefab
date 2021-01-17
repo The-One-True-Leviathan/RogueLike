@@ -1,0 +1,222 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4504865153076178375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4504865153076178373}
+  - component: {fileID: 4504865153076178372}
+  m_Layer: 0
+  m_Name: Sound manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4504865153076178373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504865153076178375}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -38.3, z: 618}
+  m_LocalScale: {x: 38.3, y: 38.3, z: 38.3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4504865153076178372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504865153076178375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202f18b35df8fd54f9ce7a6f6954360c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: 3aefa2dbdcfaa3744b879b0f8052b9e4, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: SurvolBouton
+    clip: {fileID: 8300000, guid: 579dc115607a2da40a0d0919be6c90ba, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Baguette Magique
+    clip: {fileID: 8300000, guid: 9858578819181e94fa3b6d16863c4ee7, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "D\xE9g\xE2t ennemi"
+    clip: {fileID: 8300000, guid: 0273bfba7a67239469c45acb00d19b0e, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Switch
+    clip: {fileID: 8300000, guid: 5cb4aa8605d16bc46b4d139716ba6d0f, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "Attaque d'\xE9p\xE9e"
+    clip: {fileID: 8300000, guid: cfb22bfdad9fa8e459526fad38dfbffe, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Attaque de Lance
+    clip: {fileID: 8300000, guid: dd1f26dcec7e71d4bb16a8638cdffab5, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Attaque d'arc
+    clip: {fileID: 8300000, guid: f0e44e0a0fa98a848abe92ae758eec43, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Mort enemis
+    clip: {fileID: 8300000, guid: 629bb5dff6a651c46b71cced490cb65d, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "Pas des Araign\xE9s"
+    clip: {fileID: 8300000, guid: 55ef03026465a824588d911edaf7b885, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Pas des Robots
+    clip: {fileID: 8300000, guid: 1aaedc5f2ebd0b44db08f90eb0deaa5c, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "Attaque Araign\xE9s"
+    clip: {fileID: 8300000, guid: f80eefdb6222a1c4283b6f415e3d415a, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Attaque Golem
+    clip: {fileID: 8300000, guid: ecf87c395eb8e24479b5e50cfcdacea0, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Mistique
+    clip: {fileID: 8300000, guid: 8cd360757ef540f46a2a6e18be215a7d, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Combat
+    clip: {fileID: 8300000, guid: ca064e4bdcdebc94bbdf900baee4e4eb, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: HUB
+    clip: {fileID: 8300000, guid: af379183c0a1b7a4897aa1aa27e13cdd, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Musique du Menu
+    clip: {fileID: 8300000, guid: d77e50a6003f825478ca4d51a0480c65, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Attaque
+    clip: {fileID: 8300000, guid: a48b81409adcc214f9fe063ab610b855, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Chargement Attaque
+    clip: {fileID: 8300000, guid: 019f0ccaab74d2143ac08942d89a71e8, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Cri de Mort
+    clip: {fileID: 8300000, guid: dfdbadf5d8e07d747b9c64ec016227ff, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Cris de douleur
+    clip: {fileID: 8300000, guid: 5477f1cbfb1ef244985be5cb6d96d70a, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Ouverture d'un Coffre
+    clip: {fileID: 8300000, guid: 329a9fcd8d3bd1942bca061af820b606, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Roulade
+    clip: {fileID: 8300000, guid: d222d2507ef24534a869721a2e6dd95d, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Slow Down Time
+    clip: {fileID: 8300000, guid: 6558429760b606c47a565de9eb83324d, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Pas du Joueur
+    clip: {fileID: 8300000, guid: fed66b7b3fa59694dbee78b99f9416e4, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Heal
+    clip: {fileID: 8300000, guid: 3f34e20db06531a4dab14cb748be4fd6, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: PNJ Salut
+    clip: {fileID: 8300000, guid: c0d2d46ee3917164eacfe74f273cb811, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: PNJ Tchao
+    clip: {fileID: 8300000, guid: d8754e54ba804d54cb34a725a6051537, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "Eau \xE9lectrifi\xE9"
+    clip: {fileID: 8300000, guid: aaeb12048274e4a43b5e1a68ea9c1cc5, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Explosion Barril
+    clip: {fileID: 8300000, guid: 73dbc02bc706e2a4dbbe8e26e55c3c0b, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "Fl\xE8che lanc\xE9"
+    clip: {fileID: 8300000, guid: 137cd5a17f98be04b8a6bfcbd03220c6, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "Pr\xE9paration Explosion"
+    clip: {fileID: 8300000, guid: a8677e27820ecd34381a140ac580b830, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "Pr\xE9paration des Piques"
+    clip: {fileID: 8300000, guid: fd2298ef0eddedf4db7da6a082dc0f28, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Sorties des Piques
+    clip: {fileID: 8300000, guid: 42812fbd6b963a541a84fcab2a880ca2, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: "Rentr\xE9e des piques"
+    clip: {fileID: 8300000, guid: 8ea3ea2657334d74f9f96d8c3a121b0e, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: e8c694e05cce11b4c9c1dfb959a0e190, type: 2}

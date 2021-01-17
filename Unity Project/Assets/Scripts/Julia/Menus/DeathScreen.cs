@@ -14,37 +14,37 @@ public class DeathScreen : MonoBehaviour
     private void Start()
     {
         gameCompo = GameObject.Find("Game Components");
-        compteur = gameCompo.GetComponentInChildren<Compteur>();
-        saveandLoad = gameCompo.GetComponent<SaveandLoad>();
+        //compteur = gameCompo.GetComponentInChildren<Compteur>();
+        //saveandLoad = gameCompo.GetComponent<SaveandLoad>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreCoins.text = "Piecettes : " + compteur.nbrePiecettes.ToString();
-        scoreBoulons.text = "Boulons : " + compteur.nbreBoulon.ToString();
+        /*scoreCoins.text = compteur.nbrePiecettes.ToString();
+        scoreBoulons.text = compteur.nbreBoulon.ToString();*/
     }
 
     public void QuitGame()
     {
-        compteur.nbrePiecettes = 0;
-        saveandLoad.SaveAll();
+        //compteur.nbrePiecettes = 0;
+        //saveandLoad.SaveAll();
         Application.Quit();
 
     }
 
     public void Menu()
     {
-        compteur.nbrePiecettes = 0;
-        saveandLoad.SaveAll();
+        //compteur.nbrePiecettes = 0;
+        //saveandLoad.SaveAll();
         Destroy(gameCompo);
         SceneManager.LoadScene("MenuPrincipal");
     }
 
     public void ReturnHUB()
     {
-        compteur.nbrePiecettes = 0;
-        saveandLoad.SaveAll();
+        //compteur.nbrePiecettes = 0;
+        //saveandLoad.SaveAll();
         Destroy(gameCompo);
         SceneManager.LoadScene("HUB");
     }
