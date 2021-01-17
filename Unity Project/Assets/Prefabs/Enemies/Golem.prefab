@@ -149,7 +149,7 @@ MonoBehaviour:
   rigidBody: {fileID: 0}
   isInKnockback: 0
   knockbackSpeed: 0
-  knockbackResistance: 1
+  knockbackResistance: 100
   knockbackDirection: {x: 0, y: 0, z: 0}
   currentVelocity: {x: 0, y: 0, z: 0}
   targetVelocity: {x: 0, y: 0, z: 0}

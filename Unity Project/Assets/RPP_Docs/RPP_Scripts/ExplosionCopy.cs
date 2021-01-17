@@ -39,11 +39,11 @@ public class ExplosionCopy : MonoBehaviour
         shoppingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShoppingManager>();
         if (shoppingManager.BarrelsWereBought || isActive)
         {
-            gameObject.GetComponent<Transform>().localScale = Vector3.one;
+            explosionDamage = 8;
         }
         else
         {
-            gameObject.GetComponent<Transform>().localScale = Vector3.zero;
+            explosionDamage = 8;
         }
 
         // Mes Scripts d'explosion
@@ -79,7 +79,7 @@ public class ExplosionCopy : MonoBehaviour
             }
             if (obj.GetComponent<EnemyDamage>())
             {
-                obj.GetComponent<EnemyDamage>().Damage(explosionDamage, explosionKnockBack, barrelPosition);
+                obj.GetComponent<EnemyDamage>().Damage(explosionDamage, explosionKnockBack, barrelPosition, true);
             }
         }
         barrelObject.SetActive(false);

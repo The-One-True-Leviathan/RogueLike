@@ -60,7 +60,7 @@ public class Rewind : MonoBehaviour
 
     public void EnnemyIsKilled()
     {
-        if (rewindCounter > 3)
+        if (rewindCounter < 3)
         {
             rewindCounter++;
         }

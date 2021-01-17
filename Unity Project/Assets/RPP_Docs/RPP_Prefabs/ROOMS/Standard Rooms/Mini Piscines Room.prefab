@@ -897,6 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors: []
   hasClosed: 0
+  bossOverride: 0
   monsters: {fileID: 8454338841612976336}
 --- !u!1 &6573573757226420107
 GameObject:
@@ -1844,7 +1845,7 @@ PrefabInstance:
     - target: {fileID: 248781394675919552, guid: 697aae280c09dd741b1cdffad6e2e239,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.01
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 248781394675919552, guid: 697aae280c09dd741b1cdffad6e2e239,
         type: 3}
@@ -3144,7 +3145,7 @@ PrefabInstance:
     - target: {fileID: 248781394675919552, guid: 697aae280c09dd741b1cdffad6e2e239,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.01
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 248781394675919552, guid: 697aae280c09dd741b1cdffad6e2e239,
         type: 3}

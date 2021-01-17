@@ -1337,7 +1337,8 @@ MonoBehaviour:
   - {fileID: 3456173093209110763, guid: 9b85698453bf9314eae896d522c7ac7b, type: 3}
   image: {fileID: 0}
   generation: {fileID: 0}
-  nameScene: []
+  nameScene:
+  - Boss
   scaleMultiplier: 1
   mapObject: {fileID: 0}
 --- !u!222 &5887301452796915187

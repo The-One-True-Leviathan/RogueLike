@@ -229,10 +229,10 @@ MonoBehaviour:
   startY: 0
   resolutionX: 30
   resolutionY: 30
-  minMainCorridorLength: 3
-  maxMainCorridorLength: 4
+  minMainCorridorLength: 2
+  maxMainCorridorLength: 3
   chanceMainCorridorSnakes: 0.4
-  chanceToCreateNewCorridor: 0.66
+  chanceToCreateNewCorridor: 0.5
   minSecCorridorLength: 2
   maxSecCorridorLength: 3
   chanceSecCorridorSnakes: 0.2

@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ddd1e4d41f8b04abcee07ecd822219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 20
-  currentHP: 20
+  maxHP: 35
+  currentHP: 35
   currentDamage: 0
   player: {fileID: 0}
   rigidBody: {fileID: 0}
@@ -163,6 +163,10 @@ MonoBehaviour:
   isEnvironment: 0
   isTable: 0
   isBoss: 1
+  rewind: {fileID: 0}
+  dmgShader: {fileID: 0}
+  trueMaterial: {fileID: 0}
+  objectSprite: {fileID: 0}
   hasLoot: 0
   possibleLoots:
   - {fileID: 5640554156492951416, guid: ea589fd277a5ce34194b2ccc6332d759, type: 3}

@@ -83,7 +83,7 @@ public class EnemyDamage : MonoBehaviour
                 Object.Destroy(this.gameObject);
                 Time.timeScale = 1;
             }
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine("Knockback");
         }
         else
@@ -95,7 +95,10 @@ public class EnemyDamage : MonoBehaviour
             else
             {
                 Damage(damage, knockback, knockbackOrigin, true);
-                StartCoroutine(DamageFeedback());
+                if (!isTrap)
+                {
+                    StartCoroutine(DamageFeedback());
+                }
             }
         }
     }

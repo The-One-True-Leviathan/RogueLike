@@ -30,7 +30,7 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Player") || collision.GetComponent<EnemyDamage>())
+        if (collision.CompareTag("Player"))
         {
             Debug.Log("Someone's Ass is about to be EXPANDED");
             if (spikes.enabled == false)
@@ -41,6 +41,18 @@ public class PressureSikeTrapsTRUE : MonoBehaviour
             else
             {
                 playerScript.PlayerDamage(spikesDamage);
+            }
+        }
+        if (collision.GetComponent<EnemyDamage>())
+        {
+            Debug.Log("Someone's Ass is about to be EXPANDED");
+            if (spikes.enabled == false)
+            {
+                Debug.Log("Pressure mechanism activarted");
+                StartCoroutine(CountdownBeforeSpikes());
+            }
+            else
+            {
                 collision.GetComponent<EnemyDamage>().Damage(spikesDamage, 0, spikeLocation);
             }
         }

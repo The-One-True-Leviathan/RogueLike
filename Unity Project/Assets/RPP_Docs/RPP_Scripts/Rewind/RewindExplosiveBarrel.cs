@@ -18,6 +18,7 @@ public class RewindExplosiveBarrel : MonoBehaviour
 
     public void BarrelRewind()
     {
+        Debug.Log("Attempted Rewind Barrel");
         if(barrelObj.activeSelf == false)
         {
             Debug.Log("Successfully Called Rewind Barrel");

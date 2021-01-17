@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -1372625422
-  m_CollectObjects: 1
+  m_CollectObjects: 2
   m_Size: {x: 22, y: 5, z: 22}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: a1206c45429d5774d8a6c27e3b0139cb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a05becdb7d61f7c4e97a086d43387bc7, type: 2}
 --- !u!114 &1389081959194720464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -334000983
-  m_CollectObjects: 1
+  m_CollectObjects: 2
   m_Size: {x: 22, y: 5, z: 22}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: c9d86d5765bddb6408364e308d2ea1da, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b75b82d688a564849a1588b3cd923876, type: 2}
 --- !u!1 &4199868171094672740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors: []
   hasClosed: 0
+  bossOverride: 0
   monsters: {fileID: 2874781687651891457}
 --- !u!1 &7264759086221581729
 GameObject:
