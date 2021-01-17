@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TeleportingPad : MonoBehaviour
 {
@@ -22,7 +23,11 @@ public class TeleportingPad : MonoBehaviour
     {
         if (interactible.interacted && !mapIsOpen)
         {
-            map.GetComponent<RectTransform>().localScale = Vector3.one;
+            map.GetComponent<RectTransform>().localScale = Vector3.one; 
+            /*foreach (Button but in map.GetComponentsInChildren<Button>())
+            {
+                but.enabled = true;
+            }*/
             generation.MapUpdate();
             mapIsOpen = true;
             interactible.interacted = false;
@@ -34,6 +39,10 @@ public class TeleportingPad : MonoBehaviour
             mapIsOpen = false;
             interactible.interacted = false;
             Time.timeScale = 1f;
+            foreach (Button but in map.GetComponentsInChildren<Button>())
+            {
+                but.enabled = false;
+            }
         }
             
     }

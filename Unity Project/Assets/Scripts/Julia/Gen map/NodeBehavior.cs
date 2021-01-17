@@ -82,9 +82,12 @@ public class NodeBehavior : MonoBehaviour
                 SceneManager.LoadScene("Boss");
                 break;
         }*/
-
         mapObject.GetComponent<RectTransform>().localScale = Vector3.zero;
         SceneManager.LoadScene(nameScene[0]);
+        foreach (NodeBehavior node in generation.nodeBehaviors)
+        {
+            node.GetComponent<Button>().enabled = false;
+        }
     }
 
     public void activatingNode()

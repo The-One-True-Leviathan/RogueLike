@@ -19,7 +19,10 @@ public class GenerationDungeonMap : MonoBehaviour
 
         //génération de la carte
         MapGeneration();
-        
+        foreach (Button but in GetComponentsInChildren<Button>())
+        {
+            but.enabled = false;
+        }
 
     }
     // Update is called once per frame
@@ -42,6 +45,19 @@ public class GenerationDungeonMap : MonoBehaviour
         {
             nodeBehaviors[node].activatingNode();
         }
+        if (nodesToActivate.Count > 1)
+        {
+            Navigation nav = nodeBehaviors[nodesToActivate[0]].GetComponent<Button>().navigation;
+            nav.selectOnLeft = nav.selectOnRight = nodeBehaviors[nodesToActivate[1]].GetComponent<Button>();
+            nav.mode = Navigation.Mode.Explicit;
+            nodeBehaviors[nodesToActivate[0]].GetComponent<Button>().navigation = nav;
+            nodeBehaviors[nodesToActivate[0]].GetComponent<Button>().Select();
+
+            nav = nodeBehaviors[nodesToActivate[1]].GetComponent<Button>().navigation;
+            nav.selectOnLeft = nav.selectOnRight = nodeBehaviors[nodesToActivate[0]].GetComponent<Button>();
+            nav.mode = Navigation.Mode.Explicit;
+            nodeBehaviors[nodesToActivate[1]].GetComponent<Button>().navigation = nav;
+        }
 
         nodeBehaviors[playerIsHere].GetComponent<Image>().sprite = playerHead;
         nodeBehaviors[playerIsHere].GetComponent<Image>().SetNativeSize();
@@ -50,7 +66,9 @@ public class GenerationDungeonMap : MonoBehaviour
         if (playerIsHere == 0)
         {
             tutoObject.SetActive(true);
+            tutoObject.GetComponent<Button>().enabled = true;
             regenObject.SetActive(true);
+            regenObject.GetComponent<Button>().enabled = true;
         }
 
     }

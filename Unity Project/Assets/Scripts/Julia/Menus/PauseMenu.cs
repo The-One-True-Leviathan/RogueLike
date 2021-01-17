@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
@@ -43,13 +44,25 @@ public class PauseMenu : MonoBehaviour
         controlMenuUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         Time.timeScale = 1f;
         gameIsPaused = false;
+        foreach (Button but in GetComponentsInChildren<Button>())
+        {
+            but.enabled = false;
+        }
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.GetComponent<RectTransform>().localScale = Vector3.one;
         Time.timeScale = 0f;
         gameIsPaused = true;
+        foreach (Button but in GetComponentsInChildren<Button>())
+        {
+            but.enabled = true;
+            if (but.gameObject.name == "BackButton")
+            {
+                but.Select();
+            }
+        }
     }
 
     public void QuitGame()
