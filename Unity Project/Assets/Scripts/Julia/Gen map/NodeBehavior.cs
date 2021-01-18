@@ -31,6 +31,13 @@ public class NodeBehavior : MonoBehaviour
     // Update is called once per frame
     public void UpdateNode()
     {
+        if (image == null)
+        {
+            generation = GetComponentInParent<GenerationDungeonMap>();
+            image = GetComponent<Image>();
+            button = GetComponent<Button>();
+            mapObject = GameObject.FindGameObjectWithTag("Map");
+        }
         switch(type)
         {
             case DungeonTypes.BOULON:

@@ -63,6 +63,7 @@ public class EnchantShop : MonoBehaviour
             enchantShopOpen = false;
             Time.timeScale = 1f;
             interactible.interacted = false;
+            GameObject.FindGameObjectWithTag("Pause").GetComponent<Button>().Select();
         }
         
     }
@@ -101,6 +102,7 @@ public class EnchantShop : MonoBehaviour
     public void No()
     {
         confirmationCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+        buttons[numeroEnchant].GetComponent<Button>().Select();
     }
 
     //contenir 8 slots d'enchants
