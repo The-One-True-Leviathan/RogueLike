@@ -455,7 +455,7 @@ public class Player : MonoBehaviour
         steppy = true;
         stepsSource.clip = pasDuJoueur;
         stepsSource.Play();
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.325f);
         steppy = false;
     }
 

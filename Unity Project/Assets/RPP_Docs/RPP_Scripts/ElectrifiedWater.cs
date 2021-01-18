@@ -8,7 +8,7 @@ public class ElectrifiedWater : MonoBehaviour
     public Vector3 wetZone;
     public LayerMask currentLayer;
     public int electricDamage;
-    bool canTakeDamage, canStartSound;
+    bool canTakeDamage;
 
     //Player
     public GameObject player;
@@ -18,7 +18,6 @@ public class ElectrifiedWater : MonoBehaviour
     {
         wetZone = transform.localScale;
         canTakeDamage = true;
-        canStartSound = true;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
     }
