@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Pierre/Boss.unity
     guid: 35376b3fd4b531141b6f0a629fbb2d99
+  - enabled: 1
+    path: Assets/_Scenes/Julia/VictoryScene.unity
+    guid: 466d02ee295c1fa42902abf099046b94
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3834b05b0766c7248b2cbba3ab79831e,
       type: 2}

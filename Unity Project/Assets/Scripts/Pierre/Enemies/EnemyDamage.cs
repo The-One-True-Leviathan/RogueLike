@@ -84,7 +84,7 @@ public class EnemyDamage : MonoBehaviour
                 Time.timeScale = 1;
             }
             //StopAllCoroutines();
-            StartCoroutine("Knockback");
+            //StartCoroutine("Knockback");
         }
         else
         {

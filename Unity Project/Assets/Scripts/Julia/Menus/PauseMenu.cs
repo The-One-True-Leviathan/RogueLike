@@ -24,6 +24,10 @@ public class PauseMenu : MonoBehaviour
         compteur = gameCompo.GetComponentInChildren<Compteur>();
         saveandLoad = gameCompo.GetComponent<SaveandLoad>();
         controller.Keyboard.Pause.performed += ctx => MenuWork();
+        foreach (Button but in GetComponentsInChildren<Button>())
+        {
+            but.enabled = false;
+        }
     }
 
     void MenuWork()

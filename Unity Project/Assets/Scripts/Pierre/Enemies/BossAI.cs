@@ -45,7 +45,7 @@ public class BossAI : MonoBehaviour
         attackRecover = 0.2f,
         attackCooldown = 0.2f,
         attackDamage = 8f;
-    public bool isInAttack;
+    public bool isInAttack, isInCooldown;
 
 
     //Search
@@ -93,6 +93,7 @@ public class BossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        navMeshAgent.ResetPath();
         seeingPlayer = false;
         if (DistanceToPlayer() < seeingDistance || targetingPlayer)
         {
@@ -191,7 +192,7 @@ public class BossAI : MonoBehaviour
                 state = BossState.Spawn;
                 return;
             }
-            if (distanceToPlayer < attackDistance)
+            if (distanceToPlayer < attackDistance && !isInCooldown)
             {
                 state = BossState.Attack;
                 return;
@@ -222,11 +223,11 @@ public class BossAI : MonoBehaviour
                 return;
             }
 
-            if (!isInJump)
+            if (!isInJump && !isInCooldown)
             {
                 isInAttack = true;
                 animator.SetInteger("state", 3);
-                attackDirection = toPlayer;
+                attackDirection = toPlayer.normalized;
                 StartCoroutine("AttackCoroutine");
             }
         }
@@ -235,11 +236,13 @@ public class BossAI : MonoBehaviour
     IEnumerator AttackCoroutine()
     {
         isInAttack = true;
+        isInCooldown = true;
         yield return new WaitForSeconds(attackBuildup);
         DoDamage();
         yield return new WaitForSeconds(attackRecover);
-        yield return new WaitForSeconds(attackCooldown);
         isInAttack = false;
+        yield return new WaitForSeconds(attackCooldown);
+        isInCooldown = false;
 
     }
 
@@ -385,30 +388,40 @@ public class BossAI : MonoBehaviour
     {
         currentSpeed = transform.position - lastPosition;
         currentSpeed = currentSpeed / Time.deltaTime;
-        Vector3 normalizedSpeed = currentSpeed.normalized;
+        Vector3 dir = new Vector3();
+        switch (isInAttack)
+        {
+            case false:
+                dir = currentSpeed.normalized;
+                break;
+            case true:
+                dir = attackDirection;
+                break;
+        }
         lastPosition = transform.position;
 
-        if (normalizedSpeed.x > 0.5 || normalizedSpeed.x < -0.5)
+        if (dir.x > 0.5 || dir.x < -0.5)
         {
             animator.SetBool("horizontal", true);
             animator.SetBool("up", false);
             animator.SetBool("down", false);
         }
-        if (normalizedSpeed.z > 0.5)
+        if (dir.z > 0.5)
         {
             animator.SetBool("horizontal", false);
             animator.SetBool("up", true);
             animator.SetBool("down", false);
         }
-        if (normalizedSpeed.z < -0.5)
+        if (dir.z < -0.5)
         {
             animator.SetBool("horizontal", false);
             animator.SetBool("up", false);
             animator.SetBool("down", true);
         }
-        if (normalizedSpeed.x < -0.5)
+        if (dir.x < -0.5)
         {
             animator.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            
         }
         else
         {

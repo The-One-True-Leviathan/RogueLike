@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BarrelShop : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class BarrelShop : MonoBehaviour
             barrelShopOpen = true;
             Time.timeScale = 0f;
             interactible.interacted = false;
+            GetComponentInChildren<Button>().Select();
         }
         else if (interactible.interacted && barrelShopOpen)
         {
@@ -39,6 +41,7 @@ public class BarrelShop : MonoBehaviour
             barrelShopOpen = false;
             Time.timeScale = 1f;
             interactible.interacted = false;
+            GameObject.FindGameObjectWithTag("Pause").GetComponent<Button>().Select();
         }
     }
 
@@ -49,6 +52,11 @@ public class BarrelShop : MonoBehaviour
         shoppingManager.BarrelUpdate();
         compteur.HudBuy(price);
         wasBought = true;
+            barrelShopCanvas.GetComponent<RectTransform>().localScale = Vector3.zero;
+            barrelShopOpen = false;
+            Time.timeScale = 1f;
+            interactible.interacted = false;
+            GameObject.FindGameObjectWithTag("Pause").GetComponent<Button>().Select();
 
         }
     }
