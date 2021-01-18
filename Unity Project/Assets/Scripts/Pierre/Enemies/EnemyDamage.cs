@@ -15,6 +15,7 @@ public class EnemyDamage : MonoBehaviour
     public Rewind rewind;
     public Material dmgShader, trueMaterial;
     public SpriteRenderer objectSprite;
+    public AudioClip monsterDamage, monsterDeath;
 
     //Gestion du loot
     public bool hasLoot;
@@ -73,9 +74,20 @@ public class EnemyDamage : MonoBehaviour
             if (!isTrap)
             {
                 StartCoroutine(DamageFeedback());
+                /* Raph
+                 Son de dégâts
+                 
+                 */
             }
             if (currentHP <= 0 && !isTrap && !isEnvironment)
             {
+                if (!isTrap)
+                {
+                    /* Raph
+                     Son de mort
+
+                     */
+                }
                 player.latestEnemyKilled = this.gameObject;
                 player.KillEnchant();
                 rewind.EnnemyIsKilled(); //Augmente le RewindCounter

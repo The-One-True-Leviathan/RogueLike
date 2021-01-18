@@ -248,6 +248,10 @@ public class BossAI : MonoBehaviour
 
     void DoDamage()
     {
+        /* Raph
+         Son d'attaque boss
+
+         */
         Collider[] hitPlayer = Physics.OverlapSphere(transform.position, attackRange, playerMask);
         foreach (Collider player in hitPlayer)
         {

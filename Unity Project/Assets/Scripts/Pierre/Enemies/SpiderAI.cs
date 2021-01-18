@@ -308,6 +308,10 @@ public class SpiderAI : MonoBehaviour
 
     void DoDamage()
     {
+        /* Raph
+         Son d'attaque spooder
+
+         */
         Collider[] hitPlayer = Physics.OverlapSphere(transform.position, attackRange, playerMask);
         foreach (Collider player in hitPlayer)
         {

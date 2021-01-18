@@ -74,7 +74,10 @@ namespace items
 
         public void ApplyEffect()
         {
-            switch(itemScriptableObject.itemType)
+            /* Raph
+             Son d'item
+             */
+            switch (itemScriptableObject.itemType)
             {
                 case ItemType.Heal:
                     healthBar.ApplyDamage(-itemScriptableObject.strength);

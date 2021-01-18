@@ -223,6 +223,10 @@ public class GolemAI : MonoBehaviour
 
     void DoDamage()
     {
+        /* Raph
+         Son d'attaque golem
+
+         */
         Collider[] hitPlayer = Physics.OverlapSphere(transform.position, attackRange, playerMask);
         foreach (Collider player in hitPlayer)
         {

@@ -229,10 +229,13 @@ public class Player : MonoBehaviour
 
     public IEnumerator RollCoroutine()
     {
+        /* Raph
+         Son de roulade
+         */
         targetSpeed = rollDirection * rollSpeed;
-        GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale = new Vector3(1,0.5f,1);
+        GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale = new Vector3(1,1,1);
         yield return new WaitForSeconds(rollLength);
-        GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale = new Vector3(1, 1f, 1);
+        GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale = new Vector3(1, 1, 1);
         isInRoll = false;
         animator.SetBool("roll", false);
         yield return new WaitForSeconds(rollRecover);
