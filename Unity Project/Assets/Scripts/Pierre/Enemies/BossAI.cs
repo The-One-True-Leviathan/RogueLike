@@ -420,12 +420,12 @@ public class BossAI : MonoBehaviour
         }
         if (dir.x < -0.5)
         {
-            animator.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            animator.GetComponentInParent<Transform>().localScale = new Vector3(-1, 1, 1);
             
         }
         else
         {
-            animator.gameObject.transform.localScale = new Vector3(1, 1, 1);
+            animator.GetComponentInParent<Transform>().localScale = new Vector3(1, 1, 1);
         }
 
         if (isInJump)
@@ -444,6 +444,11 @@ public class BossAI : MonoBehaviour
             {
                 animator.SetInteger("state", 1);
             }
+        }
+
+        if (isInSpawn)
+        {
+            animator.SetInteger("state", 10);
         }
 
     }
