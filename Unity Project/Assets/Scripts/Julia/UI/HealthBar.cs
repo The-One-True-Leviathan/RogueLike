@@ -94,6 +94,5 @@ public class HealthBar : MonoBehaviour
             vieMax = max3;
             vieTemp = max3;
         }
-    }
-    
+    }    
 }

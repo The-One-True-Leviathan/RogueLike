@@ -226,7 +226,7 @@ MonoBehaviour:
   normal: {fileID: 24500006, guid: e8c694e05cce11b4c9c1dfb959a0e190, type: 2}
   slow: {fileID: -878300566530977179, guid: e8c694e05cce11b4c9c1dfb959a0e190, type: 2}
   currentSlowDownTimeCooldown: 0
-  maxSlowDownTimeCooldown: 5
+  maxSlowDownTimeCooldown: 1
   slowMo: {fileID: 8300000, guid: 6558429760b606c47a565de9eb83324d, type: 3}
   audioSource: {fileID: 6871964027837839181}
 --- !u!81 &2771152523263043888
@@ -1327,7 +1327,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
