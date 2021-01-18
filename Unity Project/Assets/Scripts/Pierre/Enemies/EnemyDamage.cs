@@ -70,6 +70,10 @@ public class EnemyDamage : MonoBehaviour
             {
                 currentHP = maxHP;
             }
+            if (!isTrap)
+            {
+                StartCoroutine(DamageFeedback());
+            }
             if (currentHP <= 0 && !isTrap && !isEnvironment)
             {
                 player.latestEnemyKilled = this.gameObject;
@@ -95,10 +99,6 @@ public class EnemyDamage : MonoBehaviour
             else
             {
                 Damage(damage, knockback, knockbackOrigin, true);
-                if (!isTrap)
-                {
-                    StartCoroutine(DamageFeedback());
-                }
             }
         }
     }

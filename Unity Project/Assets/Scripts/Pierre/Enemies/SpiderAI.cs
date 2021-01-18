@@ -420,30 +420,40 @@ public class SpiderAI : MonoBehaviour
     {
         currentSpeed = transform.position - lastPosition;
         currentSpeed = currentSpeed / Time.deltaTime;
-        Vector3 normalizedSpeed = currentSpeed.normalized;
+        Vector3 dir = new Vector3();
+        switch (isInAttack)
+        {
+            case false:
+                dir = currentSpeed.normalized;
+                break;
+            case true:
+                dir = attackDirection;
+                break;
+        }
         lastPosition = transform.position;
-        
-        if (normalizedSpeed.x > 0.5 || normalizedSpeed.x < -0.5)
+
+        if (dir.x > 0.5 || dir.x < -0.5)
         {
             animator.SetBool("horizontal", true);
             animator.SetBool("up", false);
             animator.SetBool("down", false);
         }
-        if (normalizedSpeed.z > 0.5)
+        if (dir.z > 0.5)
         {
             animator.SetBool("horizontal", false);
             animator.SetBool("up", true);
             animator.SetBool("down", false);
         }
-        if (normalizedSpeed.z < -0.5)
+        if (dir.z < -0.5)
         {
             animator.SetBool("horizontal", false);
             animator.SetBool("up", false);
             animator.SetBool("down", true);
         }
-        if (normalizedSpeed.x < -0.5)
+        if (dir.x < -0.5)
         {
-            animator.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            animator.GetComponentInParent<Transform>().localScale = new Vector3(-1, 1, 1);
+
         }
         else
         {
