@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PotionShop : MonoBehaviour
 {
     public static bool potionIsDrinked = false;
     public bool potionShopOpen = false;
+    public Button str;
     public Player player;
     public HealthBar healthBar;
     public GameObject potionShopCanvas;
@@ -32,6 +34,7 @@ public class PotionShop : MonoBehaviour
             potionShopOpen = true;
             Time.timeScale = 0f;
             interactible.interacted = false;
+            str.Select();
         }
         else if(interactible.interacted && potionShopOpen)
         {
@@ -39,6 +42,7 @@ public class PotionShop : MonoBehaviour
             potionShopOpen = false;
             Time.timeScale = 1f;
             interactible.interacted = false;
+            GameObject.FindGameObjectWithTag("Pause").GetComponent<Button>().Select();
         }
     }
 
@@ -64,6 +68,7 @@ public class PotionShop : MonoBehaviour
             Time.timeScale = 1f;
             potionShopOpen = false;
         }
+        GameObject.FindGameObjectWithTag("Pause").GetComponent<Button>().Select();
     }
 
     public void strenghtPotion()
@@ -76,6 +81,7 @@ public class PotionShop : MonoBehaviour
             Time.timeScale = 1f;
             potionShopOpen = false;
         }
+        GameObject.FindGameObjectWithTag("Pause").GetComponent<Button>().Select();
 
 
     }
@@ -90,6 +96,7 @@ public class PotionShop : MonoBehaviour
             Time.timeScale = 1f;
             potionShopOpen = false;
         }
+        GameObject.FindGameObjectWithTag("Pause").GetComponent<Button>().Select();
     }
     //si interaction avec la boutique ouvrir le canvas de la boutique
     //dissimuler les potions en bouton

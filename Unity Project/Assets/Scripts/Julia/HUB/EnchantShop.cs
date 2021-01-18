@@ -50,6 +50,8 @@ public class EnchantShop : MonoBehaviour
     {
         if (interactible.interacted && !enchantShopOpen)
         {
+            GetComponentInChildren<PageManager>().ResetPages();
+            buttons[0].GetComponent<Button>().Select();
             enchantShopCanvas.GetComponent<RectTransform>().localScale = Vector3.one;
             enchantShopOpen = true;
             Time.timeScale = 0f;

@@ -25255,16 +25255,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 158273482}
     m_Modifications:
-    - target: {fileID: 8587149971917420261, guid: f97eab255874cca45935ff5336d8d435,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587149972462497114, guid: f97eab255874cca45935ff5336d8d435,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8587149972764367756, guid: f97eab255874cca45935ff5336d8d435,
         type: 3}
       propertyPath: m_Name
@@ -25328,21 +25318,6 @@ PrefabInstance:
     - target: {fileID: 8587149972764367757, guid: f97eab255874cca45935ff5336d8d435,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587149973145187564, guid: f97eab255874cca45935ff5336d8d435,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587149973145187565, guid: f97eab255874cca45935ff5336d8d435,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587149973256611160, guid: f97eab255874cca45935ff5336d8d435,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
